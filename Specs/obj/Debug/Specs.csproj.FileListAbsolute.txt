@@ -1,0 +1,11 @@
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\Specs\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\Specs\bin\Debug\Specs.dll.config
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\Specs\bin\Debug\Specs.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\Specs\bin\Debug\Specs.pdb
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\Specs\bin\Debug\nunit.framework.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\Specs\bin\Debug\nunit.mocks.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\Specs\bin\Debug\pnunit.framework.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\Specs\bin\Debug\TechTalk.SpecFlow.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\Specs\bin\Debug\nunit.framework.xml
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\Specs\obj\Debug\Specs.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\Specs\obj\Debug\Specs.pdb

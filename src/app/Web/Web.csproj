@@ -102,15 +102,14 @@
   <ItemGroup>
     <Compile Include="Configuration\AppStart.cs" />
     <Compile Include="Configuration\NTCodingFubuRegistry.cs" />
-    <Compile Include="EndPoints\HomeEndPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <None Include="Views\Home.spark" />
+    <Folder Include="Endpoints\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

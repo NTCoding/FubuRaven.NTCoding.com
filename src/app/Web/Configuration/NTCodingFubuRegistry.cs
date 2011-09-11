@@ -10,8 +10,8 @@ namespace Web.Configuration
             IncludeDiagnostics(true);
 
             Routes
-				.IgnoreNamespaceText("EndPoints")
-				.IgnoreClassSuffix("EndPoint")
+				.IgnoreNamespaceText("Endpoints")
+				.IgnoreClassSuffix("Endpoint")
 				.IgnoreMethodsNamed("get")
 				.IgnoreMethodsNamed("post")
 				.ConstrainToHttpMethod(x => x.Method.Name.Equals("Get"), "Get")
@@ -19,10 +19,9 @@ namespace Web.Configuration
                 .RootAtAssemblyNamespace();
 
         	Actions
-        		.IncludeTypes(t => t.Namespace.Contains("Web.EndPoints") && t.Name.EndsWith("EndPoint"));
+        		.IncludeTypes(t => t.Namespace.Contains("Web.Endpoints") && t.Name.EndsWith("Endpoint"));
 
-
-        	Views
+			Views
         		.TryToAttach(x => x.by_ViewModel());
 
         	this.UseSpark();

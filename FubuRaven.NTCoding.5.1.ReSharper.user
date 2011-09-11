@@ -9,16 +9,27 @@
   <CompletionStatisticsManager>
     <ItemStatistics item="Default">
       <Item value="CSharp" priority="0" />
-      <Item value="var" priority="1" />
-      <Item value="new" priority="3" />
+      <Item value="var" priority="6" />
+      <Item value="new" priority="8" />
       <Item value="controller" priority="0" />
       <Item value="endPoint" priority="2" />
       <Item value="string" priority="1" />
-      <Item value="newContent" priority="1" />
+      <Item value="newContent" priority="2" />
       <Item value="ScenarioContext`0" priority="1" />
       <Item value="_newcontent" priority="0" />
       <Item value="throw" priority="1" />
       <Item value="NotImplementedException" priority="1" />
+      <Item value="public" priority="4" />
+      <Item value="return" priority="3" />
+      <Item value="void" priority="3" />
+      <Item value="String`0" priority="2" />
+      <Item value="PiggyBankViewModel" priority="0" />
+      <Item value="model" priority="1" />
+      <Item value="LocalDataStoreSlot`0" priority="0" />
+      <Item value="endpoint" priority="0" />
+      <Item value="ds" priority="1" />
+      <Item value="Assert`0" priority="0" />
+      <Item value="homepageContent" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@TechTalk.SpecFlow.ScenarioContext">
       <Item value="Current" priority="1" />
@@ -26,10 +37,32 @@
     <ItemStatistics item="Qualified:Specs.Steps.Home_Page_Content.EditHomePageEndPoint">
       <Item value="EditHomePage`0" priority="0" />
     </ItemStatistics>
+    <ItemStatistics item="Qualified:FubuMVC.Core.Registration.DSL.ViewExpression">
+      <Item value="ToString`0" priority="0" />
+      <Item value="TryToAttach`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NUnit.Framework.Assert">
+      <Item value="AreEqual`0" priority="0" />
+    </ItemStatistics>
   </CompletionStatisticsManager>
   <RecentFiles>
-    <RecentFiles />
-    <RecentEdits />
+    <RecentFiles>
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="755" fromTop="25" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="553" fromTop="17" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="689" fromTop="12" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="283" fromTop="12" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="556" fromTop="21" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="238" fromTop="7" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="0" fromTop="0" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1146" fromTop="29" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="787" fromTop="29" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="887" fromTop="29" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1005" fromTop="29" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="386" fromTop="13" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="553" fromTop="17" />
+    </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
     <NAntPath value="" />

@@ -1,4 +1,5 @@
 ﻿using FubuMVC.Core;
+using FubuMVC.Spark;
 
 namespace Web.Configuration
 {
@@ -6,13 +7,10 @@ namespace Web.Configuration
     {
         public NTCodingFubuRegistry()
         {
-            // This line turns on the basic diagnostics and request tracing
             IncludeDiagnostics(true);
 
-            // Policies
             Routes
 				.IgnoreNamespaceText("EndPoints")
-                .IgnoreMethodSuffix("Html")
 				.IgnoreClassSuffix("EndPoint")
 				.IgnoreMethodsNamed("get")
 				.IgnoreMethodsNamed("post")
@@ -24,9 +22,10 @@ namespace Web.Configuration
         		.IncludeTypes(t => t.Namespace.Contains("Web.EndPoints") && t.Name.EndsWith("EndPoint"));
 
 
-            // Match views to action methods by matching
-            // on model type, view name, and namespace
-            Views.TryToAttachWithDefaultConventions();
+        	Views
+        		.TryToAttach(x => x.by_ViewModel());
+
+        	this.UseSpark();
         }
     }
 }

@@ -19,3 +19,5 @@ C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\obj\Debug\Web.dll
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\obj\Debug\Web.pdb
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\bin\FubuMVC.Spark.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\bin\Spark.dll

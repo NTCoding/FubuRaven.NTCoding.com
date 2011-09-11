@@ -1,0 +1,44 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="CSharp" priority="0" />
+      <Item value="var" priority="1" />
+      <Item value="new" priority="3" />
+      <Item value="controller" priority="0" />
+      <Item value="endPoint" priority="2" />
+      <Item value="string" priority="1" />
+      <Item value="newContent" priority="1" />
+      <Item value="ScenarioContext`0" priority="1" />
+      <Item value="_newcontent" priority="0" />
+      <Item value="throw" priority="1" />
+      <Item value="NotImplementedException" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@TechTalk.SpecFlow.ScenarioContext">
+      <Item value="Current" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Specs.Steps.Home_Page_Content.EditHomePageEndPoint">
+      <Item value="EditHomePage`0" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <RecentFiles>
+    <RecentFiles />
+    <RecentEdits />
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir>C:\Program Files\NUnit 2.5.5\bin\net-2.0\</NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+</Configuration>

@@ -84,7 +84,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fubu-content\FubuMVC.GettingStarted.dll" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -94,8 +93,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\FubuMVC.cs" />
-    <Compile Include="ConfigureFubuMVC.cs" />
+    <Compile Include="Configuration\AppStart.cs" />
+    <Compile Include="Configuration\NTCodingFubuRegistry.cs" />
+    <Compile Include="EndPoints\BadEndPoint.cs" />
+    <Compile Include="EndPoints\GoodEndPoint.cs" />
+    <Compile Include="EndPoints\HomeEndPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

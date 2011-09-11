@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Specs", "Specs\Specs.csproj", "{68048045-BF5F-40A3-A2B2-A934A85087F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "src\app\Web\Web.csproj", "{7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Specs", "src\specs\Specs.csproj", "{68048045-BF5F-40A3-A2B2-A934A85087F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,6 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{68048045-BF5F-40A3-A2B2-A934A85087F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{68048045-BF5F-40A3-A2B2-A934A85087F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68048045-BF5F-40A3-A2B2-A934A85087F6}.Release|Any CPU.ActiveCfg = Release|Any CPU

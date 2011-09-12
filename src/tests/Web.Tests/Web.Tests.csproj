@@ -108,6 +108,7 @@
   <ItemGroup>
     <Compile Include="HomepageContentEndpointTests.cs" />
     <Compile Include="HomepageContentInputModelTests.cs" />
+    <Compile Include="HomepageContentLinkModelTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RavenTestsBase.cs" />
   </ItemGroup>

@@ -18,6 +18,19 @@ namespace Web.Tests
 			_endpoint = new HomepageContentEndpoint(_homepageContentProvider);
 		}
 
+		[Test][Ignore]
+		public void Get_ModelShouldContainCurrentHomepageContent()
+		{
+			// set the current homepage content
+			string content = "Homepageeeeeeeeeeeeeeee";
+			_homepageContentProvider.SetHomepageContent(content);
+
+			// invoke the get action
+			//var result = _endpoint.Get(new HomepageContentViewModel())
+
+			// assert model contains the content
+		}
+
 		[Test]
 		public void Post_GivenNewHomepageContent_ShouldSetTheSitesHomepageContent()
 		{
@@ -32,6 +45,5 @@ namespace Web.Tests
 
 		// TODO - once the content has been set - we need to go back to the home page
 
-		// TODO - add some test for the get scenario - these wouldn't be covered by the specs would they?
 	}
 }

@@ -21,3 +21,13 @@ C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\obj\Debug\Web.pdb
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\bin\FubuMVC.Spark.dll
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\bin\Spark.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\bin\Model.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\bin\Raven.Client.Lightweight.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\bin\Raven.Abstractions.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\bin\Raven.Json.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\bin\AsyncCtpLibrary.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\bin\Model.pdb
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\bin\Raven.Client.Lightweight.pdb
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\bin\Raven.Client.Lightweight.xml
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\bin\Raven.Abstractions.pdb
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\bin\Raven.Json.pdb

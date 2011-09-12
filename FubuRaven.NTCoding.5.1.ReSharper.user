@@ -9,27 +9,27 @@
   <CompletionStatisticsManager>
     <ItemStatistics item="Default">
       <Item value="CSharp" priority="0" />
-      <Item value="var" priority="24" />
-      <Item value="new" priority="22" />
+      <Item value="var" priority="26" />
+      <Item value="new" priority="23" />
       <Item value="controller" priority="0" />
       <Item value="endPoint" priority="2" />
       <Item value="string" priority="1" />
-      <Item value="newContent" priority="4" />
+      <Item value="newContent" priority="5" />
       <Item value="ScenarioContext`0" priority="1" />
       <Item value="_newcontent" priority="0" />
       <Item value="throw" priority="2" />
       <Item value="NotImplementedException" priority="1" />
-      <Item value="public" priority="21" />
+      <Item value="public" priority="22" />
       <Item value="return" priority="6" />
-      <Item value="void" priority="13" />
-      <Item value="String`0" priority="4" />
+      <Item value="void" priority="14" />
+      <Item value="String`0" priority="5" />
       <Item value="PiggyBankViewModel" priority="0" />
-      <Item value="model" priority="3" />
+      <Item value="model" priority="6" />
       <Item value="LocalDataStoreSlot`0" priority="0" />
       <Item value="endpoint" priority="1" />
       <Item value="ds" priority="2" />
-      <Item value="Assert`0" priority="5" />
-      <Item value="homepageContent" priority="2" />
+      <Item value="Assert`0" priority="6" />
+      <Item value="homepageContent" priority="3" />
       <Item value="_dataStore" priority="0" />
       <Item value="class" priority="3" />
       <Item value="TestFixture" priority="1" />
@@ -38,7 +38,7 @@
       <Item value="HomepageContentEndpointTests`0" priority="1" />
       <Item value="Test" priority="0" />
       <Item value="HomepageContentDoobery`0" priority="0" />
-      <Item value="content" priority="2" />
+      <Item value="content" priority="5" />
       <Item value="doobery" priority="0" />
       <Item value="null" priority="3" />
       <Item value="store" priority="3" />
@@ -48,7 +48,7 @@
       <Item value="EmbeddableDocumentStore`0" priority="0" />
       <Item value="session" priority="1" />
       <Item value="TearDown" priority="0" />
-      <Item value="_session" priority="8" />
+      <Item value="_session" priority="12" />
       <Item value="HomepageContent`0" priority="5" />
       <Item value="hpc" priority="2" />
       <Item value="Content" priority="0" />
@@ -57,6 +57,15 @@
       <Item value="ExpectedException" priority="0" />
       <Item value="ArgumentNullException`0" priority="1" />
       <Item value="_store" priority="0" />
+      <Item value="abstract" priority="0" />
+      <Item value="RavenTestsBase`0" priority="0" />
+      <Item value="homepageContentProvider" priority="0" />
+      <Item value="Ignore" priority="0" />
+      <Item value="HomepageContentProvider`0" priority="0" />
+      <Item value="_homepageContentProvider" priority="0" />
+      <Item value="_provider" priority="1" />
+      <Item value="GetHomepageContentEntity`0" priority="0" />
+      <Item value="HomepageContent" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@TechTalk.SpecFlow.ScenarioContext">
       <Item value="Current" priority="1" />
@@ -69,7 +78,7 @@
       <Item value="TryToAttach`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@NUnit.Framework.Assert">
-      <Item value="AreEqual`0" priority="4" />
+      <Item value="AreEqual`0" priority="5" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Web.Tests.HomePageContentInputModel">
       <Item value="NewContent" priority="0" />
@@ -87,11 +96,11 @@
       <Item value="Dispose`0" priority="2" />
       <Item value="Store`0" priority="0" />
       <Item value="Load`1" priority="1" />
-      <Item value="SaveChanges`0" priority="0" />
+      <Item value="SaveChanges`0" priority="1" />
       <Item value="Query`2" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Web.Tests.HomepageContent">
-      <Item value="Content" priority="1" />
+      <Item value="Content" priority="2" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Raven.Database.DocumentDatabase">
       <Item value="TransactionalStorage" priority="1" />
@@ -100,43 +109,48 @@
     <ItemStatistics item="Qualified:Raven.Database.Storage.ITransactionalStorage">
       <Item value="Dispose`0" priority="0" />
     </ItemStatistics>
+    <ItemStatistics item="Qualified:Web.Tests.HomepageContentProvider">
+      <Item value="GetHomepageContent`0" priority="0" />
+    </ItemStatistics>
   </CompletionStatisticsManager>
   <RecentFiles>
     <RecentFiles>
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="755" fromTop="25" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="726" fromTop="30" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/f:HomepageContentEndpoint.cs" caret="121" fromTop="4" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:RavenTestsBase.cs" caret="198" fromTop="9" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2073" fromTop="19" />
     </RecentFiles>
     <RecentEdits>
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="3587" fromTop="27" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="3587" fromTop="14" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="844" fromTop="20" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1363" fromTop="15" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="451" fromTop="8" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1182" fromTop="31" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2713" fromTop="30" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2713" fromTop="20" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2713" fromTop="26" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2713" fromTop="14" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2713" fromTop="13" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2713" fromTop="35" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2375" fromTop="22" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="3441" fromTop="35" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2443" fromTop="17" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1691" fromTop="6" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="3271" fromTop="24" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="3357" fromTop="28" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="3583" fromTop="32" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1940" fromTop="17" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2025" fromTop="21" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2646" fromTop="23" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1744" fromTop="12" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2135" fromTop="20" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="3575" fromTop="34" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2820" fromTop="29" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2409" fromTop="15" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2488" fromTop="19" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="322" fromTop="18" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="726" fromTop="30" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1705" fromTop="17" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1255" fromTop="6" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2358" fromTop="24" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2444" fromTop="28" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2458" fromTop="32" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1317" fromTop="17" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1402" fromTop="21" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1959" fromTop="23" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1255" fromTop="12" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1405" fromTop="20" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1959" fromTop="42" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1255" fromTop="8" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1074" fromTop="23" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1864" fromTop="26" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1959" fromTop="16" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1959" fromTop="31" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1959" fromTop="25" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="530" fromTop="18" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="797" fromTop="24" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1074" fromTop="21" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="453" fromTop="9" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="837" fromTop="22" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="469" fromTop="13" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="302" fromTop="14" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2461" fromTop="20" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1179" fromTop="14" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1074" fromTop="11" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2108" fromTop="14" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1959" fromTop="12" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:RavenTestsBase.cs" caret="198" fromTop="9" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

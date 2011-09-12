@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Linq;
+using Model;
 using NUnit.Framework;
-using Raven.Client;
 using Raven.Client.Document;
-using Raven.Client.Embedded;
+using Web.Endpoints.SiteManagement;
 
 namespace Web.Tests
 {
@@ -16,7 +15,7 @@ namespace Web.Tests
 		[SetUp]
 		public void SetUp()
 		{
-			_homepageContentProvider = new HomepageContentProvider(_session);
+			_homepageContentProvider = new HomepageContentProvider(Session);
 			_endpoint = new HomepageContentEndpoint(_homepageContentProvider);
 		}
 
@@ -37,36 +36,6 @@ namespace Web.Tests
 		// TODO - add some test for the get scenario - these wouldn't be covered by the specs would they?
 	}
 
-	public class HomepageContentEndpoint
-	{
-		private readonly IHomepageContentProvider _homepageContentProvider;
-
-		public HomepageContentEndpoint(IHomepageContentProvider homepageContentProvider)
-		{
-			_homepageContentProvider = homepageContentProvider;
-		}
-
-		public void Post(HomepageContentInputModel model)
-		{
-			_homepageContentProvider.SetHomepageContent(model.HomepageContent);
-		}
-	}
-
-	[TestFixture]
-	public class HomepageContentInputModelTests
-	{
-		[Test]
-		public void CanCreate()
-		{
-			new HomepageContentInputModel();
-		}
-	}
-
-	public class HomepageContentInputModel
-	{
-		public String HomepageContent { get; set; }
-	}
-
 	[TestFixture]
 	public class HomepageContentProviderTests : RavenTestsBase
 	{
@@ -82,10 +51,10 @@ namespace Web.Tests
 		{
 			var content = new HomepageContent("Welcome - I am the homepage content");
 			
-			_session.Store(content);
-			_session.SaveChanges();
+			Session.Store(content);
+			Session.SaveChanges();
 
-			Assert.AreEqual(content.Content, _provider.GetHomepageContent());
+			Assert.AreEqual(content.Content, Provider.GetHomepageContent());
 		}
 
 		[Test]
@@ -93,68 +62,10 @@ namespace Web.Tests
 		{
 			var content = "this is the new content";
 
-			_provider.SetHomepageContent(content);
+			Provider.SetHomepageContent(content);
 
-			Assert.AreEqual(content, _provider.GetHomepageContent());
+			Assert.AreEqual(content, Provider.GetHomepageContent());
 		}
-	}
-
-	public abstract class RavenTestsBase
-	{
-		protected HomepageContentProvider _provider;
-		protected IDocumentSession _session;
-		private EmbeddableDocumentStore _store;
-
-		[SetUp]
-		public void SetUp()
-		{
-			_store = new EmbeddableDocumentStore { DataDirectory = "Data" };
-			_store.Initialize();
-			_session = _store.OpenSession();
-
-			_provider = new HomepageContentProvider(_session);
-		}
-
-		[TearDown]
-		public void TearDown()
-		{
-			_store.DocumentDatabase.TransactionalStorage.Dispose();
-		}
-	}
-
-	public interface IHomepageContentProvider
-	{
-		void SetHomepageContent(string homepageContent);
-	}
-
-	public class HomepageContentProvider : IHomepageContentProvider
-	{
-		private readonly IDocumentSession _session;
-
-		public HomepageContentProvider(IDocumentSession session)
-		{
-			if (session == null) throw new ArgumentNullException("session");
-
-			_session = session;
-		}
-
-		public object GetHomepageContent()
-		{
-			var homepageContent = GetHomepageContentEntity();
-
-			return homepageContent.Content;
-		}
-
-		public void SetHomepageContent(string content)
-		{
-			var homepageContent = GetHomepageContentEntity();
-			homepageContent.Content = content;
-		}
-
-			private HomepageContent GetHomepageContentEntity()
-			{
-				return _session.Query<HomepageContent>().First();
-			}
 	}
 
 	[TestFixture]
@@ -182,18 +93,5 @@ namespace Web.Tests
 
 			Assert.AreEqual("1", hpc.ID);
 		}
-	}
-
-	public class HomepageContent
-	{
-		public HomepageContent(string content)
-		{
-			Content = content;
-			ID = "1";
-		}
-
-		public String ID { get; set; }
-
-		public String Content { get; protected internal set; }
 	}
 }

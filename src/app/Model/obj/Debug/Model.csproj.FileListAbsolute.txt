@@ -1,0 +1,13 @@
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Model\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Model\bin\Debug\Model.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Model\bin\Debug\Model.pdb
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Model\bin\Debug\Raven.Client.Lightweight.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Model\bin\Debug\Raven.Abstractions.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Model\bin\Debug\Raven.Json.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Model\bin\Debug\AsyncCtpLibrary.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Model\bin\Debug\Raven.Client.Lightweight.pdb
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Model\bin\Debug\Raven.Client.Lightweight.xml
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Model\bin\Debug\Raven.Abstractions.pdb
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Model\bin\Debug\Raven.Json.pdb
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Model\obj\Debug\Model.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Model\obj\Debug\Model.pdb

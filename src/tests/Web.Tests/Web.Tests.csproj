@@ -107,10 +107,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HomepageContentEndpointTests.cs" />
+    <Compile Include="HomepageContentInputModelTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RavenTestsBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\app\Model\Model.csproj">
+      <Project>{BFE347A9-971C-4C8D-A82D-7093D75BDDEA}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\app\Web\Web.csproj">
+      <Project>{7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E}</Project>
+      <Name>Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

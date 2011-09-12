@@ -8,33 +8,28 @@ using Raven.Client.Embedded;
 namespace Web.Tests
 {
 	[TestFixture]
-	public class HomepageContentEndpointTests
+	public class HomepageContentEndpointTests : RavenTestsBase
 	{
-		[Test]
-		public void CanCreate()
+		private HomepageContentEndpoint _endpoint;
+		private HomepageContentProvider _homepageContentProvider;
+
+		[SetUp]
+		public void SetUp()
 		{
-			new HomepageContentEndpoint();
+			_homepageContentProvider = new HomepageContentProvider(_session);
+			_endpoint = new HomepageContentEndpoint(_homepageContentProvider);
 		}
 
-		[Test][Ignore]
+		[Test]
 		public void Post_GivenNewHomepageContent_ShouldSetTheSitesHomepageContent()
 		{
-			// create the content
 			var newContent = "Welcome - Show some love for Fubu and Ravennnnnnn";
 
-			// stick in a model
-			var model = new HomepageContentInputModel();
-			
-			var endpoint = new HomepageContentEndpoint();
+			var model = new HomepageContentInputModel {HomepageContent = newContent};
 
-			// invoke the post
-			endpoint.Post(model);
+			_endpoint.Post(model);
 
-			// get the homepage content
-			//var homepageContent = new HomepageContentDoobery().GetHomepageContent();
-
-			// assert it matches are custom content
-			//Assert.AreEqual(newContent, homepageContent);
+			Assert.AreEqual(newContent, _homepageContentProvider.GetHomepageContent());
 		}
 
 		// TODO - once the content has been set - we need to go back to the home page
@@ -44,9 +39,16 @@ namespace Web.Tests
 
 	public class HomepageContentEndpoint
 	{
+		private readonly IHomepageContentProvider _homepageContentProvider;
+
+		public HomepageContentEndpoint(IHomepageContentProvider homepageContentProvider)
+		{
+			_homepageContentProvider = homepageContentProvider;
+		}
+
 		public void Post(HomepageContentInputModel model)
 		{
-			throw new NotImplementedException();
+			_homepageContentProvider.SetHomepageContent(model.HomepageContent);
 		}
 	}
 
@@ -62,36 +64,17 @@ namespace Web.Tests
 
 	public class HomepageContentInputModel
 	{
+		public String HomepageContent { get; set; }
 	}
 
 	[TestFixture]
-	public class HomepageContentDooberyTest
+	public class HomepageContentProviderTests : RavenTestsBase
 	{
-		private HomepageContentDoobery _doobery;
-		private IDocumentSession _session;
-		private EmbeddableDocumentStore _store;
-
-		[SetUp]
-		public void SetUp()
-		{
-			_store = new EmbeddableDocumentStore { DataDirectory = "Data" };
-			_store.Initialize();
-			_session = _store.OpenSession();
-
-			_doobery = new HomepageContentDoobery(_session);
-		}
-
 		[Test]
 		[ExpectedException(typeof(ArgumentNullException))]
 		public void SessionCannotBeNull()
 		{
-			new HomepageContentDoobery(null);
-		}
-
-		[TearDown]
-		public void TearDown()
-		{
-			_store.DocumentDatabase.TransactionalStorage.Dispose();
+			new HomepageContentProvider(null);
 		}
 
 		[Test]
@@ -102,15 +85,53 @@ namespace Web.Tests
 			_session.Store(content);
 			_session.SaveChanges();
 
-			Assert.AreEqual(content.Content, _doobery.GetHomepageContent());
+			Assert.AreEqual(content.Content, _provider.GetHomepageContent());
+		}
+
+		[Test]
+		public void SetHomepageContent_ShouldSetTheCurrentHomepageContent()
+		{
+			var content = "this is the new content";
+
+			_provider.SetHomepageContent(content);
+
+			Assert.AreEqual(content, _provider.GetHomepageContent());
 		}
 	}
 
-	public class HomepageContentDoobery
+	public abstract class RavenTestsBase
+	{
+		protected HomepageContentProvider _provider;
+		protected IDocumentSession _session;
+		private EmbeddableDocumentStore _store;
+
+		[SetUp]
+		public void SetUp()
+		{
+			_store = new EmbeddableDocumentStore { DataDirectory = "Data" };
+			_store.Initialize();
+			_session = _store.OpenSession();
+
+			_provider = new HomepageContentProvider(_session);
+		}
+
+		[TearDown]
+		public void TearDown()
+		{
+			_store.DocumentDatabase.TransactionalStorage.Dispose();
+		}
+	}
+
+	public interface IHomepageContentProvider
+	{
+		void SetHomepageContent(string homepageContent);
+	}
+
+	public class HomepageContentProvider : IHomepageContentProvider
 	{
 		private readonly IDocumentSession _session;
 
-		public HomepageContentDoobery(IDocumentSession session)
+		public HomepageContentProvider(IDocumentSession session)
 		{
 			if (session == null) throw new ArgumentNullException("session");
 
@@ -119,10 +140,21 @@ namespace Web.Tests
 
 		public object GetHomepageContent()
 		{
-			var homepageContent = _session.Query<HomepageContent>().First();
+			var homepageContent = GetHomepageContentEntity();
 
 			return homepageContent.Content;
 		}
+
+		public void SetHomepageContent(string content)
+		{
+			var homepageContent = GetHomepageContentEntity();
+			homepageContent.Content = content;
+		}
+
+			private HomepageContent GetHomepageContentEntity()
+			{
+				return _session.Query<HomepageContent>().First();
+			}
 	}
 
 	[TestFixture]
@@ -162,6 +194,6 @@ namespace Web.Tests
 
 		public String ID { get; set; }
 
-		public String Content { get;  private set; }
+		public String Content { get; protected internal set; }
 	}
 }

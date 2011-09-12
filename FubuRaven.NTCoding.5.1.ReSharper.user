@@ -116,41 +116,43 @@
   <RecentFiles>
     <RecentFiles>
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="755" fromTop="25" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/f:HomepageContentEndpoint.cs" caret="121" fromTop="4" />
       <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:RavenTestsBase.cs" caret="198" fromTop="9" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2073" fromTop="19" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/f:HomepageContentEndpoint.cs" caret="346" fromTop="13" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentInputModelTests.cs" caret="227" fromTop="10" />
+      <File id="BFE347A9-971C-4C8D-A82D-7093D75BDDEA/f:HomepageContentProvider.cs" caret="362" fromTop="16" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1064" fromTop="37" />
     </RecentFiles>
     <RecentEdits>
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1705" fromTop="17" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1255" fromTop="6" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2358" fromTop="24" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2444" fromTop="28" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2458" fromTop="32" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1317" fromTop="17" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1402" fromTop="21" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1959" fromTop="23" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1255" fromTop="12" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1405" fromTop="20" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1959" fromTop="42" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1255" fromTop="8" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1074" fromTop="23" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1864" fromTop="26" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1959" fromTop="16" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1959" fromTop="31" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1959" fromTop="25" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="530" fromTop="18" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="797" fromTop="24" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1074" fromTop="21" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="453" fromTop="9" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="837" fromTop="22" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="469" fromTop="13" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="302" fromTop="14" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2461" fromTop="20" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1179" fromTop="14" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1074" fromTop="11" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="2108" fromTop="14" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1959" fromTop="12" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1061" fromTop="24" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1061" fromTop="28" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1061" fromTop="32" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1061" fromTop="17" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1061" fromTop="21" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1061" fromTop="23" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1061" fromTop="12" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1061" fromTop="20" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1061" fromTop="42" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1059" fromTop="23" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1061" fromTop="26" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1061" fromTop="16" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1061" fromTop="31" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1061" fromTop="25" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="515" fromTop="18" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="782" fromTop="24" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1059" fromTop="21" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="438" fromTop="9" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="822" fromTop="22" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="454" fromTop="13" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="287" fromTop="14" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1064" fromTop="20" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1061" fromTop="14" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1059" fromTop="11" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1061" fromTop="14" />
       <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:RavenTestsBase.cs" caret="198" fromTop="9" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/f:HomepageContentEndpoint.cs" caret="134" fromTop="6" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1061" fromTop="21" />
+      <File id="BFE347A9-971C-4C8D-A82D-7093D75BDDEA/f:HomepageContentProvider.cs" caret="240" fromTop="10" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1064" fromTop="19" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

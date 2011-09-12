@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\specs\bin\Debug\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="Raven.Client.Lightweight">
       <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\Raven.Client.Lightweight.dll</HintPath>
     </Reference>

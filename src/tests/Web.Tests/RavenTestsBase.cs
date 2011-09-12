@@ -14,7 +14,11 @@ namespace Web.Tests
 		[SetUp]
 		public void SetUp()
 		{
-			_store = new EmbeddableDocumentStore { DataDirectory = "Data" };
+			_store = new EmbeddableDocumentStore
+			         	{
+			         		DataDirectory = "Data",
+							RunInMemory = true
+			         	};
 			_store.Initialize();
 			Session = _store.OpenSession();
 
@@ -25,6 +29,7 @@ namespace Web.Tests
 		public void TearDown()
 		{
 			_store.DocumentDatabase.TransactionalStorage.Dispose();
+
 		}
 	}
 }

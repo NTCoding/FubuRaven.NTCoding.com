@@ -17,20 +17,31 @@ namespace Model
 
 		public String GetHomepageContent()
 		{
-			var homepageContent = GetHomepageContentEntity();
+			var homepageContent = GetOrCreateHomepageContentEntity();
 
 			return homepageContent.Content;
 		}
 
 		public void SetHomepageContent(string content)
 		{
-			var homepageContent = GetHomepageContentEntity();
+			var homepageContent = GetOrCreateHomepageContentEntity();
 			homepageContent.Content = content;
 		}
 
-		private HomepageContent GetHomepageContentEntity()
+		private HomepageContent GetOrCreateHomepageContentEntity()
 		{
-			return _session.Query<HomepageContent>().First();
+			var homepageContent = _session.Query<HomepageContent>().SingleOrDefault();
+
+			if (homepageContent == null)
+			{
+				homepageContent = new HomepageContent("Welcome to NTCoding");
+				_session.Store(homepageContent);
+				_session.SaveChanges();
+			}
+
+			var homepageContentEntity = _session.Query<HomepageContent>().Where(x => x.ID == homepageContent.ID).Single();
+			
+			return homepageContentEntity;
 		}
 	}
 }

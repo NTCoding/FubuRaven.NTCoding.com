@@ -26,6 +26,12 @@ namespace Model.Tests
 		}
 
 		[Test]
+		public void GetHomepageContent_IfNoHomepageContent_ShouldDefaultToWelcomeMessage()
+		{
+			Assert.AreEqual("Welcome to NTCoding", Provider.GetHomepageContent());
+		}
+
+		[Test]
 		public void SetHomepageContent_ShouldSetTheCurrentHomepageContent()
 		{
 			var content = "this is the new content";

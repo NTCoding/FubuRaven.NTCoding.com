@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using Raven.Client.Document;
 using Web.Endpoints.SiteManagement;
+using Web.Endpoints.SiteManagement.HomepageContentModels;
 
 namespace Web.Tests
 {

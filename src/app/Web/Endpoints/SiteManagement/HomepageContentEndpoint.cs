@@ -1,5 +1,6 @@
 ﻿using System;
 using Model;
+using Web.Endpoints.SiteManagement.HomepageContentModels;
 
 namespace Web.Endpoints.SiteManagement
 {

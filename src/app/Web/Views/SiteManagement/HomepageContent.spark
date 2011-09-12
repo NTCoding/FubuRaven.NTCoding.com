@@ -1,0 +1,10 @@
+﻿<viewdata model="Web.SiteManagement.HomepageContentModels.HomepageContentViewModel" />
+
+<!Doctype html>
+<html>
+	<head>
+	</head>
+	<body>
+		<h1>Edit Homepage Content</h1>
+	</body>
+</html>

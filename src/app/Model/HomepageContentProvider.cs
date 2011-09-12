@@ -15,7 +15,7 @@ namespace Model
 			_session = session;
 		}
 
-		public object GetHomepageContent()
+		public String GetHomepageContent()
 		{
 			var homepageContent = GetHomepageContentEntity();
 

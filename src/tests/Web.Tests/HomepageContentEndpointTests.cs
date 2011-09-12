@@ -18,17 +18,15 @@ namespace Web.Tests
 			_endpoint = new HomepageContentEndpoint(_homepageContentProvider);
 		}
 
-		[Test][Ignore]
+		[Test]
 		public void Get_ModelShouldContainCurrentHomepageContent()
 		{
-			// set the current homepage content
 			string content = "Homepageeeeeeeeeeeeeeee";
 			_homepageContentProvider.SetHomepageContent(content);
 
-			// invoke the get action
-			//var result = _endpoint.Get(new HomepageContentViewModel())
+			var result = _endpoint.Get(new HomepageContentLinkModel());
 
-			// assert model contains the content
+			Assert.AreEqual(content, result.Content);
 		}
 
 		[Test]

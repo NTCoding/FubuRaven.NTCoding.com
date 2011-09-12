@@ -104,6 +104,8 @@
     <Compile Include="Configuration\NTCodingFubuRegistry.cs" />
     <Compile Include="Endpoints\SiteManagement\HomepageContentEndpoint.cs" />
     <Compile Include="Endpoints\SiteManagement\HomepageContentInputModel.cs" />
+    <Compile Include="Endpoints\SiteManagement\HomepageContentLinkModel.cs" />
+    <Compile Include="Endpoints\SiteManagement\HomepageContentViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

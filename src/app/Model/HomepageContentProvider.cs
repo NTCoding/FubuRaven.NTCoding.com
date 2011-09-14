@@ -31,18 +31,18 @@ namespace Model
 
 		private HomepageContent GetOrCreateHomepageContentEntity()
 		{
-			var homepageContent = _session.Query<HomepageContent>().SingleOrDefault();
+			return _session.Query<HomepageContent>().SingleOrDefault() ?? CreateHomepageContent();
+		}
 
-			if (homepageContent == null)
-			{
-				homepageContent = new HomepageContent("Welcome to NTCoding");
-				_session.Store(homepageContent);
-				_session.SaveChanges();
-			}
-
-			var homepageContentEntity = _session.Query<HomepageContent>().Where(x => x.ID == homepageContent.ID).Single();
+		private HomepageContent CreateHomepageContent()
+		{
+			HomepageContent homepageContent;
+			homepageContent = new HomepageContent("Welcome to NTCoding");
+			_session.Store(homepageContent);
+			_session.SaveChanges();
+			homepageContent = _session.Query<HomepageContent>().Where(x => x.ID == homepageContent.ID).Single();
 			
-			return homepageContentEntity;
+			return homepageContent;
 		}
 	}
 }

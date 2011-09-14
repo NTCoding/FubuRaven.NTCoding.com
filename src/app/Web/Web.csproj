@@ -159,8 +159,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="Configuration\AppStart.cs" />
     <Compile Include="Configuration\NTCodingFubuRegistry.cs" />
+    <Compile Include="Endpoints\GayEndpoint.cs" />
     <Compile Include="Endpoints\SiteManagement\HomepageContentEndpoint.cs" />
     <Compile Include="Endpoints\SiteManagement\HomepageContentModels\HomepageContentInputModel.cs" />
     <Compile Include="Endpoints\SiteManagement\HomepageContentModels\HomepageContentLinkModel.cs" />

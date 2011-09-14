@@ -36,8 +36,7 @@ namespace Model
 
 		private HomepageContent CreateHomepageContent()
 		{
-			HomepageContent homepageContent;
-			homepageContent = new HomepageContent("Welcome to NTCoding");
+			var homepageContent = new HomepageContent("Welcome to NTCoding");
 			_session.Store(homepageContent);
 			_session.SaveChanges();
 			homepageContent = _session.Query<HomepageContent>().Where(x => x.ID == homepageContent.ID).Single();

@@ -1,4 +1,4 @@
-﻿<viewdata model="Web.SiteManagement.HomepageContentModels.HomepageContentViewModel" />
+﻿<viewdata model="Web.Endpoints.SiteManagement.HomepageContentModels.HomepageContentViewModel" />
 
 <!Doctype html>
 <html>

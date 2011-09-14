@@ -7,6 +7,7 @@ namespace Model
 	public class HomepageContentProvider : IHomepageContentProvider
 	{
 		private readonly IDocumentSession _session;
+		protected HomepageContentProvider Provider;
 
 		public HomepageContentProvider(IDocumentSession session)
 		{

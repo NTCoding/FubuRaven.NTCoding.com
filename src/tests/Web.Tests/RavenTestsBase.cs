@@ -7,7 +7,7 @@ namespace Web.Tests
 {
 	public abstract class RavenTestsBase
 	{
-		protected HomepageContentProvider Provider;
+		
 		protected IDocumentSession Session;
 		private EmbeddableDocumentStore _store;
 
@@ -21,8 +21,6 @@ namespace Web.Tests
 			         	};
 			_store.Initialize();
 			Session = _store.OpenSession();
-
-			Provider = new HomepageContentProvider(Session);
 		}
 
 		[TearDown]

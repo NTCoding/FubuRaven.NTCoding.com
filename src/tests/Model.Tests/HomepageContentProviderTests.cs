@@ -7,11 +7,19 @@ namespace Model.Tests
 	[TestFixture]
 	public class HomepageContentProviderTests : RavenTestsBase
 	{
+		private HomepageContentProvider _provider;
+
+		[SetUp]
+		public void SetUp()
+		{
+			_provider = new HomepageContentProvider(Session);
+		}
+
 		[Test]
 		[ExpectedException(typeof(ArgumentNullException))]
 		public void SessionCannotBeNull()
 		{
-			new HomepageContentProvider(null);
+			 new HomepageContentProvider(null);
 		}
 
 		[Test]
@@ -22,13 +30,13 @@ namespace Model.Tests
 			Session.Store(content);
 			Session.SaveChanges();
 
-			Assert.AreEqual(content.Content, Provider.GetHomepageContent());
+			Assert.AreEqual(content.Content, _provider.GetHomepageContent());
 		}
 
 		[Test]
 		public void GetHomepageContent_IfNoHomepageContent_ShouldDefaultToWelcomeMessage()
 		{
-			Assert.AreEqual("Welcome to NTCoding", Provider.GetHomepageContent());
+			Assert.AreEqual("Welcome to NTCoding", _provider.GetHomepageContent());
 		}
 
 		[Test]
@@ -36,9 +44,9 @@ namespace Model.Tests
 		{
 			var content = "this is the new content";
 
-			Provider.SetHomepageContent(content);
+			_provider.SetHomepageContent(content);
 
-			Assert.AreEqual(content, Provider.GetHomepageContent());
+			Assert.AreEqual(content, _provider.GetHomepageContent());
 		}
 	}
 }

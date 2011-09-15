@@ -161,6 +161,9 @@
   <ItemGroup>
     <Compile Include="Configuration\AppStart.cs" />
     <Compile Include="Configuration\NTCodingFubuRegistry.cs" />
+    <Compile Include="Endpoints\HomepageEndpoint.cs" />
+    <Compile Include="Endpoints\HomepageModels\HomepageLinkModel.cs" />
+    <Compile Include="Endpoints\HomepageModels\HomepageViewModel.cs" />
     <Compile Include="Endpoints\SiteManagement\HomepageContentEndpoint.cs" />
     <Compile Include="Endpoints\SiteManagement\HomepageContentModels\HomepageContentInputModel.cs" />
     <Compile Include="Endpoints\SiteManagement\HomepageContentModels\HomepageContentLinkModel.cs" />

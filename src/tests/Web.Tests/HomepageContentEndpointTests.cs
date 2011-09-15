@@ -1,6 +1,8 @@
-﻿using Model;
+﻿using FubuMVC.Core.Continuations;
+using Model;
 using NUnit.Framework;
 using Raven.Client.Document;
+using Web.Endpoints.HomepageModels;
 using Web.Endpoints.SiteManagement;
 using Web.Endpoints.SiteManagement.HomepageContentModels;
 
@@ -42,7 +44,14 @@ namespace Web.Tests
 			Assert.AreEqual(newContent, _homepageContentProvider.GetHomepageContent());
 		}
 
-		// TODO - once the content has been set - we need to go back to the home page
+		[Test]
+		public void Post_ShouldRedirectToHomepage()
+		{
+			var model = new HomepageContentInputModel {HomepageContent = "Doesn't matter about me"};
+			
+			var result = _endpoint.Post(model);
 
+			result.AssertWasTransferedTo(typeof(HomepageLinkModel));
+		}
 	}
 }

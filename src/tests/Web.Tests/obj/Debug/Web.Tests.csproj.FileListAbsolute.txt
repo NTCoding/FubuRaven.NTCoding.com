@@ -49,7 +49,6 @@ C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\SpellChecker.Net.xml
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\Model.dll
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\Web.dll
-C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\FubuMVC.Core.dll
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\WebActivator.dll
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\FubuMVC.Spark.dll
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\StructureMap.dll
@@ -67,3 +66,4 @@ C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\HtmlTags.xml
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\Rhino.Mocks.dll

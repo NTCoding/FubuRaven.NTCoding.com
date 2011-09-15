@@ -37,6 +37,7 @@
     <Reference Include="Esent.Interop">
       <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\Esent.Interop.dll</HintPath>
     </Reference>
+    <Reference Include="FubuMVC.Core, Version=0.9.1.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="ICSharpCode.NRefactory">
       <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\ICSharpCode.NRefactory.dll</HintPath>
     </Reference>
@@ -91,6 +92,9 @@
     <Reference Include="Raven.Storage.Managed">
       <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\Raven.Storage.Managed.dll</HintPath>
     </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\..\..\packages\RhinoMocks.3.6\lib\Rhino.Mocks.dll</HintPath>
+    </Reference>
     <Reference Include="Spatial.Net">
       <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\Spatial.Net.dll</HintPath>
     </Reference>
@@ -110,6 +114,9 @@
     <Compile Include="HomepageContentInputModelTests.cs" />
     <Compile Include="HomepageContentLinkModelTests.cs" />
     <Compile Include="HomepageContentViewModelTests.cs" />
+    <Compile Include="HomepageEndpointTests.cs" />
+    <Compile Include="HomepageLinkModelTests.cs" />
+    <Compile Include="HomepageViewModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RavenTestsBase.cs" />
   </ItemGroup>

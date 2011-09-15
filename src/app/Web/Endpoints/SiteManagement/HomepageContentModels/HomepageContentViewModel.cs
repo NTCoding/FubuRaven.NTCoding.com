@@ -4,6 +4,6 @@ namespace Web.Endpoints.SiteManagement.HomepageContentModels
 {
 	public class HomepageContentViewModel
 	{
-		public String Content { get; set; }
+		public String HomepageContent { get; set; }
 	}
 }

@@ -20,7 +20,7 @@ namespace Web.Endpoints.SiteManagement
 
 		public HomepageContentViewModel Get(HomepageContentLinkModel model)
 		{
-			return new HomepageContentViewModel {Content = _homepageContentProvider.GetHomepageContent()};
+			return new HomepageContentViewModel {HomepageContent = _homepageContentProvider.GetHomepageContent()};
 		}
 	}
 }

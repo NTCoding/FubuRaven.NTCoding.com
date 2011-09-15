@@ -27,7 +27,7 @@ namespace Web.Tests
 
 			var result = _endpoint.Get(new HomepageContentLinkModel());
 
-			Assert.AreEqual(content, result.Content);
+			Assert.AreEqual(content, result.HomepageContent);
 		}
 
 		[Test]

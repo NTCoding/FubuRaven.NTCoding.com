@@ -1,4 +1,6 @@
-﻿using FubuMVC.Core;
+﻿using System;
+using FubuMVC.Core;
+using FubuMVC.Core.UI.Configuration;
 using FubuMVC.Spark;
 
 namespace Web.Configuration

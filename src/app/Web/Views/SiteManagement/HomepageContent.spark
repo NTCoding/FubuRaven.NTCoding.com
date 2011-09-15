@@ -1,4 +1,5 @@
-﻿<viewdata model="Web.Endpoints.SiteManagement.HomepageContentModels.HomepageContentViewModel" />
+﻿<use namespace="Web.Endpoints.SiteManagement.HomepageContentModels" />
+<viewdata model="Web.Endpoints.SiteManagement.HomepageContentModels.HomepageContentViewModel" />
 
 <!Doctype html>
 <html>
@@ -6,5 +7,12 @@
 	</head>
 	<body>
 		<h1>Edit Homepage Content</h1>
+		<div>
+			<h2>New Homepage Content</h2>
+			<form  method="post" action="${this.Urls.UrlFor(new HomepageContentInputModel())}">
+				<textarea name="homepageContent">${Model.HomepageContent}</textarea>
+				<input type="submit" value="Update" />
+			</form>
+		</div>
 	</body>
 </html>

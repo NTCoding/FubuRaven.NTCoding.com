@@ -184,7 +184,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Views\SiteManagement\HomepageContent.spark">
+    <None Include="Endpoints\Homepage.spark" />
+    <None Include="Endpoints\SiteManagement\HomepageContent.spark">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

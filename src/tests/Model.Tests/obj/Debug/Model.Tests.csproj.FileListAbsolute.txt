@@ -67,3 +67,4 @@ C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Model.Tests\bin\Debug\Raven.Munin.pdb
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Model.Tests\bin\Debug\Raven.Storage.Esent.pdb
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Model.Tests\bin\Debug\Raven.Storage.Managed.pdb
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Model.Tests\bin\Debug\Rhino.Mocks.dll

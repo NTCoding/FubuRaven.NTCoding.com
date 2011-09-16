@@ -19,7 +19,7 @@ namespace Web.Endpoints.SiteManagement
 		{
 			_homepageContentProvider.SetHomepageContent(model.HomepageContent);
 
-			return FubuContinuation.TransferTo(typeof(HomepageLinkModel));
+			return FubuContinuation.TransferTo<HomepageEndpoint>(e => e.Get(new HomepageLinkModel()));
 		}
 
 		public HomepageContentViewModel Get(HomepageContentLinkModel model)

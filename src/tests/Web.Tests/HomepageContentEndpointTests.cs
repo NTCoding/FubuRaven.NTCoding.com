@@ -2,6 +2,7 @@
 using Model;
 using NUnit.Framework;
 using Raven.Client.Document;
+using Web.Endpoints;
 using Web.Endpoints.HomepageModels;
 using Web.Endpoints.SiteManagement;
 using Web.Endpoints.SiteManagement.HomepageContentModels;
@@ -51,7 +52,7 @@ namespace Web.Tests
 			
 			var result = _endpoint.Post(model);
 
-			result.AssertWasTransferedTo(typeof(HomepageLinkModel));
+			result.AssertWasTransferedTo<HomepageEndpoint>(c => c.Get(new HomepageLinkModel()));
 		}
 	}
 }

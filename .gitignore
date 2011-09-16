@@ -2,3 +2,9 @@
 _ReSharper.FubuRaven.NTCoding/BuildScriptCache/.crc
 _ReSharper
 _ReSharper*
+src/app/Web/bin/
+src/app/Web/bin/*
+src/app/Web/obj/*
+src/tests/Web.Tests/bin/Debug/*
+src/tests/Model.Tests/bin/Debug/*
+src/app/Web/bin/Web.pdb

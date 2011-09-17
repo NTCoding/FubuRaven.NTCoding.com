@@ -9,36 +9,36 @@
   <CompletionStatisticsManager>
     <ItemStatistics item="Default">
       <Item value="CSharp" priority="0" />
-      <Item value="var" priority="35" />
-      <Item value="new" priority="50" />
+      <Item value="var" priority="40" />
+      <Item value="new" priority="58" />
       <Item value="controller" priority="0" />
       <Item value="endPoint" priority="2" />
-      <Item value="string" priority="1" />
+      <Item value="string" priority="3" />
       <Item value="newContent" priority="5" />
-      <Item value="ScenarioContext`0" priority="1" />
+      <Item value="ScenarioContext`0" priority="4" />
       <Item value="_newcontent" priority="0" />
       <Item value="throw" priority="3" />
       <Item value="NotImplementedException" priority="1" />
-      <Item value="public" priority="43" />
+      <Item value="public" priority="45" />
       <Item value="return" priority="16" />
-      <Item value="void" priority="28" />
+      <Item value="void" priority="30" />
       <Item value="String`0" priority="9" />
       <Item value="PiggyBankViewModel" priority="0" />
       <Item value="model" priority="6" />
       <Item value="LocalDataStoreSlot`0" priority="0" />
-      <Item value="endpoint" priority="2" />
+      <Item value="endpoint" priority="3" />
       <Item value="ds" priority="2" />
       <Item value="Assert`0" priority="11" />
       <Item value="homepageContent" priority="7" />
       <Item value="_dataStore" priority="0" />
       <Item value="class" priority="6" />
-      <Item value="TestFixture" priority="3" />
+      <Item value="TestFixture" priority="4" />
       <Item value="NTCodingDataStore`0" priority="0" />
       <Item value="HomepageContentInputModelTests`0" priority="0" />
       <Item value="HomepageContentEndpointTests`0" priority="1" />
       <Item value="Test" priority="0" />
       <Item value="HomepageContentDoobery`0" priority="0" />
-      <Item value="content" priority="7" />
+      <Item value="content" priority="10" />
       <Item value="doobery" priority="0" />
       <Item value="null" priority="11" />
       <Item value="store" priority="5" />
@@ -65,17 +65,17 @@
       <Item value="_homepageContentProvider" priority="3" />
       <Item value="_provider" priority="3" />
       <Item value="GetHomepageContentEntity`0" priority="0" />
-      <Item value="HomepageContent" priority="2" />
-      <Item value="_endpoint" priority="2" />
+      <Item value="HomepageContent" priority="3" />
+      <Item value="_endpoint" priority="3" />
       <Item value="HomepageContentViewModelTests`0" priority="1" />
-      <Item value="result" priority="6" />
+      <Item value="result" priority="9" />
       <Item value="HomepageContentViewModel" priority="2" />
       <Item value="container" priority="0" />
       <Item value="typeof" priority="1" />
       <Item value="IHomepageContentProvider`0" priority="2" />
       <Item value="IDocumentSession`0" priority="1" />
       <Item value="StartupDb`0" priority="0" />
-      <Item value="static" priority="0" />
+      <Item value="static" priority="1" />
       <Item value="Url" priority="0" />
       <Item value="Provider" priority="0" />
       <Item value="RunInMemory" priority="0" />
@@ -90,20 +90,28 @@
       <Item value="Random" priority="0" />
       <Item value="HtmlConvention`0" priority="0" />
       <Item value="TagBuilder" priority="2" />
-      <Item value="HomepageContentInputModel" priority="0" />
+      <Item value="HomepageContentInputModel" priority="1" />
       <Item value="object" priority="0" />
       <Item value="FubuContinuation`0" priority="3" />
       <Item value="HomepageContentEndpoint`0" priority="1" />
-      <Item value="c" priority="0" />
+      <Item value="c" priority="1" />
       <Item value="HomepageContentLinkModel" priority="0" />
-      <Item value="HomepageEndpoint`0" priority="1" />
+      <Item value="HomepageEndpoint`0" priority="4" />
       <Item value="ArgumentNullException" priority="0" />
       <Item value="EnvironmentVariableTarget`0" priority="0" />
-      <Item value="HomepageLinkModel" priority="1" />
+      <Item value="HomepageLinkModel" priority="5" />
       <Item value="HomepageViewModel" priority="0" />
+      <Item value="e" priority="1" />
+      <Item value="HomepageContentProvider" priority="0" />
+      <Item value="MockRepository`0" priority="0" />
+      <Item value="_contentProvider" priority="0" />
+      <Item value="AssemblyLoadEventArgs`0" priority="0" />
+      <Item value="BeforeTestRun" priority="0" />
+      <Item value="base" priority="0" />
+      <Item value="BeforeScenario" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@TechTalk.SpecFlow.ScenarioContext">
-      <Item value="Current" priority="1" />
+      <Item value="Current" priority="5" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Specs.Steps.Home_Page_Content.EditHomePageEndPoint">
       <Item value="EditHomePage`0" priority="0" />
@@ -114,7 +122,7 @@
       <Item value="TryToAttachWithDefaultConventions`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@NUnit.Framework.Assert">
-      <Item value="AreEqual`0" priority="8" />
+      <Item value="AreEqual`0" priority="9" />
       <Item value="IsTrue`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Web.Tests.HomePageContentInputModel">
@@ -197,7 +205,7 @@
       <Item value="Modify`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Web.Endpoints.SiteManagement.HomepageContentEndpoint">
-      <Item value="Post`0" priority="0" />
+      <Item value="Post`0" priority="1" />
       <Item value="Get`0" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@FubuMVC.Core.Continuations.FubuContinuation">
@@ -205,14 +213,14 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:FubuMVC.Core.Continuations.FubuContinuation">
       <Item value="AssertWasRedirectedTo`1" priority="0" />
-      <Item value="AssertWasTransferedTo`0" priority="1" />
-      <Item value="Destination`1" priority="0" />
+      <Item value="AssertWasTransferedTo`0" priority="2" />
+      <Item value="Destination`1" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Web.Tests.HomepageEndpoint">
       <Item value="GetHashCode`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@Rhino.Mocks.MockRepository">
-      <Item value="GenerateStub`0" priority="1" />
+      <Item value="GenerateStub`0" priority="3" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Model.IHomepageContentProvider">
       <Item value="Stub`2" priority="0" />
@@ -222,7 +230,13 @@
       <Item value="Return`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Web.Endpoints.HomepageEndpoint">
-      <Item value="Get`0" priority="1" />
+      <Item value="Get`0" priority="5" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Web.Endpoints.HomepageModels.HomepageViewModel">
+      <Item value="HomepageContent" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Web.Tests.RavenTestsBase">
+      <Item value="SetUp`0" priority="0" />
     </ItemStatistics>
   </CompletionStatisticsManager>
   <RecentFiles>
@@ -232,9 +246,7 @@
       <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentViewModelTests.cs" caret="391" fromTop="19" />
       <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentLinkModelTests.cs" caret="391" fromTop="19" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Infrastructure/d:Raven/f:DocumentStoreHolder.cs" caret="244" fromTop="10" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:RavenTestsBase.cs" caret="486" fromTop="17" />
       <File id="B13231D7-F25A-45C0-A314-C176FC7059E0/f:HomepageContentProviderTests.cs" caret="955" fromTop="19" />
-      <File id="BFE347A9-971C-4C8D-A82D-7093D75BDDEA/f:HomepageContentProvider.cs" caret="789" fromTop="9" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:HomepageContentModels/f:HomepageContentInputModel.cs" caret="96" fromTop="4" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="853" fromTop="21" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:HomepageContentModels/f:HomepageContentViewModel.cs" caret="15" fromTop="1" />
@@ -248,29 +260,19 @@
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:HomepageModels/f:HomepageLinkModel.cs" caret="85" fromTop="5" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/f:Homepage.spark" caret="221" fromTop="12" />
       <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageEndpointTests.cs" caret="0" fromTop="0" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/f:HomepageContentEndpoint.cs" caret="654" fromTop="17" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1336" fromTop="12" />
-      <File id="d:Miscellaneous Files/f:FubuMVC.Core.Continuations.FubuContinuation.cs/l:C!?Users?Administrator?Documents?Software Development?Github?FubuRaven.NTCoding?_ReSharper.FubuRaven.NTCoding?DecompilerCache?metadata?FubuMVC.Core-3126?FubuMVC.Core.Continuations.FubuContinuation.cs" caret="1518" fromTop="13" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/f:HomepageContentEndpoint.cs" caret="709" fromTop="17" />
+      <File id="68048045-BF5F-40A3-A2B2-A934A85087F6/d:Features/d:Home Page Content/f:Editable.feature.cs" caret="2417" fromTop="13" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:RavenTestsBase.cs" caret="244" fromTop="6" />
+      <File id="BFE347A9-971C-4C8D-A82D-7093D75BDDEA/f:HomepageContentProvider.cs" caret="383" fromTop="15" />
+      <File id="68048045-BF5F-40A3-A2B2-A934A85087F6/d:Steps/d:Home Page Content/f:Editable.cs" caret="661" fromTop="0" />
+      <File id="68048045-BF5F-40A3-A2B2-A934A85087F6/d:Features/d:Home Page Content/f:Editable.feature" caret="0" fromTop="0" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1429" fromTop="6" />
     </RecentFiles>
     <RecentEdits>
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/f:HomepageContentEndpoint.cs" caret="466" fromTop="13" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/f:HomepageContent.spark" caret="164" fromTop="1" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/f:HomepageContent.spark" caret="324" fromTop="11" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1346" fromTop="7" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1610" fromTop="7" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1610" fromTop="12" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1610" fromTop="16" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1346" fromTop="7" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/f:HomepageContentEndpoint.cs" caret="680" fromTop="17" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1601" fromTop="14" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1613" fromTop="20" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1610" fromTop="24" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1610" fromTop="5" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1610" fromTop="17" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1610" fromTop="18" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1610" fromTop="11" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1610" fromTop="17" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1610" fromTop="23" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1821" fromTop="18" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1821" fromTop="11" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1821" fromTop="17" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1821" fromTop="23" />
       <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageLinkModelTests.cs" caret="284" fromTop="22" />
       <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageLinkModelTests.cs" caret="284" fromTop="9" />
       <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageEndpointTests.cs" caret="1056" fromTop="22" />
@@ -282,7 +284,21 @@
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/f:Homepage.spark" caret="221" fromTop="17" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/f:Homepage.spark" caret="17" fromTop="0" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/f:Homepage.spark" caret="169" fromTop="9" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1594" fromTop="23" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1810" fromTop="17" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/f:HomepageContentEndpoint.cs" caret="469" fromTop="11" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/f:HomepageContentEndpoint.cs" caret="709" fromTop="17" />
+      <File id="68048045-BF5F-40A3-A2B2-A934A85087F6/d:Steps/d:Home Page Content/f:Editable.cs" caret="1176" fromTop="24" />
+      <File id="68048045-BF5F-40A3-A2B2-A934A85087F6/d:Steps/d:Home Page Content/f:Editable.cs" caret="1178" fromTop="14" />
+      <File id="68048045-BF5F-40A3-A2B2-A934A85087F6/d:Steps/d:Home Page Content/f:Editable.cs" caret="1171" fromTop="12" />
+      <File id="68048045-BF5F-40A3-A2B2-A934A85087F6/d:Steps/d:Home Page Content/f:Editable.cs" caret="1368" fromTop="9" />
+      <File id="68048045-BF5F-40A3-A2B2-A934A85087F6/d:Steps/d:Home Page Content/f:Editable.cs" caret="1780" fromTop="19" />
+      <File id="68048045-BF5F-40A3-A2B2-A934A85087F6/d:Steps/d:Home Page Content/f:Editable.cs" caret="1909" fromTop="11" />
+      <File id="68048045-BF5F-40A3-A2B2-A934A85087F6/d:Steps/d:Home Page Content/f:Editable.cs" caret="2084" fromTop="16" />
+      <File id="68048045-BF5F-40A3-A2B2-A934A85087F6/d:Steps/d:Home Page Content/f:Editable.cs" caret="860" fromTop="12" />
+      <File id="68048045-BF5F-40A3-A2B2-A934A85087F6/d:Steps/d:Home Page Content/f:Editable.cs" caret="461" fromTop="4" />
+      <File id="68048045-BF5F-40A3-A2B2-A934A85087F6/d:Steps/d:Home Page Content/f:Editable.cs" caret="626" fromTop="9" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:RavenTestsBase.cs" caret="598" fromTop="23" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1517" fromTop="22" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

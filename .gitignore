@@ -8,3 +8,4 @@ src/app/Web/obj/*
 src/tests/Web.Tests/bin/Debug/*
 src/tests/Model.Tests/bin/Debug/*
 src/app/Web/bin/Web.pdb
+src/specs/bin/*

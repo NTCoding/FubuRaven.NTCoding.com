@@ -27,7 +27,6 @@ namespace Web.Tests
 		public void TearDown()
 		{
 			_store.DocumentDatabase.TransactionalStorage.Dispose();
-
 		}
 	}
 }

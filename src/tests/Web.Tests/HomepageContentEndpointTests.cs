@@ -45,6 +45,16 @@ namespace Web.Tests
 			Assert.AreEqual(newContent, _homepageContentProvider.GetHomepageContent());
 		}
 
+		[Test][Ignore]
+		public void Post_GivenHtmlHomepageContent_ShouldNotSaveContent()
+		{
+			
+		}
+
+		// TODO - should show validation message
+
+		// TODO - should be on the same page
+
 		[Test]
 		public void Post_ShouldRedirectToHomepage()
 		{

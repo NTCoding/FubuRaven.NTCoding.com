@@ -2,42 +2,66 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FubuMVC.Core.Continuations;
+using Model;
+using NUnit.Framework;
+using Raven.Client;
+using Rhino.Mocks;
 using TechTalk.SpecFlow;
+using Web.Endpoints;
+using Web.Endpoints.HomepageModels;
+using Web.Endpoints.SiteManagement;
+using Web.Endpoints.SiteManagement.HomepageContentModels;
+using Web.Tests;
 
 namespace Specs.Steps.Home_Page_Content
 {
 	[Binding]
-	public class Editable
+	public class Editable : RavenTestsBase
 	{
-		[Given("I have entered (.*) into the calculator")]
-		public void GivenIHaveEnteredSomethingIntoTheCalculator(int number)
-		{
-			//TODO: implement arrange (recondition) logic
-			// For storing and retrieving scenario-specific data, 
-			// the instance fields of the class or the
-			//     ScenarioContext.Current
-			// collection can be used.
-			// To use the multiline text or the table argument of the scenario,
-			// additional string/Table parameters can be defined on the step definition
-			// method. 
+		private IHomepageContentProvider _contentProvider;
+		private HomepageContentEndpoint _endpoint;
 
-			ScenarioContext.Current.Pending();
+		[BeforeScenario()]
+		public void Setup()
+		{
+			base.SetUp();
 		}
 
-		[When("I press add")]
-		public void WhenIPressAdd()
+		[Given(@"I have navigated to the ""Edit Home Page"" page")]
+		public void GivenIHaveNavigatedToTheEditHomePagePage()
 		{
-			//TODO: implement act (action) logic
-
-			ScenarioContext.Current.Pending();
+			_contentProvider = new HomepageContentProvider(Session);
+			_endpoint = new HomepageContentEndpoint(_contentProvider);
 		}
 
-		[Then("the result should be (.*) on the screen")]
-		public void ThenTheResultShouldBe(int result)
+		[Given(@"I have specified the new content as ""(.*)")]
+		public void GivenIHaveSpecifiedTheNewContentAsWelcomeToNTCoding_NowGettingJiggyWithFubuAndRaven(string content)
 		{
-			//TODO: implement assert (verification) logic
+			ScenarioContext.Current["newContent"] = content;
+		}
 
-			ScenarioContext.Current.Pending();
+		[When(@"I confirm my new content")]
+		public void WhenIConfirmMyNewContent()
+		{
+			var content = (String)ScenarioContext.Current["newContent"];
+			ScenarioContext.Current["result"] = _endpoint.Post(new HomepageContentInputModel { HomepageContent = content });
+		}
+
+		[Then(@"I should be viewing the ""Home Page""")]
+		public void ThenIShouldBeViewingTheHomePage()
+		{
+			var result = (FubuContinuation)ScenarioContext.Current["result"];
+			result.AssertWasTransferedTo<HomepageEndpoint>(e => e.Get(new HomepageLinkModel()));
+		}
+
+		[Then(@"I should see the following welcome content ""(.*)")]
+		public void ThenIShouldSeeTheFollowingWelcomeContentWelcomeToNTCoding_NowGettingJiggyWithFubuAndRaven(string content)
+		{
+			var endpoint = new HomepageEndpoint(_contentProvider);
+			var result = endpoint.Get(new HomepageLinkModel());
+
+			Assert.AreEqual(content, result.HomepageContent);
 		}
 	}
 }

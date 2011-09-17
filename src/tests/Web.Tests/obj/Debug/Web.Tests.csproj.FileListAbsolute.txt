@@ -56,7 +56,6 @@ C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\Bottles.dll
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\FubuCore.dll
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\HtmlTags.dll
-C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\FubuLocalization.dll
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\Spark.dll
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\Model.pdb
@@ -67,3 +66,7 @@ C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\Rhino.Mocks.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\FubuMVC.Validation.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\FubuValidation.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\FubuMVC.Validation.pdb
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\FubuValidation.pdb

@@ -37,14 +37,26 @@
     <Reference Include="Esent.Interop">
       <HintPath>..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\Esent.Interop.dll</HintPath>
     </Reference>
+    <Reference Include="FubuCore, Version=0.9.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FubuCore.0.9.1.39\lib\FubuCore.dll</HintPath>
+    </Reference>
+    <Reference Include="FubuLocalization">
+      <HintPath>..\..\packages\FubuLocalization.0.9.1.39\lib\FubuLocalization.dll</HintPath>
+    </Reference>
     <Reference Include="FubuMVC.Core">
       <HintPath>..\..\packages\FubuMVC.References.0.9.1.548\lib\FubuMVC.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlTags, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\HtmlTags.1.0.0.23\lib\4.0\HtmlTags.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.NRefactory, Version=3.0.0.3800, Culture=neutral, PublicKeyToken=efe927acf176eea2, processorArchitecture=MSIL">
       <HintPath>..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\ICSharpCode.NRefactory.dll</HintPath>
     </Reference>
     <Reference Include="Lucene.Net, Version=2.9.2.1, Culture=neutral, PublicKeyToken=02f879aa45933051, processorArchitecture=MSIL">
       <HintPath>..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.0.2.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.4.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
@@ -115,6 +127,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\Book Management\BookList.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookList.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Book Management\Creating.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Creating.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Book Management\Deleting.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Deleting.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Book Management\Editing.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Editing.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Book Management\Viewing.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Viewing.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\Home Page Content\Editable.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -125,6 +162,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Features\Book Management\BookList.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>BookList.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Book Management\Creating.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Creating.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Book Management\Deleting.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Deleting.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Book Management\Editing.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Editing.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Book Management\Viewing.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Viewing.feature.cs</LastGenOutput>
+    </None>
     <None Include="Features\Home Page Content\Editable.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Editable.feature.cs</LastGenOutput>

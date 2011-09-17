@@ -2,8 +2,7 @@
 
 namespace Web.Endpoints.SiteManagement.HomepageContentModels
 {
-	public class HomepageContentViewModel
+	public class HomepageContentViewModel : HomepageContentInputModel
 	{
-		public String HomepageContent { get; set; }
 	}
 }

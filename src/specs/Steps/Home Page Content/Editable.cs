@@ -52,7 +52,7 @@ namespace Specs.Steps.Home_Page_Content
 		public void ThenIShouldBeViewingTheHomePage()
 		{
 			var result = (FubuContinuation)ScenarioContext.Current["result"];
-			result.AssertWasTransferedTo<HomepageEndpoint>(e => e.Get(new HomepageLinkModel()));
+			result.AssertWasRedirectedTo<HomepageEndpoint>(e => e.Get(new HomepageLinkModel()));
 		}
 
 		[Then(@"I should see the following welcome content ""(.*)")]

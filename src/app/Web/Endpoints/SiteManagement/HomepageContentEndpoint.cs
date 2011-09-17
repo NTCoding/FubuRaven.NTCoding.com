@@ -1,5 +1,6 @@
 ﻿using System;
 using FubuMVC.Core.Continuations;
+using FubuMVC.Core.Runtime;
 using Model;
 using Web.Endpoints.HomepageModels;
 using Web.Endpoints.SiteManagement.HomepageContentModels;
@@ -19,7 +20,7 @@ namespace Web.Endpoints.SiteManagement
 		{
 			_homepageContentProvider.SetHomepageContent(model.HomepageContent);
 
-			return FubuContinuation.TransferTo<HomepageEndpoint>(e => e.Get(new HomepageLinkModel()));
+			return FubuContinuation.RedirectTo<HomepageEndpoint>(e => e.Get(new HomepageLinkModel()));
 		}
 
 		public HomepageContentViewModel Get(HomepageContentLinkModel model)

@@ -8,9 +8,10 @@
 	<body>
 		<h1>Edit Homepage Content</h1>
 		<div>
-			<h2>New Homepage Content</h2>
+			<ValidationErrors />
 			<form  method="post" action="${this.Urls.UrlFor(new HomepageContentInputModel())}">
-				<textarea name="homepageContent">${Model.HomepageContent}</textarea>
+				${this.LabelFor(m => m.HomepageContent)}
+				${this.InputFor(m => m.HomepageContent)}
 				<input type="submit" value="Update" />
 			</form>
 		</div>

@@ -78,3 +78,8 @@ C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\specs\bin\Debug\Raven.Munin.pdb
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\specs\bin\Debug\Raven.Storage.Esent.pdb
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\specs\bin\Debug\Raven.Storage.Managed.pdb
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\specs\bin\Debug\FubuLocalization.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\specs\bin\Debug\FubuMVC.Validation.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\specs\bin\Debug\FubuValidation.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\specs\bin\Debug\FubuMVC.Validation.pdb
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\specs\bin\Debug\FubuValidation.pdb

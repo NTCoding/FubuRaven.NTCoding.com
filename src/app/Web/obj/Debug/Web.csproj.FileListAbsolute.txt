@@ -63,3 +63,7 @@ C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\bin\Raven.Munin.pdb
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\bin\Raven.Storage.Esent.pdb
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\bin\Raven.Storage.Managed.pdb
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\bin\FubuMVC.Validation.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\bin\FubuValidation.dll
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\bin\FubuMVC.Validation.pdb
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\app\Web\bin\FubuValidation.pdb

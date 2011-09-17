@@ -1,4 +1,5 @@
 ﻿using FubuMVC.Core.Continuations;
+using Microsoft.Practices.ServiceLocation;
 using Model;
 using NUnit.Framework;
 using Raven.Client.Document;
@@ -45,16 +46,6 @@ namespace Web.Tests
 			Assert.AreEqual(newContent, _homepageContentProvider.GetHomepageContent());
 		}
 
-		[Test][Ignore]
-		public void Post_GivenHtmlHomepageContent_ShouldNotSaveContent()
-		{
-			
-		}
-
-		// TODO - should show validation message
-
-		// TODO - should be on the same page
-
 		[Test]
 		public void Post_ShouldRedirectToHomepage()
 		{
@@ -62,7 +53,7 @@ namespace Web.Tests
 			
 			var result = _endpoint.Post(model);
 
-			result.AssertWasTransferedTo<HomepageEndpoint>(c => c.Get(new HomepageLinkModel()));
+			result.AssertWasRedirectedTo<HomepageEndpoint>(c => c.Get(new HomepageLinkModel()));
 		}
 	}
 }

@@ -93,7 +93,7 @@
       <Item value="HomepageContentInputModel" priority="1" />
       <Item value="object" priority="0" />
       <Item value="FubuContinuation`0" priority="3" />
-      <Item value="HomepageContentEndpoint`0" priority="1" />
+      <Item value="HomepageContentEndpoint`0" priority="2" />
       <Item value="c" priority="1" />
       <Item value="HomepageContentLinkModel" priority="0" />
       <Item value="HomepageEndpoint`0" priority="4" />
@@ -238,6 +238,9 @@
     <ItemStatistics item="Qualified:Web.Tests.RavenTestsBase">
       <Item value="SetUp`0" priority="0" />
     </ItemStatistics>
+    <ItemStatistics item="Qualified:FubuMVC.Validation.ValidationFailure">
+      <Item value="Notification" priority="0" />
+    </ItemStatistics>
   </CompletionStatisticsManager>
   <RecentFiles>
     <RecentFiles>
@@ -247,15 +250,11 @@
       <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentLinkModelTests.cs" caret="391" fromTop="19" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Infrastructure/d:Raven/f:DocumentStoreHolder.cs" caret="244" fromTop="10" />
       <File id="B13231D7-F25A-45C0-A314-C176FC7059E0/f:HomepageContentProviderTests.cs" caret="955" fromTop="19" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:HomepageContentModels/f:HomepageContentInputModel.cs" caret="96" fromTop="4" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="853" fromTop="21" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:HomepageContentModels/f:HomepageContentViewModel.cs" caret="15" fromTop="1" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:HomepageContentModels/f:HomepageContentLinkModel.cs" caret="60" fromTop="0" />
       <File id="BFE347A9-971C-4C8D-A82D-7093D75BDDEA/f:IHomepageContentProvider.cs" caret="38" fromTop="2" />
       <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageLinkModelTests.cs" caret="284" fromTop="9" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/f:HomepageEndpoint.cs" caret="0" fromTop="0" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:HomepageModels/f:HomepageViewModel.cs" caret="149" fromTop="8" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/f:HomepageContent.spark" caret="324" fromTop="11" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:AppStart.cs" caret="804" fromTop="10" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:HomepageModels/f:HomepageLinkModel.cs" caret="85" fromTop="5" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/f:Homepage.spark" caret="221" fromTop="12" />
@@ -266,17 +265,15 @@
       <File id="BFE347A9-971C-4C8D-A82D-7093D75BDDEA/f:HomepageContentProvider.cs" caret="383" fromTop="15" />
       <File id="68048045-BF5F-40A3-A2B2-A934A85087F6/d:Steps/d:Home Page Content/f:Editable.cs" caret="661" fromTop="0" />
       <File id="68048045-BF5F-40A3-A2B2-A934A85087F6/d:Features/d:Home Page Content/f:Editable.feature" caret="0" fromTop="0" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1429" fromTop="6" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:HomepageContentModels/f:HomepageContentViewModel.cs" caret="159" fromTop="7" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:HomepageContentModels/f:HomepageContentInputModel.cs" caret="162" fromTop="7" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Shared/f:bindings.xml" caret="0" fromTop="0" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Shared/f:_global.spark" caret="31" fromTop="0" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="697" fromTop="15" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="1210" fromTop="7" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/f:HomepageContent.spark" caret="473" fromTop="14" />
     </RecentFiles>
     <RecentEdits>
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1821" fromTop="18" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1821" fromTop="11" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1821" fromTop="17" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1821" fromTop="23" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageLinkModelTests.cs" caret="284" fromTop="22" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageLinkModelTests.cs" caret="284" fromTop="9" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageEndpointTests.cs" caret="1056" fromTop="22" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:HomepageModels/f:HomepageViewModel.cs" caret="113" fromTop="6" />
       <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageEndpointTests.cs" caret="1014" fromTop="19" />
       <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageEndpointTests.cs" caret="891" fromTop="16" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/f:HomepageEndpoint.cs" caret="625" fromTop="18" />
@@ -299,6 +296,14 @@
       <File id="68048045-BF5F-40A3-A2B2-A934A85087F6/d:Steps/d:Home Page Content/f:Editable.cs" caret="626" fromTop="9" />
       <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:RavenTestsBase.cs" caret="598" fromTop="23" />
       <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:HomepageContentEndpointTests.cs" caret="1517" fromTop="22" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="1786" fromTop="10" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="1033" fromTop="12" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:HomepageContentModels/f:HomepageContentViewModel.cs" caret="154" fromTop="6" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="1402" fromTop="14" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Shared/f:_global.spark" caret="31" fromTop="0" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/f:HomepageContent.spark" caret="0" fromTop="0" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/f:HomepageContent.spark" caret="225" fromTop="8" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/f:HomepageContent.spark" caret="473" fromTop="14" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

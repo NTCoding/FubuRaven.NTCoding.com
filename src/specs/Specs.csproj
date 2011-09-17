@@ -147,6 +147,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Editing.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\Book Management\Status.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Status.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\Book Management\Viewing.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -177,6 +182,10 @@
     <None Include="Features\Book Management\Editing.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Editing.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Book Management\Status.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Status.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\Book Management\Viewing.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

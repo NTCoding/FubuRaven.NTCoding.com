@@ -1,14 +1,11 @@
-﻿using FubuMVC.Core.Continuations;
-using Microsoft.Practices.ServiceLocation;
-using Model;
+﻿using Model;
 using NUnit.Framework;
-using Raven.Client.Document;
 using Web.Endpoints;
 using Web.Endpoints.HomepageModels;
 using Web.Endpoints.SiteManagement;
 using Web.Endpoints.SiteManagement.HomepageContentModels;
 
-namespace Web.Tests
+namespace Web.Tests.Homepage
 {
 	[TestFixture]
 	public class HomepageContentEndpointTests : RavenTestsBase

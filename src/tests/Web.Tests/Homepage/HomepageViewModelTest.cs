@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using Web.Endpoints.HomepageModels;
 
-namespace Web.Tests
+namespace Web.Tests.Homepage
 {
 	[TestFixture]
 	public class HomepageViewModelTest

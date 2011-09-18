@@ -167,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\AppStart.cs" />
+    <Compile Include="Configuration\HandlerModelDescriptor.cs" />
     <Compile Include="Configuration\NTCodingFubuRegistry.cs" />
     <Compile Include="Endpoints\HomepageEndpoint.cs" />
     <Compile Include="Endpoints\HomepageModels\HomepageLinkModel.cs" />

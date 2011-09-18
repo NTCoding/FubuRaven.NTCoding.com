@@ -30,8 +30,8 @@ namespace Web.Endpoints.SiteManagement.Book
 
 		public FubuContinuation Post(CreateBookInputModel model)
 		{
-			_bookCreater.Create(model.Title, model.Authors, model.Description, model.Genre,
-			                    (byte[])model.Image, model.Status);
+			_bookCreater.Create(model.Title, model.Authors, model.Description_BigText, model.Genre,
+			                    (byte[])model.Image, model.BookStatus);
 
 			return FubuContinuation.RedirectTo<ViewEndpoint>(e => e.Get(new ViewBookLinkModel()));
 		}

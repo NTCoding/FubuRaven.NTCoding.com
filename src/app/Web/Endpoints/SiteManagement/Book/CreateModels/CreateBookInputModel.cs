@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Model;
 
 namespace Web.Endpoints.SiteManagement.Book.CreateModels
 {
@@ -9,9 +10,9 @@ namespace Web.Endpoints.SiteManagement.Book.CreateModels
 
 		public String Genre { get; set; }
 
-		public string Description { get; set; }
+		public string Description_BigText { get; set; }
 
-		public string Status { get; set; }
+		public BookStatus BookStatus { get; set; }
 
 		public IEnumerable<String> Authors { get; set; }
 

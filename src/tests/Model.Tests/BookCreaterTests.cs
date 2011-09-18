@@ -32,7 +32,7 @@ namespace Model.Tests
 			var description = "Pretty good";
 			var genreId = genre.Id;
 			var image = new[] { (byte)1 };
-			var status = "Reviewed";
+			var status = BookStatus.Reviewed;
 
 			_bookCreater.Create(title, authors, description, genreId, image, status);
 			Session.SaveChanges();
@@ -42,7 +42,7 @@ namespace Model.Tests
 				.Where(b => b.Title == title)
 				.Where(b => b.Genre.Name == genre.Name)
 				.Where(b => b.Description == description)
-				.Where(b => b.Status == (BookStatus)Enum.Parse(typeof(BookStatus), status))
+				.Where(b => b.Status == status)
 				.Where(b => b.Authors.Any(a => a == author1))
 				.First();
 

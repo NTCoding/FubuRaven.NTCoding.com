@@ -2,9 +2,9 @@
 
 namespace Web.Endpoints.SiteManagement.Book.CreateModels
 {
-	public class CreateBookViewModel
+	public class CreateBookViewModel : CreateBookInputModel
 	{
-		public CreateBookViewModel(Dictionary<string, string> genres)
+		public CreateBookViewModel(IDictionary<string, string> genres)
 		{
 			Genres = genres;
 		}

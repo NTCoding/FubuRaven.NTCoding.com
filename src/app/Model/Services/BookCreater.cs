@@ -15,13 +15,11 @@ namespace Model.Services
 			_session = session;
 		}
 
-		public void Create(string title, IEnumerable<string> authors, string description, string genreID, byte[] image, string status)
+		public void Create(string title, IEnumerable<string> authors, string description, string genreID, byte[] image, BookStatus status)
 		{
 			var genre = _session.Query<Genre>().Where(g => g.Id == genreID).Single();
 
-			var bookStatus = (BookStatus) Enum.Parse(typeof (BookStatus), status);
-
-			var book = new Book(title, authors, description, genre, bookStatus, image);
+			var book = new Book(title, authors, description, genre, status, image);
 
 			_session.Store(book);
 		}

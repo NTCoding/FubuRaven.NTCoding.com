@@ -23,8 +23,8 @@ namespace Web.Tests.Books
 			{
 				Title = "Amazing Book",
 				Genre = genre.Id,
-				Description = "A splendid read",
-				Status = "Reviewed",
+				Description_BigText = "A splendid read",
+				BookStatus = BookStatus.Reviewed,
 				Authors = new[] { "Jimmy Bogard", "Jimmy Slim" },
 				Image = new[] { (byte)1 }
 			};
@@ -85,8 +85,8 @@ namespace Web.Tests.Books
 			var book = Session.Query<Book>()
 				.Where(b => b.Title == model.Title)
 				.Where(b => b.Genre.Name == genre.Name)
-				.Where(b => b.Description == model.Description)
-				.Where(b => b.Status == (BookStatus) Enum.Parse(typeof (BookStatus), model.Status))
+				.Where(b => b.Description == model.Description_BigText)
+				.Where(b => b.Status ==  model.BookStatus)
 				.Where(b => b.Authors.Any(a => a == model.Authors.ElementAt(0)))
 				.First();
 

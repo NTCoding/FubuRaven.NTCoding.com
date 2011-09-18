@@ -2,6 +2,7 @@
 using System.Web.Routing;
 using FubuMVC.Core;
 using Model;
+using Model.Services;
 using Raven.Client;
 using Raven.Client.Embedded;
 using StructureMap;
@@ -21,7 +22,9 @@ namespace Web.Configuration
 			// TODO - move declarations into a registry
         	var container = new Container(x => {
 						x.For<IDocumentSession>().Use(DocumentStoreHolder.DocumentStore.OpenSession());
-        				x.For<IHomepageContentProvider>().Use<HomepageContentProvider>();
+						x.For<IHomepageContentProvider>().Use<HomepageContentProvider>();
+						x.For<IBookCreater>().Use<BookCreater>();
+
         			});
 
         	BootstrappingExtensions.StructureMap(FubuApplication.For<NTCodingFubuRegistry>(), container)

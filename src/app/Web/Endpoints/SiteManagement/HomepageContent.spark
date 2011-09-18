@@ -1,11 +1,6 @@
 ﻿<use namespace="Web.Endpoints.SiteManagement.HomepageContentModels" />
 <viewdata model="Web.Endpoints.SiteManagement.HomepageContentModels.HomepageContentViewModel" />
 
-<!Doctype html>
-<html>
-	<head>
-	</head>
-	<body>
 		<h1>Edit Homepage Content</h1>
 		<div>
 			<ValidationErrors />
@@ -15,5 +10,3 @@
 				<input type="submit" value="Update" />
 			</form>
 		</div>
-	</body>
-</html>

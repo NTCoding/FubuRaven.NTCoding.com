@@ -1,13 +1,6 @@
 ﻿<viewdata model="Web.Endpoints.HomepageModels.HomepageViewModel" />
 
-<!Doctype html>
-<html>
-	<head>
-	</head>
-	<body>
 		<h1>Welcome to NTCoding</h1>
 		<div>
 			${Model.HomepageContent}
 		</div>
-	</body>
-</html>

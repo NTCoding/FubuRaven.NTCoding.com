@@ -13,3 +13,6 @@ src/specs/obj/*
 src/specs/obj/*
 src/tests/Model.Tests/bin/*
 src/tests/Model.Tests/obj/*
+src/specs/bin/*
+src/tests/Model.Tests/bin/*
+src/specs/bin/*

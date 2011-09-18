@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
+using FubuMVC.Core.Continuations;
 using NUnit.Framework;
 using Raven.Client;
 
@@ -11,6 +12,27 @@ namespace Web.Tests.Books
 	[TestFixture]
 	public class CreateEndpointTests : RavenTestsBase
 	{
+		private CreateBookInputModel GetTestCreateBookInputModel(Genre genre)
+		{
+			return new CreateBookInputModel
+			{
+				Title = "Amazing Book",
+				Genre = genre.ID,
+				Description = "A splendid read",
+				Status = "Reviewed",
+				Authors = new[] { "Jimmy Bogard", "Jimmy Slim" },
+				Image = new[] { (byte)1 }
+			};
+		}
+
+		private Genre GetGenreFromSession()
+		{
+			var genre = new Genre("wooo") { ID = "1" };
+			Session.Store(genre);
+			Session.SaveChanges();
+			return genre;
+		}
+
 		private CreateEndpoint _endpoint;
 
 		[SetUp]
@@ -48,19 +70,9 @@ namespace Web.Tests.Books
 		[Test]
 		public void Post_GivenValidBookDetails_ShouldCreateBook()
 		{
-			var genre = new Genre("wooo") {ID = "1"};
-			Session.Store(genre);
-			Session.SaveChanges();
+			var genre = GetGenreFromSession();
 
-			var model = new CreateBookInputModel
-			                {
-			                    Title = "Amazing Book",
-			                    Genre = genre.ID,
-			                    Description = "A splendid read",
-			                    Status = "Reviewed",
-			                    Authors = new[] { "Jimmy Bogard", "Jimmy Slim" },
-			                    Image = new[]{(byte)1}
-			                };
+			var model = GetTestCreateBookInputModel(genre);
 
 			_endpoint.Post(model);
 			Session.SaveChanges();
@@ -77,7 +89,57 @@ namespace Web.Tests.Books
 			Assert.IsTrue(book.Authors.Any(a => a == model.Authors.ElementAt(1)));
 		}
 
-		// TODO - should be on the "View Book" page
+
+		[Test]
+		public void Post_ShouldRedirectToMangementViewBook()
+		{
+			var genre = GetGenreFromSession();
+			var model = GetTestCreateBookInputModel(genre);
+
+			var result = _endpoint.Post(model);
+
+			result.AssertWasRedirectedTo<ViewEndpoint>(e => e.Get(new ViewBookLinkModel()));
+		}
+	}
+
+	[TestFixture]
+	public class ViewEndpointTests
+	{
+		private ViewEndpoint _endpoint;
+
+		[SetUp]
+		public void CanCreate()
+		{
+			_endpoint = new ViewEndpoint();
+		}
+
+		[Test]
+		public void Get_ShouldBeLinkedToFromViewBookLinkModel()
+		{
+			_endpoint.Get(new ViewBookLinkModel());
+		}
+	}
+
+	[TestFixture]
+	public class ViewBookLinkModelTest
+	{
+		[Test]
+		public void CanCreate()
+		{
+			new ViewBookLinkModel();
+		}
+	}
+
+	public class ViewBookLinkModel
+	{
+	}
+
+	public class ViewEndpoint
+	{
+		public object Get(ViewBookLinkModel model)
+		{
+			return null;
+		}
 	}
 
 	[TestFixture]
@@ -221,10 +283,12 @@ namespace Web.Tests.Books
 			_session = session;
 		}
 
-		public void Post(CreateBookInputModel model)
+		public FubuContinuation Post(CreateBookInputModel model)
 		{
 			_bookCreater.Create(model.Title, model.Authors, model.Description, model.Genre,
 								(byte[])model.Image, model.Status);
+
+			return FubuContinuation.RedirectTo<ViewEndpoint>(e => e.Get(new ViewBookLinkModel()));
 		}
 
 		public CreateBookViewModel Get(CreateBookLinkModel model)

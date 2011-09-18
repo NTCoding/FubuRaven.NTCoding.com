@@ -16,3 +16,5 @@ src/tests/Model.Tests/obj/*
 src/specs/bin/*
 src/tests/Model.Tests/bin/*
 src/specs/bin/*
+src/app/Model/obj/*
+src/specs/obj/*

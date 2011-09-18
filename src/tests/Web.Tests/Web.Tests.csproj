@@ -103,6 +103,7 @@
       <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\SpellChecker.Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Activities" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -112,7 +113,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Books\CreateBookInputModelTests.cs" />
+    <Compile Include="Books\CreateBookLinkModelTests.cs" />
+    <Compile Include="Books\CreateBookViewModelTests.cs" />
     <Compile Include="Books\CreateEndpointTests.cs" />
+    <Compile Include="Books\ViewBookLinkModelTest.cs" />
+    <Compile Include="Books\ViewEndpointTests.cs" />
     <Compile Include="Homepage\HomepageContentEndpointTests.cs" />
     <Compile Include="Homepage\HomepageContentInputModelTests.cs" />
     <Compile Include="Homepage\HomepageContentLinkModelTests.cs" />

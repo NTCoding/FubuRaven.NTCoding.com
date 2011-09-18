@@ -7,19 +7,18 @@ namespace Web.Tests
 {
 	public abstract class RavenTestsBase
 	{
-		
 		protected IDocumentSession Session;
 		private EmbeddableDocumentStore _store;
 
 		[SetUp]
 		public void SetUp()
 		{
-			_store = new EmbeddableDocumentStore
-			         	{
-			         		DataDirectory = "Data",
-							RunInMemory = true
-			         	};
-			_store.Initialize();
+				_store = new EmbeddableDocumentStore
+				         	{
+				         		RunInMemory = true
+				         	};
+				_store.Initialize();
+
 			Session = _store.OpenSession();
 		}
 

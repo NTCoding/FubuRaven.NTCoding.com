@@ -202,7 +202,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Endpoints\Homepage.spark" />
-    <None Include="Endpoints\SiteManagement\Book\Create.spark" />
+    <None Include="Endpoints\SiteManagement\Book\Create.spark">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Endpoints\SiteManagement\HomepageContent.spark">
       <SubType>Designer</SubType>
     </None>

@@ -3,35 +3,36 @@
     <string />
     <integer />
     <boolean>
+      <setting name="livetemplates.csharp.usevar">True</setting>
       <setting name="SolutionAnalysisEnabled">False</setting>
     </boolean>
   </SettingsComponent>
   <CompletionStatisticsManager>
     <ItemStatistics item="Default">
       <Item value="CSharp" priority="1" />
-      <Item value="var" priority="84" />
-      <Item value="new" priority="124" />
+      <Item value="var" priority="93" />
+      <Item value="new" priority="137" />
       <Item value="controller" priority="0" />
       <Item value="endPoint" priority="2" />
-      <Item value="string" priority="6" />
+      <Item value="string" priority="7" />
       <Item value="newContent" priority="5" />
       <Item value="ScenarioContext`0" priority="4" />
       <Item value="_newcontent" priority="0" />
       <Item value="throw" priority="5" />
       <Item value="NotImplementedException" priority="2" />
-      <Item value="public" priority="92" />
-      <Item value="return" priority="22" />
-      <Item value="void" priority="60" />
-      <Item value="String`0" priority="21" />
+      <Item value="public" priority="97" />
+      <Item value="return" priority="25" />
+      <Item value="void" priority="64" />
+      <Item value="String`0" priority="27" />
       <Item value="PiggyBankViewModel" priority="0" />
-      <Item value="model" priority="23" />
+      <Item value="model" priority="24" />
       <Item value="LocalDataStoreSlot`0" priority="0" />
       <Item value="endpoint" priority="5" />
       <Item value="ds" priority="2" />
-      <Item value="Assert`0" priority="32" />
+      <Item value="Assert`0" priority="35" />
       <Item value="homepageContent" priority="7" />
       <Item value="_dataStore" priority="0" />
-      <Item value="class" priority="15" />
+      <Item value="class" priority="16" />
       <Item value="TestFixture" priority="4" />
       <Item value="NTCodingDataStore`0" priority="0" />
       <Item value="HomepageContentInputModelTests`0" priority="0" />
@@ -40,7 +41,7 @@
       <Item value="HomepageContentDoobery`0" priority="0" />
       <Item value="content" priority="10" />
       <Item value="doobery" priority="0" />
-      <Item value="null" priority="17" />
+      <Item value="null" priority="18" />
       <Item value="store" priority="5" />
       <Item value="Raven" priority="2" />
       <Item value="Client" priority="0" />
@@ -48,7 +49,7 @@
       <Item value="EmbeddableDocumentStore`0" priority="0" />
       <Item value="session" priority="1" />
       <Item value="TearDown" priority="0" />
-      <Item value="_session" priority="19" />
+      <Item value="_session" priority="20" />
       <Item value="HomepageContent`0" priority="9" />
       <Item value="hpc" priority="2" />
       <Item value="Content" priority="1" />
@@ -58,7 +59,7 @@
       <Item value="ArgumentNullException`0" priority="5" />
       <Item value="_store" priority="10" />
       <Item value="abstract" priority="0" />
-      <Item value="RavenTestsBase`0" priority="3" />
+      <Item value="RavenTestsBase`0" priority="4" />
       <Item value="homepageContentProvider" priority="1" />
       <Item value="Ignore" priority="1" />
       <Item value="HomepageContentProvider`0" priority="5" />
@@ -66,12 +67,12 @@
       <Item value="_provider" priority="3" />
       <Item value="GetHomepageContentEntity`0" priority="0" />
       <Item value="HomepageContent" priority="3" />
-      <Item value="_endpoint" priority="7" />
+      <Item value="_endpoint" priority="8" />
       <Item value="HomepageContentViewModelTests`0" priority="1" />
-      <Item value="result" priority="10" />
+      <Item value="result" priority="11" />
       <Item value="HomepageContentViewModel" priority="2" />
       <Item value="container" priority="0" />
-      <Item value="typeof" priority="4" />
+      <Item value="typeof" priority="6" />
       <Item value="IHomepageContentProvider`0" priority="2" />
       <Item value="IDocumentSession`0" priority="2" />
       <Item value="StartupDb`0" priority="0" />
@@ -81,15 +82,15 @@
       <Item value="RunInMemory" priority="0" />
       <Item value="true" priority="0" />
       <Item value="if" priority="6" />
-      <Item value="SetUp" priority="2" />
-      <Item value="Session" priority="22" />
+      <Item value="SetUp" priority="3" />
+      <Item value="Session" priority="25" />
       <Item value="Class1`0" priority="0" />
       <Item value="List" priority="1" />
       <Item value="IEnumerable" priority="3" />
       <Item value="Random`0" priority="0" />
       <Item value="Random" priority="0" />
-      <Item value="HtmlConvention`0" priority="0" />
-      <Item value="TagBuilder" priority="2" />
+      <Item value="HtmlConvention`0" priority="5" />
+      <Item value="TagBuilder" priority="4" />
       <Item value="HomepageContentInputModel" priority="1" />
       <Item value="object" priority="1" />
       <Item value="FubuContinuation`0" priority="4" />
@@ -101,7 +102,7 @@
       <Item value="EnvironmentVariableTarget`0" priority="0" />
       <Item value="HomepageLinkModel" priority="5" />
       <Item value="HomepageViewModel" priority="0" />
-      <Item value="e" priority="3" />
+      <Item value="e" priority="7" />
       <Item value="HomepageContentProvider" priority="0" />
       <Item value="MockRepository`0" priority="0" />
       <Item value="_contentProvider" priority="0" />
@@ -110,11 +111,11 @@
       <Item value="base" priority="1" />
       <Item value="BeforeScenario" priority="0" />
       <Item value="ProgrammingLanguage`0" priority="6" />
-      <Item value="Genre`0" priority="13" />
-      <Item value="name" priority="7" />
+      <Item value="Genre`0" priority="17" />
+      <Item value="name" priority="10" />
       <Item value="thr" priority="0" />
-      <Item value="genre" priority="6" />
-      <Item value="Name" priority="1" />
+      <Item value="genre" priority="8" />
+      <Item value="Name" priority="2" />
       <Item value="validation" priority="0" />
       <Item value="AuthorTest`0" priority="0" />
       <Item value="Author`0" priority="7" />
@@ -123,7 +124,7 @@
       <Item value="Books" priority="0" />
       <Item value="b" priority="9" />
       <Item value="Book`0" priority="2" />
-      <Item value="BookStatus`0" priority="2" />
+      <Item value="BookStatus`0" priority="5" />
       <Item value="Enum`0" priority="1" />
       <Item value="a" priority="2" />
       <Item value="_bookCreater" priority="0" />
@@ -140,7 +141,7 @@
       <Item value="status" priority="2" />
       <Item value="image" priority="1" />
       <Item value="Author" priority="0" />
-      <Item value="Genre" priority="0" />
+      <Item value="Genre" priority="1" />
       <Item value="GetValidBook`0" priority="0" />
       <Item value="book" priority="7" />
       <Item value="bookStatus" priority="0" />
@@ -148,7 +149,7 @@
       <Item value="author2" priority="1" />
       <Item value="BookCreater`0" priority="1" />
       <Item value="XmlSiteMapProvider`0" priority="0" />
-      <Item value="g" priority="5" />
+      <Item value="g" priority="7" />
       <Item value="CreateBookLinkModel" priority="0" />
       <Item value="viewModel" priority="0" />
       <Item value="g3" priority="0" />
@@ -165,13 +166,31 @@
       <Item value="ViewBookLinkModel" priority="1" />
       <Item value="GetGenreFromSession`0" priority="0" />
       <Item value="ViewEndpoint`0" priority="0" />
-      <Item value="Version`0" priority="0" />
+      <Item value="Version`0" priority="1" />
       <Item value="genre1" priority="1" />
       <Item value="books" priority="0" />
       <Item value="trans" priority="0" />
       <Item value="StructureMap" priority="0" />
       <Item value="using" priority="0" />
-      <Item value="Model" priority="0" />
+      <Item value="Model" priority="5" />
+      <Item value="CreateGenreInputModel" priority="0" />
+      <Item value="GenreCreatedModel`0" priority="2" />
+      <Item value="createdGenre" priority="0" />
+      <Item value="id" priority="1" />
+      <Item value="GenreId" priority="0" />
+      <Item value="CreateBookInputModel`0" priority="0" />
+      <Item value="t" priority="0" />
+      <Item value="HtmlTag" priority="4" />
+      <Item value="er" priority="5" />
+      <Item value="foreach" priority="1" />
+      <Item value="tag" priority="3" />
+      <Item value="enumValue" priority="0" />
+      <Item value="HtmlTag`0" priority="0" />
+      <Item value="IDictionary" priority="0" />
+      <Item value="item" priority="1" />
+      <Item value="Id" priority="0" />
+      <Item value="ToString`0" priority="0" />
+      <Item value="ToDictionary`3" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@TechTalk.SpecFlow.ScenarioContext">
       <Item value="Current" priority="5" />
@@ -185,10 +204,10 @@
       <Item value="TryToAttachWithDefaultConventions`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@NUnit.Framework.Assert">
-      <Item value="AreEqual`0" priority="19" />
+      <Item value="AreEqual`0" priority="21" />
       <Item value="IsTrue`0" priority="5" />
       <Item value="Inconclusive`0" priority="3" />
-      <Item value="IsNotNull`0" priority="0" />
+      <Item value="IsNotNull`0" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Web.Tests.HomePageContentInputModel">
       <Item value="NewContent" priority="0" />
@@ -206,10 +225,10 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:Raven.Client.IDocumentSession">
       <Item value="Dispose`0" priority="2" />
-      <Item value="Store`0" priority="5" />
+      <Item value="Store`0" priority="6" />
       <Item value="Load`1" priority="1" />
-      <Item value="SaveChanges`0" priority="9" />
-      <Item value="Query`2" priority="9" />
+      <Item value="SaveChanges`0" priority="11" />
+      <Item value="Query`2" priority="11" />
       <Item value="HasBook`0" priority="0" />
       <Item value="Advanced" priority="1" />
     </ItemStatistics>
@@ -251,7 +270,7 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:Raven.Client.Linq.IRavenQueryable`1">
       <Item value="FirstOrDefault`1" priority="0" />
-      <Item value="Single`1" priority="0" />
+      <Item value="Single`1" priority="2" />
       <Item value="Where`1" priority="3" />
       <Item value="Take`1" priority="0" />
       <Item value="Select`2" priority="0" />
@@ -272,13 +291,15 @@
       <Item value="IsNullOrEmpty`0" priority="2" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:FubuMVC.Core.UI.HtmlConventionRegistry">
-      <Item value="Editors" priority="0" />
+      <Item value="Editors" priority="4" />
+      <Item value="Labels" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:FubuMVC.Core.UI.Tags.TagFactoryExpression">
       <Item value="IfPropertyIs`1" priority="0" />
+      <Item value="If`0" priority="3" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:FubuMVC.Core.UI.Tags.TagActionExpression">
-      <Item value="BuildBy`0" priority="0" />
+      <Item value="BuildBy`0" priority="5" />
       <Item value="Modify`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Web.Endpoints.SiteManagement.HomepageContentEndpoint">
@@ -338,6 +359,7 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Enum">
       <Item value="Parse`0" priority="1" />
+      <Item value="GetValues`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
       <Item value="ElementAt`1" priority="1" />
@@ -375,77 +397,135 @@
       <Item value="Single`1" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Collections.Generic.KeyValuePair`2">
-      <Item value="Key" priority="0" />
-      <Item value="Value" priority="0" />
+      <Item value="Key" priority="1" />
+      <Item value="Value" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Web.Tests.Books.ViewEndpoint">
       <Item value="Get`0" priority="0" />
     </ItemStatistics>
+    <ItemStatistics item="Qualified:Model.Genre">
+      <Item value="Name" priority="2" />
+      <Item value="ID" priority="0" />
+      <Item value="Id" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Web.Tests.Genre.CreateGenreInputModel">
+      <Item value="Name" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Web.Tests.Genre.CreateEndpoint">
+      <Item value="Post`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Web.Tests.Genre.GenreCreatedModel">
+      <Item value="GenreId" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Model.BookStatus">
+      <Item value="Reviewed" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FubuMVC.Core.UI.Configuration.AccessorDef">
+      <Item value="Accessor" priority="3" />
+      <Item value="ModelType" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FubuCore.Reflection.Accessor">
+      <Item value="Name" priority="2" />
+      <Item value="PropertyType" priority="2" />
+      <Item value="PropertyNames" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="EndsWith`0" priority="2" />
+      <Item value="Replace`0" priority="0" />
+      <Item value="Substring`0" priority="0" />
+      <Item value="Length" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FubuMVC.Core.UI.Configuration.ElementRequest">
+      <Item value="Tags`0" priority="0" />
+      <Item value="Accessor" priority="6" />
+      <Item value="Model" priority="0" />
+      <Item value="Value`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FubuMVC.Core.UI.Tags.ITagGenerator">
+      <Item value="InputFor`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:HtmlTags.HtmlTag">
+      <Item value="Text`0" priority="2" />
+      <Item value="Add`1" priority="0" />
+      <Item value="Children" priority="1" />
+      <Item value="Attr`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Type">
+      <Item value="IsEnum" priority="1" />
+      <Item value="IsAssignableFrom`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Object">
+      <Item value="GetType`0" priority="0" />
+      <Item value="ToString`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IList`1">
+      <Item value="Add`0" priority="1" />
+    </ItemStatistics>
   </CompletionStatisticsManager>
   <RecentFiles>
     <RecentFiles>
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Homepage/f:HomepageEndpointTests.cs" caret="1087" fromTop="47" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Homepage/f:HomepageContentViewModelTests.cs" caret="273" fromTop="15" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Homepage/f:HomepageContentLinkModelTests.cs" caret="273" fromTop="15" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Homepage/f:HomepageContentInputModelTests.cs" caret="273" fromTop="14" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Homepage/f:HomepageViewModelTest.cs" caret="234" fromTop="14" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Homepage/f:HomepageLinkModelTests.cs" caret="235" fromTop="14" />
-      <File id="68048045-BF5F-40A3-A2B2-A934A85087F6/d:Features/d:Book Management/f:Status.feature" caret="474" fromTop="19" />
-      <File id="68048045-BF5F-40A3-A2B2-A934A85087F6/d:Features/d:Book Management/f:Status.feature.cs" caret="1549" fromTop="33" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Homepage/f:HomepageContentEndpointTests.cs" caret="258" fromTop="4" />
-      <File id="BFE347A9-971C-4C8D-A82D-7093D75BDDEA/f:HomepageContentProvider.cs" caret="427" fromTop="9" />
-      <File id="B13231D7-F25A-45C0-A314-C176FC7059E0/f:HomepageContentProviderTests.cs" caret="749" fromTop="20" />
-      <File id="68048045-BF5F-40A3-A2B2-A934A85087F6/d:Features/d:Book Management/f:Creating.feature.cs" caret="1551" fromTop="33" />
       <File id="68048045-BF5F-40A3-A2B2-A934A85087F6/d:Features/d:Book Management/f:Creating.feature" caret="214" fromTop="0" />
       <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/f:RavenTestsBase.cs" caret="238" fromTop="7" />
-      <File id="BFE347A9-971C-4C8D-A82D-7093D75BDDEA/d:Services/f:BookCreater.cs" caret="252" fromTop="12" />
-      <File id="B13231D7-F25A-45C0-A314-C176FC7059E0/f:BookCreaterTests.cs" caret="269" fromTop="0" />
       <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Books/f:CreateBookInputModelTests.cs" caret="63" fromTop="1" />
       <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Books/f:CreateBookLinkModelTests.cs" caret="79" fromTop="2" />
       <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Books/f:ViewEndpointTests.cs" caret="233" fromTop="9" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/f:HomepageContent.spark" caret="486" fromTop="12" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/f:Homepage.spark" caret="151" fromTop="6" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/d:CreateModels/f:CreateBookViewModel.cs" caret="93" fromTop="2" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Shared/f:Application.spark" caret="15" fromTop="0" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="433" fromTop="7" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:Create.spark" caret="98" fromTop="2" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:AppStart.cs" caret="1161" fromTop="26" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:CreateEndpoint.cs" caret="475" fromTop="16" />
       <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Books/f:ViewBookLinkModelTest.cs" caret="63" fromTop="1" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Books/f:CreateEndpointTests.cs" caret="902" fromTop="34" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Genre/f:CreateEndpointTests.cs" caret="787" fromTop="28" />
+      <File id="B13231D7-F25A-45C0-A314-C176FC7059E0/f:GenreTest.cs" caret="0" fromTop="0" />
+      <File id="BFE347A9-971C-4C8D-A82D-7093D75BDDEA/f:Genre.cs" caret="277" fromTop="16" />
+      <File id="B13231D7-F25A-45C0-A314-C176FC7059E0/f:BookTests.cs" caret="526" fromTop="9" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Genre/d:CreateGenreModels/f:GenreCreatedModel.cs" caret="252" fromTop="13" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Genre/f:CreateEndpoint.cs" caret="533" fromTop="23" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Genre/f:CreateGenreInputModelTests.cs" caret="220" fromTop="9" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Genre/f:CreateEndpointTests.cs" caret="1130" fromTop="45" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Genre/d:CreateGenreModels/f:CreateGenreInputModel.cs" caret="166" fromTop="8" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Genre/f:GenreCreatedModelTests.cs" caret="175" fromTop="7" />
+      <File id="BFE347A9-971C-4C8D-A82D-7093D75BDDEA/f:Book.cs" caret="331" fromTop="12" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Shared/f:bindings.xml" caret="409" fromTop="9" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Books/f:CreateEndpointTests.cs" caret="609" fromTop="17" />
+      <File id="BFE347A9-971C-4C8D-A82D-7093D75BDDEA/d:Services/f:IBookCreater.cs" caret="84" fromTop="4" />
+      <File id="BFE347A9-971C-4C8D-A82D-7093D75BDDEA/d:Services/f:BookCreater.cs" caret="606" fromTop="21" />
+      <File id="B13231D7-F25A-45C0-A314-C176FC7059E0/f:BookCreaterTests.cs" caret="537" fromTop="11" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/d:CreateModels/f:CreateBookInputModel.cs" caret="472" fromTop="20" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/d:CreateModels/f:CreateBookViewModel.cs" caret="112" fromTop="4" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:CreateEndpoint.cs" caret="604" fromTop="10" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="3195" fromTop="34" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:Create.spark" caret="911" fromTop="38" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Shared/f:Application.spark" caret="522" fromTop="15" />
     </RecentFiles>
     <RecentEdits>
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Books/f:CreateEndpointTests.cs" caret="2940" fromTop="14" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Books/f:CreateEndpointTests.cs" caret="2940" fromTop="11" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Books/f:CreateEndpointTests.cs" caret="2940" fromTop="13" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Books/f:CreateEndpointTests.cs" caret="2940" fromTop="14" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Books/f:CreateEndpointTests.cs" caret="2945" fromTop="13" />
-      <File id="BFE347A9-971C-4C8D-A82D-7093D75BDDEA/d:Services/f:BookCreater.cs" caret="252" fromTop="12" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Books/f:CreateBookLinkModelTests.cs" caret="79" fromTop="2" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:CreateEndpoint.cs" caret="1062" fromTop="15" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:CreateEndpoint.cs" caret="1062" fromTop="21" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:CreateEndpoint.cs" caret="1062" fromTop="28" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:CreateEndpoint.cs" caret="1048" fromTop="26" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/f:HomepageContent.spark" caret="172" fromTop="3" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/f:HomepageContent.spark" caret="486" fromTop="12" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/f:Homepage.spark" caret="71" fromTop="2" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/f:Homepage.spark" caret="151" fromTop="6" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:Create.spark" caret="15" fromTop="0" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Shared/f:Application.spark" caret="66" fromTop="4" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Shared/f:Application.spark" caret="15" fromTop="0" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="433" fromTop="7" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:AppStart.cs" caret="965" fromTop="18" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Genre/f:CreateEndpointTests.cs" caret="543" fromTop="18" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Genre/f:CreateEndpointTests.cs" caret="835" fromTop="34" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Books/f:CreateEndpointTests.cs" caret="379" fromTop="12" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Books/f:CreateEndpointTests.cs" caret="550" fromTop="19" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Books/f:CreateEndpointTests.cs" caret="1501" fromTop="27" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Books/f:CreateEndpointTests.cs" caret="902" fromTop="22" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Genre/f:CreateEndpointTests.cs" caret="451" fromTop="21" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Genre/f:CreateEndpointTests.cs" caret="291" fromTop="14" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Genre/f:CreateEndpointTests.cs" caret="725" fromTop="24" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Genre/f:CreateEndpointTests.cs" caret="765" fromTop="28" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Genre/f:CreateGenreInputModelTests.cs" caret="275" fromTop="12" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Genre/f:CreateGenreInputModelTests.cs" caret="220" fromTop="9" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Genre/f:CreateEndpointTests.cs" caret="1130" fromTop="22" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/d:CreateModels/f:CreateBookViewModel.cs" caret="132" fromTop="4" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Books/f:CreateEndpointTests.cs" caret="745" fromTop="10" />
+      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Books/f:CreateEndpointTests.cs" caret="2428" fromTop="7" />
+      <File id="BFE347A9-971C-4C8D-A82D-7093D75BDDEA/d:Services/f:IBookCreater.cs" caret="217" fromTop="6" />
+      <File id="BFE347A9-971C-4C8D-A82D-7093D75BDDEA/d:Services/f:BookCreater.cs" caret="451" fromTop="17" />
+      <File id="BFE347A9-971C-4C8D-A82D-7093D75BDDEA/d:Services/f:BookCreater.cs" caret="606" fromTop="21" />
+      <File id="B13231D7-F25A-45C0-A314-C176FC7059E0/f:BookCreaterTests.cs" caret="799" fromTop="19" />
+      <File id="B13231D7-F25A-45C0-A314-C176FC7059E0/f:BookCreaterTests.cs" caret="1112" fromTop="29" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/d:CreateModels/f:CreateBookInputModel.cs" caret="267" fromTop="12" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:Create.spark" caret="429" fromTop="12" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="3248" fromTop="21" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="1444" fromTop="21" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="2378" fromTop="26" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="2377" fromTop="25" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="2323" fromTop="13" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="3039" fromTop="26" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:CreateEndpoint.cs" caret="703" fromTop="29" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="2843" fromTop="22" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:CreateEndpoint.cs" caret="703" fromTop="14" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="3195" fromTop="34" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Shared/f:Application.spark" caret="436" fromTop="13" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:Create.spark" caret="246" fromTop="6" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:Create.spark" caret="711" fromTop="25" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:Create.spark" caret="799" fromTop="29" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:Create.spark" caret="819" fromTop="33" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:Create.spark" caret="911" fromTop="38" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Shared/f:Application.spark" caret="522" fromTop="15" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

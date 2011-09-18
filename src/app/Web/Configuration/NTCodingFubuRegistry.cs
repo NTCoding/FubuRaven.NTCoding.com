@@ -14,86 +14,99 @@ namespace Web.Configuration
     {
         public NTCodingFubuRegistry()
         {
-            IncludeDiagnostics(true);
+        	IncludeDiagnostics(true);
 
-            Routes
-				.IgnoreNamespaceText("Endpoints")
-				.IgnoreClassSuffix("Endpoint")
-				.IgnoreMethodsNamed("get")
-				.IgnoreMethodsNamed("post")
-				.ConstrainToHttpMethod(x => x.Method.Name.Equals("Get"), "Get")
-				.ConstrainToHttpMethod(x => x.Method.Name.Equals("Post"), "Post")
-                .RootAtAssemblyNamespace();
+        	Routes
+        		.IgnoreNamespaceText("Endpoints")
+        		.IgnoreClassSuffix("Endpoint")
+        		.IgnoreMethodsNamed("get")
+        		.IgnoreMethodsNamed("post")
+        		.ConstrainToHttpMethod(x => x.Method.Name.Equals("Get"), "Get")
+        		.ConstrainToHttpMethod(x => x.Method.Name.Equals("Post"), "Post")
+        		.RootAtAssemblyNamespace();
 
         	Actions
         		.IncludeTypes(t => t.Namespace.Contains("Web.Endpoints") && t.Name.EndsWith("Endpoint"));
 
-			Views
+        	Views
         		.TryToAttach(x => x.by_ViewModel())
-				.RegisterActionLessViews(t => t.ViewModelType == typeof(Notification));
+        		.RegisterActionLessViews(t => t.ViewModelType == typeof (Notification));
 
-			this.Validation(validation =>
-								{
-									validation
-										.Actions
-										.Include(call => call.HasInput && call.InputType().Name.Contains("Input"));
+        	this.Validation(validation =>
+        	                	{
+        	                		validation
+        	                			.Actions
+        	                			.Include(call => call.HasInput && call.InputType().Name.Contains("Input"));
 
-									validation
-										.Failures
-										.If(f => f.InputType() != null && f.InputType().Name.Contains("Input"))
-										.TransferBy<HandlerModelDescriptor>();
-								});
-
-        	HtmlConvention(x =>
-        	                    x.Editors
-        						  .If(e => e.Accessor.Name.EndsWith("_BigText"))
-        	                      .BuildBy(er => new HtmlTag("textarea"))
-						);
+        	                		validation
+        	                			.Failures
+        	                			.If(f => f.InputType() != null && f.InputType().Name.Contains("Input"))
+        	                			.TransferBy<HandlerModelDescriptor>();
+        	                	});
 
         	HtmlConvention(x =>
-        					   x.Labels
-        	               		.If(e => e.Accessor.Name.EndsWith("_BigText"))
-        	               		.BuildBy(er => new HtmlTag("label").Text(er.Accessor.Name.Replace("_BigText", "")))
-						);
+        	               x.Editors
+        	               	.If(e => e.Accessor.Name.EndsWith("_BigText"))
+        	               	.BuildBy(er => new HtmlTag("textarea"))
+        		);
 
-			HtmlConvention(x =>
-							x.Editors
-							  .If(e => e.Accessor.PropertyType.IsEnum)
-							  .BuildBy(er =>
-						           		{
-						           			var tag = new HtmlTag("select");
-						           			var enumValues = Enum.GetValues(er.Accessor.PropertyType);
-						           			foreach (var enumValue in enumValues)
-						           			{
-						           				tag.Children.Add(new HtmlTag("option").Text(enumValue.ToString()));
-						           			}
+        	HtmlConvention(x =>
+        	               x.Labels
+        	               	.If(e => e.Accessor.Name.EndsWith("_BigText"))
+        	               	.BuildBy(er => new HtmlTag("label").Text(er.Accessor.Name.Replace("_BigText", "")))
+        		);
 
-						           			return tag;
-						           		})
-						);
+        	HtmlConvention(x =>
+        	               x.Editors
+        	               	.If(e => e.Accessor.PropertyType.IsEnum)
+        	               	.BuildBy(er =>
+        	               	         	{
+        	               	         		var tag = new HtmlTag("select");
+        	               	         		var enumValues = Enum.GetValues(er.Accessor.PropertyType);
+        	               	         		foreach (var enumValue in enumValues)
+        	               	         		{
+        	               	         			tag.Children.Add(new HtmlTag("option").Text(enumValue.ToString()));
+        	               	         		}
 
-			HtmlConvention(x => 
-							x.Editors
-								.If(e => e.Accessor.PropertyType.IsAssignableFrom(typeof(IDictionary<String,String>)))
-								.BuildBy(er =>
-								         	{
-								         		var dictionary = er.Value<IDictionary<String, String>>();
-								         		string name = er.Accessor.PropertyNames[0].Substring(0, er.Accessor.PropertyNames[0].Length - 1);
-								         		var tag = new HtmlTag("select").Attr("name", name);
-								         		foreach (var item in dictionary)
-								         		{
-								         			tag.Children.Add(new HtmlTag("option")
-														.Text(item.Value)
-														.Attr("value", item.Key)
-														);
-								         		}
+        	               	         		return tag;
+        	               	         	})
+        		);
 
-								         		return tag;
-								         	})
-						);
+        	HtmlConvention(x =>
+        	               x.Editors
+        	               	.If(e => e.Accessor.PropertyType.IsAssignableFrom(typeof (IDictionary<String, String>)))
+        	               	.BuildBy(er =>
+        	               	         	{
+        	               	         		var dictionary = er.Value<IDictionary<String, String>>();
+        	               	         		string name = er.Accessor.PropertyNames[0].Substring(0, er.Accessor.PropertyNames[0].Length - 1);
+        	               	         		var tag = new HtmlTag("select").Attr("name", name);
+        	               	         		foreach (var item in dictionary)
+        	               	         		{
+        	               	         			tag.Children.Add(new HtmlTag("option")
+        	               	         			                 	.Text(item.Value)
+        	               	         			                 	.Attr("value", item.Key)
+        	               	         				);
+        	               	         		}
+
+        	               	         		return tag;
+        	               	         	})
+        		);
+
+        	HtmlConvention(x =>
+        	               x.Editors
+        	               	.If(e => e.Accessor.PropertyType.IsAssignableFrom(typeof (IEnumerable<String>)))
+        	               	.BuildBy(er =>
+        	               	         	{
+        	               	         		var tag = new HtmlTag("div").AddClass("hasHiddenGroup");
+											tag.Children.Add(new HtmlTag("input").Attr("type", "text"));
+											tag.Children.Add(new HtmlTag("a").Attr("href", "#").Text("add").AddClass("addItem"));
+        	               	         		tag.Children.Add(new HtmlTag("ul"));
+
+        	               	         		return tag;
+        	               	         	}));
 
 
-        	this.UseSpark();
+			this.UseSpark();
         }
     }
 }

@@ -24,8 +24,9 @@
 		${this.LabelFor(m => m.Authors)}
 		${this.InputFor(m => m.Authors)}
 	</p>
-	<p>
+	<!--<p>
 		${this.LabelFor(m => m.Image)}
 		${this.InputFor(m => m.Image)}
-	</p>
+	</p>-->
 </Form>
+

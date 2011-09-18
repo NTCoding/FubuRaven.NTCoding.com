@@ -177,6 +177,9 @@
     <Compile Include="Endpoints\SiteManagement\Book\CreateModels\CreateBookViewModel.cs" />
     <Compile Include="Endpoints\SiteManagement\Book\CreateModels\ViewBookLinkModel.cs" />
     <Compile Include="Endpoints\SiteManagement\Book\View\ViewEndpoint.cs" />
+    <Compile Include="Endpoints\SiteManagement\Genre\CreateEndpoint.cs" />
+    <Compile Include="Endpoints\SiteManagement\Genre\CreateGenreModels\CreateGenreInputModel.cs" />
+    <Compile Include="Endpoints\SiteManagement\Genre\CreateGenreModels\GenreCreatedModel.cs" />
     <Compile Include="Endpoints\SiteManagement\HomepageContentEndpoint.cs" />
     <Compile Include="Endpoints\SiteManagement\HomepageContentModels\HomepageContentInputModel.cs" />
     <Compile Include="Endpoints\SiteManagement\HomepageContentModels\HomepageContentLinkModel.cs" />

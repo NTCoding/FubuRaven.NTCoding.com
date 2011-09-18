@@ -22,7 +22,7 @@ namespace Web.Endpoints.SiteManagement.Book
 		public CreateBookViewModel Get(CreateBookLinkModel model)
 		{
 			var genres = _session
-				.Query<Genre>()
+				.Query<Model.Genre>()
 				.ToDictionary(g => g.Id, g => g.Name);
 
 			return new CreateBookViewModel(genres);

@@ -120,6 +120,8 @@
     <Compile Include="Books\ViewBookLinkModelTest.cs" />
     <Compile Include="Books\ViewEndpointTests.cs" />
     <Compile Include="Genre\CreateEndpointTests.cs" />
+    <Compile Include="Genre\CreateGenreInputModelTests.cs" />
+    <Compile Include="Genre\GenreCreatedModelTests.cs" />
     <Compile Include="Homepage\HomepageContentEndpointTests.cs" />
     <Compile Include="Homepage\HomepageContentInputModelTests.cs" />
     <Compile Include="Homepage\HomepageContentLinkModelTests.cs" />

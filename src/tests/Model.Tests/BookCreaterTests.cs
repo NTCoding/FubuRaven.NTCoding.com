@@ -21,7 +21,7 @@ namespace Model.Tests
 		[Test]
 		public void Create_GivenValidBookDetails_ShouldCreateBook()
 		{
-			var genre = new Genre("Jimmy Bogard") {ID = "99"};
+			var genre = new Genre("Jimmy Bogard") {Id = "99"};
 			Session.Store(genre);
 			Session.SaveChanges();
 
@@ -30,7 +30,7 @@ namespace Model.Tests
 			var author2 = "you";
 			var authors = new[] { author1, author2, };
 			var description = "Pretty good";
-			var genreId = genre.ID;
+			var genreId = genre.Id;
 			var image = new[] { (byte)1 };
 			var status = "Reviewed";
 

@@ -17,7 +17,7 @@ namespace Model.Services
 
 		public void Create(string title, IEnumerable<string> authors, string description, string genreID, byte[] image, string status)
 		{
-			var genre = _session.Query<Genre>().Where(g => g.ID == genreID).Single();
+			var genre = _session.Query<Genre>().Where(g => g.Id == genreID).Single();
 
 			var bookStatus = (BookStatus) Enum.Parse(typeof (BookStatus), status);
 

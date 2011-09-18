@@ -35,7 +35,7 @@ namespace Model.Tests
 		{
 			var genre = new Genre("abc");
 
-			var x = genre.ID;
+			var x = genre.Id;
 		}
 	}
 }

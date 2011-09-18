@@ -13,6 +13,6 @@ namespace Model
 
 		public String Name { get; private set; }
 
-		public String ID { get; set; }
+		public String Id { get; set; }
 	}
 }

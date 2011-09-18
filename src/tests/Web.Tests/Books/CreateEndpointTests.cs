@@ -10,18 +10,19 @@ using NUnit.Framework;
 using Web.Endpoints.SiteManagement.Book;
 using Web.Endpoints.SiteManagement.Book.CreateModels;
 using Web.Endpoints.SiteManagement.Book.View;
+using Genre = Model.Genre;
 
 namespace Web.Tests.Books
 {
 	[TestFixture]
 	public class CreateEndpointTests : RavenTestsBase
 	{
-		private CreateBookInputModel GetTestCreateBookInputModel(Genre genre)
+		private CreateBookInputModel GetTestCreateBookInputModel(Model.Genre genre)
 		{
 			return new CreateBookInputModel
 			{
 				Title = "Amazing Book",
-				Genre = genre.ID,
+				Genre = genre.Id,
 				Description = "A splendid read",
 				Status = "Reviewed",
 				Authors = new[] { "Jimmy Bogard", "Jimmy Slim" },
@@ -29,9 +30,9 @@ namespace Web.Tests.Books
 			};
 		}
 
-		private Genre GetGenreFromSession()
+		private Model.Genre GetGenreFromSession()
 		{
-			var genre = new Genre("wooo") { ID = "1" };
+			var genre = new Model.Genre("wooo") { Id = "1" };
 			Session.Store(genre);
 			Session.SaveChanges();
 			return genre;
@@ -55,9 +56,9 @@ namespace Web.Tests.Books
 		[Test]
 		public void Get_ViewModelShouldContainAllGenres()
 		{
-			var g1 = new Genre("good") {ID = "1"};
-			var g2 = new Genre("bad") {ID = "2"};
-			var g3 = new Genre("ugly") {ID = "3"};
+			var g1 = new Model.Genre("good") {Id = "1"};
+			var g2 = new Model.Genre("bad") {Id = "2"};
+			var g3 = new Model.Genre("ugly") {Id = "3"};
 
 			Session.Store(g1);
 			Session.Store(g2);
@@ -66,9 +67,9 @@ namespace Web.Tests.Books
 
 			var viewModel = _endpoint.Get(new CreateBookLinkModel());
 
-			Assert.IsTrue(viewModel.Genres.Any(g => g.Key == g1.ID && g.Value == g1.Name));
-			Assert.IsTrue(viewModel.Genres.Any(g => g.Key == g2.ID && g.Value == g2.Name));
-			Assert.IsTrue(viewModel.Genres.Any(g => g.Key == g3.ID && g.Value == g3.Name));
+			Assert.IsTrue(viewModel.Genres.Any(g => g.Key == g1.Id && g.Value == g1.Name));
+			Assert.IsTrue(viewModel.Genres.Any(g => g.Key == g2.Id && g.Value == g2.Name));
+			Assert.IsTrue(viewModel.Genres.Any(g => g.Key == g3.Id && g.Value == g3.Name));
 		}
 
 		[Test]

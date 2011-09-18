@@ -49,7 +49,7 @@ namespace Model.Tests
 		{
 			var b = GetValidBook();
 
-			var x = b.ID;
+			var x = b.Id;
 		}
 
 		// TODO Validate inputs cannot be null

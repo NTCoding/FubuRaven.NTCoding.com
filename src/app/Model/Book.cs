@@ -17,7 +17,7 @@ namespace Model
 
 		public String Title { get; private set; }
 
-		public String ID { get; set; }
+		public String Id { get; set; }
 
 		public Genre Genre { get; private set; }
 

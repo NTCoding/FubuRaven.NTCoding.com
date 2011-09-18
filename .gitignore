@@ -10,3 +10,6 @@ src/tests/Model.Tests/bin/Debug/*
 src/app/Web/bin/Web.pdb
 src/specs/bin/*
 src/specs/obj/*
+src/specs/obj/*
+src/tests/Model.Tests/bin/*
+src/tests/Model.Tests/obj/*

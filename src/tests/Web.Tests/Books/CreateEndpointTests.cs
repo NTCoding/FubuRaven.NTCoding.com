@@ -17,14 +17,33 @@ namespace Web.Tests.Books
 		public void SetUp()
 		{
 			base.SetUp();
-			_endpoint = new CreateEndpoint(new BookCreater(Session));
+			_endpoint = new CreateEndpoint(new BookCreater(Session), Session);
 		}
 
-		// TODO - get action should be accessible from CreateBookLinkModel
+		[Test]
+		public void Get_ShouldBeAccessbileFromCreateBookLinkModel()
+		{
+			_endpoint.Get(new CreateBookLinkModel());
+		}
 
-		// TODO - get action model should contain all of the genres for books
+		[Test]
+		public void Get_ViewModelShouldContainAllGenres()
+		{
+			var g1 = new Genre("good") {ID = "1"};
+			var g2 = new Genre("bad") {ID = "2"};
+			var g3 = new Genre("ugly") {ID = "3"};
 
-		// TODO - get action model should contain all of the authors for books
+			Session.Store(g1);
+			Session.Store(g2);
+			Session.Store(g3);
+			Session.SaveChanges();
+
+			var viewModel = _endpoint.Get(new CreateBookLinkModel());
+
+			Assert.IsTrue(viewModel.Genres.Any(g => g.Key == g1.ID && g.Value == g1.Name));
+			Assert.IsTrue(viewModel.Genres.Any(g => g.Key == g2.ID && g.Value == g2.Name));
+			Assert.IsTrue(viewModel.Genres.Any(g => g.Key == g3.ID && g.Value == g3.Name));
+		}
 
 		[Test]
 		public void Post_GivenValidBookDetails_ShouldCreateBook()
@@ -59,6 +78,57 @@ namespace Web.Tests.Books
 		}
 
 		// TODO - should be on the "View Book" page
+	}
+
+	[TestFixture]
+	public class CreateBookViewModelTests
+	{
+		[Test]
+		public void CanCreate()
+		{
+			var genres = new Dictionary<String, String>();
+			genres.Add("1", "genre1");
+
+			new CreateBookViewModel(genres);
+		}
+
+		[Test]
+		public void ShouldConstructGenres()
+		{
+			var genres = new Dictionary<String, String>();
+			var genreID = "1";
+			var genreName = "genre1";
+
+			genres.Add(genreID, genreName);
+
+			var model = new CreateBookViewModel(genres);
+
+			Assert.IsTrue(model.Genres.Single().Key == genreID && model.Genres.Single().Value == genreName);
+		}
+	}
+
+	public class CreateBookViewModel
+	{
+		public CreateBookViewModel(Dictionary<string, string> genres)
+		{
+			Genres = genres;
+		}
+
+		public IDictionary<String, String> Genres { get; private set; }
+	}
+
+	[TestFixture]
+	public class CreateBookLinkModelTests
+	{
+		[Test]
+		public void CanCreate()
+		{
+			new CreateBookLinkModel();
+		}
+	}
+
+	public class CreateBookLinkModel
+	{
 	}
 
 	[TestFixture]
@@ -143,16 +213,27 @@ namespace Web.Tests.Books
 	public class CreateEndpoint
 	{
 		private readonly IBookCreater _bookCreater;
+		private readonly IDocumentSession _session;
 
-		public CreateEndpoint(IBookCreater bookCreater)
+		public CreateEndpoint(IBookCreater bookCreater, IDocumentSession session)
 		{
 			_bookCreater = bookCreater;
+			_session = session;
 		}
 
 		public void Post(CreateBookInputModel model)
 		{
 			_bookCreater.Create(model.Title, model.Authors, model.Description, model.Genre,
 								(byte[])model.Image, model.Status);
+		}
+
+		public CreateBookViewModel Get(CreateBookLinkModel model)
+		{
+			var genres = _session
+				.Query<Genre>()
+				.ToDictionary(g => g.ID, g => g.Name);
+
+			return new CreateBookViewModel(genres);
 		}
 	}
 

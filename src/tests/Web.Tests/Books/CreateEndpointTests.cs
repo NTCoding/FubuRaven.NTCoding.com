@@ -20,15 +20,23 @@ namespace Web.Tests.Books
 			_endpoint = new CreateEndpoint(new BookCreater(Session));
 		}
 
+		// TODO - get action should be accessible from CreateBookLinkModel
+
+		// TODO - get action model should contain all of the genres for books
+
+		// TODO - get action model should contain all of the authors for books
+
 		[Test]
 		public void Post_GivenValidBookDetails_ShouldCreateBook()
 		{
-			// TODO - Insert genre into session
-			// validate that genre has correct name - not ID
+			var genre = new Genre("wooo") {ID = "1"};
+			Session.Store(genre);
+			Session.SaveChanges();
+
 			var model = new CreateBookInputModel
 			                {
 			                    Title = "Amazing Book",
-			                    Genre = "1",
+			                    Genre = genre.ID,
 			                    Description = "A splendid read",
 			                    Status = "Reviewed",
 			                    Authors = new[] { "Jimmy Bogard", "Jimmy Slim" },
@@ -40,7 +48,7 @@ namespace Web.Tests.Books
 
 			var book = Session.Query<Book>()
 				.Where(b => b.Title == model.Title)
-				.Where(b => b.Genre.ID == model.Genre)
+				.Where(b => b.Genre.Name == genre.Name)
 				.Where(b => b.Description == model.Description)
 				.Where(b => b.Status == (BookStatus) Enum.Parse(typeof (BookStatus), model.Status))
 				.Where(b => b.Authors.Any(a => a == model.Authors.ElementAt(0)))
@@ -49,6 +57,8 @@ namespace Web.Tests.Books
 			Assert.IsNotNull(book);
 			Assert.IsTrue(book.Authors.Any(a => a == model.Authors.ElementAt(1)));
 		}
+
+		// TODO - should be on the "View Book" page
 	}
 
 	[TestFixture]
@@ -100,7 +110,7 @@ namespace Web.Tests.Books
 			var x = b.ID;
 		}
 
-		// Validate inputs cannot be null
+		// TODO Validate inputs cannot be null
 	}
 
 	public class Book
@@ -152,7 +162,7 @@ namespace Web.Tests.Books
 	}
 
 	[TestFixture]
-	public class BookCreaterTest : RavenTestsBase
+	public class BookCreaterTests : RavenTestsBase
 	{
 		private BookCreater _bookCreater;
 
@@ -165,12 +175,16 @@ namespace Web.Tests.Books
 		[Test]
 		public void Create_GivenValidBookDetails_ShouldCreateBook()
 		{
+			var genre = new Genre("Jimmy Bogard") {ID = "99"};
+			Session.Store(genre);
+			Session.SaveChanges();
+
 			var title = "mega book";
 			var author1 = "me";
 			var author2 = "you";
 			var authors = new[] { author1, author2, };
 			var description = "Pretty good";
-			var genreId = "1";
+			var genreId = genre.ID;
 			var image = new[] { (byte)1 };
 			var status = "Reviewed";
 
@@ -180,7 +194,7 @@ namespace Web.Tests.Books
 
 			var book = Session.Query<Book>()
 				.Where(b => b.Title == title)
-				.Where(b => b.Genre.ID == genreId)
+				.Where(b => b.Genre.Name == genre.Name)
 				.Where(b => b.Description == description)
 				.Where(b => b.Status == (BookStatus)Enum.Parse(typeof(BookStatus), status))
 				.Where(b => b.Authors.Any(a => a == author1))
@@ -188,10 +202,6 @@ namespace Web.Tests.Books
 
 			Assert.IsNotNull(book);
 		}
-
-		// TODO - should get correct authors from session
-
-		// TODO - should get correct genre from session
 
 		// TODO - validate bad inputs
 	}
@@ -207,7 +217,8 @@ namespace Web.Tests.Books
 
 		public void Create(string title, IEnumerable<string> authors, string description, string genreID, byte[] image, string status)
 		{
-			var genre = new Genre("a"){ID = genreID};
+			var genre = _session.Query<Genre>().Where(g => g.ID == genreID).Single();
+
 			var bookStatus = (BookStatus) Enum.Parse(typeof (BookStatus), status);
 
 			var book = new Book(title, authors, description, genre, bookStatus, image);
@@ -252,7 +263,7 @@ namespace Web.Tests.Books
 		}
 
 		[Test]
-		[ExpectedException(typeof(ArgumentNullException))]
+		[ExpectedException(typeof(ArgumentException))]
 		public void IfEmptyStringSupplied_ShouldThrowException()
 		{
 			new Genre("");
@@ -281,7 +292,7 @@ namespace Web.Tests.Books
 	{
 		public Genre(string name)
 		{
-			if (string.IsNullOrEmpty(name)) throw new ArgumentNullException("name");
+			if (string.IsNullOrEmpty(name)) throw new ArgumentException("name");
 
 			Name = name;
 		}

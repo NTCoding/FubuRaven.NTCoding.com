@@ -1,9 +1,10 @@
 ﻿<use namespace="Web.Endpoints.SiteManagement.Book.CreateModels" />
+<use namespace="Web.Endpoints.SiteManagement.Genre.CreateGenreModels" />
 <viewdata model="Web.Endpoints.SiteManagement.Book.CreateModels.CreateBookViewModel" />
 
 <h1>Create a new book</h1>
 <ValidationErrors />
-<Form model="CreateBookInputModel">
+<form action="${this.Urls.UrlFor(new CreateBookInputModel())}" method="post" enctype="multipart/form-data">
 	<p>
 		${this.LabelFor(m => m.Title)} 
 		${this.InputFor(m => m.Title)}
@@ -28,5 +29,13 @@
 		${this.LabelFor(m => m.Image)}
 		${this.InputFor(m => m.Image)}
 	</p>
-</Form>
+	<input type="submit" value="Create Book" />
+</form>
+
+<h2>Add a new Genre</h2>
+<form action="${this.Urls.UrlFor(new CreateGenreInputModel())}" method="post">
+	<input type="text" name="Name" />
+	<br />
+	<input type="submit" value="Create Genre" />
+</form>
 

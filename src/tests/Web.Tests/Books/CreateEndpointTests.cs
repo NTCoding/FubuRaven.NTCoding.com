@@ -10,6 +10,7 @@ using NUnit.Framework;
 using Web.Endpoints.SiteManagement.Book;
 using Web.Endpoints.SiteManagement.Book.CreateModels;
 using Web.Endpoints.SiteManagement.Book.View;
+using Web.Tests.TestDoubles;
 using Genre = Model.Genre;
 
 namespace Web.Tests.Books
@@ -26,7 +27,7 @@ namespace Web.Tests.Books
 				Description_BigText = "A splendid read",
 				BookStatus = BookStatus.Reviewed,
 				Authors = new[] { "Jimmy Bogard", "Jimmy Slim" },
-				Image = new[] { (byte)1 }
+				Image = new MockHttpPostedFileBase(new byte[100])
 			};
 		}
 

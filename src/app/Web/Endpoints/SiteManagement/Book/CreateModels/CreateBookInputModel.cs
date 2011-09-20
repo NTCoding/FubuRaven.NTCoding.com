@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web;
 using Model;
 
 namespace Web.Endpoints.SiteManagement.Book.CreateModels
@@ -17,6 +18,6 @@ namespace Web.Endpoints.SiteManagement.Book.CreateModels
 		public IEnumerable<String> Authors { get; set; }
 
 		// TODO - test a file upload?
-		public object Image { get; set; }
+		public HttpPostedFileBase Image { get; set; }
 	}
 }

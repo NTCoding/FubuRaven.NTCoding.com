@@ -156,6 +156,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Public\js\site.js" />
     <Content Include="Shared\bindings.xml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -186,6 +187,7 @@
     <Compile Include="Endpoints\SiteManagement\HomepageContentModels\HomepageContentLinkModel.cs" />
     <Compile Include="Endpoints\SiteManagement\HomepageContentModels\HomepageContentViewModel.cs" />
     <Compile Include="Infrastructure\Raven\DocumentStoreHolder.cs" />
+    <Compile Include="Infrastructure\Services\FileUploader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

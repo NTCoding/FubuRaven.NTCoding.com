@@ -129,8 +129,10 @@
     <Compile Include="Homepage\HomepageEndpointTests.cs" />
     <Compile Include="Homepage\HomepageLinkModelTests.cs" />
     <Compile Include="Homepage\HomepageViewModelTest.cs" />
+    <Compile Include="Infrastructure\FileUploaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RavenTestsBase.cs" />
+    <Compile Include="TestDoubles\MockHttpPostedFileBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

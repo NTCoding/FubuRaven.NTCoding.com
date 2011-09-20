@@ -10,8 +10,8 @@
   <CompletionStatisticsManager>
     <ItemStatistics item="Default">
       <Item value="CSharp" priority="1" />
-      <Item value="var" priority="93" />
-      <Item value="new" priority="137" />
+      <Item value="var" priority="95" />
+      <Item value="new" priority="141" />
       <Item value="controller" priority="0" />
       <Item value="endPoint" priority="2" />
       <Item value="string" priority="7" />
@@ -21,7 +21,7 @@
       <Item value="throw" priority="5" />
       <Item value="NotImplementedException" priority="2" />
       <Item value="public" priority="97" />
-      <Item value="return" priority="25" />
+      <Item value="return" priority="26" />
       <Item value="void" priority="64" />
       <Item value="String`0" priority="27" />
       <Item value="PiggyBankViewModel" priority="0" />
@@ -72,7 +72,7 @@
       <Item value="result" priority="11" />
       <Item value="HomepageContentViewModel" priority="2" />
       <Item value="container" priority="0" />
-      <Item value="typeof" priority="6" />
+      <Item value="typeof" priority="7" />
       <Item value="IHomepageContentProvider`0" priority="2" />
       <Item value="IDocumentSession`0" priority="2" />
       <Item value="StartupDb`0" priority="0" />
@@ -86,7 +86,7 @@
       <Item value="Session" priority="25" />
       <Item value="Class1`0" priority="0" />
       <Item value="List" priority="1" />
-      <Item value="IEnumerable" priority="3" />
+      <Item value="IEnumerable" priority="5" />
       <Item value="Random`0" priority="0" />
       <Item value="Random" priority="0" />
       <Item value="HtmlConvention`0" priority="5" />
@@ -102,7 +102,7 @@
       <Item value="EnvironmentVariableTarget`0" priority="0" />
       <Item value="HomepageLinkModel" priority="5" />
       <Item value="HomepageViewModel" priority="0" />
-      <Item value="e" priority="7" />
+      <Item value="e" priority="8" />
       <Item value="HomepageContentProvider" priority="0" />
       <Item value="MockRepository`0" priority="0" />
       <Item value="_contentProvider" priority="0" />
@@ -180,17 +180,18 @@
       <Item value="GenreId" priority="0" />
       <Item value="CreateBookInputModel`0" priority="0" />
       <Item value="t" priority="0" />
-      <Item value="HtmlTag" priority="4" />
-      <Item value="er" priority="5" />
-      <Item value="foreach" priority="1" />
-      <Item value="tag" priority="3" />
+      <Item value="HtmlTag" priority="8" />
+      <Item value="er" priority="7" />
+      <Item value="foreach" priority="2" />
+      <Item value="tag" priority="8" />
       <Item value="enumValue" priority="0" />
-      <Item value="HtmlTag`0" priority="0" />
+      <Item value="HtmlTag`0" priority="1" />
       <Item value="IDictionary" priority="0" />
       <Item value="item" priority="1" />
       <Item value="Id" priority="0" />
       <Item value="ToString`0" priority="0" />
       <Item value="ToDictionary`3" priority="0" />
+      <Item value="list" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@TechTalk.SpecFlow.ScenarioContext">
       <Item value="Current" priority="5" />
@@ -291,15 +292,15 @@
       <Item value="IsNullOrEmpty`0" priority="2" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:FubuMVC.Core.UI.HtmlConventionRegistry">
-      <Item value="Editors" priority="4" />
+      <Item value="Editors" priority="5" />
       <Item value="Labels" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:FubuMVC.Core.UI.Tags.TagFactoryExpression">
       <Item value="IfPropertyIs`1" priority="0" />
-      <Item value="If`0" priority="3" />
+      <Item value="If`0" priority="4" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:FubuMVC.Core.UI.Tags.TagActionExpression">
-      <Item value="BuildBy`0" priority="5" />
+      <Item value="BuildBy`0" priority="6" />
       <Item value="Modify`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Web.Endpoints.SiteManagement.HomepageContentEndpoint">
@@ -421,13 +422,13 @@
       <Item value="Reviewed" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:FubuMVC.Core.UI.Configuration.AccessorDef">
-      <Item value="Accessor" priority="3" />
+      <Item value="Accessor" priority="4" />
       <Item value="ModelType" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:FubuCore.Reflection.Accessor">
       <Item value="Name" priority="2" />
-      <Item value="PropertyType" priority="2" />
-      <Item value="PropertyNames" priority="2" />
+      <Item value="PropertyType" priority="3" />
+      <Item value="PropertyNames" priority="3" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.String">
       <Item value="EndsWith`0" priority="2" />
@@ -437,29 +438,30 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:FubuMVC.Core.UI.Configuration.ElementRequest">
       <Item value="Tags`0" priority="0" />
-      <Item value="Accessor" priority="6" />
+      <Item value="Accessor" priority="7" />
       <Item value="Model" priority="0" />
-      <Item value="Value`1" priority="0" />
+      <Item value="Value`1" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:FubuMVC.Core.UI.Tags.ITagGenerator">
       <Item value="InputFor`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:HtmlTags.HtmlTag">
-      <Item value="Text`0" priority="2" />
-      <Item value="Add`1" priority="0" />
-      <Item value="Children" priority="1" />
-      <Item value="Attr`0" priority="1" />
+      <Item value="Text`0" priority="4" />
+      <Item value="Add`1" priority="1" />
+      <Item value="Children" priority="5" />
+      <Item value="Attr`0" priority="4" />
+      <Item value="AddClass`0" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Type">
       <Item value="IsEnum" priority="1" />
-      <Item value="IsAssignableFrom`0" priority="0" />
+      <Item value="IsAssignableFrom`0" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Object">
       <Item value="GetType`0" priority="0" />
       <Item value="ToString`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Collections.Generic.IList`1">
-      <Item value="Add`0" priority="1" />
+      <Item value="Add`0" priority="5" />
     </ItemStatistics>
   </CompletionStatisticsManager>
   <RecentFiles>
@@ -491,17 +493,11 @@
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/d:CreateModels/f:CreateBookInputModel.cs" caret="472" fromTop="20" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/d:CreateModels/f:CreateBookViewModel.cs" caret="112" fromTop="4" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:CreateEndpoint.cs" caret="604" fromTop="10" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="3195" fromTop="34" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:Create.spark" caret="911" fromTop="38" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Shared/f:Application.spark" caret="522" fromTop="15" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Shared/f:Application.spark" caret="519" fromTop="13" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:Create.spark" caret="711" fromTop="22" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="3843" fromTop="45" />
     </RecentFiles>
     <RecentEdits>
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Genre/f:CreateGenreInputModelTests.cs" caret="275" fromTop="12" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Genre/f:CreateGenreInputModelTests.cs" caret="220" fromTop="9" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Genre/f:CreateEndpointTests.cs" caret="1130" fromTop="22" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/d:CreateModels/f:CreateBookViewModel.cs" caret="132" fromTop="4" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Books/f:CreateEndpointTests.cs" caret="745" fromTop="10" />
-      <File id="AA11FA81-4BED-4923-820A-C9A6ADB9837C/d:Books/f:CreateEndpointTests.cs" caret="2428" fromTop="7" />
       <File id="BFE347A9-971C-4C8D-A82D-7093D75BDDEA/d:Services/f:IBookCreater.cs" caret="217" fromTop="6" />
       <File id="BFE347A9-971C-4C8D-A82D-7093D75BDDEA/d:Services/f:BookCreater.cs" caret="451" fromTop="17" />
       <File id="BFE347A9-971C-4C8D-A82D-7093D75BDDEA/d:Services/f:BookCreater.cs" caret="606" fromTop="21" />
@@ -509,23 +505,29 @@
       <File id="B13231D7-F25A-45C0-A314-C176FC7059E0/f:BookCreaterTests.cs" caret="1112" fromTop="29" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/d:CreateModels/f:CreateBookInputModel.cs" caret="267" fromTop="12" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:Create.spark" caret="429" fromTop="12" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="3248" fromTop="21" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="1444" fromTop="21" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="2378" fromTop="26" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="2377" fromTop="25" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="2323" fromTop="13" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="3039" fromTop="26" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="4644" fromTop="21" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="1644" fromTop="21" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="2794" fromTop="26" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="2793" fromTop="25" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="2707" fromTop="13" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="3718" fromTop="26" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:CreateEndpoint.cs" caret="703" fromTop="29" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="2843" fromTop="22" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:CreateEndpoint.cs" caret="703" fromTop="14" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="3195" fromTop="34" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Shared/f:Application.spark" caret="436" fromTop="13" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:Create.spark" caret="246" fromTop="6" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:Create.spark" caret="711" fromTop="25" />
       <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:Create.spark" caret="799" fromTop="29" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:Create.spark" caret="819" fromTop="33" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:Create.spark" caret="911" fromTop="38" />
-      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Shared/f:Application.spark" caret="522" fromTop="15" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Shared/f:Application.spark" caret="1045" fromTop="14" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Shared/f:Application.spark" caret="1047" fromTop="12" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:Create.spark" caret="812" fromTop="29" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Shared/f:Application.spark" caret="164" fromTop="3" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Shared/f:Application.spark" caret="351" fromTop="7" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Shared/f:Application.spark" caret="516" fromTop="12" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Shared/f:Application.spark" caret="614" fromTop="20" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="3288" fromTop="14" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="4608" fromTop="34" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Endpoints/d:SiteManagement/d:Book/f:Create.spark" caret="812" fromTop="29" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="4432" fromTop="14" />
+      <File id="7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E/d:Configuration/f:NTCodingFubuRegistry.cs" caret="4493" fromTop="15" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

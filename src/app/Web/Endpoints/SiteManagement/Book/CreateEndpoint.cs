@@ -1,10 +1,13 @@
-﻿using System.Linq;
+﻿using System;
+using System.IO;
+using System.Linq;
 using FubuMVC.Core.Continuations;
 using Model;
 using Model.Services;
 using Raven.Client;
 using Web.Endpoints.SiteManagement.Book.CreateModels;
 using Web.Endpoints.SiteManagement.Book.View;
+using Web.Infrastructure.Services;
 
 namespace Web.Endpoints.SiteManagement.Book
 {
@@ -31,7 +34,7 @@ namespace Web.Endpoints.SiteManagement.Book
 		public FubuContinuation Post(CreateBookInputModel model)
 		{
 			_bookCreater.Create(model.Title, model.Authors, model.Description_BigText, model.Genre,
-			                    (byte[])model.Image, model.BookStatus);
+			                   FileUploader.GetBytes(model.Image), model.BookStatus);
 
 			return FubuContinuation.RedirectTo<ViewEndpoint>(e => e.Get(new ViewBookLinkModel()));
 		}

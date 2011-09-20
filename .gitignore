@@ -18,3 +18,7 @@ src/tests/Model.Tests/bin/*
 src/specs/bin/*
 src/app/Model/obj/*
 src/specs/obj/*
+src/app/Web/@App_Data/*
+src/app/Web/@App_Data/*
+src/app/Web/bin/*
+src/app/Web/@App_Data/Raven/Data

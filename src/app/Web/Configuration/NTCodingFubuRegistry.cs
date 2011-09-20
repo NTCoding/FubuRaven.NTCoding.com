@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web;
 using FubuMVC.Core;
 using FubuMVC.Core.UI.Configuration;
 using FubuMVC.Spark;
@@ -104,6 +105,12 @@ namespace Web.Configuration
 
         	               	         		return tag;
         	               	         	}));
+
+			HtmlConvention(x =>
+						x.Editors
+						.If(e => e.Accessor.PropertyType.IsAssignableFrom(typeof(HttpPostedFileBase)))
+						.BuildBy(er => new HtmlTag("input").Attr("type", "file"))
+				);
 
 
 			this.UseSpark();

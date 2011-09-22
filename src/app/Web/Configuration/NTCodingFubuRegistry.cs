@@ -8,6 +8,7 @@ using FubuMVC.Validation;
 using FubuValidation;
 using FubuValidation.Fields;
 using HtmlTags;
+using Web.Infrastructure.Behaviours;
 
 namespace Web.Configuration
 {
@@ -44,6 +45,9 @@ namespace Web.Configuration
         	                			.If(f => f.InputType() != null && f.InputType().Name.Contains("Input"))
         	                			.TransferBy<HandlerModelDescriptor>();
         	                	});
+
+        	Policies
+        		.WrapBehaviorChainsWith<RavenSessionBehaviour>();
 
         	HtmlConvention(x =>
         	               x.Editors

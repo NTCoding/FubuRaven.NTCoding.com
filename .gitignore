@@ -22,3 +22,4 @@ src/app/Web/@App_Data/*
 src/app/Web/@App_Data/*
 src/app/Web/bin/*
 src/app/Web/@App_Data/Raven/Data
+*ReSharper*

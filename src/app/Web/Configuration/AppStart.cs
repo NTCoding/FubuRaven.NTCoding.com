@@ -21,11 +21,17 @@ namespace Web.Configuration
         {
 			// TODO - move declarations into a registry
         	var container = new Container(x => {
-						x.For<IDocumentSession>().Use(DocumentStoreHolder.DocumentStore.OpenSession());
-						x.For<IHomepageContentProvider>().Use<HomepageContentProvider>();
-						x.For<IBookCreater>().Use<BookCreater>();
+				
+				x.For<IDocumentSession>()
+					.HttpContextScoped()
+					.Use(c => DocumentStoreHolder.DocumentStore.OpenSession());
+				
+				x.For<IHomepageContentProvider>()
+					.Use<HomepageContentProvider>();
+				
+				x.For<IBookCreater>().Use<BookCreater>();
 
-        			});
+        		});
 
         	BootstrappingExtensions.StructureMap(FubuApplication.For<NTCodingFubuRegistry>(), container)
                 .Bootstrap(RouteTable.Routes);

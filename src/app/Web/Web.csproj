@@ -156,8 +156,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="%40App_Data\Raven\raven-data.ico" />
     <Content Include="Public\js\site.js" />
-    <Content Include="Shared\bindings.xml" />
+    <Content Include="Shared\bindings.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -186,6 +189,7 @@
     <Compile Include="Endpoints\SiteManagement\HomepageContentModels\HomepageContentInputModel.cs" />
     <Compile Include="Endpoints\SiteManagement\HomepageContentModels\HomepageContentLinkModel.cs" />
     <Compile Include="Endpoints\SiteManagement\HomepageContentModels\HomepageContentViewModel.cs" />
+    <Compile Include="Infrastructure\Behaviours\RavenSessionBehaviour.cs" />
     <Compile Include="Infrastructure\Raven\DocumentStoreHolder.cs" />
     <Compile Include="Infrastructure\Services\FileUploader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -194,6 +198,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="%40App_Data\Raven\IndexDefinitions\TemporaryIndexDefinitionsAsSource\" />
+    <Folder Include="%40App_Data\Raven\Indexes\" />
+    <Folder Include="%40App_Data\Raven\temp\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
@@ -203,6 +210,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="%40App_Data\Raven\Data" />
+    <None Include="%40App_Data\Raven\IndexDefinitions\Temp%252fGenres.index" />
+    <None Include="%40App_Data\Raven\logs\RVN.log" />
+    <None Include="%40App_Data\Raven\logs\RVNres00001.jrs" />
+    <None Include="%40App_Data\Raven\logs\RVNres00002.jrs" />
+    <None Include="%40App_Data\Raven\system\RVN.chk" />
     <None Include="Endpoints\Homepage.spark" />
     <None Include="Endpoints\SiteManagement\Book\Create.spark">
       <SubType>Designer</SubType>

@@ -1,4 +1,6 @@
-﻿using Raven.Client;
+﻿using System;
+using System.Linq;
+using Raven.Client;
 using Web.Endpoints.SiteManagement.Genre.CreateGenreModels;
 
 namespace Web.Endpoints.SiteManagement.Genre

@@ -24,6 +24,7 @@ namespace Web.Endpoints.SiteManagement.Book
 
 		public CreateBookViewModel Get(CreateBookLinkModel model)
 		{
+			// TODO - where are we going to store these kind of queries?
 			var genres = _session
 				.Query<Model.Genre>()
 				.ToDictionary(g => g.Id, g => g.Name);

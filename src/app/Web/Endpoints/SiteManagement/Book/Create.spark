@@ -2,6 +2,9 @@
 <use namespace="Web.Endpoints.SiteManagement.Genre.CreateGenreModels" />
 <viewdata model="Web.Endpoints.SiteManagement.Book.CreateModels.CreateBookViewModel" />
 
+<content name="pageScript">
+	"blah"
+</content>
 <h1>Create a new book</h1>
 <ValidationErrors />
 <form action="${this.Urls.UrlFor(new CreateBookInputModel())}" method="post" enctype="multipart/form-data">

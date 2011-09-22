@@ -3,7 +3,17 @@
 <viewdata model="Web.Endpoints.SiteManagement.Book.CreateModels.CreateBookViewModel" />
 
 <content name="pageScript">
-	"blah"
+	$(function(){
+		$('#genreForm').submit(function(event){
+			event.preventDefault();
+
+			var name = $(this).children('input[name=Name]').val();
+			alert(name);
+			$.post($(this).attr('action'), { Name: name }, function(data) {
+				$('#Genre').append('<option value="' + data +'">' + name + '</option>');
+			});
+		});
+	});
 </content>
 <h1>Create a new book</h1>
 <ValidationErrors />
@@ -36,7 +46,7 @@
 </form>
 
 <h2>Add a new Genre</h2>
-<form action="${this.Urls.UrlFor(new CreateGenreInputModel())}" method="post">
+<form id="genreForm" action="${this.Urls.UrlFor(new CreateGenreInputModel())}" method="post">
 	<input type="text" name="Name" />
 	<br />
 	<input type="submit" value="Create Genre" />

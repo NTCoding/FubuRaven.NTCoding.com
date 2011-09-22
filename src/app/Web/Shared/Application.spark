@@ -5,17 +5,7 @@
 		<script type="text/javascript" src="/Public/js/site.js"></script>
 		
 		<script type="text/javascript">
-			$(function(){
-				// interecept the form  post
-
-				// get the name of the genre being posted
-
-				// do the post
-
-				// get the id back
-
-				// add the id and genre to the drop down
-			});
+			<use content="pageScript" />
 		</script>
 	</head>
 	<body>

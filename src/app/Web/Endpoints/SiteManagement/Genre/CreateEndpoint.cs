@@ -14,13 +14,13 @@ namespace Web.Endpoints.SiteManagement.Genre
 			_session = session;
 		}
 
-		public GenreCreatedModel Post(CreateGenreInputModel model)
+		public String Post(CreateGenreInputModel model)
 		{
 			// TODO - offload to a service
 			var genre = new Model.Genre(model.Name);
 			_session.Store(genre);
 
-			return new GenreCreatedModel(genre.Id);
+			return genre.Id;
 		}
 	}
 }

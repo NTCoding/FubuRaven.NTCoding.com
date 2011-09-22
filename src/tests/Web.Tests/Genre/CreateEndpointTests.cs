@@ -29,7 +29,7 @@ namespace Web.Tests.Genre
 		}
 
 		[Test]
-		public void Post_GivenGenreName_ResultShouldContainNewGenresID()
+		public void Post_GivenGenreName_ShouldReturnCreatedGenresID()
 		{
 			string name = "moomin";
 			var result =_endpoint.Post(new CreateGenreInputModel {Name = name});
@@ -38,7 +38,7 @@ namespace Web.Tests.Genre
 
 			var createdGenre = Session.Query<Model.Genre>().Single(g => g.Name == name);
 
-			Assert.AreEqual(createdGenre.Id, result.GenreId);
+			Assert.AreEqual(createdGenre.Id, result);
 		}
 
 		// TODO - cannot create duplicate genres

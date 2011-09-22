@@ -8,9 +8,9 @@
 			event.preventDefault();
 
 			var name = $(this).children('input[name=Name]').val();
-			alert(name);
+
 			$.post($(this).attr('action'), { Name: name }, function(data) {
-				$('#Genre').append('<option value="' + data +'">' + name + '</option>');
+				$('select[name=Genre]').append('<option value="' + data +'">' + name + '</option>');
 			});
 		});
 	});

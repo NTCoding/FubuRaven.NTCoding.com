@@ -9,7 +9,6 @@ using Model.Services;
 using NUnit.Framework;
 using Web.Endpoints.SiteManagement.Book;
 using Web.Endpoints.SiteManagement.Book.CreateModels;
-using Web.Endpoints.SiteManagement.Book.View;
 using Web.Tests.TestDoubles;
 using Genre = Model.Genre;
 

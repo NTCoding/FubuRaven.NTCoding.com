@@ -25,8 +25,8 @@ function setSequentialIndicesForHiddenFields() {
 
 		hiddenFields.each(function (index) {
 			var name = $(this).attr('name');
+			$(this).attr('name', ''); // don't want to post the value for this
 			name = name + '[' + index + ']';
-			alert(name);
 			$(this).attr('name', name);
 		});
 	});

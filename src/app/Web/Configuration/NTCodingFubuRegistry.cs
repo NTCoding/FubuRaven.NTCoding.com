@@ -103,8 +103,20 @@ namespace Web.Configuration
         	               	.BuildBy(er =>
         	               	         	{
         	               	         		var tag = new HtmlTag("div").AddClass("hasHiddenGroup");
-											tag.Children.Add(new HtmlTag("input").Attr("type", "text"));
-											tag.Children.Add(new HtmlTag("a").Attr("href", "#").Text("add").AddClass("addItem"));
+											
+											tag.Children.Add(
+												new HtmlTag("input")
+												.Attr("type", "text")
+												.Attr("name", er.Accessor.Name)
+												);
+											
+											tag.Children.Add(
+												new HtmlTag("a")
+												.Attr("href", "#")
+												.Text("add")
+												.AddClass("addItem")
+												);
+
         	               	         		tag.Children.Add(new HtmlTag("ul"));
 
         	               	         		return tag;

@@ -74,6 +74,33 @@ namespace Web.Tests.Books
 		}
 
 		[Test]
+		public void Get_ViewModelShouldContainGenresInAlaphabeticalOrder()
+		{
+			var genres = new[]
+			             	{
+								new Model.Genre("zzz") {Id = "1"},
+								new Model.Genre("xxx") {Id = "2"},
+								new Model.Genre("aaa") {Id = "3"},
+								new Model.Genre("fff") {Id = "4"},
+			             	};
+
+			genres.ToList().ForEach(Session.Store);
+			Session.SaveChanges();
+
+			var result = _endpoint.Get(new CreateBookLinkModel());
+
+			var orderedInputGenres = genres.OrderBy(g => g.Name);
+
+			for (int i = 0; i < orderedInputGenres.Count(); i++)
+			{
+				var expected = orderedInputGenres.ElementAt(i).Name;
+				var actual = result.Genres.ElementAt(i).Value;
+
+				Assert.AreEqual(expected, actual);
+			}
+		}
+
+		[Test]
 		public void Post_GivenValidBookDetails_ShouldCreateBook()
 		{
 			var genre = GetGenreFromSession();

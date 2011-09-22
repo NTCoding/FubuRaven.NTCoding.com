@@ -27,6 +27,7 @@ namespace Web.Endpoints.SiteManagement.Book
 			// TODO - where are we going to store these kind of queries?
 			var genres = _session
 				.Query<Model.Genre>()
+				.OrderBy(g => g.Name)
 				.ToDictionary(g => g.Id, g => g.Name);
 
 			return new CreateBookViewModel(genres);

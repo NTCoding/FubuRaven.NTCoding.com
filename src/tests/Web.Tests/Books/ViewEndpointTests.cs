@@ -17,12 +17,6 @@ namespace Web.Tests.Books
 		}
 
 		[Test]
-		public void Get_ShouldBeLinkedToFromViewBookLinkModel()
-		{
-			_endpoint.Get(new ViewBookLinkModel());
-		}
-
-		[Test][Ignore]
 		public void Get_GivenModelWithBooksID_ViewModelShouldContainBooksTitle()
 		{
 			var book = BookTestingHelper.GetBook();

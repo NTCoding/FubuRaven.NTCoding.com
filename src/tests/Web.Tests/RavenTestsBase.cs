@@ -15,8 +15,13 @@ namespace Web.Tests
 		{
 				_store = new EmbeddableDocumentStore
 				         	{
-				         		RunInMemory = true
+				         		Configuration =
+				         			{
+				         				RunInUnreliableYetFastModeThatIsNotSuitableForProduction = true,
+										RunInMemory = true,
+				         			}
 				         	};
+
 				_store.Initialize();
 
 			Session = _store.OpenSession();

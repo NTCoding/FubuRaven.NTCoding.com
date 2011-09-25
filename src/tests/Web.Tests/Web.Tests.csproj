@@ -37,6 +37,7 @@
     <Reference Include="Esent.Interop">
       <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\Esent.Interop.dll</HintPath>
     </Reference>
+    <Reference Include="FubuCore, Version=0.9.1.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="FubuMVC.Core, Version=0.9.1.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="ICSharpCode.NRefactory">
       <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\ICSharpCode.NRefactory.dll</HintPath>
@@ -124,6 +125,7 @@
     <Compile Include="Homepage\HomepageEndpointTests.cs" />
     <Compile Include="Homepage\HomepageLinkModelTests.cs" />
     <Compile Include="Homepage\HomepageViewModelTest.cs" />
+    <Compile Include="Infrastructure\Binding\IEnumerableStringConverterTests.cs" />
     <Compile Include="Infrastructure\FileUploaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RavenTestsBase.cs" />

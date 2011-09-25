@@ -1,4 +1,3 @@
-C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\Web.Tests.dll
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\Web.Tests.pdb
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\AsyncCtpLibrary.dll
@@ -66,5 +65,6 @@ C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\FubuMVC.StructureMap.pdb
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\Bottles.pdb
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\bin\Debug\FubuLocalization.pdb
+C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\obj\Debug\Web.Tests.dll
 C:\Users\Administrator\Documents\Software Development\Github\FubuRaven.NTCoding\src\tests\Web.Tests\obj\Debug\Web.Tests.pdb

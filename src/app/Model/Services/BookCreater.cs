@@ -22,7 +22,7 @@ namespace Model.Services
 
 			_session.Store(book);
 
-			return null;
+			return book;
 		}
 	}
 }

@@ -24,12 +24,12 @@ namespace Model.Tests
 		{
 			return new CreateBookDto
 			       	{
-						Title = "mega book",
-						Authors = new[] { "me", "you", },
+						Title       = "mega book",
+						Authors     = new[] { "me", "you", },
 						Description = "Pretty good",
-						Genre = GetPersistedGenre().Id,
-						Image = new[] { (byte)1 },
-						Status = BookStatus.Reviewed
+						Genre       = GetPersistedGenre().Id,
+						Image       = new[] { (byte)1 },
+						Status      = BookStatus.Reviewed
 			       	};
 		}
 
@@ -64,6 +64,18 @@ namespace Model.Tests
 			var dto = GetCreateBookDto();
 
 			var book = _bookCreater.Create(dto);
+
+			Assert.AreEqual(dto.Title, book.Title);
+			Assert.AreEqual(dto.Description, book.Description);
+			Assert.AreEqual(dto.Genre, book.Genre.Id);
+			Assert.AreEqual(dto.Image, book.Image);
+			Assert.AreEqual(dto.Status, book.Status);
+			Assert.AreEqual(dto.Authors.Count(), book.Authors.Count());
+
+			foreach (var author in dto.Authors)
+			{
+				Assert.IsTrue(book.Authors.Any(a => a == author));
+			}
 		}
 
 		// TODO - validate bad inputs

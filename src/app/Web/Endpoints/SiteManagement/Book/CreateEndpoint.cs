@@ -44,9 +44,11 @@ namespace Web.Endpoints.SiteManagement.Book
 			          		Status      = model.BookStatus
 			          	};
 
-			_bookCreater.Create(dto);
+			var book = _bookCreater.Create(dto);
 
-			return FubuContinuation.RedirectTo<ViewEndpoint>(e => e.Get(new ViewBookLinkModel()));
+			var linkModel = new ViewBookLinkModel { Id = book.Id };
+
+			return FubuContinuation.RedirectTo<ViewEndpoint>(x => x.Get(linkModel));
 		}
 	}
 }

@@ -33,7 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AsyncCtpLibrary, Version=1.0.4107.18181, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\AsyncCtpLibrary.dll</HintPath>
+      <HintPath>..\..\..\packages\RavenDB.1.0.0.472\lib\net40\AsyncCtpLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Bottles">
       <HintPath>..\..\..\packages\Bottles.0.9.1.118\lib\Bottles.dll</HintPath>
@@ -86,13 +86,13 @@
       <HintPath>..\..\..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
     </Reference>
     <Reference Include="Raven.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\Raven.Abstractions.dll</HintPath>
+      <HintPath>..\..\..\packages\RavenDB.1.0.0.472\lib\net40\Raven.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Raven.Client.Embedded, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\Raven.Client.Embedded.dll</HintPath>
     </Reference>
     <Reference Include="Raven.Client.Lightweight, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\Raven.Client.Lightweight.dll</HintPath>
+      <HintPath>..\..\..\packages\RavenDB.1.0.0.472\lib\net40\Raven.Client.Lightweight.dll</HintPath>
     </Reference>
     <Reference Include="Raven.Database, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\Raven.Database.dll</HintPath>
@@ -101,7 +101,7 @@
       <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\Raven.Http.dll</HintPath>
     </Reference>
     <Reference Include="Raven.Json, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\Raven.Json.dll</HintPath>
+      <HintPath>..\..\..\packages\RavenDB.1.0.0.472\lib\net40\Raven.Json.dll</HintPath>
     </Reference>
     <Reference Include="Raven.Munin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=974fec519e29970d, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\Raven.Munin.dll</HintPath>
@@ -145,8 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="%40App_Data\Raven\raven-data.ico" />
-    <Content Include="fubu-content\basic-getting-started\bin\FubuMVC.GettingStarted.dll" />
-    <Content Include="fubu-content\basic-getting-started\WebContent\WebContent\Content\images\logo.png" />
+    <Content Include="Raven.Studio.xap" />
     <Content Include="fubu-content\fubumvc-diagnostics\bin\FubuMVC.Diagnostics.dll" />
     <Content Include="fubu-content\fubumvc-diagnostics\bin\FubuMVC.Spark.dll" />
     <Content Include="fubu-content\fubumvc-diagnostics\bin\Spark.dll" />
@@ -279,7 +278,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="%40App_Data\Raven\Data" />
     <None Include="%40App_Data\Raven\IndexDefinitions\Temp%252fGenres.index" />
     <None Include="%40App_Data\Raven\logs\RVN.log" />
     <None Include="%40App_Data\Raven\logs\RVNres00001.jrs" />
@@ -289,15 +287,10 @@
     <None Include="Endpoints\SiteManagement\Book\Create.spark">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Endpoints\SiteManagement\Book\View.spark" />
     <None Include="Endpoints\SiteManagement\HomepageContent.spark">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="fubu-content\basic-getting-started.zip" />
-    <None Include="fubu-content\basic-getting-started\.package-manifest" />
-    <None Include="fubu-content\basic-getting-started\.version" />
-    <None Include="fubu-content\basic-getting-started\WebContent\Intro\Intro.spark" />
-    <None Include="fubu-content\basic-getting-started\WebContent\Notifications\AddBehaviorChain.spark" />
-    <Content Include="fubu-content\basic-getting-started\WebContent\packages.config" />
     <Content Include="fubu-content\fubumvc-diagnostics.zip" />
     <None Include="fubu-content\fubumvc-diagnostics\.package-manifest" />
     <None Include="fubu-content\fubumvc-diagnostics\.version" />

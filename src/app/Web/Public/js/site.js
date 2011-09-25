@@ -8,11 +8,12 @@ $(function () {
 	$('a.addItem').click(function (event) {
 		event.preventDefault();
 
-		var text = $(this).siblings('input').val();
+		var input = $(this).siblings('input');
+		var text = input.val();
 
 		$(this).siblings('ul').append('<li>' + text + '</li>');
 
-		var name = $(this).parent().attr('name');
+		var name = input.attr('name');
 		$(this).parent().append('<input type="hidden" name="' + name + '" value="' + text + '" />');
 	});
 });
@@ -25,9 +26,10 @@ function setSequentialIndicesForHiddenFields() {
 
 		hiddenFields.each(function (index) {
 			var name = $(this).attr('name');
-			$(this).attr('name', ''); // don't want to post the value for this
 			name = name + '[' + index + ']';
 			$(this).attr('name', name);
 		});
 	});
+
+	$('*[name=Authors]').attr('name', ' ');
 }

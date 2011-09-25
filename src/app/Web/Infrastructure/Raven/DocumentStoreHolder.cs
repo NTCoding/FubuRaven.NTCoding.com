@@ -19,13 +19,11 @@ namespace Web.Infrastructure.Raven
 
 		private static IDocumentStore CreateDocumentStore()
 		{
-			
 			var store = new EmbeddableDocumentStore
 			            	{
-								DataDirectory = "@App_Data\\Raven"
-			            	}.Initialize();
-
-			
+								DataDirectory = "@App_Data\\Raven",
+								UseEmbeddedHttpServer = true,
+							}.Initialize();
 
 			return store;
 		}

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using Raven.Client;
 using Raven.Client.Linq;
@@ -15,13 +14,15 @@ namespace Model.Services
 			_session = session;
 		}
 
-		public void Create(string title, IEnumerable<string> authors, string description, string genreID, byte[] image, BookStatus status)
+		public Book Create(CreateBookDto createBookDto)
 		{
-			var genre = _session.Query<Genre>().Where(g => g.Id == genreID).Single();
+			var genre = _session.Query<Genre>().Where(g => g.Id == createBookDto.Genre).Single();
 
-			var book = new Book(title, authors, description, genre, status, image);
+			var book = new Book(createBookDto.Title, createBookDto.Authors, createBookDto.Description, genre, createBookDto.Status, createBookDto.Image);
 
 			_session.Store(book);
+
+			return null;
 		}
 	}
 }

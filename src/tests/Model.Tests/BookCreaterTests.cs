@@ -12,6 +12,27 @@ namespace Model.Tests
 	{
 		private BookCreater _bookCreater;
 
+		private Genre GetPersistedGenre()
+		{
+			var genre = new Genre("Jimmy Bogard") { Id = "99" };
+			Session.Store(genre);
+			Session.SaveChanges();
+			return genre;
+		}
+
+		private CreateBookDto GetCreateBookDto()
+		{
+			return new CreateBookDto
+			       	{
+						Title = "mega book",
+						Authors = new[] { "me", "you", },
+						Description = "Pretty good",
+						Genre = GetPersistedGenre().Id,
+						Image = new[] { (byte)1 },
+						Status = BookStatus.Reviewed
+			       	};
+		}
+
 		[SetUp]
 		public void SetUp()
 		{
@@ -19,34 +40,30 @@ namespace Model.Tests
 		}
 
 		[Test]
-		public void Create_GivenValidBookDetails_ShouldCreateBook()
+		public void Create_GivenValidBookDetails_BookShouldBePersisted()
 		{
-			var genre = new Genre("Jimmy Bogard") {Id = "99"};
-			Session.Store(genre);
+			var dto = GetCreateBookDto();
+
+			_bookCreater.Create(dto);
 			Session.SaveChanges();
-
-			var title = "mega book";
-			var author1 = "me";
-			var author2 = "you";
-			var authors = new[] { author1, author2, };
-			var description = "Pretty good";
-			var genreId = genre.Id;
-			var image = new[] { (byte)1 };
-			var status = BookStatus.Reviewed;
-
-			_bookCreater.Create(title, authors, description, genreId, image, status);
-			Session.SaveChanges();
-
 
 			var book = Session.Query<Book>()
-				.Where(b => b.Title == title)
-				.Where(b => b.Genre.Name == genre.Name)
-				.Where(b => b.Description == description)
-				.Where(b => b.Status == status)
-				.Where(b => b.Authors.Any(a => a == author1))
+				.Where(b => b.Title == dto.Title)
+				.Where(b => b.Genre.Id == dto.Genre)
+				.Where(b => b.Description == dto.Description)
+				.Where(b => b.Status == dto.Status)
+				.Where(b => b.Authors.Any(a => a == dto.Authors.First()))
 				.First();
 
 			Assert.IsNotNull(book);
+		}
+
+		[Test]
+		public void Create_GivenValidDetails_ShouldCreateBook()
+		{
+			var dto = GetCreateBookDto();
+
+			var book = _bookCreater.Create(dto);
 		}
 
 		// TODO - validate bad inputs

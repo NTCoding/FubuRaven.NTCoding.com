@@ -33,46 +33,43 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AsyncCtpLibrary, Version=1.0.4107.18181, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\AsyncCtpLibrary.dll</HintPath>
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\AsyncCtpLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Bottles">
-      <HintPath>..\..\..\packages\Bottles.0.9.1.112\lib\Bottles.dll</HintPath>
+      <HintPath>..\..\..\packages\Bottles.0.9.1.118\lib\Bottles.dll</HintPath>
     </Reference>
-    <Reference Include="Esent.Interop">
-      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\Esent.Interop.dll</HintPath>
+    <Reference Include="Esent.Interop, Version=1.7.0.0, Culture=neutral, PublicKeyToken=8dd49bbdae3f61af, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\Esent.Interop.dll</HintPath>
     </Reference>
     <Reference Include="FubuCore">
-      <HintPath>..\..\..\packages\FubuCore.0.9.1.39\lib\FubuCore.dll</HintPath>
+      <HintPath>..\..\..\packages\FubuCore.0.9.1.59\lib\FubuCore.dll</HintPath>
     </Reference>
     <Reference Include="FubuLocalization">
-      <HintPath>..\..\..\packages\FubuLocalization.0.9.1.39\lib\FubuLocalization.dll</HintPath>
+      <HintPath>..\..\..\packages\FubuLocalization.0.9.1.59\lib\FubuLocalization.dll</HintPath>
     </Reference>
     <Reference Include="FubuMVC.Core">
-      <HintPath>..\..\..\packages\FubuMVC.References.0.9.1.548\lib\FubuMVC.Core.dll</HintPath>
+      <HintPath>..\..\..\packages\FubuMVC.References.0.9.1.560\lib\net40\FubuMVC.Core.dll</HintPath>
     </Reference>
-    <Reference Include="FubuMVC.Spark">
-      <HintPath>..\..\..\packages\FubuMVC.Spark.0.9.1.531\lib\FubuMVC.Spark.dll</HintPath>
+    <Reference Include="FubuMVC.Spark, Version=0.9.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FubuMVC.Spark.0.9.1.560\lib\net40\FubuMVC.Spark.dll</HintPath>
     </Reference>
     <Reference Include="FubuMVC.StructureMap">
-      <HintPath>..\..\..\packages\FubuMVC.References.0.9.1.548\lib\FubuMVC.StructureMap.dll</HintPath>
+      <HintPath>..\..\..\packages\FubuMVC.References.0.9.1.560\lib\net40\FubuMVC.StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="FubuMVC.Validation">
-      <HintPath>..\..\..\packages\FubuMVC.Validation.0.4.0.51\lib\FubuMVC.Validation.dll</HintPath>
+      <HintPath>..\..\..\packages\FubuMVC.Validation.0.4.0.57\lib\FubuMVC.Validation.dll</HintPath>
     </Reference>
     <Reference Include="FubuValidation">
-      <HintPath>..\..\..\packages\FubuValidation.0.4.0.51\lib\FubuValidation.dll</HintPath>
+      <HintPath>..\..\..\packages\FubuValidation.0.4.0.57\lib\FubuValidation.dll</HintPath>
     </Reference>
     <Reference Include="HtmlTags">
       <HintPath>..\..\..\packages\HtmlTags.1.0.0.23\lib\4.0\HtmlTags.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.NRefactory, Version=3.0.0.3800, Culture=neutral, PublicKeyToken=efe927acf176eea2, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\ICSharpCode.NRefactory.dll</HintPath>
-    </Reference>
-    <Reference Include="Ionic.Zip">
-      <HintPath>..\..\..\packages\DotNetZip.1.0\lib\Net35\Ionic.Zip.dll</HintPath>
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\ICSharpCode.NRefactory.dll</HintPath>
     </Reference>
     <Reference Include="Lucene.Net, Version=2.9.2.1, Culture=neutral, PublicKeyToken=02f879aa45933051, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\Lucene.Net.dll</HintPath>
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\Lucene.Net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Practices.ServiceLocation">
@@ -80,58 +77,49 @@
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\..\packages\FubuMVC.0.9.1.548\lib\Microsoft.Web.Infrastructure.dll</HintPath>
+      <HintPath>..\..\..\packages\FubuMVC.0.9.1.560\lib\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
+    <Reference Include="Newtonsoft.Json, Version=4.0.2.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Newtonsoft.Json.4.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="NLog">
+    <Reference Include="NLog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
     </Reference>
     <Reference Include="Raven.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\Raven.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Raven.Client.Debug">
-      <HintPath>..\..\..\packages\RavenDB.1.0.0.465\lib\net40\Raven.Client.Debug.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\Raven.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Raven.Client.Embedded, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\Raven.Client.Embedded.dll</HintPath>
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\Raven.Client.Embedded.dll</HintPath>
     </Reference>
     <Reference Include="Raven.Client.Lightweight, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\Raven.Client.Lightweight.dll</HintPath>
-    </Reference>
-    <Reference Include="Raven.Client.MvcIntegration">
-      <HintPath>..\..\..\packages\RavenDB.1.0.0.465\lib\net40\Raven.Client.MvcIntegration.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\Raven.Client.Lightweight.dll</HintPath>
     </Reference>
     <Reference Include="Raven.Database, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\Raven.Database.dll</HintPath>
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\Raven.Database.dll</HintPath>
     </Reference>
     <Reference Include="Raven.Http, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\Raven.Http.dll</HintPath>
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\Raven.Http.dll</HintPath>
     </Reference>
     <Reference Include="Raven.Json, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\Raven.Json.dll</HintPath>
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\Raven.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Raven.Munin">
-      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\Raven.Munin.dll</HintPath>
+    <Reference Include="Raven.Munin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=974fec519e29970d, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\Raven.Munin.dll</HintPath>
     </Reference>
-    <Reference Include="Raven.Storage.Esent">
-      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\Raven.Storage.Esent.dll</HintPath>
+    <Reference Include="Raven.Storage.Esent, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\Raven.Storage.Esent.dll</HintPath>
     </Reference>
-    <Reference Include="Raven.Storage.Managed">
-      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\Raven.Storage.Managed.dll</HintPath>
+    <Reference Include="Raven.Storage.Managed, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\Raven.Storage.Managed.dll</HintPath>
     </Reference>
     <Reference Include="Spark, Version=1.6.0.0, Culture=neutral, PublicKeyToken=7f8549eed921a12c, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\Spark.1.6\lib\NET40\Spark.dll</HintPath>
     </Reference>
     <Reference Include="Spatial.Net, Version=2.9.1.2, Culture=neutral, PublicKeyToken=02f879aa45933051, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\Spatial.Net.dll</HintPath>
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\Spatial.Net.dll</HintPath>
     </Reference>
     <Reference Include="SpellChecker.Net, Version=2.9.2.1, Culture=neutral, PublicKeyToken=36573b2a49807bd1, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.465\lib\net40\SpellChecker.Net.dll</HintPath>
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\SpellChecker.Net.dll</HintPath>
     </Reference>
     <Reference Include="StructureMap">
       <HintPath>..\..\..\packages\structuremap.2.6.3\lib\StructureMap.dll</HintPath>
@@ -157,6 +145,87 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="%40App_Data\Raven\raven-data.ico" />
+    <Content Include="fubu-content\basic-getting-started\bin\FubuMVC.GettingStarted.dll" />
+    <Content Include="fubu-content\basic-getting-started\WebContent\WebContent\Content\images\logo.png" />
+    <Content Include="fubu-content\fubumvc-diagnostics\bin\FubuMVC.Diagnostics.dll" />
+    <Content Include="fubu-content\fubumvc-diagnostics\bin\FubuMVC.Spark.dll" />
+    <Content Include="fubu-content\fubumvc-diagnostics\bin\Spark.dll" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Images\block.png" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Images\console-line.png" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Images\down-arrow.png" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Images\filter_wrap_left.gif" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Images\filter_wrap_right.gif" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Images\logo.png" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Images\pre_code_bg_blk.gif" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\authorization.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\chains\view.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\core.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\html\selector.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-bg.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-bg1251.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-cat.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-cn.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-cs.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-da.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-de.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-el.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-en.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-es.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-fa.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-fi.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-fr.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-gl.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-he.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-hu.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-is.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-it.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-ja.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-nl.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-no.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-pl.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-pt-br.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-pt.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-ro.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-ru.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-sk.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-sr.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-sv.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-tr.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\i18n\grid.locale-ua.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\jquery-1.4.4.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\jquery-1.4.4.min.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\jquery-ui-1.8.10.custom.min.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\jquery.hotkeys.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\jquery.jqGrid.min.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\jquery.metadata.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\jquery.tmpl.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\jquery\jquery.treeview.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\json2.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\knockout-1.1.2.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\prettyprint.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\requests.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\requests\view.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Scripts\routes.js" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Styles\blueprint\ie.css" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Styles\blueprint\print.css" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Styles\blueprint\screen.css" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Styles\chains\view.css" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Styles\default.css" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Styles\html\preview.css" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Styles\html\selector.css" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Styles\jquery\images\bg_fallback.png" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Styles\jquery\images\icon_sprite.png" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Styles\jquery\images\progress_bar.gif" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Styles\jquery\images\slider_handles.png" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Styles\jquery\images\ui-icons_222222_256x240.png" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Styles\jquery\images\ui-icons_454545_256x240.png" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Styles\jquery\jquery-ui-1.8.7.custom.css" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Styles\jquery\ui.jqgrid.css" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Styles\master.css" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Styles\requests\view.css" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Styles\snapdragon\common.css" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Content\Styles\snapdragon\forms.css" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\Shared\bindings.xml" />
     <Content Include="Public\js\site.js" />
     <Content Include="Shared\bindings.xml">
       <SubType>Designer</SubType>
@@ -170,9 +239,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\FubuMVC.cs" />
     <Compile Include="Configuration\AppStart.cs" />
     <Compile Include="Configuration\HandlerModelDescriptor.cs" />
     <Compile Include="Configuration\NTCodingFubuRegistry.cs" />
+    <Compile Include="ConfigureFubuMVC.cs" />
     <Compile Include="Endpoints\HomepageEndpoint.cs" />
     <Compile Include="Endpoints\HomepageModels\HomepageLinkModel.cs" />
     <Compile Include="Endpoints\HomepageModels\HomepageViewModel.cs" />
@@ -194,9 +265,6 @@
     <Compile Include="Infrastructure\Raven\DocumentStoreHolder.cs" />
     <Compile Include="Infrastructure\Services\FileUploader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="%40App_Data\Raven\IndexDefinitions\TemporaryIndexDefinitionsAsSource\" />
@@ -224,6 +292,55 @@
     <None Include="Endpoints\SiteManagement\HomepageContent.spark">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="fubu-content\basic-getting-started.zip" />
+    <None Include="fubu-content\basic-getting-started\.package-manifest" />
+    <None Include="fubu-content\basic-getting-started\.version" />
+    <None Include="fubu-content\basic-getting-started\WebContent\Intro\Intro.spark" />
+    <None Include="fubu-content\basic-getting-started\WebContent\Notifications\AddBehaviorChain.spark" />
+    <Content Include="fubu-content\basic-getting-started\WebContent\packages.config" />
+    <Content Include="fubu-content\fubumvc-diagnostics.zip" />
+    <None Include="fubu-content\fubumvc-diagnostics\.package-manifest" />
+    <None Include="fubu-content\fubumvc-diagnostics\.version" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\diagnostics.script.config" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Features\Chains\View\View.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Features\Dashboard\Dashboard.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Features\Html\Html.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Features\Html\Preview\Preview.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Features\Packaging\Packaging.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Features\Requests\Requests.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Features\Requests\View\View.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Features\Routes\Routes.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Notifications\NoOutputs.spark" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\packages.config" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Shared\Application.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Shared\AuthorizationReport.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Shared\BehaviorDetails.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Shared\BehaviorFinish.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Shared\BehaviorStart.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Shared\ExceptionReport.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Shared\FieldAccessReport.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Shared\FileOutputReport.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Shared\Html.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Shared\HttpStatusReport.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Shared\ModelBinderSelection.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Shared\ModelBindingException.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Shared\ModelBindingKey.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Shared\ModelBindingReport.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Shared\NavigationMenu.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Shared\OutputReport.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Shared\PropertyBinderSelection.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Shared\RedirectReport.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Shared\SetValueReport.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Shared\ValueConverterSelection.spark" />
+    <None Include="fubu-content\fubumvc-diagnostics\WebContent\Shared\_global.spark" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\web.config" />
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </Content>
+    <Content Include="fubu-content\fubumvc-diagnostics\WebContent\web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </Content>
+    <Content Include="packages.config" />
     <None Include="Shared\Application.spark" />
     <None Include="Shared\Notification.spark" />
     <None Include="Shared\_global.spark" />

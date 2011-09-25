@@ -109,6 +109,7 @@ namespace Web.Tests.Books
 			_endpoint.Post(model);
 			Session.SaveChanges();
 
+			// TODO This is a query - it should live somewhere else
 			var book = Session.Query<Book>()
 				.Where(b => b.Title == model.Title)
 				.Where(b => b.Genre.Name == genre.Name)
@@ -125,12 +126,29 @@ namespace Web.Tests.Books
 		[Test]
 		public void Post_ShouldRedirectToMangementViewBook()
 		{
+			// refactor
 			var genre = GetGenreFromSession();
 			var model = GetTestCreateBookInputModel(genre);
 
 			var result = _endpoint.Post(model);
 
 			result.AssertWasRedirectedTo<ViewEndpoint>(e => e.Get(new ViewBookLinkModel()));
+		}
+
+		[Test][Ignore]
+		public void Post_ShouldRedirect_WithIDOfCreatedBook()
+		{
+			// refactor
+			var genre = GetGenreFromSession();
+			var model = GetTestCreateBookInputModel(genre);
+
+			var result = _endpoint.Post(model);
+			Session.SaveChanges();
+
+			var book = Session.Query<Book>().Single();
+
+			var predicate = (Func<ViewBookLinkModel, bool>)(x => x.Id == book.Id);
+			result.AssertWasRedirectedTo(predicate);
 		}
 	}
 }

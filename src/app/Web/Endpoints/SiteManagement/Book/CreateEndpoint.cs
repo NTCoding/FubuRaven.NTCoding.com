@@ -34,8 +34,17 @@ namespace Web.Endpoints.SiteManagement.Book
 
 		public FubuContinuation Post(CreateBookInputModel model)
 		{
-			_bookCreater.Create(model.Title, model.Authors, model.Description_BigText, model.Genre,
-			                   FileUploader.GetBytes(model.Image), model.BookStatus);
+			var dto = new CreateBookDto
+			          	{
+			          		Title       = model.Title,
+			          		Authors     = model.Authors,
+			          		Description = model.Description_BigText,
+			          		Genre       = model.Genre,
+			          		Image       = FileUploader.GetBytes(model.Image),
+			          		Status      = model.BookStatus
+			          	};
+
+			_bookCreater.Create(dto);
 
 			return FubuContinuation.RedirectTo<ViewEndpoint>(e => e.Get(new ViewBookLinkModel()));
 		}

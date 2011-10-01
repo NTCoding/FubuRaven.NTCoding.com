@@ -23,7 +23,6 @@ namespace Web.Endpoints.SiteManagement.Book
 
 		public CreateBookViewModel Get(CreateBookLinkModel model)
 		{
-			// TODO - where are we going to store these kind of queries?
 			var genres = _session
 				.Query<Model.Genre>()
 				.OrderBy(g => g.Name)
@@ -48,7 +47,7 @@ namespace Web.Endpoints.SiteManagement.Book
 
 			var linkModel = new ViewBookLinkModel { Id = book.Id };
 
-			return FubuContinuation.RedirectTo<ViewEndpoint>(x => x.Get(linkModel));
+			return FubuContinuation.RedirectTo(linkModel);
 		}
 	}
 }

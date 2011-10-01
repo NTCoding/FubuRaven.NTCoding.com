@@ -122,19 +122,7 @@ namespace Web.Tests.Books
 			Assert.IsTrue(book.Authors.Any(a => a == model.Authors.ElementAt(1)));
 		}
 
-
-		[Test]
-		public void Post_ShouldRedirectToMangementViewBook()
-		{
-			var genre = GetGenreFromSession();
-			var model = GetTestCreateBookInputModel(genre);
-
-			var result = _endpoint.Post(model);
-
-			result.AssertWasRedirectedTo<ViewEndpoint>(x => x.Get(new ViewBookLinkModel()));
-		}
-
-		// TODO - this overload just cannot be called. Something is fucked
+		// TODO - this overload just cannot be called. I am going to try and fix it
 		[Test][Ignore]
 		public void Post_ShouldRedirect_WithIDOfCreatedBook()
 		{
@@ -146,6 +134,7 @@ namespace Web.Tests.Books
 
 			var book = Session.Query<Book>().Single();
 
+			Assert.Inconclusive();
 			//Func<ViewBookLinkModel, bool> predicate = x => true;
 			//result.AssertWasRedirectedTo<ViewBookLinkModel>((Func<ViewBookLinkModel, bool>)predicate);
 		}

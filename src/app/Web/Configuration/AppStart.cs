@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.Routing;
+using FubuCore.Binding;
 using FubuMVC.Core;
 using Model;
 using Model.Services;
@@ -20,22 +22,25 @@ namespace Web.Configuration
         public static void Start()
         {
 			// TODO - move declarations into a registry
-        	var container = new Container(x => {
-				
+			var container = new Container(x =>
+			{
+
 				x.For<IDocumentSession>()
 					.HttpContextScoped()
 					.Use(c => DocumentStoreHolder.DocumentStore.OpenSession());
-				
+
 				x.For<IHomepageContentProvider>()
 					.Use<HomepageContentProvider>();
-				
+
 				x.For<IBookCreater>().Use<BookCreater>();
 
-        		});
+			});
 
         	BootstrappingExtensions.StructureMap(FubuApplication.For<NTCodingFubuRegistry>(), container)
                 .Bootstrap(RouteTable.Routes);
         }
+
+
     	
     }
 }

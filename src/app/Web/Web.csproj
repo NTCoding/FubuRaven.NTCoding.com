@@ -264,6 +264,8 @@
     <Compile Include="Infrastructure\Raven\DocumentStoreHolder.cs" />
     <Compile Include="Infrastructure\Services\FileUploader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\StringWrapper.cs" />
+    <Compile Include="Utilities\StringWrapperExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="%40App_Data\Raven\IndexDefinitions\TemporaryIndexDefinitionsAsSource\" />

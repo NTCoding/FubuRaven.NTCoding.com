@@ -7,6 +7,7 @@ using Model.Services;
 using Raven.Client;
 using Web.Endpoints.SiteManagement.Book.CreateModels;
 using Web.Infrastructure.Services;
+using Web.Utilities;
 
 namespace Web.Endpoints.SiteManagement.Book
 {
@@ -36,7 +37,7 @@ namespace Web.Endpoints.SiteManagement.Book
 			var dto = new CreateBookDto
 			          	{
 			          		Title       = model.Title,
-			          		Authors     = model.Authors,
+			          		Authors     = model.Authors.ToStrings(),
 			          		Description = model.Description_BigText,
 			          		Genre       = model.Genre,
 			          		Image       = FileUploader.GetBytes(model.Image),

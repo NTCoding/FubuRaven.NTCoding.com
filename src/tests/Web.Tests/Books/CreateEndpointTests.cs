@@ -10,6 +10,7 @@ using NUnit.Framework;
 using Web.Endpoints.SiteManagement.Book;
 using Web.Endpoints.SiteManagement.Book.CreateModels;
 using Web.Tests.TestDoubles;
+using Web.Utilities;
 using Genre = Model.Genre;
 
 namespace Web.Tests.Books
@@ -21,12 +22,12 @@ namespace Web.Tests.Books
 		{
 			return new CreateBookInputModel
 			{
-				Title = "Amazing Book",
-				Genre = genre.Id,
+				Title               = "Amazing Book",
+				Genre               = genre.Id,
 				Description_BigText = "A splendid read",
-				BookStatus = BookStatus.Reviewed,
-				Authors = new[] { "Jimmy Bogard", "Jimmy Slim" },
-				Image = new MockHttpPostedFileBase(new byte[100])
+				BookStatus          = BookStatus.Reviewed,
+				Authors             = new[] { "Jimmy Bogard", "Jimmy Slim" }.ToStringWrappers(),
+				Image               = new MockHttpPostedFileBase(new byte[100])
 			};
 		}
 
@@ -114,8 +115,9 @@ namespace Web.Tests.Books
 				.Where(b => b.Title == model.Title)
 				.Where(b => b.Genre.Name == genre.Name)
 				.Where(b => b.Description == model.Description_BigText)
-				.Where(b => b.Status ==  model.BookStatus)
-				.Where(b => b.Authors.Any(a => a == model.Authors.ElementAt(0)))
+				.Where(b => b.Status == model.BookStatus)
+				.ToList()
+				.Where(b => b.Authors.Any(a => a == model.Authors.ElementAt(0).Text))
 				.First();
 
 			Assert.IsNotNull(book);

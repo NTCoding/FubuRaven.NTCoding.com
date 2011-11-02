@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web;
 using Model;
+using Web.Utilities;
 
 namespace Web.Endpoints.SiteManagement.Book.CreateModels
 {
@@ -15,7 +16,7 @@ namespace Web.Endpoints.SiteManagement.Book.CreateModels
 
 		public BookStatus BookStatus { get; set; }
 
-		public IEnumerable<String> Authors { get; set; }
+		public IEnumerable<StringWrapper> Authors { get; set; }
 
 		// TODO - test a file upload?
 		public HttpPostedFileBase Image { get; set; }

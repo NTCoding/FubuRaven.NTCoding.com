@@ -16,7 +16,7 @@ namespace Web.Endpoints.SiteManagement.Book.CreateModels
 
 		public BookStatus BookStatus { get; set; }
 
-		public IEnumerable<StringWrapper> Authors { get; set; }
+		public IList<StringWrapper> Authors { get; set; }
 
 		// TODO - test a file upload?
 		public HttpPostedFileBase Image { get; set; }

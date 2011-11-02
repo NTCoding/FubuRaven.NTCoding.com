@@ -42,6 +42,7 @@
 		${this.LabelFor(m => m.Image)}
 		${this.InputFor(m => m.Image)}
 	</p>
+	
 	<input type="submit" value="Create Book" />
 </form>
 

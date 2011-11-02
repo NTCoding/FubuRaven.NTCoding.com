@@ -26,7 +26,7 @@ namespace Web.Tests.Books
 				Genre               = genre.Id,
 				Description_BigText = "A splendid read",
 				BookStatus          = BookStatus.Reviewed,
-				Authors             = new[] { "Jimmy Bogard", "Jimmy Slim" }.ToStringWrappers(),
+				Authors             = new[] { "Jimmy Bogard", "Jimmy Slim" }.ToStringWrappers().ToList(),
 				Image               = new MockHttpPostedFileBase(new byte[100])
 			};
 		}

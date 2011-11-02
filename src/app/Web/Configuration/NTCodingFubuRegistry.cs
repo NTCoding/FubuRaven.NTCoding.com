@@ -9,6 +9,7 @@ using FubuValidation;
 using FubuValidation.Fields;
 using HtmlTags;
 using Web.Infrastructure.Behaviours;
+using Web.Utilities;
 
 namespace Web.Configuration
 {
@@ -99,7 +100,7 @@ namespace Web.Configuration
 
         	HtmlConvention(x =>
         	               x.Editors
-        	               	.If(e => e.Accessor.PropertyType.IsAssignableFrom(typeof (IEnumerable<String>)))
+        	               	.If(e => e.Accessor.PropertyType.IsAssignableFrom(typeof (IList<StringWrapper>)))
         	               	.BuildBy(er =>
         	               	         	{
         	               	         		var tag = new HtmlTag("div").AddClass("hasHiddenGroup");

@@ -26,7 +26,7 @@ function setSequentialIndicesForHiddenFields() {
 
 		hiddenFields.each(function (index) {
 			var name = $(this).attr('name');
-			name = name + '[' + index + ']';
+			name = name + '[' + index + ']Text'; // .Text because we are binding to StringWrappers for now
 			$(this).attr('name', name);
 		});
 	});

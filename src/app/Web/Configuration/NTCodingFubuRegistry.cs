@@ -50,17 +50,34 @@ namespace Web.Configuration
         	Policies
         		.WrapBehaviorChainsWith<RavenSessionBehaviour>();
 
+			// TODO - move into conventions / policies? Put Html building logic into helpers
+        	HtmlConvention(x =>
+        	               x.Labels
+        	               	.If(e => e.Accessor.Name.EndsWith("_BigText"))
+        	               	.BuildBy(er => new HtmlTag("label").Text(er.Accessor.Name.Replace("_BigText", "")))
+        		);
+
+        	HtmlConvention(x =>
+        	               x.Displays
+        	               	.If(e => e.Accessor.PropertyType.IsAssignableFrom(typeof (IEnumerable<String>)))
+        	               	.BuildBy(er =>
+        	               	         	{
+        	               	         		var list = new HtmlTag("ul");
+        	               	         		foreach (var item in er.Value<IEnumerable<String>>())
+        	               	         		{
+        	               	         			list.Append(new HtmlTag("li", t => t.Text(item)));
+        	               	         		}
+
+        	               	         		return list;
+        	               	         	}
+        	               	));
+
         	HtmlConvention(x =>
         	               x.Editors
         	               	.If(e => e.Accessor.Name.EndsWith("_BigText"))
         	               	.BuildBy(er => new HtmlTag("textarea"))
         		);
 
-        	HtmlConvention(x =>
-        	               x.Labels
-        	               	.If(e => e.Accessor.Name.EndsWith("_BigText"))
-        	               	.BuildBy(er => new HtmlTag("label").Text(er.Accessor.Name.Replace("_BigText", "")))
-        		);
 
         	HtmlConvention(x =>
         	               x.Editors

@@ -13,6 +13,7 @@ namespace Web.Endpoints.SiteManagement.Book.ViewModels
 			Description = book.Description;
 			Status      = book.Status.ToString();
 			Authors     = book.Authors.ToList();
+			Id          = book.Id;
 		}
 
 		public String Title { get; private set; }
@@ -24,5 +25,9 @@ namespace Web.Endpoints.SiteManagement.Book.ViewModels
 		public String Status { get; private set; }
 
 		public IEnumerable<String> Authors { get; private set; }
+
+		public byte[] Image { get; private set; }
+
+		public String Id { get; private set; }
 	}
 }

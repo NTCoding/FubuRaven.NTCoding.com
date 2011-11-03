@@ -246,6 +246,7 @@
     <Compile Include="Endpoints\HomepageEndpoint.cs" />
     <Compile Include="Endpoints\HomepageModels\HomepageLinkModel.cs" />
     <Compile Include="Endpoints\HomepageModels\HomepageViewModel.cs" />
+    <Compile Include="Endpoints\ImageEndpoint.cs" />
     <Compile Include="Endpoints\SiteManagement\Book\CreateEndpoint.cs" />
     <Compile Include="Endpoints\SiteManagement\Book\CreateModels\CreateBookInputModel.cs" />
     <Compile Include="Endpoints\SiteManagement\Book\CreateModels\CreateBookLinkModel.cs" />

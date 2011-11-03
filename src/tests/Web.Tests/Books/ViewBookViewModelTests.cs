@@ -61,5 +61,15 @@ namespace Web.Tests.Books
 				Assert.IsTrue(model.Authors.Any(a => a == author));
 			}
 		}
+
+		[Test]
+		public void Construction_GivenABook_ShouldMapID()
+		{
+			var book = BookTestingHelper.GetBook();
+
+			var model = new ViewBookViewModel(book);
+
+			Assert.AreEqual(book.Id, model.Id);
+		}
 	}
 }

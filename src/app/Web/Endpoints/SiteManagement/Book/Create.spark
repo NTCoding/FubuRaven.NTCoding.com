@@ -47,6 +47,9 @@
 </form>
 
 <h2>Add a new Genre</h2>
+<p>
+	<em>This will be ajax</em>
+</p>
 <form id="genreForm" action="${this.Urls.UrlFor(new CreateGenreInputModel())}" method="post">
 	<input type="text" name="Name" />
 	<br />

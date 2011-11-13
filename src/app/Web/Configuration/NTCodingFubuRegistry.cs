@@ -183,11 +183,14 @@ namespace Web.Configuration
 
 		protected override DoNext performInvoke()
 		{
-			var bytes = File.ReadAllBytes(@"C:\Users\Administrator\Desktop\Servers.png");
-			
+			//var bytes = File.ReadAllBytes(@"C:\Users\Administrator\Desktop\Servers.png");
+			//var contentType = "image/png";
+
+			var model = request.Get<ImageModel>();
+
 			var response = HttpContext.Current.Response;
-			response.BinaryWrite(bytes);
-			response.ContentType = "image/png";
+			response.BinaryWrite(model.Data);
+			response.ContentType = model.ContentType;
 
 			return DoNext.Continue;
 		}

@@ -1,3 +1,6 @@
+using System;
+using System.IO;
+
 namespace Web.Endpoints
 {
 	// TODO - local requests only
@@ -5,7 +8,7 @@ namespace Web.Endpoints
 	{
 		public ImageModel Get(ImageLinkModel model)
 		{
-			return new ImageModel();
+			return new ImageModel(File.ReadAllBytes(@"C:\Users\Administrator\Desktop\Servers.png"), "image/png");
 		}
 	}
 
@@ -15,5 +18,14 @@ namespace Web.Endpoints
 
 	public class ImageModel
 	{
+		public byte[] Data { get; private set; }
+
+		public ImageModel(byte[] data, string contentType)
+		{
+			Data = data;
+			ContentType = contentType;
+		}
+
+		public String ContentType { get; private set; }
 	}
 }

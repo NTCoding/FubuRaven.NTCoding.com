@@ -17,9 +17,9 @@ namespace Web.Endpoints
 
 		public ImageModel Get(ImageLinkModel model)
 		{
-			// TODO - do we translate to png here?
 			var book = session.Load<Book>(model.Id);
-			return new ImageModel(book.Image, "");
+
+			return new ImageModel(book.Image, "image/png");
 		}
 	}
 

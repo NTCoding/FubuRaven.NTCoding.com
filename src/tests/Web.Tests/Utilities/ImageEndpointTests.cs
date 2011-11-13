@@ -22,18 +22,21 @@ namespace Web.Tests.Utilities
 		[Test]
 		public void Get_GivenIdForBook_ShouldReturnBooksImage()
 		{
-			SetUp();
-			
 			var book = GetBookWithImageFromSession();
 
-			var image = endpoint.Get(new ImageLinkModel {Id = book.Id});
+			var outputModel = endpoint.Get(new ImageLinkModel {Id = book.Id});
 
-			Assert.AreEqual(book.Image, image.Data);
+			Assert.AreEqual(book.Image, outputModel.Data);
 		}
 
-		[Test][Ignore]
+		[Test]
 		public void Get_ShouldAlwaysReturnPngs()
 		{
+			var book = GetBookWithImageFromSession();
+
+			var outputModel = endpoint.Get(new ImageLinkModel {Id = book.Id});
+
+			Assert.AreEqual("image/png", outputModel.ContentType);
 		}
 
 		private Book GetBookWithImageFromSession()

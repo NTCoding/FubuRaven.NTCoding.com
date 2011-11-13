@@ -27,6 +27,7 @@ namespace Model
 
 		public IEnumerable<String> Authors { get; private set; }
 
+		// TODO - move it out of here
 		public byte[] Image { get; private set; }
 	}
 }

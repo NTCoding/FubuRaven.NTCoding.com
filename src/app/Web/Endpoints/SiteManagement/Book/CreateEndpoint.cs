@@ -44,6 +44,7 @@ namespace Web.Endpoints.SiteManagement.Book
 			          		Status      = model.BookStatus
 			          	};
 
+			// TODO - convert images to png's here
 			var book = _bookCreater.Create(dto);
 
 			var linkModel = new ViewBookLinkModel { Id = book.Id };

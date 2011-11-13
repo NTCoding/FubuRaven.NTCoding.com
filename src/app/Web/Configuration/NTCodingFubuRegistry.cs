@@ -1,22 +1,12 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Web;
-using FubuCore;
 using FubuMVC.Core;
-using FubuMVC.Core.Behaviors;
-using FubuMVC.Core.Registration;
-using FubuMVC.Core.Registration.Nodes;
-using FubuMVC.Core.Registration.ObjectGraph;
-using FubuMVC.Core.Runtime;
-using FubuMVC.Core.UI.Configuration;
 using FubuMVC.Spark;
 using FubuMVC.Validation;
 using FubuValidation;
-using FubuValidation.Fields;
 using HtmlTags;
+using Web.Configuration.Behaviours.Output;
 using Web.Endpoints;
 using Web.Infrastructure.Behaviours;
 using Web.Utilities;
@@ -164,35 +154,4 @@ namespace Web.Configuration
 			this.UseSpark();
         }
     }
-
-	public class RenderImageNode : OutputNode<ImageOutputBehaviour>
-	{
-		
-	}
-
-	public class ImageOutputBehaviour : BasicBehavior
-	{
-		private readonly IOutputWriter writer;
-		private readonly IFubuRequest request;
-
-		public ImageOutputBehaviour(IOutputWriter writer, IFubuRequest request) : base(PartialBehavior.Ignored)
-		{
-			this.writer = writer;
-			this.request = request;
-		}
-
-		protected override DoNext performInvoke()
-		{
-			//var bytes = File.ReadAllBytes(@"C:\Users\Administrator\Desktop\Servers.png");
-			//var contentType = "image/png";
-
-			var model = request.Get<ImageModel>();
-
-			var response = HttpContext.Current.Response;
-			response.BinaryWrite(model.Data);
-			response.ContentType = model.ContentType;
-
-			return DoNext.Continue;
-		}
-	}
 }

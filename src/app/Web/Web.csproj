@@ -240,6 +240,8 @@
   <ItemGroup>
     <Compile Include="App_Start\FubuMVC.cs" />
     <Compile Include="Configuration\AppStart.cs" />
+    <Compile Include="Configuration\Behaviours\Output\ImageOutputBehaviour.cs" />
+    <Compile Include="Configuration\Behaviours\Output\RenderImageNode.cs" />
     <Compile Include="Configuration\HandlerModelDescriptor.cs" />
     <Compile Include="Configuration\NTCodingFubuRegistry.cs" />
     <Compile Include="ConfigureFubuMVC.cs" />

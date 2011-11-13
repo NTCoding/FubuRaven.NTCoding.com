@@ -11,16 +11,29 @@ namespace Web.Tests.Utilities
 	[TestFixture]
 	public class ImageEndpointTests : RavenTestsBase
 	{
+		private ImageEndpoint endpoint;
+
+		[SetUp]
+		public void SetUp()
+		{
+			endpoint = new ImageEndpoint(Session);
+		}
+
 		[Test]
 		public void Get_GivenIdForBook_ShouldReturnBooksImage()
 		{
-			var endpoint = new ImageEndpoint(Session);
+			SetUp();
 			
 			var book = GetBookWithImageFromSession();
 
 			var image = endpoint.Get(new ImageLinkModel {Id = book.Id});
 
 			Assert.AreEqual(book.Image, image.Data);
+		}
+
+		[Test][Ignore]
+		public void Get_ShouldAlwaysReturnPngs()
+		{
 		}
 
 		private Book GetBookWithImageFromSession()

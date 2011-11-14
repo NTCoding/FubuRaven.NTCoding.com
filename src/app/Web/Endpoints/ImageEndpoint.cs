@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using Model;
 using Raven.Client;
+using Web.Utilities;
 
 namespace Web.Endpoints
 {
@@ -10,7 +11,7 @@ namespace Web.Endpoints
 	{
 		private readonly IDocumentSession session;
 
-		public ImageEndpoint(IDocumentSession session)
+		public ImageEndpoint(IDocumentSession session, ImagePreparer preparer)
 		{
 			this.session = session;
 		}
@@ -26,6 +27,10 @@ namespace Web.Endpoints
 	public class ImageLinkModel
 	{
 		public String Id { get; set; }
+
+		public int Width { get; set; }
+
+		public int Height { get; set; }
 	}
 
 	public class ImageModel

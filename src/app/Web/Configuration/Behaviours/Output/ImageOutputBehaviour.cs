@@ -6,14 +6,13 @@ using Web.Endpoints;
 
 namespace Web.Configuration.Behaviours.Output
 {
+	// TODO - use IHttpWriter and add some tests
 	public class ImageOutputBehaviour : BasicBehavior
 	{
-		private readonly IOutputWriter writer;
 		private readonly IFubuRequest request;
 
-		public ImageOutputBehaviour(IOutputWriter writer, IFubuRequest request) : base(PartialBehavior.Ignored)
+		public ImageOutputBehaviour(IFubuRequest request) : base(PartialBehavior.Ignored)
 		{
-			this.writer = writer;
 			this.request = request;
 		}
 

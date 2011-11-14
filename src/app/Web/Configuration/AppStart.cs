@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Web.Routing;
-using FubuCore.Binding;
 using FubuMVC.Core;
 using Model;
 using Model.Services;
@@ -11,9 +11,10 @@ using StructureMap;
 using Web.Configuration;
 using Web.Infrastructure.Raven;
 using BootstrappingExtensions = FubuMVC.StructureMap.BootstrappingExtensions;
+using Container = StructureMap.Container;
 
 // You can remove the reference to WebActivator by calling the Start() method from your Global.asax Application_Start
-[assembly: WebActivator.PreApplicationStartMethod(typeof(AppStart), "Start", callAfterGlobalAppStart: true)]
+[assembly: WebActivator.PreApplicationStartMethod(typeof(AppStart), "Start")]
 
 namespace Web.Configuration
 {
@@ -37,7 +38,7 @@ namespace Web.Configuration
 			});
 
         	BootstrappingExtensions.StructureMap(FubuApplication.For<NTCodingFubuRegistry>(), container)
-                .Bootstrap(RouteTable.Routes);
+                .Bootstrap();
         }
 
 

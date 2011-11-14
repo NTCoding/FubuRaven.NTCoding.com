@@ -37,9 +37,7 @@
     <Reference Include="Esent.Interop">
       <HintPath>..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\Esent.Interop.dll</HintPath>
     </Reference>
-    <Reference Include="FubuMVC.Core">
-      <HintPath>..\..\packages\FubuMVC.References.0.9.1.548\lib\FubuMVC.Core.dll</HintPath>
-    </Reference>
+    <Reference Include="FubuMVC.Core, Version=0.9.1.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="ICSharpCode.NRefactory">
       <HintPath>..\..\packages\RavenDB-Embedded.1.0.0.472\lib\net40\ICSharpCode.NRefactory.dll</HintPath>
     </Reference>

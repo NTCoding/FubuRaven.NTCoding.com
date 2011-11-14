@@ -12,6 +12,7 @@ using Web.Infrastructure.Behaviours;
 using Web.Utilities;
 
 namespace Web.Configuration
+
 {
     public class NTCodingFubuRegistry : FubuRegistry
     {

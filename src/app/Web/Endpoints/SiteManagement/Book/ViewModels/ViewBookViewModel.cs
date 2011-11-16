@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Web.Utilities;
 
 namespace Web.Endpoints.SiteManagement.Book.ViewModels
 {
@@ -13,7 +14,7 @@ namespace Web.Endpoints.SiteManagement.Book.ViewModels
 			Description = book.Description;
 			Status      = book.Status.ToString();
 			Authors     = book.Authors.ToList();
-			Id          = book.Id;
+			Image       = new ImageDisplayModel(book.Id);
 		}
 
 		public String Title { get; private set; }
@@ -26,8 +27,6 @@ namespace Web.Endpoints.SiteManagement.Book.ViewModels
 
 		public IEnumerable<String> Authors { get; private set; }
 
-		public byte[] Image { get; private set; }
-
-		public String Id { get; private set; }
+		public ImageDisplayModel Image { get; private set; }
 	}
 }

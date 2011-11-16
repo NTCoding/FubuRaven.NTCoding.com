@@ -40,17 +40,17 @@ namespace Web.Configuration
         	Output.To<RenderImageNode>().WhenTheOutputModelIs<ImageModel>();
 
 
-        	this.Validation(validation =>
-        	                	{
-        	                		validation
-        	                			.Actions
-        	                			.Include(call => call.HasInput && call.InputType().Name.Contains("Input"));
+			//this.Validation(validation =>
+			//                    {
+			//                        validation
+			//                            .Actions
+			//                            .Include(call => call.HasInput && call.InputType().Name.Contains("Input"));
 
-        	                		validation
-        	                			.Failures
-        	                			.If(f => f.InputType() != null && f.InputType().Name.Contains("Input"))
-        	                			.TransferBy<HandlerModelDescriptor>();
-        	                	});
+			//                        validation
+			//                            .Failures
+			//                            .If(f => f.InputType() != null && f.InputType().Name.Contains("Input"))
+			//                            .TransferBy<HandlerModelDescriptor>();
+			//                    });
 
         	Policies
         		.WrapBehaviorChainsWith<RavenSessionBehaviour>();

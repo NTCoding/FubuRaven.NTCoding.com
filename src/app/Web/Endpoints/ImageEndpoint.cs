@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Linq;
 using Model;
 using Raven.Client;
 using Web.Utilities;
@@ -7,6 +8,7 @@ using Web.Utilities;
 namespace Web.Endpoints
 {
 	// TODO - local requests only
+	// TODO - maybe cache images?
 	public class ImageEndpoint
 	{
 		private readonly IDocumentSession session;

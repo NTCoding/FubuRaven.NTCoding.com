@@ -63,13 +63,13 @@ namespace Web.Tests.Books
 		}
 
 		[Test]
-		public void Construction_GivenABook_ShouldMapID()
+		public void Construction_GivenABook_ShouldHaveImageDisplayModel_WithBooksId()
 		{
 			var book = BookTestingHelper.GetBook();
 
 			var model = new ViewBookViewModel(book);
 
-			Assert.AreEqual(book.Id, model.Id);
+			Assert.AreEqual(book.Id, model.Image.Id);
 		}
 	}
 }

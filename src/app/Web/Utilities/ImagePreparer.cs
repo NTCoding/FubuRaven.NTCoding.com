@@ -2,6 +2,6 @@
 {
 	public interface ImagePreparer
 	{
-		object Prepare(int width, int height, byte[] image, string format);
+		byte[] Prepare(int width, int height, byte[] image, string format);
 	}
 }

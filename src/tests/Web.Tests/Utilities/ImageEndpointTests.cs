@@ -24,7 +24,7 @@ namespace Web.Tests.Utilities
 		}
 
 		[Test]
-		public void Get_GivenIdForBook_ShouldCollaborateWithImagePreparer_ToReturnBooksImage()
+		public void Get_GivenIdForBook_ShouldCallImagePreparerWithBooksDetails()
 		{
 			var book = GetBookWithImageFromSession();
 
@@ -33,9 +33,21 @@ namespace Web.Tests.Utilities
 			endpoint.Get(linkModel);
 
 			preparer.AssertWasCalled(x => x.Prepare(linkModel.Width, linkModel.Height, book.Image, "png"));
+		}
 
-			// TODO - verify preparer return data was returned
-			//Assert.AreEqual(book.Image, outputModel.Data);
+		[Test]
+		public void Get_GivenIdForBook_ShouldCollborateWithImagePreparer_ToGetImage()
+		{
+			var book = GetBookWithImageFromSession();
+			
+			var imageData = new byte[] {1, 2, 3, 4, 5, 6};
+			preparer.Stub(x => x.Prepare(1, 1, null, "")).Return(imageData).IgnoreArguments();
+
+			var linkModel = new ImageLinkModel {Id = book.Id};
+
+			var output = endpoint.Get(linkModel);
+
+			Assert.AreEqual(imageData, output.Data);
 		}
 
 		[Test]
@@ -57,7 +69,5 @@ namespace Web.Tests.Utilities
 			Session.SaveChanges();
 			return book;
 		}
-
-		// TODO - verify content type is always a png
 	}
 }

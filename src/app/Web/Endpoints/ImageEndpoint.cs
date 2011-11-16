@@ -21,9 +21,9 @@ namespace Web.Endpoints
 		public ImageModel Get(ImageLinkModel model)
 		{
 			var book = session.Load<Book>(model.Id);
-			var image = preparer.Prepare(model.Width, model.Height, book.Image, "png");
+			var preparedImage = preparer.Prepare(model.Width, model.Height, book.Image, "png");
 
-			return new ImageModel(book.Image, "image/png");
+			return new ImageModel(preparedImage, "image/png");
 		}
 	}
 

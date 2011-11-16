@@ -10,15 +10,18 @@ namespace Web.Endpoints
 	public class ImageEndpoint
 	{
 		private readonly IDocumentSession session;
+		private readonly ImagePreparer preparer;
 
 		public ImageEndpoint(IDocumentSession session, ImagePreparer preparer)
 		{
 			this.session = session;
+			this.preparer = preparer;
 		}
 
 		public ImageModel Get(ImageLinkModel model)
 		{
 			var book = session.Load<Book>(model.Id);
+			var image = preparer.Prepare(model.Width, model.Height, book.Image, "png");
 
 			return new ImageModel(book.Image, "image/png");
 		}

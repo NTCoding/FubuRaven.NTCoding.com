@@ -10,6 +10,7 @@ using Raven.Client.Embedded;
 using StructureMap;
 using Web.Configuration;
 using Web.Infrastructure.Raven;
+using Web.Utilities;
 using BootstrappingExtensions = FubuMVC.StructureMap.BootstrappingExtensions;
 using Container = StructureMap.Container;
 
@@ -34,6 +35,8 @@ namespace Web.Configuration
 					.Use<HomepageContentProvider>();
 
 				x.For<IBookCreater>().Use<BookCreater>();
+
+				x.For<ImagePreparer>().Use<SimpleImagePreparer>();
 
 			});
 

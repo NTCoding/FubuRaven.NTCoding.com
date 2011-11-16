@@ -168,7 +168,6 @@
     <Compile Include="Configuration\Behaviours\Output\RenderImageNode.cs" />
     <Compile Include="Configuration\HandlerModelDescriptor.cs" />
     <Compile Include="Configuration\NTCodingFubuRegistry.cs" />
-    <Compile Include="ConfigureFubuMVC.cs" />
     <Compile Include="Endpoints\HomepageEndpoint.cs" />
     <Compile Include="Endpoints\HomepageModels\HomepageLinkModel.cs" />
     <Compile Include="Endpoints\HomepageModels\HomepageViewModel.cs" />
@@ -223,8 +222,6 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="packages.config" />
-    <Content Include="fubu-content\fubumvc-diagnostics.zip" />
-    <Content Include="fubu-content\basic-getting-started.zip" />
     <None Include="Shared\Application.spark" />
     <None Include="Shared\Notification.spark" />
     <None Include="Shared\_global.spark" />

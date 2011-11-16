@@ -22,3 +22,8 @@
 	${this.LabelFor(m => m.Authors)}
 	${this.DisplayFor(m => m.Authors)}
 </p>
+<p>
+	${this.LabelFor(m => m.Image)}
+	<br />
+	${this.DisplayFor(m => m.Image)}
+</p>

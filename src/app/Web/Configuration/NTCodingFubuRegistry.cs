@@ -77,6 +77,17 @@ namespace Web.Configuration
         	               	         	}
         	               	));
 
+			HtmlConvention(x =>
+						x.Displays
+						.If(e => e.Accessor.PropertyType.IsAssignableFrom(typeof(ImageDisplayModel)))
+						.BuildBy(er =>
+						{
+							var model = er.Value<ImageDisplayModel>();
+							var urlForImage = String.Format("/Image?id={0}&width={1}&height={2}", model.Id, model.Width, model.Height);
+							return new HtmlTag("img").Attr("src", urlForImage);
+						}
+							));
+
         	HtmlConvention(x =>
         	               x.Editors
         	               	.If(e => e.Accessor.Name.EndsWith("_BigText"))
@@ -150,6 +161,8 @@ namespace Web.Configuration
 						.If(e => e.Accessor.PropertyType.IsAssignableFrom(typeof(HttpPostedFileBase)))
 						.BuildBy(er => new HtmlTag("input").Attr("type", "file"))
 				);
+
+			
 
 
 			this.UseSpark();

@@ -103,6 +103,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Books\BookEndpointTests.cs" />
     <Compile Include="Books\CreateBookInputModelTests.cs" />
     <Compile Include="Books\CreateBookLinkModelTests.cs" />
     <Compile Include="Books\CreateBookViewModelTests.cs" />

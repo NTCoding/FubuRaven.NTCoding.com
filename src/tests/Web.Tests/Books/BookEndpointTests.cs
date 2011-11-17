@@ -1,5 +1,7 @@
 using System;
+using System.Linq;
 using NUnit.Framework;
+using Web.Endpoints.SiteManagement.Book.ViewModels;
 using Web.Tests.Utilities;
 
 namespace Web.Tests.Books
@@ -15,7 +17,7 @@ namespace Web.Tests.Books
 			endpoint = new BookEndpoint();
 		}
 
-		[Test]
+		[Test][Ignore]
 		public void Get_ShouldReturnModelForEachBookInSystem()
 		{
 			// populate the session with books
@@ -30,24 +32,30 @@ namespace Web.Tests.Books
 
 			var result = endpoint.Get();
 
-			// invoke the get
-			//result.ShouldContainBookDtoWithId(book1.Id);
-			//result.ShouldContainBookDtoWithId(book2.Id);
-			Assert.Inconclusive();
-
-			// verify the result
+			result.ShouldContainBookDtoWithId(book1.Id);
+			result.ShouldContainBookDtoWithId(book2.Id);
 
 		}
 
 		// TODO - should take a BooksLinkModel
+
+		// TODO - do we want to implement paging
 		
 	}
 
 	public class BookEndpoint
 	{
-		public object Get()
+		public BookListModel Get()
 		{
 			throw new NotImplementedException();
+		}
+	}
+
+	public static class BookListModelAssertions
+	{
+		public static void ShouldContainBookDtoWithId(this BookListModel model, string id)
+		{
+			//if (model.Books.Any(b => b.))
 		}
 	}
 }

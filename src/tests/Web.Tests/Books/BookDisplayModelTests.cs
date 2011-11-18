@@ -27,10 +27,17 @@ namespace Web.Tests.Books
 			var model = new BookDisplayModel(book);
 
 			Assert.AreEqual(book.Title, model.Title);
-
 		}
 
-		// TODO - books status
+		[Test]
+		public void SholdMapBooksStatus()
+		{
+			var book = BookTestingHelper.GetBook();
+
+			var model = new BookDisplayModel(book);
+
+			Assert.AreEqual(book.Status, model.Status);
+		}
 		
 	}
 

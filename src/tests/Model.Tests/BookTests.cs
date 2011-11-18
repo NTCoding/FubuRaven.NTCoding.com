@@ -53,5 +53,7 @@ namespace Model.Tests
 		}
 
 		// TODO Validate inputs cannot be null
+
+		// TODO - validate status can be "invisible"
 	}
 }

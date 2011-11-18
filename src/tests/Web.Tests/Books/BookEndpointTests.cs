@@ -1,5 +1,7 @@
 using System;
+using Model;
 using NUnit.Framework;
+using Raven.Client;
 using Web.Endpoints.SiteManagement.Book.ViewModels;
 using Web.Tests.Utilities;
 
@@ -13,10 +15,10 @@ namespace Web.Tests.Books
 		[SetUp]
 		public void CanCreate()
 		{
-			endpoint = new BookEndpoint();
+			endpoint = new BookEndpoint(Session);
 		}
 
-		[Test][Ignore]
+		[Test]
 		public void Get_ShouldReturnModelForEachBookInSystem()
 		{
 			// populate the session with books
@@ -28,12 +30,12 @@ namespace Web.Tests.Books
 
 			Session.Store(book1);
 			Session.Store(book2);
+			Session.SaveChanges();
 
 			var result = endpoint.Get();
 
 			result.ShouldContainBookDtoWithId(book1.Id);
 			result.ShouldContainBookDtoWithId(book2.Id);
-
 		}
 
 		// TODO - should take a BooksLinkModel
@@ -44,9 +46,19 @@ namespace Web.Tests.Books
 
 	public class BookEndpoint
 	{
+		private readonly IDocumentSession session;
+
+		public BookEndpoint(IDocumentSession session)
+		{
+			this.session = session;
+		}
+
 		public BookListModel Get()
 		{
-			throw new NotImplementedException();
+			// TODO - consider paging
+			var books = session.Query<Book>();
+
+			return new BookListModel(books);
 		}
 	}
 }

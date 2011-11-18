@@ -32,16 +32,26 @@ namespace Web.Tests.Books
 			Session.Store(book2);
 			Session.SaveChanges();
 
-			var result = endpoint.Get();
+			var result = endpoint.Get(new BooksLinkModel());
 
 			result.ShouldContainBookDtoWithId(book1.Id);
 			result.ShouldContainBookDtoWithId(book2.Id);
+		}
+
+		[Test]
+		public void Get_ShouldTakeABooksLinkModel()
+		{
+			endpoint.Get(new BooksLinkModel());
 		}
 
 		// TODO - should take a BooksLinkModel
 
 		// TODO - do we want to implement paging
 		
+	}
+
+	public class BooksLinkModel
+	{
 	}
 
 	public class BookEndpoint
@@ -53,7 +63,7 @@ namespace Web.Tests.Books
 			this.session = session;
 		}
 
-		public BookListModel Get()
+		public BookListModel Get(BooksLinkModel booksLinkModel)
 		{
 			// TODO - consider paging
 			var books = session.Query<Book>();

@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Model;
 using NUnit.Framework;
 using Web.Endpoints.SiteManagement.Book;
 using Web.Endpoints.SiteManagement.Book.LinkModels;
@@ -20,7 +22,15 @@ namespace Web.Tests.Books
 		[Test]
 		public void Get_ShouldReturnModelForEachBookInSystem()
 		{
-			// populate the session with books
+			var books = CreateTwoBooksAndAddThemToEmptySession();
+
+			var result = endpoint.Get(new BooksLinkModel());
+
+			books.ForEach(b => result.ShouldContainBookDtoWithId(b.Id));
+		}
+
+		private List<Book> CreateTwoBooksAndAddThemToEmptySession()
+		{
 			var book1 = BookTestingHelper.GetBook();
 			book1.Id = "abc";
 
@@ -31,10 +41,7 @@ namespace Web.Tests.Books
 			Session.Store(book2);
 			Session.SaveChanges();
 
-			var result = endpoint.Get(new BooksLinkModel());
-
-			result.ShouldContainBookDtoWithId(book1.Id);
-			result.ShouldContainBookDtoWithId(book2.Id);
+			return new System.Collections.Generic.List<Book> {book1, book2};
 		}
 
 		[Test]

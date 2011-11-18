@@ -2,6 +2,7 @@
 using Model;
 using Raven.Client;
 using Web.Endpoints.SiteManagement.Book.CreateModels;
+using Web.Endpoints.SiteManagement.Book.LinkModels;
 using Web.Endpoints.SiteManagement.Book.ViewModels;
 
 namespace Web.Endpoints.SiteManagement.Book

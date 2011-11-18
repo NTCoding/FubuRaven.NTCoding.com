@@ -168,11 +168,13 @@
     <Compile Include="Endpoints\HomepageModels\HomepageLinkModel.cs" />
     <Compile Include="Endpoints\HomepageModels\HomepageViewModel.cs" />
     <Compile Include="Endpoints\ImageEndpoint.cs" />
+    <Compile Include="Endpoints\SiteManagement\Book\BookEndpoint.cs" />
     <Compile Include="Endpoints\SiteManagement\Book\CreateEndpoint.cs" />
     <Compile Include="Endpoints\SiteManagement\Book\CreateModels\CreateBookInputModel.cs" />
-    <Compile Include="Endpoints\SiteManagement\Book\CreateModels\CreateBookLinkModel.cs" />
     <Compile Include="Endpoints\SiteManagement\Book\CreateModels\CreateBookViewModel.cs" />
-    <Compile Include="Endpoints\SiteManagement\Book\CreateModels\ViewBookLinkModel.cs" />
+    <Compile Include="Endpoints\SiteManagement\Book\LinkModels\BooksLinkModel.cs" />
+    <Compile Include="Endpoints\SiteManagement\Book\LinkModels\CreateBookLinkModel.cs" />
+    <Compile Include="Endpoints\SiteManagement\Book\LinkModels\ViewBookLinkModel.cs" />
     <Compile Include="Endpoints\SiteManagement\Book\ViewEndpoint.cs" />
     <Compile Include="Endpoints\SiteManagement\Book\ViewModels\BookListModel.cs" />
     <Compile Include="Endpoints\SiteManagement\Book\ViewModels\ViewBookViewModel.cs" />

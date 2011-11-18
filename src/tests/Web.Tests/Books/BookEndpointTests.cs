@@ -1,8 +1,7 @@
 using System;
-using Model;
 using NUnit.Framework;
-using Raven.Client;
-using Web.Endpoints.SiteManagement.Book.ViewModels;
+using Web.Endpoints.SiteManagement.Book;
+using Web.Endpoints.SiteManagement.Book.LinkModels;
 using Web.Tests.Utilities;
 
 namespace Web.Tests.Books
@@ -44,31 +43,6 @@ namespace Web.Tests.Books
 			endpoint.Get(new BooksLinkModel());
 		}
 
-		// TODO - should take a BooksLinkModel
-
 		// TODO - do we want to implement paging
-		
-	}
-
-	public class BooksLinkModel
-	{
-	}
-
-	public class BookEndpoint
-	{
-		private readonly IDocumentSession session;
-
-		public BookEndpoint(IDocumentSession session)
-		{
-			this.session = session;
-		}
-
-		public BookListModel Get(BooksLinkModel booksLinkModel)
-		{
-			// TODO - consider paging
-			var books = session.Query<Book>();
-
-			return new BookListModel(books);
-		}
 	}
 }

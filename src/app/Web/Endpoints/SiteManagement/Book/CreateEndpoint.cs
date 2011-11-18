@@ -6,6 +6,7 @@ using Model;
 using Model.Services;
 using Raven.Client;
 using Web.Endpoints.SiteManagement.Book.CreateModels;
+using Web.Endpoints.SiteManagement.Book.LinkModels;
 using Web.Infrastructure.Services;
 using Web.Utilities;
 

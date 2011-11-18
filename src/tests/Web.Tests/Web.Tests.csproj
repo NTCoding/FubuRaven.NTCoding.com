@@ -105,6 +105,7 @@
   <ItemGroup>
     <Compile Include="Books\BookDisplayModelTests.cs" />
     <Compile Include="Books\BookEndpointTests.cs" />
+    <Compile Include="Books\BookListModelAssertions.cs" />
     <Compile Include="Books\BookListModelTests.cs" />
     <Compile Include="Books\CreateBookInputModelTests.cs" />
     <Compile Include="Books\CreateBookLinkModelTests.cs" />

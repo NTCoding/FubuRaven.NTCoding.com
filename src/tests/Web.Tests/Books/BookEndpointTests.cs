@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using NUnit.Framework;
 using Web.Endpoints.SiteManagement.Book.ViewModels;
 using Web.Tests.Utilities;
@@ -48,14 +47,6 @@ namespace Web.Tests.Books
 		public BookListModel Get()
 		{
 			throw new NotImplementedException();
-		}
-	}
-
-	public static class BookListModelAssertions
-	{
-		public static void ShouldContainBookDtoWithId(this BookListModel model, string id)
-		{
-			//if (model.Books.Any(b => b.))
 		}
 	}
 }

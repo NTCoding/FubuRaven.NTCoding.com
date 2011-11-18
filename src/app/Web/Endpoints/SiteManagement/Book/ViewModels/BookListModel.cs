@@ -19,8 +19,11 @@ namespace Web.Endpoints.SiteManagement.Book.ViewModels
 		public BookDisplayModel(Model.Book book)
 		{
 			Id = book.Id;
+			Title = book.Title;
 		}
 
 		public String Id { get; private set; }
+
+		public String Title { get; private set; }
 	}
 }

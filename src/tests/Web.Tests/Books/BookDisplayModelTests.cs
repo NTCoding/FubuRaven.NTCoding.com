@@ -18,6 +18,19 @@ namespace Web.Tests.Books
 
 			model.ShouldHaveId(book.Id);
 		}
+
+		[Test]
+		public void ShouldMapBooksName()
+		{
+			var book = BookTestingHelper.GetBook();
+
+			var model = new BookDisplayModel(book);
+
+			Assert.AreEqual(book.Title, model.Title);
+
+		}
+
+		// TODO - books status
 		
 	}
 

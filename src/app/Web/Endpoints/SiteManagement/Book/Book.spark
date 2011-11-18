@@ -1,0 +1,4 @@
+﻿<viewdata model="Web.Endpoints.SiteManagement.Book.ViewModels.BookListModel" />
+
+<h1>Books</h1>
+

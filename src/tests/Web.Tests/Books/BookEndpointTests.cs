@@ -26,23 +26,23 @@ namespace Web.Tests.Books
 
 			var result = endpoint.Get(new BooksLinkModel());
 
-			books.ForEach(b => result.ShouldContainBookDtoWithId(b.Id));
+			books.ForEach(b => result.ShouldContainBookMOdelWithId(b.Id));
 		}
 
-		private List<Book> CreateTwoBooksAndAddThemToEmptySession()
-		{
-			var book1 = BookTestingHelper.GetBook();
-			book1.Id = "abc";
+			private List<Book> CreateTwoBooksAndAddThemToEmptySession()
+			{
+				var book1 = BookTestingHelper.GetBook();
+				book1.Id = "abc";
 
-			var book2 = BookTestingHelper.GetBook();
-			book2.Id = "999";
+				var book2 = BookTestingHelper.GetBook();
+				book2.Id = "999";
 
-			Session.Store(book1);
-			Session.Store(book2);
-			Session.SaveChanges();
+				Session.Store(book1);
+				Session.Store(book2);
+				Session.SaveChanges();
 
-			return new System.Collections.Generic.List<Book> {book1, book2};
-		}
+				return new List<Book> {book1, book2};
+			}
 
 		[Test]
 		public void Get_ShouldTakeABooksLinkModel()

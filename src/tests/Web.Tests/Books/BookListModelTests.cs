@@ -18,8 +18,8 @@ namespace Web.Tests.Books
 
 			var model = new BookListModel(new[] {book1, book2});
 
-			model.ShouldContainBookDtoWithId(book1.Id);
-			model.ShouldContainBookDtoWithId(book2.Id);
+			model.ShouldContainBookMOdelWithId(book1.Id);
+			model.ShouldContainBookMOdelWithId(book2.Id);
 		}
 	}
 }

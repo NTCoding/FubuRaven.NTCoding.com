@@ -1,4 +1,22 @@
-﻿<viewdata model="Web.Endpoints.SiteManagement.Book.ViewModels.BookListModel" />
+﻿<use namespace="Web.Endpoints.SiteManagement.Book.LinkModels" />
+<viewdata model="Web.Endpoints.SiteManagement.Book.ViewModels.BookListModel" />
 
 <h1>Books</h1>
 
+<table>
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Status</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<for each="var book in Model.Books">
+			<tr>
+				<td>${this.LinkTo(new ViewBookLinkModel{Id = book.Id}).Text(book.Title)}</td>
+				<td>${book.Status}</td>
+			</tr>
+		</for>
+	</tbody>
+</table>

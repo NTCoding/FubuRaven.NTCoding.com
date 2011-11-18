@@ -7,7 +7,7 @@ namespace Web.Endpoints.SiteManagement.Book.ViewModels
 	{
 		public BookListModel(IEnumerable<Model.Book> books)
 		{
-			Books = books.Select(b => new BookDisplayModel(b));
+			Books = books.Select(b => new BookDisplayModel(b)).ToList();
 		}
 
 		public IEnumerable<BookDisplayModel> Books { get; private set; }

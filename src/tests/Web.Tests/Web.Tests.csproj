@@ -110,6 +110,7 @@
     <Compile Include="Books\CreateBookLinkModelTests.cs" />
     <Compile Include="Books\CreateBookViewModelTests.cs" />
     <Compile Include="Books\CreateEndpointTests.cs" />
+    <Compile Include="Books\UpdateEndpointTests.cs" />
     <Compile Include="Books\ViewBookLinkModelTest.cs" />
     <Compile Include="Books\ViewBookViewModelTests.cs" />
     <Compile Include="Books\ViewEndpointTests.cs" />

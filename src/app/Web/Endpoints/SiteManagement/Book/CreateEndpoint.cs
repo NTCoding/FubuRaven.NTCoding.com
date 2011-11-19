@@ -25,6 +25,7 @@ namespace Web.Endpoints.SiteManagement.Book
 
 		public CreateBookViewModel Get(CreateBookLinkModel model)
 		{
+			// TODO - ordering could go inside the model
 			var genres = _session
 				.Query<Model.Genre>()
 				.OrderBy(g => g.Name)

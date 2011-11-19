@@ -8,6 +8,7 @@ using FubuValidation;
 using HtmlTags;
 using Web.Configuration.Behaviours.Output;
 using Web.Endpoints;
+using Web.Endpoints.HomepageModels;
 using Web.Infrastructure.Behaviours;
 using Web.Utilities;
 
@@ -27,7 +28,8 @@ namespace Web.Configuration
         		.IgnoreMethodsNamed("post")
         		.ConstrainToHttpMethod(x => x.Method.Name.Equals("Get"), "Get")
         		.ConstrainToHttpMethod(x => x.Method.Name.Equals("Post"), "Post")
-        		.RootAtAssemblyNamespace();
+        		.RootAtAssemblyNamespace()
+        		.HomeIs<HomepageEndpoint>(e => e.Get(new HomepageLinkModel()));
 
         	Actions
         		.IncludeTypes(t => t.Namespace.Contains("Web.Endpoints") && t.Name.EndsWith("Endpoint"));
@@ -161,9 +163,6 @@ namespace Web.Configuration
 						.If(e => e.Accessor.PropertyType.IsAssignableFrom(typeof(HttpPostedFileBase)))
 						.BuildBy(er => new HtmlTag("input").Attr("type", "file"))
 				);
-
-			
-
 
 			this.UseSpark();
         }

@@ -1,3 +1,22 @@
-<viewdata model="Web.Endpoints.SiteManagement.SiteManagementIndexViewModel" />
+<use namespace="Web.Endpoints.SiteManagement.Book.LinkModels" />
+<use namespace="Web.Endpoints.SiteManagement" />
+<use namespace="Web.Endpoints.SiteManagement.HomepageContentModels" />
 
-<h1>Hello</h1>
+<viewdata model="SiteManagementIndexViewModel" />
+
+<h1>Manage yo' shit!!</h1>
+
+<p>
+	S'up dude? What you wanna do?
+<p>
+
+<ul>
+	<li>
+		${this.LinkTo(new HomepageContentLinkModel()).Text("Homepage content")}
+	</li>
+	<li>
+		${this.LinkTo(new BooksLinkModel()).Text("Books")}
+	</li>
+</ul>
+
+

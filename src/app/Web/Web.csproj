@@ -185,6 +185,7 @@
     <Compile Include="Endpoints\SiteManagement\HomepageContentModels\HomepageContentInputModel.cs" />
     <Compile Include="Endpoints\SiteManagement\HomepageContentModels\HomepageContentLinkModel.cs" />
     <Compile Include="Endpoints\SiteManagement\HomepageContentModels\HomepageContentViewModel.cs" />
+    <Compile Include="Endpoints\SiteManagement\IndexEndpoint.cs" />
     <Compile Include="Infrastructure\Behaviours\RavenSessionBehaviour.cs" />
     <Compile Include="Infrastructure\Raven\DocumentStoreHolder.cs" />
     <Compile Include="Infrastructure\Services\FileUploader.cs" />
@@ -227,6 +228,7 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="packages.config" />
+    <None Include="Endpoints\SiteManagement\Index.spark" />
     <None Include="Shared\Application.spark" />
     <None Include="Shared\Notification.spark" />
     <None Include="Shared\_global.spark" />

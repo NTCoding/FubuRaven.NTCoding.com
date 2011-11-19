@@ -20,7 +20,7 @@ namespace Web.Endpoints.SiteManagement
 		{
 			_homepageContentProvider.SetHomepageContent(model.HomepageContent);
 
-			return FubuContinuation.RedirectTo<IndexEndpoint>(e => e.Get(new HomepageLinkModel()));
+			return FubuContinuation.RedirectTo<Endpoints.IndexEndpoint>(e => e.Get(new HomepageLinkModel()));
 		}
 
 		public HomepageContentViewModel Get(HomepageContentLinkModel model)

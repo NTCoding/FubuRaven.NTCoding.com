@@ -1,7 +1,9 @@
-﻿<viewdata model="Web.Endpoints.HomepageModels.HomepageViewModel" />
+﻿<use namespace="Web.Endpoints.SiteManagement" />
+<viewdata model="Web.Endpoints.HomepageModels.HomepageViewModel" />
 <nav>
 	<ul>
 		<li>
+			${this.LinkTo(new SiteManagementLinkModel()).Text("Site management")}
 		</li>
 	</ul>
 </nav>

@@ -50,7 +50,7 @@ namespace Web.Tests.Homepage
 			
 			var result = _endpoint.Post(model);
 
-			result.AssertWasRedirectedTo<HomepageEndpoint>(c => c.Get(new HomepageLinkModel()));
+			result.AssertWasRedirectedTo<IndexEndpoint>(c => c.Get(new HomepageLinkModel()));
 		}
 	}
 }

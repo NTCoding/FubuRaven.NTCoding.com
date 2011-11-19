@@ -52,13 +52,13 @@ namespace Specs.Steps.Home_Page_Content
 		public void ThenIShouldBeViewingTheHomePage()
 		{
 			var result = (FubuContinuation)ScenarioContext.Current["result"];
-			result.AssertWasRedirectedTo<HomepageEndpoint>(e => e.Get(new HomepageLinkModel()));
+			result.AssertWasRedirectedTo<IndexEndpoint>(e => e.Get(new HomepageLinkModel()));
 		}
 
 		[Then(@"I should see the following welcome content ""(.*)")]
 		public void ThenIShouldSeeTheFollowingWelcomeContentWelcomeToNTCoding_NowGettingJiggyWithFubuAndRaven(string content)
 		{
-			var endpoint = new HomepageEndpoint(_contentProvider);
+			var endpoint = new IndexEndpoint(_contentProvider);
 			var result = endpoint.Get(new HomepageLinkModel());
 
 			Assert.AreEqual(content, result.HomepageContent);

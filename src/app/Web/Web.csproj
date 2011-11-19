@@ -163,7 +163,7 @@
     <Compile Include="Configuration\Behaviours\Output\RenderImageNode.cs" />
     <Compile Include="Configuration\HandlerModelDescriptor.cs" />
     <Compile Include="Configuration\NTCodingFubuRegistry.cs" />
-    <Compile Include="Endpoints\HomepageEndpoint.cs" />
+    <Compile Include="Endpoints\IndexEndpoint.cs" />
     <Compile Include="Endpoints\HomepageModels\HomepageLinkModel.cs" />
     <Compile Include="Endpoints\HomepageModels\HomepageViewModel.cs" />
     <Compile Include="Endpoints\ImageEndpoint.cs" />

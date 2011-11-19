@@ -1,5 +1,10 @@
 ﻿<viewdata model="Web.Endpoints.HomepageModels.HomepageViewModel" />
-
+<nav>
+	<ul>
+		<li>
+		</li>
+	</ul>
+</nav>
 		<h1>Welcome to NTCoding</h1>
 		<div>
 			${Model.HomepageContent}

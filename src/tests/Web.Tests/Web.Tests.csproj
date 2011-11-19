@@ -120,7 +120,7 @@
     <Compile Include="Homepage\HomepageContentInputModelTests.cs" />
     <Compile Include="Homepage\HomepageContentLinkModelTests.cs" />
     <Compile Include="Homepage\HomepageContentViewModelTests.cs" />
-    <Compile Include="Homepage\HomepageEndpointTests.cs" />
+    <Compile Include="Homepage\IndexEndpointTests.cs" />
     <Compile Include="Homepage\HomepageLinkModelTests.cs" />
     <Compile Include="Homepage\HomepageViewModelTest.cs" />
     <Compile Include="Infrastructure\FileUploaderTests.cs" />

@@ -29,7 +29,7 @@ namespace Web.Configuration
         		.ConstrainToHttpMethod(x => x.Method.Name.Equals("Get"), "Get")
         		.ConstrainToHttpMethod(x => x.Method.Name.Equals("Post"), "Post")
         		.RootAtAssemblyNamespace()
-        		.HomeIs<HomepageEndpoint>(e => e.Get(new HomepageLinkModel()));
+        		.HomeIs<IndexEndpoint>(e => e.Get(new HomepageLinkModel()));
 
         	Actions
         		.IncludeTypes(t => t.Namespace.Contains("Web.Endpoints") && t.Name.EndsWith("Endpoint"));

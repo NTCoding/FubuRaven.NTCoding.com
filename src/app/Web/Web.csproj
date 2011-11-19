@@ -35,6 +35,9 @@
     <Reference Include="AsyncCtpLibrary, Version=1.0.4107.18181, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.531\lib\net40\AsyncCtpLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\..\packages\AutoMapper.2.0.0\lib\net40-client\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Bottles">
       <HintPath>..\..\..\packages\Bottles.0.9.1.157\lib\Bottles.dll</HintPath>
     </Reference>

@@ -34,6 +34,9 @@
     <Reference Include="AsyncCtpLibrary, Version=1.0.4107.18181, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.531\lib\net40\AsyncCtpLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\..\packages\AutoMapper.2.0.0\lib\net40-client\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Esent.Interop, Version=1.7.0.0, Culture=neutral, PublicKeyToken=8dd49bbdae3f61af, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.531\lib\net40\Esent.Interop.dll</HintPath>
     </Reference>
@@ -110,6 +113,7 @@
     <Compile Include="Books\CreateBookLinkModelTests.cs" />
     <Compile Include="Books\CreateBookViewModelTests.cs" />
     <Compile Include="Books\CreateEndpointTests.cs" />
+    <Compile Include="Books\UpdateBookViewModelTests.cs" />
     <Compile Include="Books\UpdateEndpointTests.cs" />
     <Compile Include="Books\ViewBookLinkModelTest.cs" />
     <Compile Include="Books\ViewBookViewModelTests.cs" />

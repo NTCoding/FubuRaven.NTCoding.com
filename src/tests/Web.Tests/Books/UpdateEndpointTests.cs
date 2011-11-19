@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 using Model;
 using NUnit.Framework;
 using Raven.Client;
@@ -84,21 +85,25 @@ namespace Web.Tests.Books
 	{
 		public UpdateBookViewModel(Book book)
 		{
+			// TODO - move the create mapping to global.asax or test config?
+			// TODO - shouldn't do this? - do it outside, then the two classes are not coupled?
+			Mapper.CreateMap<Book, UpdateBookViewModel>();
+			Mapper.Map(book, this);
 		}
 
-		public IList<String> Authors { get; set; }
+		public IList<String> Authors { get; private set; }
 
-		public String Description { get; set; }
+		public String Description { get; private set; }
 
-		public String Id { get; set; }
+		public String Id { get; private set; }
 
-		public BookStatus Status { get; set; }
+		public BookStatus Status { get; private set; }
 
-		public String GenreName { get; set; }
+		public String GenreName { get; private set; }
 
-		public String GenreId { get; set; }
+		public String GenreId { get; private set; }
 
-		public String Title { get; set; }
+		public String Title { get; private set; }
 	}
 
 	public static class UpdateBookViewModelAssertions
@@ -115,6 +120,8 @@ namespace Web.Tests.Books
 			{
 				return;
 			}
+
+			throw new Exception("Properties do not match");
 		}
 
 		private static bool HasMatchingAuthors(UpdateBookViewModel model, Book book)

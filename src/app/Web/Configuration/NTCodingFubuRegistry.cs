@@ -24,6 +24,7 @@ namespace Web.Configuration
         	Routes
         		.IgnoreNamespaceText("Endpoints")
         		.IgnoreClassSuffix("Endpoint")
+				.IgnoreClassSuffix("Index")
         		.IgnoreMethodsNamed("get")
         		.IgnoreMethodsNamed("post")
         		.ConstrainToHttpMethod(x => x.Method.Name.Equals("Get"), "Get")

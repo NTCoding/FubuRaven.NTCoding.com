@@ -99,7 +99,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BookCreater.cs" />
     <Compile Include="Services\CreateBookDto.cs" />
+    <Compile Include="Services\dtos\UpdateBookDto.cs" />
     <Compile Include="Services\IBookCreater.cs" />
+    <Compile Include="Services\IBookUpdater.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

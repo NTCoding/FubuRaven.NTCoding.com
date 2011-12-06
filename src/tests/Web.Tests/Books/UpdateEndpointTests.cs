@@ -2,13 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using AutoMapper;
 using Model;
 using Model.Services;
+using Model.Services.dtos;
 using NUnit.Framework;
-using Raven.Client;
 using Rhino.Mocks;
+using Web.Endpoints.SiteManagement.Book;
 using Web.Endpoints.SiteManagement.Book.LinkModels;
+using Web.Endpoints.SiteManagement.Book.UpdateModels;
+using Web.Endpoints.SiteManagement.Book.ViewModels;
 using Web.Tests.Utilities;
 
 namespace Web.Tests.Books
@@ -42,7 +44,6 @@ namespace Web.Tests.Books
 			result.ShouldHaveDetailsFor(book);
 		}
 
-			// TODO - validation / failure scenario
 		[Test]
 		public void Post_GivenUpdateModel_ShouldCreateDtoAndPassToBookUpdater()
 		{
@@ -100,8 +101,6 @@ namespace Web.Tests.Books
 				   && dto.Authors.All(model.Authors.Contains);
 		}
 
-		// TODO - Should redirect to the view book page - return type?
-
 		private Book GetBookThatExistsInSession()
 		{
 			var book = BookTestingHelper.GetBook();
@@ -110,10 +109,6 @@ namespace Web.Tests.Books
 			Session.SaveChanges();
 			return book;
 		}
-
-		// TODO - what happens wht ID is null?
-
-		
 	}
 
 	public static class ViewBookLinkModelAssertions
@@ -122,81 +117,6 @@ namespace Web.Tests.Books
 		{
 			Assert.AreEqual(model.Id, id);
 		}
-	}
-
-	public class UpdateBookDto : CreateBookDto
-	{
-		public UpdateBookDto(UpdateBookUpdateModel model)
-		{
-			Mapper.DynamicMap(model, this);
-		}
-
-		public string Id { get; set; }
-	}
-
-	public interface IBookUpdater
-	{
-		void Update(UpdateBookDto dto);
-	}
-
-	public class UpdateBookLinkModel
-	{
-		public String Id { get; set; }
-	}
-
-	public class UpdateEndpoint
-	{
-		private readonly IDocumentSession session;
-		private readonly IBookUpdater updater;
-
-		public UpdateEndpoint(IDocumentSession session, IBookUpdater updater)
-		{
-			this.session = session;
-			this.updater = updater;
-		}
-
-		public UpdateBookViewModel Get(UpdateBookLinkModel model)
-		{
-			// TODO - should controllers even see the domain entities?
-			var book = session.Load<Book>(model.Id);
-
-			return new UpdateBookViewModel(book);
-		}
-
-		public ViewBookLinkModel Post(UpdateBookUpdateModel model)
-		{
-			updater.Update(new UpdateBookDto(model));
-
-			return new ViewBookLinkModel {Id = model.Id};
-		}
-	}
-
-	public class UpdateBookUpdateModel
-	{
-		public IList<String> Authors { get; set; }
-		
-		public String Description { get; set; }
-		
-		public BookStatus Status { get; set; }
-		
-		public String Genre { get; set; }
-		
-		public String Title { get; set; }
-
-		public string Id { get; set; }
-	}
-
-	public class UpdateBookViewModel : UpdateBookUpdateModel
-	{
-		public UpdateBookViewModel(Book book)
-		{
-			Mapper.DynamicMap(book, this);
-			if (book != null) this.Genre = book.Genre.Id;
-		}
-
-		public String Id { get; set; }
-
-		public String GenreName { get; private set; }
 	}
 
 	public static class UpdateBookViewModelAssertions

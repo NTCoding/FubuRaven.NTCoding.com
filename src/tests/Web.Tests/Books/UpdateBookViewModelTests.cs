@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using Web.Endpoints.SiteManagement.Book.ViewModels;
 using Web.Tests.Utilities;
 
 namespace Web.Tests.Books

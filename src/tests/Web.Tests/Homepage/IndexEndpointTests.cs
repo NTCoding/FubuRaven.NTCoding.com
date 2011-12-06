@@ -1,5 +1,6 @@
 ﻿using System;
 using Model;
+using Model.Services;
 using NUnit.Framework;
 using Rhino.Mocks;
 using Web.Endpoints;

@@ -94,14 +94,15 @@
     <Compile Include="BookStatus.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="HomepageContent.cs" />
-    <Compile Include="HomepageContentProvider.cs" />
-    <Compile Include="IHomepageContentProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BookCreater.cs" />
     <Compile Include="Services\CreateBookDto.cs" />
     <Compile Include="Services\dtos\UpdateBookDto.cs" />
+    <Compile Include="Services\HomepageContentProvider.cs" />
     <Compile Include="Services\IBookCreater.cs" />
     <Compile Include="Services\IBookUpdater.cs" />
+    <Compile Include="Services\IHomepageContentProvider.cs" />
+    <Compile Include="Services\SimpleBookUpdater.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

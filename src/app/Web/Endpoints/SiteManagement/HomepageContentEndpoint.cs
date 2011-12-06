@@ -2,6 +2,7 @@
 using FubuMVC.Core.Continuations;
 using FubuMVC.Core.Runtime;
 using Model;
+using Model.Services;
 using Web.Endpoints.HomepageModels;
 using Web.Endpoints.SiteManagement.HomepageContentModels;
 

@@ -1,4 +1,5 @@
 ﻿using Model;
+using Model.Services;
 using NUnit.Framework;
 using Web.Endpoints;
 using Web.Endpoints.HomepageModels;

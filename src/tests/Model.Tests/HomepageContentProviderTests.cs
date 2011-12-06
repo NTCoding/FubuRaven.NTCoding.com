@@ -1,4 +1,5 @@
 ﻿using System;
+using Model.Services;
 using NUnit.Framework;
 using Web.Tests;
 

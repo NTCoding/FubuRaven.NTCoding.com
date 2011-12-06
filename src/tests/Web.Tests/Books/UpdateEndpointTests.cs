@@ -75,6 +75,8 @@ namespace Web.Tests.Books
 			result.ShouldHave(model.Id);
 		}
 
+		// TODO - should pass an image to the udpater if supplied
+
 		private void UpdaterShouldHaveBeenCalledWithDtoMatching(UpdateBookUpdateModel model)
 		{
 			updater.AssertWasCalled(x => x.Update(Arg<UpdateBookDto>.Is.Anything));
@@ -111,6 +113,7 @@ namespace Web.Tests.Books
 		}
 	}
 
+	// TODO - move these to new classes
 	public static class ViewBookLinkModelAssertions
 	{
 		public static void ShouldHave(this ViewBookLinkModel model, String id)

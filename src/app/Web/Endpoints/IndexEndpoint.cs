@@ -1,5 +1,6 @@
 ﻿using System;
 using Model;
+using Model.Services;
 using Web.Endpoints.HomepageModels;
 
 namespace Web.Endpoints

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using FubuMVC.Core.Continuations;
 using Model;
+using Model.Services;
 using NUnit.Framework;
 using Raven.Client;
 using Rhino.Mocks;

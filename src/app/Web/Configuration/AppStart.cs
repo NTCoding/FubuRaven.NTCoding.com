@@ -38,6 +38,8 @@ namespace Web.Configuration
 
 				x.For<ImagePreparer>().Use<SimpleImagePreparer>();
 
+				x.For<IBookUpdater>().Use<SimpleBookUpdater>();
+
 			});
 
         	BootstrappingExtensions.StructureMap(FubuApplication.For<NTCodingFubuRegistry>(), container)

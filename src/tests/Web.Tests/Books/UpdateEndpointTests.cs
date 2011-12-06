@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using AutoMapper;
 using Model;
 using Model.Services;
 using NUnit.Framework;
 using Raven.Client;
 using Rhino.Mocks;
+using Web.Endpoints.SiteManagement.Book.LinkModels;
 using Web.Tests.Utilities;
 
 namespace Web.Tests.Books
@@ -40,7 +42,6 @@ namespace Web.Tests.Books
 			result.ShouldHaveDetailsFor(book);
 		}
 
-		// POST
 			// TODO - validation / failure scenario
 		[Test]
 		public void Post_GivenUpdateModel_ShouldCreateDtoAndPassToBookUpdater()
@@ -58,6 +59,19 @@ namespace Web.Tests.Books
 			endpoint.Post(model);
 
 			UpdaterShouldHaveBeenCalledWithDtoMatching(model);
+		}
+
+		[Test]
+		public void Post_ShouldReturnBookViewModel_WithIdOfBookFromModel()
+		{
+			var model = new UpdateBookUpdateModel
+			            	{
+			            		Id = "chewingGum"
+			            	};
+
+			var result = endpoint.Post(model);
+
+			result.ShouldHave(model.Id);
 		}
 
 		private void UpdaterShouldHaveBeenCalledWithDtoMatching(UpdateBookUpdateModel model)
@@ -102,6 +116,14 @@ namespace Web.Tests.Books
 		
 	}
 
+	public static class ViewBookLinkModelAssertions
+	{
+		public static void ShouldHave(this ViewBookLinkModel model, String id)
+		{
+			Assert.AreEqual(model.Id, id);
+		}
+	}
+
 	public class UpdateBookDto : CreateBookDto
 	{
 		public UpdateBookDto(UpdateBookUpdateModel model)
@@ -141,9 +163,11 @@ namespace Web.Tests.Books
 			return new UpdateBookViewModel(book);
 		}
 
-		public void Post(UpdateBookUpdateModel model)
+		public ViewBookLinkModel Post(UpdateBookUpdateModel model)
 		{
 			updater.Update(new UpdateBookDto(model));
+
+			return new ViewBookLinkModel {Id = model.Id};
 		}
 	}
 

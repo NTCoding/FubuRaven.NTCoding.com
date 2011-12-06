@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using Model;
+using Model.Services;
 using NUnit.Framework;
 using Raven.Client;
+using Rhino.Mocks;
 using Web.Tests.Utilities;
 
 namespace Web.Tests.Books
@@ -13,15 +15,13 @@ namespace Web.Tests.Books
 	public class UpdateEndpointTests : RavenTestsBase
 	{
 		private UpdateEndpoint endpoint;
-		// GET 
-			// should take a link model with the books id
-			
-			// should return a book view model with book's details
+		private IBookUpdater updater;
 
 		[SetUp]
 		public void CanCreate()
 		{
-			endpoint = new UpdateEndpoint(Session);
+			updater = MockRepository.GenerateMock<IBookUpdater>();
+			endpoint = new UpdateEndpoint(Session, updater);
 		}
 
 		[Test]
@@ -30,32 +30,91 @@ namespace Web.Tests.Books
 			endpoint.Get(new UpdateBookLinkModel {Id = "123"});
 		}
 
-		[Test][Ignore] 
+		[Test]
 		public void Get_GivenIdForBookThatLivesInSession_ShouldReturnViewModel_WithBooksDetails()
 		{
-			// get a book that is added to the session
+			var book = GetBookThatExistsInSession();
+
+			var result = endpoint.Get(new UpdateBookLinkModel {Id = book.Id});
+
+			result.ShouldHaveDetailsFor(book);
+		}
+
+		// POST
+			// TODO - validation / failure scenario
+		[Test]
+		public void Post_GivenUpdateModel_ShouldCreateDtoAndPassToBookUpdater()
+		{
+			var model = new UpdateBookUpdateModel
+			            	{
+			            		Authors     = new List<string> {"Jimmy", "Johnny", "Murray Walker"},
+			            		Genre       = "genres/9",
+			            		Description = "Updated description",
+			            		Status      = BookStatus.Reviewed,
+			            		Title       = "Updated title",
+								Id          = "books/444"
+							};
+
+			endpoint.Post(model);
+
+			UpdaterShouldHaveBeenCalledWithDtoMatching(model);
+		}
+
+		private void UpdaterShouldHaveBeenCalledWithDtoMatching(UpdateBookUpdateModel model)
+		{
+			updater.AssertWasCalled(x => x.Update(Arg<UpdateBookDto>.Is.Anything));
+
+			var dto = (UpdateBookDto) (updater.GetArgumentsForCallsMadeOn(x => x.Update(Arg<UpdateBookDto>.Is.Anything))[0][0]);
+
+			if (HasMatchingAuthors(model, dto)
+				&& dto.Description == model.Description
+				&& dto.Genre  == model.Genre
+				&& dto.Id     == model.Id
+				&& dto.Status == model.Status
+				&& dto.Title  == model.Title)
+			{
+				return;
+			}
+
+			throw new Exception("Properties do not match");
+		}
+
+		private static bool HasMatchingAuthors(UpdateBookUpdateModel model, UpdateBookDto dto)
+		{
+			// TODO -  move this logic into a list comparer
+			return model.Authors.Count() == dto.Authors.Count()
+				   && dto.Authors.All(model.Authors.Contains);
+		}
+
+		// TODO - Should redirect to the view book page - return type?
+
+		private Book GetBookThatExistsInSession()
+		{
 			var book = BookTestingHelper.GetBook();
 			book.Id = "69er";
 			Session.Store(book);
 			Session.SaveChanges();
-
-			// use book's id in the link model
-			var result = endpoint.Get(new UpdateBookLinkModel {Id = book.Id});
-
-			// verify the session was queried for the book's id
-			result.ShouldHaveDetailsFor(book);
+			return book;
 		}
 
-		// TODO - should return a book view model
+		// TODO - what happens wht ID is null?
 
-		// TODO - should blow up if ID Null
+		
+	}
 
-		// POST
-			// TODO - validation / failure scenario
+	public class UpdateBookDto : CreateBookDto
+	{
+		public UpdateBookDto(UpdateBookUpdateModel model)
+		{
+			Mapper.DynamicMap(model, this);
+		}
 
-			// Should create dto and pass to the book updater
+		public string Id { get; set; }
+	}
 
-			// Should redirect to the view book page
+	public interface IBookUpdater
+	{
+		void Update(UpdateBookDto dto);
 	}
 
 	public class UpdateBookLinkModel
@@ -66,10 +125,12 @@ namespace Web.Tests.Books
 	public class UpdateEndpoint
 	{
 		private readonly IDocumentSession session;
+		private readonly IBookUpdater updater;
 
-		public UpdateEndpoint(IDocumentSession session)
+		public UpdateEndpoint(IDocumentSession session, IBookUpdater updater)
 		{
-			this.session = session; 
+			this.session = session;
+			this.updater = updater;
 		}
 
 		public UpdateBookViewModel Get(UpdateBookLinkModel model)
@@ -79,31 +140,39 @@ namespace Web.Tests.Books
 
 			return new UpdateBookViewModel(book);
 		}
+
+		public void Post(UpdateBookUpdateModel model)
+		{
+			updater.Update(new UpdateBookDto(model));
+		}
 	}
 
-	public class UpdateBookViewModel
+	public class UpdateBookUpdateModel
+	{
+		public IList<String> Authors { get; set; }
+		
+		public String Description { get; set; }
+		
+		public BookStatus Status { get; set; }
+		
+		public String Genre { get; set; }
+		
+		public String Title { get; set; }
+
+		public string Id { get; set; }
+	}
+
+	public class UpdateBookViewModel : UpdateBookUpdateModel
 	{
 		public UpdateBookViewModel(Book book)
 		{
-			// TODO - move the create mapping to global.asax or test config?
-			// TODO - shouldn't do this? - do it outside, then the two classes are not coupled?
-			Mapper.CreateMap<Book, UpdateBookViewModel>();
-			Mapper.Map(book, this);
+			Mapper.DynamicMap(book, this);
+			if (book != null) this.Genre = book.Genre.Id;
 		}
 
-		public IList<String> Authors { get; private set; }
-
-		public String Description { get; private set; }
-
-		public String Id { get; private set; }
-
-		public BookStatus Status { get; private set; }
+		public String Id { get; set; }
 
 		public String GenreName { get; private set; }
-
-		public String GenreId { get; private set; }
-
-		public String Title { get; private set; }
 	}
 
 	public static class UpdateBookViewModelAssertions
@@ -113,7 +182,7 @@ namespace Web.Tests.Books
 			if (HasMatchingAuthors(model, book)
 				&& book.Description == model.Description
 				&& book.Genre.Name == model.GenreName
-				&& book.Genre.Id == model.GenreId
+				&& book.Genre.Id == model.Genre
 				&& book.Id == model.Id
 				&& book.Status == model.Status
 				&& book.Title == model.Title)

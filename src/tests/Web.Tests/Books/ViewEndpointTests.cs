@@ -69,6 +69,16 @@ namespace Web.Tests.Books
 		}
 
 		[Test]
+		public void Get_ViewModelShouldContainBooksId()
+		{
+			var book = GetBookFromSession();
+
+			var model = _endpoint.Get(new ViewBookLinkModel {Id = book.Id});
+
+			Assert.AreEqual(book.Id, model.Id);
+		}
+
+		[Test]
 		public void Get_GivenModelWithBooksID_ViewModelShouldContainBooksAuthorsNames()
 		{
 			var book = GetBookFromSession();

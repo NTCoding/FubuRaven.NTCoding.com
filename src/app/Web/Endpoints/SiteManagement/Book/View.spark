@@ -1,4 +1,5 @@
-﻿<viewdata model="Web.Endpoints.SiteManagement.Book.ViewModels.ViewBookViewModel" />
+﻿<use namespace="Web.Endpoints.SiteManagement.Book.LinkModels" />
+<viewdata model="Web.Endpoints.SiteManagement.Book.ViewModels.ViewBookViewModel" />
 
 <h1> View bewwwwwwk </h1>
 
@@ -27,3 +28,5 @@
 	<br />
 	${this.DisplayFor(m => m.Image)}
 </p>
+
+${this.LinkTo(new UpdateBookLinkModel { Id = Model.Id })}

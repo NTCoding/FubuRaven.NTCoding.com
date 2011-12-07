@@ -225,6 +225,9 @@
     <None Include="Endpoints\SiteManagement\Book\Book.spark">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Endpoints\SiteManagement\Book\Update.spark">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Endpoints\SiteManagement\Book\Create.spark">
       <SubType>Designer</SubType>
     </None>

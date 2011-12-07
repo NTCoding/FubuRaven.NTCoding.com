@@ -9,6 +9,7 @@ namespace Web.Endpoints.SiteManagement.Book.ViewModels
 	{
 		public ViewBookViewModel(Model.Book book)
 		{
+			Id = book.Id;
 			Title       = book.Title;
 			GenreName   = book.Genre.Name;
 			Description = book.Description;
@@ -16,6 +17,8 @@ namespace Web.Endpoints.SiteManagement.Book.ViewModels
 			Authors     = book.Authors.ToList();
 			Image       = new ImageDisplayModel(book.Id);
 		}
+
+		public String Id { get; set; }
 
 		public String Title { get; private set; }
 
@@ -28,5 +31,6 @@ namespace Web.Endpoints.SiteManagement.Book.ViewModels
 		public IEnumerable<String> Authors { get; private set; }
 
 		public ImageDisplayModel Image { get; private set; }
+
 	}
 }

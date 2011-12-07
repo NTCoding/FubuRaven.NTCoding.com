@@ -2,7 +2,7 @@
 <use namespace="Web.Endpoints.SiteManagement" />
 <use namespace="Web.Endpoints.SiteManagement.HomepageContentModels" />
 
-<viewdata model="SiteManagementIndexViewModel" />
+<viewdata model="Web.Endpoints.SiteManagement.SiteManagementIndexViewModel" />
 
 <h1>Manage yo' shit!!</h1>
 

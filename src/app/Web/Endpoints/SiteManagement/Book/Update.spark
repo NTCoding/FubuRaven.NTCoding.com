@@ -1,0 +1,48 @@
+﻿<use namespace="Web.Endpoints.SiteManagement.Book.CreateModels" />
+<use namespace="Web.Endpoints.SiteManagement.Genre.CreateGenreModels" />
+<viewdata model="Web.Endpoints.SiteManagement.Book.CreateModels.CreateBookViewModel" />
+
+<content name="pageScript">
+	$(function(){
+		$('#genreForm').submit(function(event){
+			event.preventDefault();
+
+			var name = $(this).children('input[name=Name]').val();
+
+			$.post($(this).attr('action'), { Name: name }, function(data) {
+				$('select[name=Genre]').append('<option value="' + data +'">' + name + '</option>');
+			});
+		});
+	});
+</content>
+<h1>Update book</h1>
+<ValidationErrors />
+<form action="${this.Urls.UrlFor(new UpdateBookInputModel())}" method="post" enctype="multipart/form-data">
+	<p>
+		${this.LabelFor(m => m.Title)} 
+		${this.InputFor(m => m.Title)}
+	</p>
+	<p>
+		${this.LabelFor(m => m.Description_BigText)}
+		${this.InputFor(m => m.Description_BigText).Attr("rows", "5")}
+	</p>
+	<p>
+		${this.LabelFor(m => m.BookStatus)}
+		${this.InputFor(m => m.BookStatus)}
+	</p>
+	<p>
+		${this.LabelFor(m => m.Genre)}
+		${this.InputFor(m => m.Genres)}
+	</p>
+	<p>
+		${this.LabelFor(m => m.Authors)}
+		${this.InputFor(m => m.Authors)}
+	</p>
+	<!--<p>
+		${this.LabelFor(m => m.Image)}
+		${this.InputFor(m => m.Image)}
+	</p>-->
+	
+	<input type="submit" value="Update Book" />
+</form>
+

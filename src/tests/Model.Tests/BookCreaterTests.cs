@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using Model.Services;
+using Model.Services.dtos;
+using Model.Tests.Helpers;
 using NUnit.Framework;
 using Web.Tests;
 using Web.Tests.Books;
@@ -47,13 +49,7 @@ namespace Model.Tests
 			_bookCreater.Create(dto);
 			Session.SaveChanges();
 
-			var book = Session.Query<Book>()
-				.Where(b => b.Title == dto.Title)
-				.Where(b => b.Genre.Id == dto.Genre)
-				.Where(b => b.Description == dto.Description)
-				.Where(b => b.Status == dto.Status)
-				.Where(b => b.Authors.Any(a => a == dto.Authors.First()))
-				.First();
+			var book = BookTestingHelper.GetBookFromSessionFor(dto, Session);
 
 			Assert.IsNotNull(book);
 		}

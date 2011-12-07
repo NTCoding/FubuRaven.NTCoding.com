@@ -99,6 +99,7 @@
     <Compile Include="BookTests.cs" />
     <Compile Include="BookUpdaterTests.cs" />
     <Compile Include="GenreTest.cs" />
+    <Compile Include="Helpers\BookTestingHelper.cs" />
     <Compile Include="HomepageContentProviderTests.cs" />
     <Compile Include="HomepageContentTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

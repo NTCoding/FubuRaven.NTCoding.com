@@ -4,6 +4,7 @@ using System.Linq;
 using FubuMVC.Core.Continuations;
 using Model;
 using Model.Services;
+using Model.Services.dtos;
 using Raven.Client;
 using Web.Endpoints.SiteManagement.Book.CreateModels;
 using Web.Endpoints.SiteManagement.Book.LinkModels;

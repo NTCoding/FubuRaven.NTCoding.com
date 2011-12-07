@@ -9,6 +9,9 @@ namespace Web.Endpoints.SiteManagement.Book.ViewModels
 		public UpdateBookViewModel(Model.Book book)
 		{
 			Mapper.DynamicMap(book, this);
+			
+			// TODO - better way to do this? Convention for AutoMapper
+			this.Description_BigText = book.Description;
 			if (book != null) this.Genre = book.Genre.Id;
 		}
 

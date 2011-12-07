@@ -94,7 +94,7 @@ namespace Web.Configuration
         	HtmlConvention(x =>
         	               x.Editors
         	               	.If(e => e.Accessor.Name.EndsWith("_BigText"))
-        	               	.BuildBy(er => new HtmlTag("textarea"))
+        	               	.BuildBy(er => new HtmlTag("textarea").Text(er.Value<String>()))
         		);
 
 

@@ -51,7 +51,7 @@ namespace Web.Tests.Books
 			            	{
 			            		Authors     = new List<string> {"Jimmy", "Johnny", "Murray Walker"},
 			            		Genre       = "genres/9",
-			            		Description = "Updated description",
+			            		Description_BigText = "Updated description",
 			            		Status      = BookStatus.Reviewed,
 			            		Title       = "Updated title",
 								Id          = "books/444"
@@ -84,7 +84,7 @@ namespace Web.Tests.Books
 			var dto = (UpdateBookDto) (updater.GetArgumentsForCallsMadeOn(x => x.Update(Arg<UpdateBookDto>.Is.Anything))[0][0]);
 
 			if (HasMatchingAuthors(model, dto)
-				&& dto.Description == model.Description
+				&& dto.Description == model.Description_BigText
 				&& dto.Genre  == model.Genre
 				&& dto.Id     == model.Id
 				&& dto.Status == model.Status
@@ -127,7 +127,7 @@ namespace Web.Tests.Books
 		public static void ShouldHaveDetailsFor (this UpdateBookViewModel model, Book book)
 		{
 			if (HasMatchingAuthors(model, book)
-				&& book.Description == model.Description
+				&& book.Description == model.Description_BigText
 				&& book.Genre.Name == model.GenreName
 				&& book.Genre.Id == model.Genre
 				&& book.Id == model.Id

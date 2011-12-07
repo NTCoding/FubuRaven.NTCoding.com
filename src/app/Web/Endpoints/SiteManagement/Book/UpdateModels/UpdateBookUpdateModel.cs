@@ -8,7 +8,7 @@ namespace Web.Endpoints.SiteManagement.Book.UpdateModels
 	{
 		public IList<string> Authors { get; set; }
 		
-		public String Description { get; set; }
+		public String Description_BigText { get; set; }
 		
 		public BookStatus Status { get; set; }
 		

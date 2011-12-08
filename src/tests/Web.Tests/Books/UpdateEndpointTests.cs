@@ -29,12 +29,6 @@ namespace Web.Tests.Books
 		}
 
 		[Test]
-		public void Get_ShouldTakeALinkModel_WithBooksId()
-		{
-			endpoint.Get(new UpdateBookLinkModel {Id = "123"});
-		}
-
-		[Test]
 		public void Get_GivenIdForBookThatLivesInSession_ShouldReturnViewModel_WithBooksDetails()
 		{
 			var book = GetBookThatExistsInSession();

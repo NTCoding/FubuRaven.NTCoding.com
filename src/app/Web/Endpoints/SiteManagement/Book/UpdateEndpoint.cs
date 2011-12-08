@@ -32,6 +32,7 @@ namespace Web.Endpoints.SiteManagement.Book
 			var dto = new UpdateBookDto();
 			
 			Mapper.DynamicMap(model, dto);
+			dto.Description = model.Description_BigText;
 			
 			updater.Update(dto);
 

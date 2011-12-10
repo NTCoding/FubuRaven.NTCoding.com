@@ -5,7 +5,6 @@ using Model.Services.dtos;
 using Model.Tests.Helpers;
 using NUnit.Framework;
 using Web.Tests;
-using Web.Tests.Books;
 
 namespace Model.Tests
 {

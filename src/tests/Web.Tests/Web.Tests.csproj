@@ -105,19 +105,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Books\BookDisplayModelTests.cs" />
-    <Compile Include="Books\BookEndpointTests.cs" />
-    <Compile Include="Books\BookListModelAssertions.cs" />
-    <Compile Include="Books\BookListModelTests.cs" />
-    <Compile Include="Books\CreateBookInputModelTests.cs" />
-    <Compile Include="Books\CreateBookLinkModelTests.cs" />
-    <Compile Include="Books\CreateBookViewModelTests.cs" />
-    <Compile Include="Books\CreateEndpointTests.cs" />
-    <Compile Include="Books\UpdateBookViewModelTests.cs" />
-    <Compile Include="Books\UpdateEndpointTests.cs" />
-    <Compile Include="Books\ViewBookLinkModelTest.cs" />
-    <Compile Include="Books\ViewBookViewModelTests.cs" />
-    <Compile Include="Books\ViewEndpointTests.cs" />
+    <Compile Include="Books\SiteManagement\BookDisplayModelTests.cs" />
+    <Compile Include="Books\SiteManagement\BookEndpointTests.cs" />
+    <Compile Include="Books\SiteManagement\BookListModelAssertions.cs" />
+    <Compile Include="Books\SiteManagement\BookListModelTests.cs" />
+    <Compile Include="Books\SiteManagement\CreateBookInputModelTests.cs" />
+    <Compile Include="Books\SiteManagement\CreateBookLinkModelTests.cs" />
+    <Compile Include="Books\SiteManagement\CreateBookViewModelTests.cs" />
+    <Compile Include="Books\SiteManagement\CreateEndpointTests.cs" />
+    <Compile Include="Books\SiteManagement\UpdateBookViewModelTests.cs" />
+    <Compile Include="Books\SiteManagement\UpdateEndpointTests.cs" />
+    <Compile Include="Books\SiteManagement\ViewBookLinkModelTest.cs" />
+    <Compile Include="Books\SiteManagement\ViewBookViewModelTests.cs" />
+    <Compile Include="Books\SiteManagement\ViewEndpointTests.cs" />
     <Compile Include="Genre\CreateEndpointTests.cs" />
     <Compile Include="Genre\CreateGenreInputModelTests.cs" />
     <Compile Include="Genre\GenreCreatedModelTests.cs" />

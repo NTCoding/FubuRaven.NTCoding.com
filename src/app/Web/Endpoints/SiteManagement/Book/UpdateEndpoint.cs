@@ -1,10 +1,12 @@
-﻿using AutoMapper;
+﻿using System.Linq;
+using AutoMapper;
 using Model.Services;
 using Model.Services.dtos;
 using Raven.Client;
 using Web.Endpoints.SiteManagement.Book.LinkModels;
 using Web.Endpoints.SiteManagement.Book.UpdateModels;
 using Web.Endpoints.SiteManagement.Book.ViewModels;
+using Web.Utilities;
 
 namespace Web.Endpoints.SiteManagement.Book
 {
@@ -31,8 +33,11 @@ namespace Web.Endpoints.SiteManagement.Book
 		{
 			var dto = new UpdateBookDto();
 			
+			// TODO - encapsulate wrapper in an interface - pass mapping off to that?
 			Mapper.DynamicMap(model, dto);
+			dto.Authors     = model.Authors.ToStrings();
 			dto.Description = model.Description_BigText;
+			dto.Status      = model.BookStatus;
 			
 			updater.Update(dto);
 

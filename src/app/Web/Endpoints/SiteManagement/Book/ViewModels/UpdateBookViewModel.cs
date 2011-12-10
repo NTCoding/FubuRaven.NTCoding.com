@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Linq;
 using AutoMapper;
 using Web.Endpoints.SiteManagement.Book.UpdateModels;
+using Web.Utilities;
 
 namespace Web.Endpoints.SiteManagement.Book.ViewModels
 {
@@ -8,14 +10,14 @@ namespace Web.Endpoints.SiteManagement.Book.ViewModels
 	{
 		public UpdateBookViewModel(Model.Book book)
 		{
-			Mapper.DynamicMap(book, this);
-			
-			// TODO - better way to do this? Convention for AutoMapper
+			this.Authors    = book.Authors.ToStringWrappers().ToList();
+			this.BookStatus = book.Status;
+			this.Genre      = book.Genre.Id;
+			this.GenreName  = book.Genre.Name;
+			this.Id         = book.Id;
+			this.Title      = book.Title;
 			this.Description_BigText = book.Description;
-			if (book != null) this.Genre = book.Genre.Id;
 		}
-
-		public String Id { get; set; }
 
 		public String GenreName { get; private set; }
 	}

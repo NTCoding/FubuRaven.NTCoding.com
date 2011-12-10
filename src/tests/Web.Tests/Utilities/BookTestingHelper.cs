@@ -11,7 +11,7 @@ namespace Web.Tests.Utilities
 			var image = imageData ?? new[] { (byte)1 };
 
 			return new
-				Book("Super book", new[] {"Me, You, Him"}, description, genre, BookStatus.Reviewed, image) {Id = "dkdkj"};
+				Book("Super book", new[] {"Me", "You", "Him"}, description, genre, BookStatus.Reviewed, image) {Id = "dkdkj"};
 
 		}
 	}

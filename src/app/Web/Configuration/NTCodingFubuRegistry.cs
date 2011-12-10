@@ -139,7 +139,7 @@ namespace Web.Configuration
         	               	         		{
         	               	         			var option = new HtmlTag("option").Text(item.Value).Attr("value", item.Key);
 
-												if (selectedValue != null && selectedValue == item.Key)
+												if (selectedValue != null && selectedValue == item.Value)
 												{
 													option.Attr("selected", "selected");
 												}

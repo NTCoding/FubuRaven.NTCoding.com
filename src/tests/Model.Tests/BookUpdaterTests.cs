@@ -60,6 +60,7 @@ namespace Model.Tests
 			var book = GetBookThatExistsInSession();
 
 			var newImage = new[] { (byte)88, (byte)11, (byte)0 };
+			
 			var dto = new UpdateBookDto {Id = book.Id, Genre = book.Genre.Id, Image = newImage};
 
 			updater.Update(dto);

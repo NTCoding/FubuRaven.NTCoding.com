@@ -4,6 +4,7 @@
 	{
 		Wishlist,
 		CurrentlyReading,
-		Reviewed
+		Reviewed,
+		Hidden
 	}
 }

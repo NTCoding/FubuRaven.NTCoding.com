@@ -2,7 +2,7 @@
 <viewdata model="Web.Endpoints.SiteManagement.Book.ViewModels.BookListModel" />
 
 <h1>Books</h1>
-
+${this.LinkTo(new CreateBookLinkModel()).Text("Add a new book")}
 <table>
 	<thead>
 		<tr>

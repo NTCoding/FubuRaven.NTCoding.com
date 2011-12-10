@@ -1,11 +1,8 @@
-﻿using System;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using FubuMVC.Core.Continuations;
 using Model;
 using Model.Services;
 using Model.Services.dtos;
-using Raven.Client;
 using Web.Endpoints.SiteManagement.Book.CreateModels;
 using Web.Endpoints.SiteManagement.Book.LinkModels;
 using Web.Infrastructure.Services;
@@ -15,22 +12,18 @@ namespace Web.Endpoints.SiteManagement.Book
 {
 	public class CreateEndpoint
 	{
-		private readonly IBookCreater _bookCreater;
-		private readonly IDocumentSession _session;
+		private readonly IBookCreater bookCreater;
+		private readonly IGenreRetriever genreRetriever;
 
-		public CreateEndpoint(IBookCreater bookCreater, IDocumentSession session)
+		public CreateEndpoint(IBookCreater bookCreater, IGenreRetriever genreRetriever)
 		{
-			_bookCreater = bookCreater;
-			_session = session;
+			this.bookCreater = bookCreater;
+			this.genreRetriever = genreRetriever;
 		}
 
 		public CreateBookViewModel Get(CreateBookLinkModel model)
 		{
-			// TODO - ordering could go inside the model
-			var genres = _session
-				.Query<Model.Genre>()
-				.OrderBy(g => g.Name)
-				.ToDictionary(g => g.Id, g => g.Name);
+			var genres = genreRetriever.GetAllOrderedByName();
 
 			return new CreateBookViewModel(genres);
 		}
@@ -48,7 +41,7 @@ namespace Web.Endpoints.SiteManagement.Book
 			          	};
 
 			// TODO - convert images to png's here
-			var book = _bookCreater.Create(dto);
+			var book = bookCreater.Create(dto);
 
 			var linkModel = new ViewBookLinkModel { Id = book.Id };
 

@@ -46,7 +46,7 @@ namespace Web.Tests.Books
 		public void SetUp()
 		{
 			base.SetUp();
-			_endpoint = new CreateEndpoint(new BookCreater(Session), Session);
+			_endpoint = new CreateEndpoint(new BookCreater(Session), new RavenDbGenreRetriever(Session));
 		}
 
 		[Test]

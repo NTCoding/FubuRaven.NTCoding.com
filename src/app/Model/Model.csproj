@@ -101,15 +101,18 @@
     <Compile Include="Services\BookCreater.cs" />
     <Compile Include="Services\dtos\CreateBookDto.cs" />
     <Compile Include="Services\dtos\UpdateBookDto.cs" />
+    <Compile Include="Services\RavenDbGenreRetriever.cs" />
     <Compile Include="Services\HomepageContentProvider.cs" />
     <Compile Include="Services\IBookCreater.cs" />
     <Compile Include="Services\IBookUpdater.cs" />
+    <Compile Include="Services\IGenreRetriever.cs" />
     <Compile Include="Services\IHomepageContentProvider.cs" />
     <Compile Include="Services\SimpleBookUpdater.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

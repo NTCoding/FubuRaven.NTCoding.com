@@ -3,8 +3,8 @@ using AutoMapper;
 using Model.Services;
 using Model.Services.dtos;
 using Raven.Client;
+using Web.Endpoints.SiteManagement.Book.InputModels;
 using Web.Endpoints.SiteManagement.Book.LinkModels;
-using Web.Endpoints.SiteManagement.Book.UpdateModels;
 using Web.Endpoints.SiteManagement.Book.ViewModels;
 using Web.Utilities;
 
@@ -29,7 +29,7 @@ namespace Web.Endpoints.SiteManagement.Book
 			return new UpdateBookViewModel(book);
 		}
 
-		public ViewBookLinkModel Post(UpdateBookUpdateModel model)
+		public ViewBookLinkModel Post(UpdateBookInputModel model)
 		{
 			var dto = new UpdateBookDto();
 			

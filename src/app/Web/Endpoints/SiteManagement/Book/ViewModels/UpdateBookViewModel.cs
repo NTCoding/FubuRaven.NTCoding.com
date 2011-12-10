@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
 using AutoMapper;
-using Web.Endpoints.SiteManagement.Book.UpdateModels;
+using Web.Endpoints.SiteManagement.Book.InputModels;
 using Web.Utilities;
 
 namespace Web.Endpoints.SiteManagement.Book.ViewModels
 {
-	public class UpdateBookViewModel : UpdateBookUpdateModel
+	public class UpdateBookViewModel : UpdateBookInputModel
 	{
 		public UpdateBookViewModel(Model.Book book)
 		{

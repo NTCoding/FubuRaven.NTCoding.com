@@ -3,8 +3,9 @@ using FubuMVC.Core.Continuations;
 using Model;
 using Model.Services;
 using Model.Services.dtos;
-using Web.Endpoints.SiteManagement.Book.CreateModels;
+using Web.Endpoints.SiteManagement.Book.InputModels;
 using Web.Endpoints.SiteManagement.Book.LinkModels;
+using Web.Endpoints.SiteManagement.Book.ViewModels;
 using Web.Infrastructure.Services;
 using Web.Utilities;
 

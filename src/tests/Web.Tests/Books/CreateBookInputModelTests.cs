@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using Web.Endpoints.SiteManagement.Book.CreateModels;
+using Web.Endpoints.SiteManagement.Book.InputModels;
 
 namespace Web.Tests.Books
 {

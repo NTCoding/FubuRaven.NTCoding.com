@@ -8,8 +8,8 @@ using Model.Services.dtos;
 using NUnit.Framework;
 using Rhino.Mocks;
 using Web.Endpoints.SiteManagement.Book;
+using Web.Endpoints.SiteManagement.Book.InputModels;
 using Web.Endpoints.SiteManagement.Book.LinkModels;
-using Web.Endpoints.SiteManagement.Book.UpdateModels;
 using Web.Endpoints.SiteManagement.Book.ViewModels;
 using Web.Tests.Utilities;
 using Web.Utilities;
@@ -42,7 +42,7 @@ namespace Web.Tests.Books
 		[Test]
 		public void Post_GivenUpdateModel_ShouldCreateDtoAndPassToBookUpdater()
 		{
-			var model = new UpdateBookUpdateModel
+			var model = new UpdateBookInputModel
 			            	{
 			            		Authors     = new List<String> {"Jimmy", "Johnny", "Murray Walker"}.ToStringWrappers().ToList(),
 			            		Genre       = "genres/9",
@@ -60,7 +60,7 @@ namespace Web.Tests.Books
 		[Test]
 		public void Post_ShouldReturnBookViewModel_WithIdOfBookFromModel()
 		{
-			var model = new UpdateBookUpdateModel
+			var model = new UpdateBookInputModel
 			            	{
 			            		Id = "chewingGum"
 			            	};
@@ -72,7 +72,7 @@ namespace Web.Tests.Books
 
 		// TODO - should pass an image to the udpater if supplied
 
-		private void UpdaterShouldHaveBeenCalledWithDtoMatching(UpdateBookUpdateModel model)
+		private void UpdaterShouldHaveBeenCalledWithDtoMatching(UpdateBookInputModel model)
 		{
 			updater.AssertWasCalled(x => x.Update(Arg<UpdateBookDto>.Is.Anything));
 
@@ -86,7 +86,7 @@ namespace Web.Tests.Books
 			Assert.AreEqual(dto.Title, model.Title);
 		}
 
-		private static void HasMatchingAuthors(UpdateBookUpdateModel model, UpdateBookDto dto)
+		private static void HasMatchingAuthors(UpdateBookInputModel model, UpdateBookDto dto)
 		{
 			// TODO -  move this logic into a list comparer - it has been implemented in the creater
 			Assert.AreEqual(model.Authors.Count(), dto.Authors.Count());

@@ -22,14 +22,13 @@ namespace Model.Tests
 		public void Update_GivenDtoForBookInSession_ShouldUpdateBookInSession()
 		{
 			var book = GetBookThatExistsInSession();
-			var genre = GetGenreThatExistsInSession();
 
 			var dto = new UpdateBookDto
 			          	{
 			          		Id          = book.Id,
+							Genre       = book.Genre.Id,
 			          		Authors     = new[] {"hey", "hooo", "haaaa"},
 			          		Description = "Update description - dfkjldkj fldjflkd ",
-			          		Genre       = genre.Id,
 			          		Status      = (BookStatus) ((int) book.Status) + 1,
 			          		Title       = "Update title"
 			          	};
@@ -41,12 +40,41 @@ namespace Model.Tests
 			SessionShouldContainBookWithUpdatedValuesFrom(dto);
 		}
 
-		private Book GetBookThatExistsInSession()
+		[Test]
+		public void Update_WhenNoImageSupplied_ShouldKeepExistingOne()
+		{
+			var book = GetBookThatExistsInSession();
+
+			var dto = new UpdateBookDto {Id = book.Id, Genre = book.Genre.Id};
+
+			updater.Update(dto);
+
+			Session.SaveChanges();
+
+			SessionShouldBookWithImage(book.Id, book.Image);
+		}
+
+		[Test]
+		public void Update_WhenImageSupplied_ShouldReplaceExistingOne()
+		{
+			var book = GetBookThatExistsInSession();
+
+			var newImage = new[] { (byte)88, (byte)11, (byte)0 };
+			var dto = new UpdateBookDto {Id = book.Id, Genre = book.Genre.Id, Image = newImage};
+
+			updater.Update(dto);
+
+			Session.SaveChanges();
+
+			SessionShouldBookWithImage(book.Id, newImage);
+		}
+
+		private Book GetBookThatExistsInSession(byte[] image = null)
 		{
 			var genre = new Genre("a");
 
-			var book = new Book("blah", new[] {"me", "you", "him"}, "descy", 
-				genre, BookStatus.CurrentlyReading,new[] {(byte) 1});
+			var book = new Book("blah", new[] {"me", "you", "him"}, "descy",
+				GetGenreThatExistsInSession(), BookStatus.CurrentlyReading, image ?? new[] { (byte)1 });
 			book.Id = "books/999";
 
 			Session.Store(genre);
@@ -79,8 +107,11 @@ namespace Model.Tests
 			Assert.IsNotNull(updatedBook);
 		}
 
-		// TODO - if the dto has a null image - do not update
+		private void SessionShouldBookWithImage(string id, byte[] image)
+		{
+			var book = Session.Load<Book>(id);
 
-		// TODO - if the image is not null - should update it
+			Assert.AreEqual(image, book.Image);
+		}
 	}
 }

@@ -20,9 +20,14 @@ namespace Model.Services
 			session.Advanced.Evict(existingBook);
 
 			var genre = session.Load<Genre>(dto.Genre);
-			var updatedBook = new Book(dto.Title, dto.Authors, dto.Description, genre, dto.Status, existingBook.Image) {Id = existingBook.Id};
+			var updatedBook = new Book(dto.Title, dto.Authors, dto.Description, genre, dto.Status, GetImage(existingBook, dto)) {Id = existingBook.Id};
 
 			session.Store(updatedBook);
+		}
+
+		private byte[] GetImage(Book existingBook, UpdateBookDto dto)
+		{
+			return dto.Image ?? existingBook.Image;
 		}
 	}
 }

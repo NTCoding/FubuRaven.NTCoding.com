@@ -1,6 +1,6 @@
-﻿<use namespace="Web.Endpoints.SiteManagement.Book.CreateModels" />
+﻿<use namespace="Web.Endpoints.SiteManagement.Book.InputModels" />
 <use namespace="Web.Endpoints.SiteManagement.Genre.CreateGenreModels" />
-<viewdata model="Web.Endpoints.SiteManagement.Book.CreateModels.CreateBookViewModel" />
+<viewdata model="Web.Endpoints.SiteManagement.Book.ViewModels.CreateBookViewModel" />
 
 <content name="pageScript">
 	$(function(){

@@ -14,10 +14,12 @@ namespace Web.Endpoints.SiteManagement.Book
 	{
 		private readonly IDocumentSession session;
 		private readonly IBookUpdater updater;
+		private IGenreRetriever genreRetriever;
 
-		public UpdateEndpoint(IDocumentSession session, IBookUpdater updater)
+		public UpdateEndpoint(IDocumentSession session, IBookUpdater updater, IGenreRetriever genreRetriever)
 		{
 			this.session = session;
+			this.genreRetriever = genreRetriever;
 			this.updater = updater;
 		}
 
@@ -25,8 +27,9 @@ namespace Web.Endpoints.SiteManagement.Book
 		{
 			// TODO - should controllers even see the domain entities?
 			var book = session.Load<Model.Book>(model.Id);
+			var genres = genreRetriever.GetAllOrderedByName();
 
-			return new UpdateBookViewModel(book);
+			return new UpdateBookViewModel(book, genres);
 		}
 
 		public ViewBookLinkModel Post(UpdateBookInputModel model)

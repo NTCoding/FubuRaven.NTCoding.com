@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Web;
 using FubuMVC.Core;
 using FubuMVC.Spark;
@@ -119,15 +120,31 @@ namespace Web.Configuration
         	               	.If(e => e.Accessor.PropertyType.IsAssignableFrom(typeof (IDictionary<String, String>)))
         	               	.BuildBy(er =>
         	               	         	{
-        	               	         		var dictionary = er.Value<IDictionary<String, String>>();
+											// TODO - getting ugly - make this a class / method itself
+
         	               	         		string name = er.Accessor.PropertyNames[0].Substring(0, er.Accessor.PropertyNames[0].Length - 1);
+
+
+        	               	         		var selectedValueProperty = er.Model.GetType().GetProperty("Selected" + name);
+
+
+        	               	         		string selectedValue = selectedValueProperty != null
+        	               	         		                       	? selectedValueProperty.GetValue(er.Model, null) as String
+        	               	         		                       	: null;
+
+
+        	               	         		var dictionary = er.Value<IDictionary<String, String>>();
         	               	         		var tag = new HtmlTag("select").Attr("name", name);
         	               	         		foreach (var item in dictionary)
         	               	         		{
-        	               	         			tag.Children.Add(new HtmlTag("option")
-        	               	         			                 	.Text(item.Value)
-        	               	         			                 	.Attr("value", item.Key)
-        	               	         				);
+        	               	         			var option = new HtmlTag("option").Text(item.Value).Attr("value", item.Key);
+
+												if (selectedValue != null && selectedValue == item.Key)
+												{
+													option.Attr("selected", "selected");
+												}
+
+        	               	         			tag.Children.Add(option);
         	               	         		}
 
         	               	         		return tag;

@@ -12,7 +12,7 @@ namespace Web.Tests.Books
 		{
 			var book = BookTestingHelper.GetBook();
 
-			var model = new UpdateBookViewModel(book);
+			var model = new UpdateBookViewModel(book, null);
 
 			model.ShouldHaveDetailsFor(book);
 		}

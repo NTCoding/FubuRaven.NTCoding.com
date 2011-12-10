@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Web.Endpoints.SiteManagement.Book.InputModels;
 
 namespace Web.Endpoints.SiteManagement.Book.ViewModels
@@ -10,6 +11,6 @@ namespace Web.Endpoints.SiteManagement.Book.ViewModels
 			Genres = genres;
 		}
 
-		public IDictionary<string, string> Genres { get; private set; }
+		public IDictionary<String, String> Genres { get; private set; }
 	}
 }

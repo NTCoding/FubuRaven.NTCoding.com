@@ -21,12 +21,14 @@ namespace Web.Tests.Books
 	{
 		private UpdateEndpoint endpoint;
 		private IBookUpdater updater;
+		private IGenreRetriever retriever;
 
 		[SetUp]
 		public void CanCreate()
 		{
-			updater = MockRepository.GenerateMock<IBookUpdater>();
-			endpoint = new UpdateEndpoint(Session, updater);
+			updater   = MockRepository.GenerateMock<IBookUpdater>();
+			retriever = MockRepository.GenerateMock<IGenreRetriever>();
+			endpoint  = new UpdateEndpoint(Session, updater, retriever);
 		}
 
 		[Test]
@@ -37,6 +39,21 @@ namespace Web.Tests.Books
 			var result = endpoint.Get(new UpdateBookLinkModel {Id = book.Id});
 
 			result.ShouldHaveDetailsFor(book);
+		}
+
+		[Test]
+		public void Get_ViewModelShouldCollaborate_WithGenresRetriever()
+		{
+			var testGenres = new Dictionary<String, String>();
+			testGenres.Add("genres/123", "aaa");
+			testGenres.Add("genres/234", "aaa");
+			testGenres.Add("genres/345", "bbb");
+
+			retriever.Stub(r => r.GetAllOrderedByName()).Return(testGenres);
+
+			var result = endpoint.Get(new UpdateBookLinkModel() {Id = "Irrelevant"});
+
+			result.ShouldHaveGenres(testGenres);
 		}
 
 		[Test]
@@ -119,7 +136,7 @@ namespace Web.Tests.Books
 		{
 			HasMatchingAuthors(model, book);
 			Assert.AreEqual(book.Description, model.Description_BigText);
-			Assert.AreEqual(book.Genre.Name, model.GenreName);
+			Assert.AreEqual(book.Genre.Name, model.SelectedGenre);
 			Assert.AreEqual(book.Genre.Id, model.Genre);
 			Assert.AreEqual(book.Id, model.Id);
 			Assert.AreEqual(book.Status, model.BookStatus);
@@ -130,6 +147,11 @@ namespace Web.Tests.Books
 		{
 			Assert.AreEqual(model.Authors.Count(), book.Authors.Count());
 			Assert.That(book.Authors.All(a => model.Authors.Any(x => a == x)), Is.True);
+		}
+
+		public static void ShouldHaveGenres(this UpdateBookViewModel model, IDictionary<String, String> genres)
+		{
+			Assert.AreEqual(genres, model.Genres);
 		}
 	}
 }

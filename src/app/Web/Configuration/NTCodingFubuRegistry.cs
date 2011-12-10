@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Web;
 using FubuMVC.Core;
+using FubuMVC.Core.UI.Configuration;
 using FubuMVC.Spark;
 using FubuMVC.Validation;
 using FubuValidation;
@@ -86,6 +87,7 @@ namespace Web.Configuration
 						.If(e => e.Accessor.PropertyType.IsAssignableFrom(typeof(ImageDisplayModel)))
 						.BuildBy(er =>
 						{
+							// TODO - New convention to blog about - mention how we are making url's irrelevant to the internals of the application
 							var model = er.Value<ImageDisplayModel>();
 							var urlForImage = String.Format("/Image?id={0}&width={1}&height={2}", model.Id, model.Width, model.Height);
 							return new HtmlTag("img").Attr("src", urlForImage);
@@ -108,7 +110,13 @@ namespace Web.Configuration
         	               	         		var enumValues = Enum.GetValues(er.Accessor.PropertyType);
         	               	         		foreach (var enumValue in enumValues)
         	               	         		{
-        	               	         			tag.Children.Add(new HtmlTag("option").Text(enumValue.ToString()));
+        	               	         			var option = new HtmlTag("option").Text(enumValue.ToString());
+												if (GetSelectedValue(er, er.Accessor.Name) == enumValue.ToString())
+												{
+													option.Attr("selected", "selected");
+												}
+
+												tag.Children.Add(option);
         	               	         		}
 
         	               	         		return tag;
@@ -125,12 +133,7 @@ namespace Web.Configuration
         	               	         		string name = er.Accessor.PropertyNames[0].Substring(0, er.Accessor.PropertyNames[0].Length - 1);
 
 
-        	               	         		var selectedValueProperty = er.Model.GetType().GetProperty("Selected" + name);
-
-
-        	               	         		string selectedValue = selectedValueProperty != null
-        	               	         		                       	? selectedValueProperty.GetValue(er.Model, null) as String
-        	               	         		                       	: null;
+        	               	         		string selectedValue = GetSelectedValue(er, name);
 
 
         	               	         		var dictionary = er.Value<IDictionary<String, String>>();
@@ -139,6 +142,7 @@ namespace Web.Configuration
         	               	         		{
         	               	         			var option = new HtmlTag("option").Text(item.Value).Attr("value", item.Key);
 
+												// TODO - new convention for next blog post
 												if (selectedValue != null && selectedValue == item.Value)
 												{
 													option.Attr("selected", "selected");
@@ -184,5 +188,17 @@ namespace Web.Configuration
 
 			this.UseSpark();
         }
+
+		// TODO - this moves when the html conventions do
+		// TODO - new convention for next blog post
+    	private string GetSelectedValue(ElementRequest er, string name)
+    	{
+    		var selectedValueProperty = er.Model.GetType().GetProperty("Selected" + name);
+
+    		var selectedValue = selectedValueProperty != null
+    		                    	? selectedValueProperty.GetValue(er.Model, null).ToString() 
+    		                    	: null;
+    		return selectedValue;
+    	}
     }
 }

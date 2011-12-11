@@ -2,6 +2,7 @@
 using Model;
 using Model.Services;
 using NUnit.Framework;
+using Raven.Client;
 using Web.Endpoints.SiteManagement.Book;
 using Web.Endpoints.SiteManagement.Book.InputModels;
 using Web.Endpoints.SiteManagement.Book.LinkModels;
@@ -52,21 +53,17 @@ namespace Web.Tests.Books.SiteManagement
 		[Test]
 		public void Get_ViewModelShouldContainAllGenres()
 		{
-			var g1 = new Model.Genre("good") {Id = "1"};
-			var g2 = new Model.Genre("bad") {Id = "2"};
-			var g3 = new Model.Genre("ugly") {Id = "3"};
-
-			Session.Store(g1);
-			Session.Store(g2);
-			Session.Store(g3);
-			Session.SaveChanges();
+			var genres = GenreTestingHelper.GetGenresFromSession(Session);
 
 			var viewModel = _endpoint.Get(new CreateBookLinkModel());
 
-			Assert.IsTrue(viewModel.Genres.Any(g => g.Key == g1.Id && g.Value == g1.Name));
-			Assert.IsTrue(viewModel.Genres.Any(g => g.Key == g2.Id && g.Value == g2.Name));
-			Assert.IsTrue(viewModel.Genres.Any(g => g.Key == g3.Id && g.Value == g3.Name));
+			foreach (var genre in genres)
+			{
+				Assert.IsTrue(viewModel.Genres.Any(g => g.Key == genre.Id && g.Value == genre.Name));
+			}
 		}
+
+		
 
 		[Test]
 		public void Get_ViewModelShouldContainGenresInAlaphabeticalOrder()
@@ -134,6 +131,23 @@ namespace Web.Tests.Books.SiteManagement
 			Assert.Inconclusive();
 			//Func<ViewBookLinkModel, bool> predicate = x => true;
 			//result.AssertWasRedirectedTo<ViewBookLinkModel>((Func<ViewBookLinkModel, bool>)predicate);
+		}
+	}
+
+	public static class GenreTestingHelper
+	{
+		public static Model.Genre[] GetGenresFromSession(IDocumentSession session)
+		{
+			var g1 = new Model.Genre("good") { Id = "1" };
+			var g2 = new Model.Genre("bad") { Id = "2" };
+			var g3 = new Model.Genre("ugly") { Id = "3" };
+
+			session.Store(g1);
+			session.Store(g2);
+			session.Store(g3);
+			session.SaveChanges();
+
+			return new[] { g1, g2, g3 };
 		}
 	}
 }

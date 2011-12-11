@@ -37,8 +37,19 @@ namespace Web.Tests.Books.Public
 			result.ShouldContainListViewFor(books);
 		}
 
-		// TODO - test convention - because endpoints have specific models - the models need no tests. Covered by the endpoints
+		[Test]
+		public void Get_VieModelShouldContainAllGenresInSession()
+		{
+			// put loads of genres in session
 
+			// get all the genres in the session
+
+			// invoke get and get the model
+
+			// verify the model contains all the genres
+		}
+
+		// TODO - test convention - because endpoints have specific models - the models need no tests. Covered by the endpoints
 		[Test]
 		public void Get_WhenGivenGenreId_ShouldReturnOnlyBooksWithThatGenre()
 		{
@@ -50,8 +61,6 @@ namespace Web.Tests.Books.Public
 			
 			result.ShouldOnlyHaveBooksWith(idsForBookWithGenre1);
 		}
-
-		// TODO - Test that view model always has all genres in the session
 
 		private string[] PutBooksInSessionWithDifferentGenresAndGetIdsForBooksWithGenre(string genre)
 		{

@@ -8,7 +8,6 @@ namespace Web.Utilities
 		{
 			Id = id;
 
-			// TODO - vary by size of course
 			Width = 300;
 			Height = 300;
 		}

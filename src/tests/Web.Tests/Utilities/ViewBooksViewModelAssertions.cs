@@ -21,7 +21,7 @@ namespace Web.Tests.Utilities
 		private static bool HasMatchingValues(BookListView bookListView, Book book)
 		{
 			return bookListView.Id == book.Id
-			       && bookListView.Image == book.Image
+			       && bookListView.Image.Id == book.Id
 			       && bookListView.Title == book.Title;
 		}
 

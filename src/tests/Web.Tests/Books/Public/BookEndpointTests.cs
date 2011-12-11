@@ -42,7 +42,20 @@ namespace Web.Tests.Books.Public
 		[Test]
 		public void Get_WhenGivenGenreId_ShouldReturnOnlyBooksWithThatGenre()
 		{
-			var genre1 = new Model.Genre("1");
+			var genreToFilter = "genres/1";
+			
+			var idsForBookWithGenre1 = PutBooksInSessionWithDifferentGenresAndGetIdsForBooksWithGenre(genreToFilter);
+
+			var result = endpoint.Get(new ViewBooksLinkModel {Genre = genreToFilter});
+			
+			result.ShouldOnlyHaveBooksWith(idsForBookWithGenre1);
+		}
+
+		// TODO - Test that view model always has all genres in the session
+
+		private string[] PutBooksInSessionWithDifferentGenresAndGetIdsForBooksWithGenre(string genre)
+		{
+			var genre1 = new Model.Genre(genre);
 			Session.Store(genre1);
 			
 			var book1 = BookTestingHelper.GetBook(genre: genre1, id: "Books/1");
@@ -59,15 +72,9 @@ namespace Web.Tests.Books.Public
 
 			Session.SaveChanges();
 
-			var result = endpoint.Get(new ViewBooksLinkModel {Genre = genre1.Id});
-
-			var idsForBookWithGenre1 = new[] {book1.Id, book2.Id};
-			
-			result.ShouldOnlyHaveBooksWith(idsForBookWithGenre1);
-
+			return new[] { book1.Id, book2.Id };
 		}
 
-		// TODO - move to book testing helper
 		private IEnumerable<Book> PopulateAndGetAllBooksExistingFromSession()
 		{
 			yield return GetBookFromSessionWithId("Books/001");
@@ -88,13 +95,6 @@ namespace Web.Tests.Books.Public
 			Session.Store(book1);
 			return book1;
 		}
-
-		// TODO - should take a link model
-
-
-		// Post
-
-			// Should take a status and return books with that status
 	}
 
 	public class ViewBooksLinkModel

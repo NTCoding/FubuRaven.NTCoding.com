@@ -1,3 +1,4 @@
+<use namespace="Web.Endpoints.ViewModels" />
 <viewdata model="Web.Endpoints.ViewModels.ViewBooksViewModel" />
 
 <h1>Books</h1>
@@ -9,6 +10,7 @@
 	<ul>
 		<for each="var book in Model.Books">
 			<li>
+				${this.DisplayFor<BookListView>(book, b => b.Image)}
 				${book.Title}
 			</li>
 		</for>

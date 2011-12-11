@@ -166,7 +166,7 @@
     <Compile Include="Configuration\Behaviours\Output\RenderImageNode.cs" />
     <Compile Include="Configuration\HandlerModelDescriptor.cs" />
     <Compile Include="Configuration\NTCodingFubuRegistry.cs" />
-    <Compile Include="Endpoints\BookEndpoint.cs" />
+    <Compile Include="Endpoints\BooksEndpoint.cs" />
     <Compile Include="Endpoints\IndexEndpoint.cs" />
     <Compile Include="Endpoints\HomepageModels\HomepageLinkModel.cs" />
     <Compile Include="Endpoints\HomepageModels\HomepageViewModel.cs" />
@@ -243,6 +243,7 @@
     </None>
     <Content Include="packages.config" />
     <None Include="Endpoints\SiteManagement\Index.spark" />
+    <None Include="Endpoints\Books.spark" />
     <None Include="Shared\Application.spark" />
     <None Include="Shared\Notification.spark" />
     <None Include="Shared\_global.spark" />

@@ -1,4 +1,5 @@
 ﻿<use namespace="Web.Endpoints.SiteManagement" />
+<use namespace="Web.Endpoints.LinkModels" />
 <viewdata model="Web.Endpoints.HomepageModels.HomepageViewModel" />
 <nav>
 	<ul>
@@ -8,6 +9,11 @@
 	</ul>
 </nav>
 		<h1>Welcome to NTCoding</h1>
+<nav>
+	${this.LinkTo(new ViewBooksLinkModel()).Text("Books")}
+</nav>
+<br />
+
 		<div>
 			${Model.HomepageContent}
 		</div>

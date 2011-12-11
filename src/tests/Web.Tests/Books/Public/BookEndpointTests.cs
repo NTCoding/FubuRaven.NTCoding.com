@@ -14,7 +14,7 @@ namespace Web.Tests.Books.Public
 	[TestFixture]
 	public class BookEndpointTests : RavenTestsBase
 	{
-		private BookEndpoint endpoint;
+		private BooksEndpoint endpoint;
 
 		[SetUp]
 		public void CanCreate()
@@ -22,7 +22,7 @@ namespace Web.Tests.Books.Public
 			// TODO - so this is an integration test - how are we defining when to verify calls and when to use components?
 			//        I think using a component and not mocking the interface still verifies the behaviour of this component
 			//        it tells us that this unit works correctly with an implementation of the interface that also works
-			endpoint = new BookEndpoint(Session, new RavenDbGenreRetriever(Session));
+			endpoint = new BooksEndpoint(Session, new RavenDbGenreRetriever(Session));
 		}
 
 		[Test]

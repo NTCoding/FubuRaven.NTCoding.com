@@ -1,0 +1,15 @@
+<viewdata model="Web.Endpoints.ViewModels.ViewBooksViewModel" />
+
+<h1>Books</h1>
+
+<form action="${this.Urls.UrlFor(new ViewBooksLinkModel)" method="Get">
+	${this.InputFor(m => m.Genres).AddClass("autosubmit")}
+<form>
+
+	<ul>
+		<for each="var book in Model.Books">
+			<li>
+				${book.Title}
+			</li>
+		</for>
+	</ul>

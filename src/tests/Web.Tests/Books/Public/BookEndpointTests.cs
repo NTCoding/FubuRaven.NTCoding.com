@@ -28,7 +28,7 @@ namespace Web.Tests.Books.Public
 		}
 		
 		[Test]
-		public void Get_ShouldReturnSnapshot_ForAllExistingBooks()
+		public void Get_WhenGivenNoGenreToFilterBy_ShouldListView_ForAllExistingBooks()
 		{
 			var books = PopulateAndGetAllBooksExistingFromSession().ToList();
 
@@ -40,13 +40,7 @@ namespace Web.Tests.Books.Public
 		// TODO - test convention - because endpoints have specific models - the models need no tests. Covered by the endpoints
 
 		[Test]
-		public void Post_ShouldTakeInputModel()
-		{
-			endpoint.Post(new ViewBooksInputModel());
-		}
-
-		[Test]
-		public void Post_GivenGenreId_ShouldReturnOnlyBooksWithThatGenre()
+		public void Get_WhenGivenGenreId_ShouldReturnOnlyBooksWithThatGenre()
 		{
 			var genre1 = new Model.Genre("1");
 			Session.Store(genre1);
@@ -65,7 +59,7 @@ namespace Web.Tests.Books.Public
 
 			Session.SaveChanges();
 
-			var result = endpoint.Post(new ViewBooksInputModel {Genre = genre1.Id});
+			var result = endpoint.Get(new ViewBooksLinkModel {Genre = genre1.Id});
 
 			var idsForBookWithGenre1 = new[] {book1.Id, book2.Id};
 			
@@ -103,14 +97,9 @@ namespace Web.Tests.Books.Public
 			// Should take a status and return books with that status
 	}
 
-	public class ViewBooksInputModel
-	{
-		public String Genre { get; set; }
-	}
-
 	public class ViewBooksLinkModel
 	{
-		
+		public String Genre { get; set; }
 	}
 
 	public class BookListView
@@ -141,23 +130,22 @@ namespace Web.Tests.Books.Public
 		public ViewBooksViewModel Get(ViewBooksLinkModel model)
 		{
 			// TODO - book retriever - could in future be replaced by a read store / view cache
-			var books = session.Query<Book>()
-				.ToList()
-				.Select(b => new BookListView(b));
+			var models = GetBooks(model).ToList().Select(b => new BookListView(b));
 
 			// TODO - map this to a view-specific status so we don't display all statuses = e.g hidden
-			return new ViewBooksViewModel(books);
+			return new ViewBooksViewModel(models);
 		}
 
-		public ViewBooksViewModel Post(ViewBooksInputModel model)
+		private IQueryable<Book> GetBooks(ViewBooksLinkModel model)
 		{
-			// TODO - book retriever
-			var books = session.Query<Book>()
-				.Where(b => b.Genre.Id == model.Genre)
-				.ToList()
-				.Select(b => new BookListView(b));
+			return ShouldDefaultToAllGenres(model) 
+				? session.Query<Book>()
+				: session.Query<Book>().Where(b => b.Genre.Id == model.Genre);
+		}
 
-			return new ViewBooksViewModel(books);
+		private bool ShouldDefaultToAllGenres(ViewBooksLinkModel model)
+		{
+			return string.IsNullOrWhiteSpace(model.Genre);
 		}
 	}
 

@@ -2,11 +2,11 @@
 using Model;
 using Model.Services;
 using NUnit.Framework;
-using Raven.Client;
 using Web.Endpoints.SiteManagement.Book;
 using Web.Endpoints.SiteManagement.Book.InputModels;
 using Web.Endpoints.SiteManagement.Book.LinkModels;
 using Web.Tests.TestDoubles;
+using Web.Tests.Utilities;
 using Web.Utilities;
 
 namespace Web.Tests.Books.SiteManagement
@@ -57,13 +57,8 @@ namespace Web.Tests.Books.SiteManagement
 
 			var viewModel = _endpoint.Get(new CreateBookLinkModel());
 
-			foreach (var genre in genres)
-			{
-				Assert.IsTrue(viewModel.Genres.Any(g => g.Key == genre.Id && g.Value == genre.Name));
-			}
+			genres.ShouldMatch(viewModel.Genres);
 		}
-
-		
 
 		[Test]
 		public void Get_ViewModelShouldContainGenresInAlaphabeticalOrder()
@@ -131,23 +126,6 @@ namespace Web.Tests.Books.SiteManagement
 			Assert.Inconclusive();
 			//Func<ViewBookLinkModel, bool> predicate = x => true;
 			//result.AssertWasRedirectedTo<ViewBookLinkModel>((Func<ViewBookLinkModel, bool>)predicate);
-		}
-	}
-
-	public static class GenreTestingHelper
-	{
-		public static Model.Genre[] GetGenresFromSession(IDocumentSession session)
-		{
-			var g1 = new Model.Genre("good") { Id = "1" };
-			var g2 = new Model.Genre("bad") { Id = "2" };
-			var g3 = new Model.Genre("ugly") { Id = "3" };
-
-			session.Store(g1);
-			session.Store(g2);
-			session.Store(g3);
-			session.SaveChanges();
-
-			return new[] { g1, g2, g3 };
 		}
 	}
 }

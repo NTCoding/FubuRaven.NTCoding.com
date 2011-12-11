@@ -134,6 +134,8 @@
     <Compile Include="RavenTestsBase.cs" />
     <Compile Include="TestDoubles\MockHttpPostedFileBase.cs" />
     <Compile Include="Utilities\BookTestingHelper.cs" />
+    <Compile Include="Utilities\GenreAssertions.cs" />
+    <Compile Include="Utilities\GenreTestingHelper.cs" />
     <Compile Include="Utilities\ImageEndpointTests.cs" />
   </ItemGroup>
   <ItemGroup>

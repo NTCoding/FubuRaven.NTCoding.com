@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Model;
+using Model.Services;
 using NUnit.Framework;
 using Raven.Client;
 using Web.Tests.Utilities;
@@ -18,7 +19,10 @@ namespace Web.Tests.Books.Public
 		[SetUp]
 		public void CanCreate()
 		{
-			endpoint = new BookEndpoint(Session);
+			// TODO - so this is an integration test - how are we defining when to verify calls and when to use components?
+			//        I think using a component and not mocking the interface still verifies the behaviour of this component
+			//        it tells us that this unit works correctly with an implementation of the interface that also works
+			endpoint = new BookEndpoint(Session, new RavenDbGenreRetriever(Session));
 		}
 
 		[Test]
@@ -40,14 +44,14 @@ namespace Web.Tests.Books.Public
 		[Test]
 		public void Get_VieModelShouldContainAllGenresInSession()
 		{
-			// put loads of genres in session
+			var genres = GenreTestingHelper.GetGenresFromSession(Session);
 
-			// get all the genres in the session
+			var viewModel = endpoint.Get(new ViewBooksLinkModel());
 
-			// invoke get and get the model
-
-			// verify the model contains all the genres
+			genres.ShouldMatch(viewModel.Genres);
 		}
+
+		// TODO - genres should be ordered
 
 		// TODO - test convention - because endpoints have specific models - the models need no tests. Covered by the endpoints
 		[Test]
@@ -130,10 +134,12 @@ namespace Web.Tests.Books.Public
 	public class BookEndpoint
 	{
 		private readonly IDocumentSession session;
+		private readonly IGenreRetriever genreRetriever;
 
-		public BookEndpoint(IDocumentSession session)
+		public BookEndpoint(IDocumentSession session, IGenreRetriever genreRetriever)
 		{
 			this.session = session;
+			this.genreRetriever = genreRetriever;
 		}
 
 		public ViewBooksViewModel Get(ViewBooksLinkModel model)
@@ -141,8 +147,7 @@ namespace Web.Tests.Books.Public
 			// TODO - book retriever - could in future be replaced by a read store / view cache
 			var models = GetBooks(model).ToList().Select(b => new BookListView(b));
 
-			// TODO - map this to a view-specific status so we don't display all statuses = e.g hidden
-			return new ViewBooksViewModel(models);
+			return new ViewBooksViewModel(models, genreRetriever.GetAllOrderedByName());
 		}
 
 		private IQueryable<Book> GetBooks(ViewBooksLinkModel model)
@@ -160,12 +165,15 @@ namespace Web.Tests.Books.Public
 
 	public class ViewBooksViewModel
 	{
-		public ViewBooksViewModel(IEnumerable<BookListView> books)
+		public ViewBooksViewModel(IEnumerable<BookListView> books, IDictionary<string, string> genres)
 		{
 			Books = books;
+			Genres = genres;
 		}
 
 		public IEnumerable<BookListView> Books { get; set; }
+
+		public IDictionary<String, String> Genres { get; set; }
 	}
 
 	public static class ViewBooksViewModelAssertions

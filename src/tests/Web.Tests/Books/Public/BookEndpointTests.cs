@@ -4,8 +4,10 @@ using Model;
 using Model.Services;
 using NUnit.Framework;
 using Web.Endpoints;
-using Web.Endpoints.LinkModels;
+using Web.Endpoints.Books;
+using Web.Endpoints.Books.LinkModels;
 using Web.Tests.Utilities;
+using IndexEndpoint = Web.Endpoints.Books.IndexEndpoint;
 
 namespace Web.Tests.Books.Public
 {
@@ -14,7 +16,7 @@ namespace Web.Tests.Books.Public
 	[TestFixture]
 	public class BookEndpointTests : RavenTestsBase
 	{
-		private BooksEndpoint endpoint;
+		private IndexEndpoint endpoint;
 
 		[SetUp]
 		public void CanCreate()
@@ -22,7 +24,7 @@ namespace Web.Tests.Books.Public
 			// TODO - so this is an integration test - how are we defining when to verify calls and when to use components?
 			//        I think using a component and not mocking the interface still verifies the behaviour of this component
 			//        it tells us that this unit works correctly with an implementation of the interface that also works
-			endpoint = new BooksEndpoint(Session, new RavenDbGenreRetriever(Session));
+			endpoint = new IndexEndpoint(Session, new RavenDbGenreRetriever(Session));
 		}
 
 		[Test]

@@ -2,7 +2,7 @@
 using System.Linq;
 using Model;
 using NUnit.Framework;
-using Web.Endpoints.ViewModels;
+using Web.Endpoints.Books.ViewModels;
 
 namespace Web.Tests.Utilities
 {

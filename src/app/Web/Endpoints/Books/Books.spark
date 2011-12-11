@@ -1,0 +1,17 @@
+<use namespace="Web.Endpoints.Books.ViewModels" />
+<viewdata model="Web.Endpoints.Books.ViewModels.ViewBooksViewModel" />
+
+<h1>Books</h1>
+
+<form action="${this.Urls.UrlFor(new ViewBooksLinkModel)" method="Get">
+	${this.InputFor(m => m.Genres).AddClass("autosubmit")}
+<form>
+
+	<ul>
+		<for each="var book in Model.Books">
+			<li>
+				${this.DisplayFor<BookListView>(book, b => b.Image)}
+				${book.Title}
+			</li>
+		</for>
+	</ul>

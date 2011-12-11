@@ -42,13 +42,13 @@ namespace Web.Tests.Books.Public
 		}
 
 		[Test]
-		public void Get_VieModelShouldContainAllGenresInSession()
+		public void Get_VieModelShouldContainAllGenresInSession_OrderedByName()
 		{
 			var genres = GenreTestingHelper.GetGenresFromSession(Session);
 
 			var viewModel = endpoint.Get(new ViewBooksLinkModel());
 
-			genres.ShouldMatch(viewModel.Genres);
+			genres.OrderBy(g => g.Name).ShouldMatch(viewModel.Genres);
 		}
 
 		// TODO - genres should be ordered

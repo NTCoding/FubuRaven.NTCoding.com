@@ -57,7 +57,7 @@ namespace Web.Tests.Books.SiteManagement
 
 			var viewModel = _endpoint.Get(new CreateBookLinkModel());
 
-			genres.ShouldMatch(viewModel.Genres);
+			genres.OrderBy(g => g.Name).ShouldMatch(viewModel.Genres);
 		}
 
 		[Test]

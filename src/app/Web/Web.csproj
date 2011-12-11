@@ -166,10 +166,12 @@
     <Compile Include="Configuration\Behaviours\Output\RenderImageNode.cs" />
     <Compile Include="Configuration\HandlerModelDescriptor.cs" />
     <Compile Include="Configuration\NTCodingFubuRegistry.cs" />
+    <Compile Include="Endpoints\BookEndpoint.cs" />
     <Compile Include="Endpoints\IndexEndpoint.cs" />
     <Compile Include="Endpoints\HomepageModels\HomepageLinkModel.cs" />
     <Compile Include="Endpoints\HomepageModels\HomepageViewModel.cs" />
     <Compile Include="Endpoints\ImageEndpoint.cs" />
+    <Compile Include="Endpoints\LinkModels\ViewBooksLinkModel.cs" />
     <Compile Include="Endpoints\SiteManagement\Book\BookEndpoint.cs" />
     <Compile Include="Endpoints\SiteManagement\Book\CreateEndpoint.cs" />
     <Compile Include="Endpoints\SiteManagement\Book\InputModels\CreateBookInputModel.cs" />
@@ -193,6 +195,8 @@
     <Compile Include="Endpoints\SiteManagement\HomepageContentModels\HomepageContentLinkModel.cs" />
     <Compile Include="Endpoints\SiteManagement\HomepageContentModels\HomepageContentViewModel.cs" />
     <Compile Include="Endpoints\SiteManagement\IndexEndpoint.cs" />
+    <Compile Include="Endpoints\ViewModels\BookListView.cs" />
+    <Compile Include="Endpoints\ViewModels\ViewBooksViewModel.cs" />
     <Compile Include="Infrastructure\Behaviours\RavenSessionBehaviour.cs" />
     <Compile Include="Infrastructure\Raven\DocumentStoreHolder.cs" />
     <Compile Include="Infrastructure\Services\FileUploader.cs" />

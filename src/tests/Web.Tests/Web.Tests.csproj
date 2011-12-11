@@ -137,6 +137,7 @@
     <Compile Include="Utilities\GenreAssertions.cs" />
     <Compile Include="Utilities\GenreTestingHelper.cs" />
     <Compile Include="Utilities\ImageEndpointTests.cs" />
+    <Compile Include="Utilities\ViewBooksViewModelAssertions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\app\Model\Model.csproj">

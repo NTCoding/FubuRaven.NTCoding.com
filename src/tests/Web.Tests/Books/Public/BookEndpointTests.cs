@@ -1,10 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Model;
 using Model.Services;
 using NUnit.Framework;
-using Raven.Client;
+using Web.Endpoints;
+using Web.Endpoints.LinkModels;
 using Web.Tests.Utilities;
 
 namespace Web.Tests.Books.Public
@@ -107,102 +107,6 @@ namespace Web.Tests.Books.Public
 			book1.Id = id;
 			Session.Store(book1);
 			return book1;
-		}
-	}
-
-	public class ViewBooksLinkModel
-	{
-		public String Genre { get; set; }
-	}
-
-	public class BookListView
-	{
-		public BookListView(Book book)
-		{
-			this.Id = book.Id;
-			this.Image = book.Image;
-			this.Title = book.Title;
-		}
-
-		public String Id { get; set; }
-
-		public byte[] Image { get; set; }
-
-		public String Title { get; set; }
-	}
-
-	public class BookEndpoint
-	{
-		private readonly IDocumentSession session;
-		private readonly IGenreRetriever genreRetriever;
-
-		public BookEndpoint(IDocumentSession session, IGenreRetriever genreRetriever)
-		{
-			this.session = session;
-			this.genreRetriever = genreRetriever;
-		}
-
-		public ViewBooksViewModel Get(ViewBooksLinkModel model)
-		{
-			// TODO - book retriever - could in future be replaced by a read store / view cache
-			var models = GetBooks(model).ToList().Select(b => new BookListView(b));
-
-			return new ViewBooksViewModel(models, genreRetriever.GetAllOrderedByName());
-		}
-
-		private IQueryable<Book> GetBooks(ViewBooksLinkModel model)
-		{
-			return ShouldDefaultToAllGenres(model) 
-				? session.Query<Book>()
-				: session.Query<Book>().Where(b => b.Genre.Id == model.Genre);
-		}
-
-		private bool ShouldDefaultToAllGenres(ViewBooksLinkModel model)
-		{
-			return string.IsNullOrWhiteSpace(model.Genre);
-		}
-	}
-
-	public class ViewBooksViewModel
-	{
-		public ViewBooksViewModel(IEnumerable<BookListView> books, IDictionary<string, string> genres)
-		{
-			Books = books;
-			Genres = genres;
-		}
-
-		public IEnumerable<BookListView> Books { get; set; }
-
-		public IDictionary<String, String> Genres { get; set; }
-	}
-
-	public static class ViewBooksViewModelAssertions
-	{
-		public static void ShouldContainListViewFor(this ViewBooksViewModel model, IEnumerable<Book> books)
-		{
-			Assert.AreEqual(books.Count(), model.Books.Count(), "Different number of books");
-
-			foreach (var book in books)
-			{
-				Assert.That(model.Books.Any(v => HasMatchingValues(v, book)), Is.True, "No match for book: " + book.Id);
-			}
-		}
-
-		private static bool HasMatchingValues(BookListView bookListView, Book book)
-		{
-			return bookListView.Id == book.Id
-			       && bookListView.Image == book.Image
-			       && bookListView.Title == book.Title;
-		}
-
-		public static void ShouldOnlyHaveBooksWith(this ViewBooksViewModel model, IEnumerable<String> ids)
-		{
-			Assert.AreEqual(ids.Count(), model.Books.Count());
-
-			foreach (var id in ids)
-			{
-				Assert.That(model.Books.Any(b => b.Id == id), "No id for: " + id);
-			}
 		}
 	}
 }

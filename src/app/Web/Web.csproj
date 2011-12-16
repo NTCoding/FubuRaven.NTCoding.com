@@ -146,6 +146,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="%40App_Data\Raven\raven-data.ico" />
+    <Content Include="Public\css\Main.css" />
+    <Content Include="Public\images\BannerLeft.png" />
+    <Content Include="Public\images\BannerRight.png" />
+    <Content Include="Public\images\MenuBlock.png" />
+    <Content Include="Public\images\MenuLeft.png" />
+    <Content Include="Public\images\MenuRight.png" />
+    <Content Include="Public\images\minorBottomLeft.png" />
+    <Content Include="Public\images\minorBottomRight.png" />
+    <Content Include="Public\images\minorTopLeft.png" />
+    <Content Include="Public\images\minorTopRight.png" />
     <Content Include="Raven.Studio.xap" />
     <Content Include="Public\js\site.js" />
     <Content Include="Shared\bindings.xml">

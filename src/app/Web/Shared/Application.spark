@@ -1,6 +1,8 @@
-﻿<!DOCTYPE HTML>
+﻿<use namespace="Web.Endpoints.HomepageModels" />
+<!DOCTYPE HTML>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="/Public/css/main.css" media="screen" />
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 		<script type="text/javascript" src="/Public/js/site.js"></script>
 		
@@ -9,6 +11,24 @@
 		</script>
 	</head>
 	<body>
-		<use:view/>
+		<div id="container">
+			<div id="header">
+				<div id="bannerLeft"></div>
+				<div id="bannerRight"></div>
+			</div>
+			<div id="menu">
+				<div id="menuLeft"></div>
+				<nav>
+					${this.LinkTo(new HomepageLinkModel()).Text("Home")}
+					${this.LinkTo(new ViewBooksLinkModel()).Text("Books")}
+				</nav>
+				<div id="menuRight"></div>
+			</div>
+			<div id="majorContent">
+				<use:view/>
+			</div>
+			<div id="minorContent">
+			<div>
+		</div>
 	</body>
 </html>

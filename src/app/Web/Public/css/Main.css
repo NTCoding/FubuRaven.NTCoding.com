@@ -1,0 +1,595 @@
+﻿/*Reset*/
+
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, variable, form, fieldset, blockquote {
+ padding: 0;
+ margin: 0;
+ font-size: 100%;
+ font-weight: normal;
+}
+table { border-collapse: collapse; border-spacing: 0; }
+td, th, caption { font-weight: normal; text-align: left; }
+img, fieldset { border: 0; }
+ol { padding-left: 1.4em; list-style: decimal; }
+ul { padding-left: 1.4em; list-style:square; }
+q:before, q:after { content:''; }
+
+
+
+/*end of reset*/
+*
+{
+    font-family: Verdana;
+}
+
+h1, h2
+{
+    font-size: 1.3em;
+    width: 100%;
+    background-color: #F2F3EF;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 12px;
+    border: 2px solid #00FF00;
+}
+
+h2
+{
+    font-size: 1.1em;
+    font-style: italic;
+    border: none;
+    margin-top: 20px;
+}
+
+strong
+{
+    font-size: 0.9em;
+}
+
+p, div, label
+{
+    font-family: Palatino Linotype, serif;
+}
+
+p
+{
+    margin-bottom: 15px;
+    padding-left: 12px;
+}
+
+a
+{
+    color: #2DFF2D;
+    text-decoration: none;
+    border-bottom: 1px solid green;
+    font-size: 0.9em;
+}
+
+div#recentBlogEntries div
+{
+    margin-bottom: 15px;
+    padding-left: 12px;
+}
+
+div.clear
+{
+    clear: both;
+}
+
+body
+{
+    background-color:#F2F3EF;
+}
+
+#container
+{
+    width: 90%;
+    background-color: White;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    padding: 10px;
+}
+
+#header
+{
+    height: 60px;
+    width: 100%;
+    background-color: #333333;
+    margin-bottom: 20px;
+}
+
+#header #bannerLeft
+{
+    float: left;
+    background-image: url("/Public/images/BannerLeft.png");
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 60px;
+}
+
+#header #bannerRight
+{
+    float: right;
+    width: 15px;
+    height: 60px;
+    background-image: url("/Public/images/BannerRight.png");
+    background-repeat: no-repeat;
+}
+
+#menu
+{
+    width: 100%;
+    height: 45px;
+    background-image: url("/Public/images/MenuBlock.png");
+    background-repeat: repeat-x;
+    overflow: hidden;
+}
+
+#menu #menuLeft
+{
+    float: left;
+    width: 20px;
+    height: 45px;
+    background-image: url("/Public/images/MenuLeft.png");
+    background-repeat: no-repeat;
+ }
+ 
+ #menu #menuRight
+ {
+     float: right;
+     width: 13px;
+     height: 45px;
+     background-image: url("images/MenuRight.png");
+     background-repeat: no-repeat;
+ }
+ 
+ #menu ul
+ {
+     margin-left: 34px;
+ }
+ 
+ #menu nav
+ {
+     display: inline;
+     list-style-type: none;
+ }
+ 
+ #menu nav a
+ {
+     line-height: 45px;
+    display: block;
+    color: Black;
+    float:left;
+    text-decoration:none;
+    margin-right: 40px;
+    font-size: 0.8em;
+ }
+ 
+ #menu nav a:hover
+ {
+     color: White;
+     font-weight: bold;
+ }
+ 
+ #majorContent
+ {
+     float: left;
+     width: 70%;
+ }
+ 
+ #majorContent h3
+ {
+     font-size: 1em;
+     text-decoration: underline;
+    
+     margin-top: 20px;
+     padding-left: 12px;
+     
+ }
+ 
+ #majorContent ul
+ {
+     list-style-type:circle;
+     padding-left: 40px;
+     font-size: 0.8em;
+ }
+ 
+ #majorContent ul li
+ {
+     padding-bottom: 5px;
+ }
+ 
+ #minorContent
+ {
+     float: right;
+     width: 25%;
+     margin-top: 10px;
+     background-color: #EAF0FF;
+  }
+ 
+ #minorContent #content
+ {
+      padding: 0 10px 0 10px;
+ }
+ 
+ #minorContent .top
+ {
+    width:100%;
+    height:10px;
+    background:url("images/minorTopLeft.png") no-repeat left top;
+ }
+ 
+#minorContent .bottom span 
+{
+    display:block;
+    position:relative;
+    height:20px;
+    background:url("images/minorBottomRight.png") no-repeat right bottom;
+}
+
+ 
+#minorContent .top span 
+{
+    display:block;
+    position:relative;
+    height:20px;
+    background:url("images/minorTopRight.png") no-repeat right top;
+}
+
+#minorContent .bottom
+{
+    height: 20px;
+    background: url("images/minorBottomLeft.png") no-repeat left bottom;
+}
+
+#minorContent h3
+{
+    font-family: Calibri, Sans-Serif;
+    font-size: 1.5em;
+    color: #9A9A9A;
+    font-weight: bold;
+ }
+ 
+#minorContent p
+{
+    font-size: 0.8em;
+    margin-bottom: 5px;
+}
+
+#minorContent ul
+{
+    list-style-type: circle;
+    padding-left: 40px;
+}
+
+#minorContent ul li, #minorContent ul li a
+{
+    margin-bottom: 5px;
+    font-family: Calibri, Sans-Serif;
+    font-size: 1em;
+    color: #9A9A9A;
+}
+
+#minorContent a.twitterLink
+{
+    border: none;
+}
+
+/********** Status Messages **********/
+div#siteStatus p
+{
+    font-size: 1.5em;
+    font-family: Verdana, Sans-Serif;
+    color: Red;
+}        
+
+
+/********** Validation Styling **********/
+
+div.validation-summary-errors
+{
+    color: Red;
+    border: 2px dashed red;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.field-validation-error
+{
+    color: Red;
+    margin-left: 3px;
+}
+
+.input-validation-valid
+{
+    background-color: #D5FFD5;
+}
+
+#minorContent .bookImage
+{
+    float: left;
+    margin: auto;
+    padding: 5px;
+}
+
+.input-validation-error
+{
+    border: 3px solid red;    
+    background-color: pink;
+}
+
+
+#minorContent h4.bookTitle
+{
+    color: #9A9A9A;
+    font-style: italic;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+#minorContent div.content
+{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    background-color: #F2F7FF;
+}
+
+#minorContent div.tweet .tweetDate
+{
+    margin-bottom: 5px;
+    font-style: italic;
+}
+
+#minorContent #currentlyReading
+{
+    margin-top: 10px;
+} 
+ div#welcomeText
+ {
+     margin-bottom: 20px;
+ }
+ 
+ #recentBlogEntries li
+ {
+    
+ }
+ 
+ #recentBlogEntries h3
+ {
+    margin-bottom: 15px;
+    font-weight: 500;
+ }
+ 
+ #recentBlogEntries .blogDate
+ {
+     display: block;
+     font-size: 0.8em;
+     font-weight: bold;
+     margin-bottom: 0px;
+     padding-left: 12px;
+     color: #00FF00;
+     width: 100%;
+     text-decoration: underline;
+ }
+ 
+ div#booksMain
+ {
+     margin-left: auto;
+     margin-right: auto;
+ }
+  
+ div.bookMini
+ {
+     float: left;
+     width: 120px;
+     padding: 10px 5px 0 5px;
+     margin-left: 5px;
+     margin-right: 15px;
+     margin-bottom: 15px;
+     height: 170px;
+     padding-bottom: 10px;
+     text-align: center;
+     background-color: #F0FFF0;
+     overflow: hidden;
+ }
+ 
+ div.bookMini img
+ {
+     margin-bottom: 5px;
+ }
+ 
+ div.bookMini .bookTitle
+ {
+     font-size: 0.8em;
+     padding-top: 5px;
+ }
+ 
+ div.pager
+ {
+     background-color: #F2F3EF;
+     padding: 0;
+ }
+ 
+ div.pager a
+ {
+     color: #00FF00;
+ }
+
+ #majorContent div#bookReviewImage img
+ {
+     float: left;
+     width: 300px;
+     margin: 0 10px 10px 0;
+     display: block;
+ }
+ 
+ #majorContent div#bookInfo
+ {
+     border-bottom: 2px dashed #D1D3D1;
+ }
+ 
+ #majorContent div#bookInfo b
+ {
+     font-size: 0.9em;
+ }
+ 
+ #majorContent #recentBlogEntries h3.blogTitle
+ {
+     font-size: 1em;
+     margin-top: 20px;
+     padding-left: 12px;
+     padding-right: 12px;
+     width: 98%;
+     height: auto;
+     line-height: 35px;
+     background-color: #EAF0FF;
+ }
+ 
+ img.ratingImage
+ {
+     height: 25px;
+ }
+ 
+ #contactMe label
+ {
+     float: left;
+     text-align: right;
+     width: 120px;
+     margin-right: 15px;
+ }
+ 
+ #contactMe input, #contactMe textarea
+ {
+     width: 60%;
+ }
+ 
+ #contactMe input.input-validation-error, #contactMe textarea.input-validation-error
+ {
+     width: auto;
+ }
+ 
+ #contactMe textarea
+ {
+     height: 250px;
+ }
+ 
+ #contactMe input.submit
+ {
+     margin-left: 135px;
+     width: auto;
+ }
+  
+ 
+ /********** Login page **********/
+ 
+ div#Logon
+ {
+     margin-top: 20px;
+ }
+ 
+ div#Logon label
+ {
+     float: left;
+     width: 100px;
+     text-align: right;
+     margin-right: 10px;
+ } 
+ 
+ div#Logon input.submit
+ {
+     margin-left: 120px;
+ }
+ 
+ 
+ /********** Site Management **********/
+ 
+ div#siteManagementLinks
+ {
+     margin-top: 20px;
+ }
+ 
+ /***** Books *****/
+
+div#siteManBooks
+{
+    border: 1px dashed black;
+    border-bottom: none;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+div.siteManBookPreview
+{
+    margin: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 10px;
+    height: 40px;
+    border-bottom: 1px dashed black;
+} 
+
+div.siteManBookPreview label
+{
+    float: left;
+    width: 200px;
+}
+
+div.siteManBookPreview a
+{
+    margin-right: 15px;
+}
+
+div.siteManBookPreview form
+{
+    margin-top: 10px;
+}
+
+div#siteManBookComponents input.submit
+{
+    margin-left: 56px;
+}
+
+div#bookForm label
+{
+    float: left;
+    width: 100px;
+    text-align: right;
+    margin-right: 20px;
+}
+
+div#bookForm ul
+{
+    margin-left: 100px;
+}
+
+div#bookForm textarea
+{
+    height: 500px;
+}
+
+div#bookForm div#siteManBookAuthors
+{
+    margin-left: 11px;
+}
+
+div#bookForm ul#addAuthorContainer
+{
+    margin: 0px;
+    list-style: none;
+}
+
+/***** Profile page *****/
+
+div#thingsToInvestigate input, div#developerRecommendations input
+{
+    width: 45%;
+}
+
+
+

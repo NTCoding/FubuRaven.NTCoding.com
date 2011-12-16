@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Books\Public\IndexEndpointTests.cs" />
+    <Compile Include="Books\Public\MappingBookToAViewBookViewModel.cs" />
     <Compile Include="Books\SiteManagement\BookDisplayModelTests.cs" />
     <Compile Include="Books\SiteManagement\BookEndpointTests.cs" />
     <Compile Include="Books\SiteManagement\BookListModelAssertions.cs" />

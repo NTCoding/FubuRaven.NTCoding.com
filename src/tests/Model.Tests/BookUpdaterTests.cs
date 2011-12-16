@@ -100,7 +100,7 @@ namespace Model.Tests
 			var updatedBook = Session.Load<Book>(dto.Id);
 
 			Assert.AreEqual(dto.Authors, updatedBook.Authors);
-			Assert.AreEqual(dto.Description, updatedBook.Description);
+			Assert.AreEqual(dto.Description, updatedBook.Review);
 			Assert.AreEqual(dto.Genre, updatedBook.Genre.Id);
 			Assert.AreEqual(dto.Status, updatedBook.Status);
 			Assert.AreEqual(dto.Title, updatedBook.Title);

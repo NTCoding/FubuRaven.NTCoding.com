@@ -134,7 +134,7 @@ namespace Web.Tests.Books.SiteManagement
 		public static void ShouldHaveDetailsFor(this UpdateBookViewModel model, Book book)
 		{
 			HasMatchingAuthors(model, book);
-			Assert.AreEqual(book.Description, model.Description_BigText);
+			Assert.AreEqual(book.Review, model.Description_BigText);
 			Assert.AreEqual(book.Genre.Name, model.SelectedGenre);
 			Assert.AreEqual(book.Genre.Id, model.Genre);
 			Assert.AreEqual(book.Id, model.Id);

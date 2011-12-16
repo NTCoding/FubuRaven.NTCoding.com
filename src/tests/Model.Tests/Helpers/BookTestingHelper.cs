@@ -12,7 +12,7 @@ namespace Model.Tests.Helpers
 			return session.Query<Book>()
 				.Where(b => b.Title == dto.Title)
 				.Where(b => b.Genre.Id == dto.Genre)
-				.Where(b => b.Description == dto.Description)
+				.Where(b => b.Review == dto.Description)
 				.Where(b => b.Status == dto.Status)
 				.Where(b => b.Authors.Any(a => a == dto.Authors.First()))
 				.FirstOrDefault();

@@ -12,10 +12,11 @@ namespace Web.Endpoints.SiteManagement.Book.ViewModels
 			Id = book.Id;
 			Title       = book.Title;
 			GenreName   = book.Genre.Name;
-			Description = book.Description;
+			Description = book.Review;
 			Status      = book.Status.ToString();
 			Authors     = book.Authors.ToList();
 			Image       = new ImageDisplayModel(book.Id);
+			this.Rating = book.Rating;
 		}
 
 		public String Id { get; set; }
@@ -32,5 +33,6 @@ namespace Web.Endpoints.SiteManagement.Book.ViewModels
 
 		public ImageDisplayModel Image { get; private set; }
 
+		public int Rating { get; set; }
 	}
 }

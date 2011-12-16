@@ -21,7 +21,7 @@ namespace Web.Endpoints.SiteManagement.Book.ViewModels
 				this.Title      = book.Title;
 				this.SelectedBookStatus = book.Status;
 				this.SelectedGenre = book.Genre.Name;
-				this.Description_BigText = book.Description;
+				this.Description_BigText = book.Review;
 			}
 		
 			this.Genres = genres;

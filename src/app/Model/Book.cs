@@ -9,7 +9,7 @@ namespace Model
 		{
 			Title       = title;
 			Authors     = authors;
-			Description = description;
+			Review = description;
 			Genre       = genre;
 			Status      = status;
 			Image       = image;
@@ -21,7 +21,7 @@ namespace Model
 
 		public Genre Genre { get; private set; }
 
-		public String Description { get; private set; }
+		public String Review { get; private set; }
 
 		public BookStatus Status { get; private set; }
 
@@ -29,5 +29,7 @@ namespace Model
 
 		// TODO - move it out of here
 		public byte[] Image { get; private set; }
+
+		public int Rating { get; set; }
 	}
 }

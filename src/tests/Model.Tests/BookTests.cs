@@ -37,7 +37,7 @@ namespace Model.Tests
 
 			Assert.AreEqual(title, book.Title);
 			Assert.AreEqual(authors, book.Authors);
-			Assert.AreEqual(description, book.Description);
+			Assert.AreEqual(description, book.Review);
 			Assert.AreEqual(genre, book.Genre);
 			Assert.AreEqual(status, book.Status);
 			Assert.AreEqual(image, book.Image);

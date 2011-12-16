@@ -61,7 +61,7 @@ namespace Model.Tests
 			var book = _bookCreater.Create(dto);
 
 			Assert.AreEqual(dto.Title, book.Title);
-			Assert.AreEqual(dto.Description, book.Description);
+			Assert.AreEqual(dto.Description, book.Review);
 			Assert.AreEqual(dto.Genre, book.Genre.Id);
 			Assert.AreEqual(dto.Image, book.Image);
 			Assert.AreEqual(dto.Status, book.Status);

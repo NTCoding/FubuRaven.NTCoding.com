@@ -101,7 +101,7 @@ namespace Web.Tests.Books.SiteManagement
 			var book = Session.Query<Book>()
 				.Where(b => b.Title == model.Title)
 				.Where(b => b.Genre.Name == genre.Name)
-				.Where(b => b.Description == model.Description_BigText)
+				.Where(b => b.Review == model.Description_BigText)
 				.Where(b => b.Status == model.BookStatus)
 				.ToList()
 				.Where(b => b.Authors.Any(a => a == model.Authors.ElementAt(0).Text))

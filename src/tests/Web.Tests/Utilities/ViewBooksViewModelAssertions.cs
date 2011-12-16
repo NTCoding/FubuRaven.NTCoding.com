@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Model;
 using NUnit.Framework;
@@ -38,6 +39,11 @@ namespace Web.Tests.Utilities
 		public static void ShouldHaveSelectedGenre(this Web.Endpoints.Books.ViewModels.ViewBooksViewModel model, string genre)
 		{
 			Assert.AreEqual(genre, model.SelectedGenre);
+		}
+
+		public static void ShouldHaveDefaultGenreMessage(this ViewBooksViewModel model, string message)
+		{
+			Assert.AreEqual(message, model.DefaultGenreText);
 		}
 	}
 }

@@ -63,6 +63,14 @@ namespace Web.Tests.Books.Public
 			viewModel.ShouldHaveSelectedGenre(genres.First().Name);
 		}
 
+		[Test]
+		public void Get_ShouldHaveDefaultGenreMessage()
+		{
+			var model = endpoint.Get(new ViewBooksLinkModel());
+
+			model.ShouldHaveDefaultGenreMessage("-- All --");
+		}
+
 		// TODO - genres should be ordered
 
 		// TODO - test convention - because endpoints have specific models - the models need no tests. Covered by the endpoints

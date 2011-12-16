@@ -106,12 +106,17 @@ namespace Web.Configuration
         	               	.If(e => e.Accessor.PropertyType.IsEnum)
         	               	.BuildBy(er =>
         	               	         	{
+											var name = er.Accessor.Name;
+
+											// TODO - duplicated logic for creating select lists
         	               	         		var tag = new HtmlTag("select");
+											tag.Children.Add(new HtmlTag("option").Text(GetDefaultValue(er, name)).Attr("value", "-"));
         	               	         		var enumValues = Enum.GetValues(er.Accessor.PropertyType);
         	               	         		foreach (var enumValue in enumValues)
         	               	         		{
         	               	         			var option = new HtmlTag("option").Text(enumValue.ToString());
-												if (GetSelectedValue(er, er.Accessor.Name) == enumValue.ToString())
+        	               	         			
+        	               	         			if (GetSelectedValue(er, name) == enumValue.ToString())
 												{
 													option.Attr("selected", "selected");
 												}
@@ -131,13 +136,12 @@ namespace Web.Configuration
 											// TODO - getting ugly - make this a class / method itself
 
         	               	         		string name = er.Accessor.PropertyNames[0].Substring(0, er.Accessor.PropertyNames[0].Length - 1);
-
-
         	               	         		string selectedValue = GetSelectedValue(er, name);
-
+        	               	         		string defaultValue = GetDefaultValue(er, name);
 
         	               	         		var dictionary = er.Value<IDictionary<String, String>>();
         	               	         		var tag = new HtmlTag("select").Attr("name", name);
+        	               	         		tag.Children.Add(new HtmlTag("option").Text(defaultValue).Attr("value", "-"));
         	               	         		foreach (var item in dictionary)
         	               	         		{
         	               	         			var option = new HtmlTag("option").Text(item.Value).Attr("value", item.Key);
@@ -193,7 +197,7 @@ namespace Web.Configuration
 		// TODO - new convention for next blog post
     	private string GetSelectedValue(ElementRequest er, string name)
     	{
-    		var selectedValueProperty = GetSelectedValueProperty(er, name);
+    		var selectedValueProperty = GetProperty(er, "Selected" + name);
 
     		var selectedValue = selectedValueProperty != null
     		                    	? GetValueOrDefault(er, selectedValueProperty) 
@@ -201,21 +205,26 @@ namespace Web.Configuration
     		return selectedValue;
     	}
 
-    	private string GetValueOrDefault(ElementRequest er, PropertyInfo selectedValueProperty)
+		// TODO - another convention
+    	private string GetDefaultValue(ElementRequest er, string name)
     	{
-    		var value = selectedValueProperty.GetValue(er.Model, null);
+    		var defaultValueProperty = GetProperty(er, "Default" + name +"Text");
 
-    		return value != null ? value.ToString() : null;
+    		return defaultValueProperty != null
+    		       	? GetValueOrDefault(er, defaultValueProperty)
+    		       	: "-- Please Select --";
     	}
 
-    	private PropertyInfo GetSelectedValueProperty(ElementRequest er, string name)
-    	{
-    		return GetProperty(er, "Selected" + name);
-    	}
-
-    	private PropertyInfo GetProperty(ElementRequest er, string singularName)
+		private string GetValueOrDefault(ElementRequest er, PropertyInfo selectedValueProperty)
 		{
-			return er.Model.GetType().GetProperty(singularName);
+			var value = selectedValueProperty.GetValue(er.Model, null);
+
+			return value != null ? value.ToString() : null;
+		}
+
+    	private PropertyInfo GetProperty(ElementRequest er, string name)
+		{
+			return er.Model.GetType().GetProperty(name);
 		}
     }
 }

@@ -9,7 +9,10 @@ namespace Web.Endpoints.Books.ViewModels
 		{
 			Books = books;
 			Genres = genres;
-			if (!string.IsNullOrWhiteSpace(selectedGenre)) SelectedGenre = genres[selectedGenre];
+			if (!string.IsNullOrWhiteSpace(selectedGenre) && genres.Keys.Contains(selectedGenre))
+			{
+				SelectedGenre = genres[selectedGenre];
+			}
 		}
 
 		public IEnumerable<BookListView> Books { get; set; }
@@ -17,5 +20,7 @@ namespace Web.Endpoints.Books.ViewModels
 		public IDictionary<string, string> Genres { get; set; }
 
 		public String SelectedGenre { get; set; }
+
+		public String DefaultGenreText { get { return "-- All --"; } }
 	}
 }

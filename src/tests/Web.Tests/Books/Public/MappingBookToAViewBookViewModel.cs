@@ -1,9 +1,10 @@
-using System;
 using System.Collections.Generic;
 using AutoMapper;
 using Model;
 using NUnit.Framework;
-using Raven.Client;
+using Web.Endpoints.Books;
+using Web.Endpoints.Books.LinkModels;
+using Web.Endpoints.Books.ViewModels;
 using Web.Tests.Utilities;
 using Web.Utilities;
 
@@ -16,6 +17,7 @@ namespace Web.Tests.Books.Public
 		private Book book;
 		
 		// TODO - perfect example for context specification - exception not the rule
+		// TODO - confirms convention for testing endpoints - all the models are just nested classes that don't need to be tested
 		[SetUp]
 		public void WhenRequestingABookReview()
 		{
@@ -25,7 +27,6 @@ namespace Web.Tests.Books.Public
 
 			var endpoint = new ViewEndpoint(Session);
 			model = endpoint.Get(new ViewBookLinkModel { Id = book.Id });
-
 		}
 
 		[Test]
@@ -64,38 +65,5 @@ namespace Web.Tests.Books.Public
 		{
 			Assert.AreEqual(book.Id, model.Image.Id);
 		}
-	}
-
-	public class ViewBookLinkModel
-	{
-		public String Id { get; set; }
-	}
-
-	public class ViewEndpoint
-	{
-		private IDocumentSession session;
-
-		public ViewEndpoint(IDocumentSession session)
-		{
-			this.session = session;
-		}
-
-		public ViewBookViewModel Get(ViewBookLinkModel linkModel)
-		{
-			var book = session.Load<Book>(linkModel.Id);
-			
-			return new ViewBookViewModel(book);
-		}
-	}
-
-	public class ViewBookViewModel : Web.Endpoints.SiteManagement.Book.ViewModels.ViewBookViewModel
-	{
-		public ViewBookViewModel(Book book) : base(book)
-		{
-			
-			this.Review = book.Review;
-		}
-
-		public String Review { get; set; }
 	}
 }

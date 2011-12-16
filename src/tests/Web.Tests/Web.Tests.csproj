@@ -105,7 +105,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Books\Public\BookEndpointTests.cs" />
+    <Compile Include="Books\Public\IndexEndpointTests.cs" />
     <Compile Include="Books\SiteManagement\BookDisplayModelTests.cs" />
     <Compile Include="Books\SiteManagement\BookEndpointTests.cs" />
     <Compile Include="Books\SiteManagement\BookListModelAssertions.cs" />

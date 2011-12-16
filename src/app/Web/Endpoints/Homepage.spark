@@ -1,5 +1,5 @@
 ﻿<use namespace="Web.Endpoints.SiteManagement" />
-<use namespace="Web.Endpoints.LinkModels" />
+<use namespace="Web.Endpoints.Books.LinkModels" />
 <viewdata model="Web.Endpoints.HomepageModels.HomepageViewModel" />
 <nav>
 	<ul>

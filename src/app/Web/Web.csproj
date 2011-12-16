@@ -225,7 +225,9 @@
     <None Include="%40App_Data\Raven\logs\RVNres00001.jrs" />
     <None Include="%40App_Data\Raven\logs\RVNres00002.jrs" />
     <None Include="%40App_Data\Raven\system\RVN.chk" />
-    <None Include="Endpoints\Homepage.spark" />
+    <None Include="Endpoints\Homepage.spark">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Endpoints\SiteManagement\Book\Book.spark">
       <SubType>Designer</SubType>
     </None>

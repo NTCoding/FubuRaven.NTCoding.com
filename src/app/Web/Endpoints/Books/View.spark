@@ -1,0 +1,17 @@
+<use namespace="Web.Endpoints.Books.ViewModels" />
+<viewdata model="Web.Endpoints.Books.ViewModels.ViewBookViewModel" />
+
+<h1>${Model.Title}</h1>
+<p>
+	<b>Author(s): </b> ${this.DisplayFor(m => m.Authors)}
+</p>
+<p>
+	<b>Genre: </b> ${Model.GenreName}
+</p>
+<p>
+	<b>Rating: </b> ${Model.Rating}
+</p>
+${this.DisplayFor(m => m.Image)}
+<div>
+	${Model.Review}
+</div>

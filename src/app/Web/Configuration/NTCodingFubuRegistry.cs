@@ -193,12 +193,29 @@ namespace Web.Configuration
 		// TODO - new convention for next blog post
     	private string GetSelectedValue(ElementRequest er, string name)
     	{
-    		var selectedValueProperty = er.Model.GetType().GetProperty("Selected" + name);
+    		var selectedValueProperty = GetSelectedValueProperty(er, name);
 
     		var selectedValue = selectedValueProperty != null
-    		                    	? selectedValueProperty.GetValue(er.Model, null).ToString() 
+    		                    	? GetValueOrDefault(er, selectedValueProperty) 
     		                    	: null;
     		return selectedValue;
     	}
+
+    	private string GetValueOrDefault(ElementRequest er, PropertyInfo selectedValueProperty)
+    	{
+    		var value = selectedValueProperty.GetValue(er.Model, null);
+
+    		return value != null ? value.ToString() : null;
+    	}
+
+    	private PropertyInfo GetSelectedValueProperty(ElementRequest er, string name)
+    	{
+    		return GetProperty(er, "Selected" + name);
+    	}
+
+    	private PropertyInfo GetProperty(ElementRequest er, string singularName)
+		{
+			return er.Model.GetType().GetProperty(singularName);
+		}
     }
 }

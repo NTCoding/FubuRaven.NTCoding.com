@@ -53,6 +53,16 @@ namespace Web.Tests.Books.Public
 			genres.OrderBy(g => g.Name).ShouldMatch(viewModel.Genres);
 		}
 
+		[Test]
+		public void Get_ShouldSetSelectedGenre()
+		{
+			var genres = GenreTestingHelper.GetGenresFromSession(Session);
+
+			var viewModel = endpoint.Get(new ViewBooksLinkModel {Genre = genres.First().Id});
+
+			viewModel.ShouldHaveSelectedGenre(genres.First().Name);
+		}
+
 		// TODO - genres should be ordered
 
 		// TODO - test convention - because endpoints have specific models - the models need no tests. Covered by the endpoints

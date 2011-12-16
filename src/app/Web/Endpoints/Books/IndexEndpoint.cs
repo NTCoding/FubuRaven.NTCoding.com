@@ -23,14 +23,14 @@ namespace Web.Endpoints.Books
 			// TODO - book retriever - could in future be replaced by a read store / view cache
 			var models = GetBooks(model).ToList().Select(b => new BookListView(b));
 
-			return new ViewBooksViewModel(models, genreRetriever.GetAllOrderedByName());
+			return new ViewBooksViewModel(models, genreRetriever.GetAllOrderedByName(), model.Genre);
 		}
 
 		private IQueryable<Book> GetBooks(ViewBooksLinkModel model)
 		{
 			return ShouldDefaultToAllGenres(model) 
 			       	? session.Query<Book>()
-			       	: Queryable.Where(session.Query<Book>(), b => b.Genre.Id == model.Genre);
+			       	: session.Query<Book>().Where(b => b.Genre.Id == model.Genre);
 		}
 
 		private bool ShouldDefaultToAllGenres(ViewBooksLinkModel model)

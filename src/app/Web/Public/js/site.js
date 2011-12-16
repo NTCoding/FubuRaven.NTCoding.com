@@ -1,6 +1,8 @@
 ﻿
 $(function () {
 
+	hookUpAutoSubmits();
+
 	$('form').submit(function (event) {
 		setSequentialIndicesForHiddenFields();
 	});
@@ -17,6 +19,12 @@ $(function () {
 		$(this).parent().append('<input type="hidden" name="' + name + '" value="' + text + '" />');
 	});
 });
+
+function hookUpAutoSubmits() {
+	$('.autosubmit').change(function () {
+		$(this).closest('form').submit();
+	});
+}
 
 function setSequentialIndicesForHiddenFields() {
 	var hiddenGroups = $('div.hasHiddenGroup');

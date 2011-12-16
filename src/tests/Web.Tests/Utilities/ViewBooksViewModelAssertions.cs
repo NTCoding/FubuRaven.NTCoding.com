@@ -34,5 +34,10 @@ namespace Web.Tests.Utilities
 				Assert.That(model.Books.Any(b => b.Id == id), "No id for: " + id);
 			}
 		}
+
+		public static void ShouldHaveSelectedGenre(this Web.Endpoints.Books.ViewModels.ViewBooksViewModel model, string genre)
+		{
+			Assert.AreEqual(genre, model.SelectedGenre);
+		}
 	}
 }

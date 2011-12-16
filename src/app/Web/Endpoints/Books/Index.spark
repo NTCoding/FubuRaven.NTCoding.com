@@ -6,7 +6,7 @@
 
 <div id="booksMain">
 	<p>
-		<form action="${this.Urls.UrlFor(new ViewBooksLinkModel)" method="Get">
+		<form action="${this.Urls.UrlFor(new ViewBooksLinkModel())}" method="Get">
 			${this.InputFor(m => m.Genres).AddClass("autosubmit")}
 		<form>
 	</p>

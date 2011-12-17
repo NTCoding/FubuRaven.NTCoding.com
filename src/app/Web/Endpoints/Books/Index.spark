@@ -17,3 +17,17 @@
 		</div>
 	</for>
 </div>
+<br />
+<br />
+<br />
+<br />
+<div>
+	<h2>Wishlist</h2>
+	<for each="var book in Model.WishlistBooks">
+		<div class="bookMini">
+			${this.DisplayFor<BookListView>(book, b => b.Image)}
+			${this.LinkTo(new Web.Endpoints.Books.LinkModels.ViewBookLinkModel { Id = book.Id}).Text(book.Title)}
+		</div>
+	</for>
+</div>
+

@@ -28,14 +28,17 @@ namespace Web.Endpoints.Books
 
 		private IQueryable<Book> GetBooks(ViewBooksLinkModel model)
 		{
-			return ShouldDefaultToAllGenres(model) 
+			var shouldDefaultToAllGenres = ShouldDefaultToAllGenres(model);
+
+			return shouldDefaultToAllGenres 
 			       	? session.Query<Book>()
 			       	: session.Query<Book>().Where(b => b.Genre.Id == model.Genre);
 		}
 
 		private bool ShouldDefaultToAllGenres(ViewBooksLinkModel model)
 		{
-			return string.IsNullOrWhiteSpace(model.Genre);
+			return string.IsNullOrWhiteSpace(model.Genre)
+			       || !genreRetriever.CanFindGenreWith(model.Genre);
 		}
 	}
 }

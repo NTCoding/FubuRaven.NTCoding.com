@@ -86,6 +86,16 @@ namespace Web.Tests.Books.Public
 			result.ShouldOnlyHaveBooksWith(idsForBookWithGenre1);
 		}
 
+		[Test]
+		public void Get_WhenSpecifyingGenreThatDoesntExist_ShouldShowAllBooks()
+		{
+			var books = PopulateAndGetAllBooksExistingFromSession().ToList();
+
+			var model = endpoint.Get(new ViewBooksLinkModel {Genre = "Genres/DoesNotExist"});
+
+			model.ShouldContainListViewFor(books);
+		}
+
 		private string[] PutBooksInSessionWithDifferentGenresAndGetIdsForBooksWithGenre(string genre)
 		{
 			var genre1 = new Model.Genre(genre);

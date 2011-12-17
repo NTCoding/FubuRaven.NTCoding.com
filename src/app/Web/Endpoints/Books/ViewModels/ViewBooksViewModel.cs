@@ -9,6 +9,7 @@ namespace Web.Endpoints.Books.ViewModels
 		{
 			Books = books;
 			Genres = genres;
+
 			if (!string.IsNullOrWhiteSpace(selectedGenre) && genres.Keys.Contains(selectedGenre))
 			{
 				SelectedGenre = genres[selectedGenre];

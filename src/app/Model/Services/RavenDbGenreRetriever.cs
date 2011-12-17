@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Raven.Client;
 
@@ -19,6 +20,11 @@ namespace Model.Services
 				.Query<Model.Genre>()
 				.OrderBy(g => g.Name)
 				.ToDictionary(g => g.Id, g => g.Name);
+		}
+
+		public bool CanFindGenreWith(string id)
+		{
+			return session.Query<Genre>().Count(g => g.Id == id) > 0;
 		}
 	}
 }

@@ -34,13 +34,13 @@ namespace Web.Tests.Books.Public
 		}
 		
 		[Test]
-		public void Get_WhenGivenNoGenreToFilterBy_ShouldListView_ForAllExistingBooks()
+		public void Get_WhenGivenNoGenreToFilterBy_ShouldListView_ForAllReviewedBooks()
 		{
 			var books = PopulateAndGetAllBooksExistingFromSession().ToList();
 
 			var result = endpoint.Get(new ViewBooksLinkModel());
 
-			result.ShouldContainListViewFor(books);
+			result.ShouldContainListViewFor(books.Where(b => b.Status == BookStatus.Reviewed));
 		}
 
 		[Test]
@@ -75,7 +75,7 @@ namespace Web.Tests.Books.Public
 
 		// TODO - test convention - because endpoints have specific models - the models need no tests. Covered by the endpoints
 		[Test]
-		public void Get_WhenGivenGenreId_ShouldReturnOnlyBooksWithThatGenre()
+		public void Get_WhenGivenGenreId_ShouldReturnOnlyReviewedBooksWithThatGenre()
 		{
 			var genreToFilter = "genres/1";
 			
@@ -83,17 +83,17 @@ namespace Web.Tests.Books.Public
 
 			var result = endpoint.Get(new ViewBooksLinkModel {Genre = genreToFilter});
 			
-			result.ShouldOnlyHaveBooksWith(idsForBookWithGenre1);
+			result.ShouldOnlyHaveReviewedBooksWith(idsForBookWithGenre1);
 		}
 
 		[Test]
-		public void Get_WhenSpecifyingGenreThatDoesntExist_ShouldShowAllBooks()
+		public void Get_WhenSpecifyingGenreThatDoesntExist_ShouldShowAllReviewedBooks()
 		{
 			var books = PopulateAndGetAllBooksExistingFromSession().ToList();
 
 			var model = endpoint.Get(new ViewBooksLinkModel {Genre = "Genres/DoesNotExist"});
 
-			model.ShouldContainListViewFor(books);
+			model.ShouldContainListViewFor(books.Where(b => b.Status == BookStatus.Reviewed));
 		}
 
 		private string[] PutBooksInSessionWithDifferentGenresAndGetIdsForBooksWithGenre(string genre)
@@ -120,20 +120,20 @@ namespace Web.Tests.Books.Public
 
 		private IEnumerable<Book> PopulateAndGetAllBooksExistingFromSession()
 		{
-			yield return GetBookFromSessionWithId("Books/001");
-			yield return GetBookFromSessionWithId("Books/002");
-			yield return GetBookFromSessionWithId("Books/003");
-			yield return GetBookFromSessionWithId("Books/004");
-			yield return GetBookFromSessionWithId("Books/005");
-			yield return GetBookFromSessionWithId("Books/006");
-			yield return GetBookFromSessionWithId("Books/007");
-			yield return GetBookFromSessionWithId("Books/008");
+			yield return GetBookFromSessionWithId("Books/001", BookStatus.CurrentlyReading);
+			yield return GetBookFromSessionWithId("Books/002", BookStatus.CurrentlyReading);
+			yield return GetBookFromSessionWithId("Books/003", BookStatus.Reviewed);
+			yield return GetBookFromSessionWithId("Books/004", BookStatus.Reviewed);
+			yield return GetBookFromSessionWithId("Books/005", BookStatus.Wishlist);
+			yield return GetBookFromSessionWithId("Books/006", BookStatus.Wishlist);
+			yield return GetBookFromSessionWithId("Books/007", BookStatus.Hidden);
+			yield return GetBookFromSessionWithId("Books/008", BookStatus.Hidden);
 			Session.SaveChanges();
 		}
 
-		private Book GetBookFromSessionWithId(string id)
+		private Book GetBookFromSessionWithId(string id, BookStatus status)
 		{
-			var book1 = BookTestingHelper.GetBook();
+			var book1 = BookTestingHelper.GetBook(status: status);
 			book1.Id = id;
 			Session.Store(book1);
 			return book1;

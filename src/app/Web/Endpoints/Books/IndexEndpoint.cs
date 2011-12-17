@@ -31,8 +31,8 @@ namespace Web.Endpoints.Books
 			var shouldDefaultToAllGenres = ShouldDefaultToAllGenres(model);
 
 			return shouldDefaultToAllGenres 
-			       	? session.Query<Book>()
-			       	: session.Query<Book>().Where(b => b.Genre.Id == model.Genre);
+			       	? session.Query<Book>().Where(b => b.Status == BookStatus.Reviewed)
+			       	: session.Query<Book>().Where(b => b.Status == BookStatus.Reviewed && b.Genre.Id == model.Genre);
 		}
 
 		private bool ShouldDefaultToAllGenres(ViewBooksLinkModel model)

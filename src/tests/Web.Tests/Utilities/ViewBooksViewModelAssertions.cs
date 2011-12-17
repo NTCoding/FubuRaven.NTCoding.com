@@ -26,7 +26,7 @@ namespace Web.Tests.Utilities
 			       && bookListView.Title == book.Title;
 		}
 
-		public static void ShouldOnlyHaveBooksWith(this ViewBooksViewModel model, IEnumerable<string> ids)
+		public static void ShouldOnlyHaveReviewedBooksWith(this ViewBooksViewModel model, IEnumerable<string> ids)
 		{
 			Assert.AreEqual(ids.Count(), model.Books.Count());
 

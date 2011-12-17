@@ -12,7 +12,7 @@ namespace Web.Endpoints.SiteManagement.Book.ViewModels
 			Id = book.Id;
 			Title       = book.Title;
 			GenreName   = book.Genre.Name;
-			Description = book.Review;
+			Description_Html = book.Review;
 			Status      = book.Status.ToString();
 			Authors     = book.Authors.ToList();
 			Image       = new ImageDisplayModel(book.Id);
@@ -25,7 +25,7 @@ namespace Web.Endpoints.SiteManagement.Book.ViewModels
 
 		public String GenreName { get; private set; }
 
-		public String Description { get; private set; }
+		public String Description_Html { get; private set; }
 
 		public String Status { get; private set; }
 

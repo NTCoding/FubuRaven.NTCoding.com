@@ -16,8 +16,8 @@
 	${this.DisplayFor(m => m.Status)}
 </p>
 <p>
-	${this.LabelFor(m => m.Description)}
-	${this.DisplayFor(m => m.Description)}
+	${this.LabelFor(m => m.Description_Html)}
+	${this.DisplayFor(m => m.Description_Html)}
 </p>
 <p>
 	${this.LabelFor(m => m.Authors)}

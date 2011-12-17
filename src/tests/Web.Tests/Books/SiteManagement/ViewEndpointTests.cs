@@ -54,7 +54,7 @@ namespace Web.Tests.Books.SiteManagement
 
 			var model = _endpoint.Get(new ViewBookLinkModel {Id = book.Id});
 
-			Assert.AreEqual(book.Review, model.Description);
+			Assert.AreEqual(book.Review, model.Description_Html);
 		}
 
 		[Test]

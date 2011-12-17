@@ -62,6 +62,11 @@ namespace Web.Configuration
 
 			// TODO - move into conventions / policies? Put Html building logic into helpers
         	HtmlConvention(x =>
+        	               x.Displays
+        	               	.If(e => e.Accessor.Name.EndsWith("Html") && e.Accessor.PropertyType == typeof (String))
+        	               	.BuildBy(er => new HtmlTag("div").AppendHtml(er.Value<String>())));
+
+        	HtmlConvention(x =>
         	               x.Labels
         	               	.If(e => e.Accessor.Name.EndsWith("_BigText"))
         	               	.BuildBy(er => new HtmlTag("label").Text(er.Accessor.Name.Replace("_BigText", "")))

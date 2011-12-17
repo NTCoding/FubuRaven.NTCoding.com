@@ -43,7 +43,7 @@ namespace Web.Tests.Books.SiteManagement
 
 			var model = new ViewBookViewModel(book);
 
-			Assert.AreEqual(book.Review, model.Description);
+			Assert.AreEqual(book.Review, model.Description_Html);
 		}
 
 		[Test]

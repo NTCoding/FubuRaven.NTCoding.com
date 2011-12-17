@@ -45,5 +45,15 @@ namespace Web.Tests.Utilities
 		{
 			Assert.AreEqual(message, model.DefaultGenreText);
 		}
+
+		public static void ShouldHaveWishlistBooks(this ViewBooksViewModel model, IEnumerable<Book> wishlistBooks)
+		{
+			Assert.AreEqual(model.WishlistBooks.Count(), wishlistBooks.Count());
+
+			foreach (var wishlistBook in wishlistBooks)
+			{
+				Assert.That(model.WishlistBooks.Any(b => b.Id == wishlistBook.Id));
+			}
+		}
 	}
 }

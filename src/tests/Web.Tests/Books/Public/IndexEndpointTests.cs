@@ -96,6 +96,16 @@ namespace Web.Tests.Books.Public
 			model.ShouldContainListViewFor(books.Where(b => b.Status == BookStatus.Reviewed));
 		}
 
+		[Test]
+		public void Get_ModelShouldViewOfAllWishlistBooks()
+		{
+			var books = PopulateAndGetAllBooksExistingFromSession().ToList();
+
+			var model = endpoint.Get(new ViewBooksLinkModel());
+
+			model.ShouldHaveWishlistBooks(books.Where(b => b.Status == BookStatus.Wishlist));
+		}
+
 		private string[] PutBooksInSessionWithDifferentGenresAndGetIdsForBooksWithGenre(string genre)
 		{
 			var genre1 = new Model.Genre(genre);

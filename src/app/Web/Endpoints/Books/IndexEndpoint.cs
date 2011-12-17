@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Model;
 using Model.Services;
 using Raven.Client;
@@ -22,8 +23,14 @@ namespace Web.Endpoints.Books
 		{
 			// TODO - book retriever - could in future be replaced by a read store / view cache
 			var models = GetBooks(model).ToList().Select(b => new BookListView(b));
+			var wishlistBooks = GetWishlistBooks().ToList().Select(b => new BookListView(b));
+			
+			return new ViewBooksViewModel(models, genreRetriever.GetAllOrderedByName(), model.Genre, wishlistBooks);
+		}
 
-			return new ViewBooksViewModel(models, genreRetriever.GetAllOrderedByName(), model.Genre);
+		private IQueryable<Book> GetWishlistBooks()
+		{
+			return session.Query<Book>().Where(b => b.Status == BookStatus.Wishlist);
 		}
 
 		private IQueryable<Book> GetBooks(ViewBooksLinkModel model)

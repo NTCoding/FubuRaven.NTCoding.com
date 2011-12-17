@@ -9,7 +9,7 @@ namespace Web.Endpoints.Books.ViewModels
 		public BookListView(Book book)
 		{
 			this.Id = book.Id;
-			this.Image = new ImageDisplayModel(book.Id);
+			this.Image = new ImageDisplayModel(book.Id) {Height = 100, Width = 100};
 			this.Title = book.Title;
 		}
 

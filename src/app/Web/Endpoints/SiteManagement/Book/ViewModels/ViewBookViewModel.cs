@@ -15,8 +15,19 @@ namespace Web.Endpoints.SiteManagement.Book.ViewModels
 			Description_Html = book.Review;
 			Status      = book.Status.ToString();
 			Authors     = book.Authors.ToList();
-			Image       = new ImageDisplayModel(book.Id);
+			Image       = new ImageDisplayModel(book.Id) 
+							{ Height = GetImageHeight(), Width = GetImageWidth() };
 			this.Rating = book.Rating;
+		}
+
+		protected virtual int GetImageWidth()
+		{
+			return 300;
+		}
+
+		protected virtual int GetImageHeight()
+		{
+			return 300;
 		}
 
 		public String Id { get; set; }

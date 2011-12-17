@@ -7,15 +7,12 @@ namespace Web.Utilities
 		public ImageDisplayModel(String id)
 		{
 			Id = id;
-
-			Width = 300;
-			Height = 300;
 		}
 
 		public String Id { get; private set; }
 
-		public Int32 Width { get; private set; }
+		public Int32 Width { get; set; }
 
-		public Int32 Height { get; private set; }
+		public Int32 Height { get; set; }
 	}
 }

@@ -25,6 +25,8 @@ namespace Web.Infrastructure.Raven
 								UseEmbeddedHttpServer = true,
 							}.Initialize();
 
+			store.Conventions.MaxNumberOfRequestsPerSession = 500;
+
 			return store;
 		}
 	}

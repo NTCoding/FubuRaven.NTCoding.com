@@ -1,5 +1,6 @@
 using System;
 using NUnit.Framework;
+using Raven.Client;
 
 namespace DataImporter
 {
@@ -9,7 +10,7 @@ namespace DataImporter
 		[Test]
 		public void ShouldImportGenres()
 		{
-			var importer = new Importer();
+			var importer = new SqlImporter();
 			var genres = importer.ImportGenres();
 
 			foreach (var genreDto in genres)
@@ -21,7 +22,7 @@ namespace DataImporter
 		[Test]
 		public void ShouldImportBooks()
 		{
-			var importer = new Importer();
+			var importer = new SqlImporter();
 			var books = importer.ImportBooks();
 
 			foreach (var bookDto in books)

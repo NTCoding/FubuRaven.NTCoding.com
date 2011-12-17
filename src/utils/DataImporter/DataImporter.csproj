@@ -31,6 +31,30 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AsyncCtpLibrary, Version=1.0.4107.18181, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.573\lib\net40\AsyncCtpLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Esent.Interop">
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.573\lib\net40\Esent.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory">
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.573\lib\net40\ICSharpCode.NRefactory.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.573\lib\net40\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Spatial">
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.573\lib\net40\Lucene.Net.Contrib.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.SpellChecker">
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.573\lib\net40\Lucene.Net.Contrib.SpellChecker.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.0.5.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.4.0.5\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\..\packages\NUnit.2.5.10.11092\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -40,7 +64,29 @@
     <Reference Include="pnunit.framework">
       <HintPath>..\..\..\packages\NUnit.2.5.10.11092\lib\pnunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Raven.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.573\lib\net40\Raven.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Embedded">
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.573\lib\net40\Raven.Client.Embedded.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Lightweight, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.573\lib\net40\Raven.Client.Lightweight.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Database">
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.573\lib\net40\Raven.Database.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Munin">
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.573\lib\net40\Raven.Munin.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Storage.Esent">
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.573\lib\net40\Raven.Storage.Esent.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Storage.Managed">
+      <HintPath>..\..\..\packages\RavenDB-Embedded.1.0.573\lib\net40\Raven.Storage.Managed.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,13 +97,114 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dapper\SqlMapper.cs" />
-    <Compile Include="Importer.cs" />
+    <Compile Include="Persister.cs" />
+    <Compile Include="RavenDbImporter.cs" />
+    <Compile Include="SqlImporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestConsole.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\app\Model\Model.csproj">
+      <Project>{BFE347A9-971C-4C8D-A82D-7093D75BDDEA}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\2222.jpg" />
+    <Content Include="Images\4444444444.jpg" />
+    <Content Include="Images\AAA.jpg" />
+    <Content Include="Images\AAA00000000-0000-0000-0000-000000000000.jpg" />
+    <Content Include="Images\aaaaaa.jpg" />
+    <Content Include="Images\aaaaaaaaa.jpg" />
+    <Content Include="Images\aaaaaaaaaaaa.jpg" />
+    <Content Include="Images\aaaaaaaaaaaaa.jpg" />
+    <Content Include="Images\Agile Software Development.jpg" />
+    <Content Include="Images\Apple Piiiiie.bmp" />
+    <Content Include="Images\bbb.jpg" />
+    <Content Include="Images\bbbbbbbbbb.jpg" />
+    <Content Include="Images\bbbbbbbbbb05037242-269c-49d0-80c5-76bb22ce511a.jpg" />
+    <Content Include="Images\Beginning ASP.jpg" />
+    <Content Include="Images\Beginning ASP.NET MVC 1.0.jpg" />
+    <Content Include="Images\Beginning ASP.NET Security.jpg" />
+    <Content Include="Images\BookReviewImage.jpg" />
+    <Content Include="Images\C# In Depth 2nd Edition.jpg" />
+    <Content Include="Images\Cars.jpg" />
+    <Content Include="Images\Cars00000000-0000-0000-0000-000000000000.jpg" />
+    <Content Include="Images\CLR via C# 3rd Edition.jpg" />
+    <Content Include="Images\Code Complete 2.jpg" />
+    <Content Include="Images\CSS missing manual.jpg" />
+    <Content Include="Images\dddddddddddd.jpg" />
+    <Content Include="Images\Design Book.jpg" />
+    <Content Include="Images\dfdf.jpg" />
+    <Content Include="Images\dfdfdaf.jpg" />
+    <Content Include="Images\dfdfdf.bmp" />
+    <Content Include="Images\dfdsf.jpg" />
+    <Content Include="Images\dffffffffff.jpg" />
+    <Content Include="Images\Domain Driven Design.jpg" />
+    <Content Include="Images\Encoding Test.jpg" />
+    <Content Include="Images\fhwdfjklsdfjklsdjfkld.jpg" />
+    <Content Include="Images\First Test Book.jpg" />
+    <Content Include="Images\Footy.jpg" />
+    <Content Include="Images\gfdfadsfs.jpg" />
+    <Content Include="Images\gggggggggg.jpg" />
+    <Content Include="Images\Girls.jpg" />
+    <Content Include="Images\Girls00000000-0000-0000-0000-000000000000.jpg" />
+    <Content Include="Images\Gray Hat Hacking 2nd Edition.jpg" />
+    <Content Include="Images\Growing Object-Oriented Software, Guided by Tests.jpg" />
+    <Content Include="Images\Growing Object-Oriented Software, Guided by Tests7b57d8a8-c82e-4cc7-b38c-9f31f47a1f32.jpg" />
+    <Content Include="Images\Growing Object-Oriented Software, Guided by Testsfa069655-66de-4492-ad89-319bae387c4c.jpg" />
+    <Content Include="Images\Hacking Exposed Web Applications 3.png" />
+    <Content Include="Images\Hacking Exposed Web Apps 3.png" />
+    <Content Include="Images\Hacking Exposed.png" />
+    <Content Include="Images\Hacking Exposed1dbf01ad-7f11-4975-836d-f8139612f226.png" />
+    <Content Include="Images\Headfirst Csharp.jpg" />
+    <Content Include="Images\Headfirst Design Patterns.jpg" />
+    <Content Include="Images\Headfirst SQL.jpg" />
+    <Content Include="Images\Headfirst SQL0.jpg" />
+    <Content Include="Images\hjgh.jpg" />
+    <Content Include="Images\http def guide.jpg" />
+    <Content Include="Images\Http.jpg" />
+    <Content Include="Images\Httpe41eb95e-f314-46dd-b187-524dfacce3e1.jpg" />
+    <Content Include="Images\intro .jpg" />
+    <Content Include="Images\intro 0.jpg" />
+    <Content Include="Images\intro 1.jpg" />
+    <Content Include="Images\intro 2.jpg" />
+    <Content Include="Images\JavaScript.jpg" />
+    <Content Include="Images\Natural User Interfaces in .NET.jpg" />
+    <Content Include="Images\Neuro Web Design.jpg" />
+    <Content Include="Images\Neuro Web Design0.jpg" />
+    <Content Include="Images\NHibernate 3.0 Cookbook.jpg" />
+    <Content Include="Images\NHibernate In Action.jpg" />
+    <Content Include="Images\Nick%27s New Book.bmp" />
+    <Content Include="Images\Nick%27s New Book.jpg" />
+    <Content Include="Images\Ninja Hacking.jpg" />
+    <Content Include="Images\nnnnn.jpg" />
+    <Content Include="Images\Nutrition for life.jpg" />
+    <Content Include="Images\OWASP Testing Guide.jpg" />
+    <Content Include="Images\Pro ASP.NET MVC 2 Framework.jpg" />
+    <Content Include="Images\Pro Csharp 20080.jpg" />
+    <Content Include="Images\profess asp design.jpg" />
+    <Content Include="Images\Rapid Development.jpg" />
+    <Content Include="Images\RESTful Web Services.jpg" />
+    <Content Include="Images\Sams WPF2.jpg" />
+    <Content Include="Images\Sams WPF20.jpg" />
+    <Content Include="Images\Small Talk Best Practice Patterns.jpg" />
+    <Content Include="Images\Test Book.jpg" />
+    <Content Include="Images\Test.jpg" />
+    <Content Include="Images\test00000000-0000-0000-0000-000000000000.jpg" />
+    <Content Include="Images\test0140f51c-16c7-4861-a158-ff2f5b8eb6c1.jpg" />
+    <Content Include="Images\Tested.jpg" />
+    <Content Include="Images\The Art of Unit Testing.jpg" />
+    <Content Include="Images\The best book.jpg" />
+    <Content Include="Images\The greatest.jpg" />
+    <Content Include="Images\The Pragmatic Programmer.jpg" />
+    <Content Include="Images\This is a great book too.jpg" />
+    <Content Include="Images\Updated First Book.jpg" />
+    <Content Include="Images\Working Effectively with Legacy Code.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

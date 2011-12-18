@@ -29,5 +29,7 @@ namespace Web.Endpoints.Books.ViewModels
 		public String DefaultGenreText { get { return "-- All --"; } }
 
 		public IEnumerable<BookListView> WishlistBooks { get; set; }
+
+		
 	}
 }

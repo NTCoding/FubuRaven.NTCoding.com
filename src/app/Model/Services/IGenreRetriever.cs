@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Model.Services
 {
 	public interface IGenreRetriever
 	{
-		IDictionary<string, string> GetAllOrderedByName();
+		IDictionary<String, String> GetAllOrderedByName();
 		
 		bool CanFindGenreWith(string id);
 	}

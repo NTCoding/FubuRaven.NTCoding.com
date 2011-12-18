@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Model;
 using Model.Services;
@@ -10,42 +11,67 @@ namespace Web.Endpoints.Books
 {
 	public class IndexEndpoint
 	{
-		private readonly IDocumentSession session;
+		// TODO - Testing convention - controllers talk to services but not the document session
+		//                             tests verify the services were called
+		//                             the services get tested with the in memory database
 		private readonly IGenreRetriever genreRetriever;
+		private readonly IBookRetriever bookRetriever;
 
-		public IndexEndpoint(IDocumentSession session, IGenreRetriever genreRetriever)
+		public IndexEndpoint(IGenreRetriever genreRetriever, IBookRetriever bookRetriever)
 		{
-			this.session = session;
+			this.bookRetriever = bookRetriever;
 			this.genreRetriever = genreRetriever;
 		}
 
 		public ViewBooksViewModel Get(ViewBooksLinkModel model)
 		{
-			// TODO - book retriever - could in future be replaced by a read store / view cache
 			var models = GetBooks(model).ToList().Select(b => new BookListView(b));
-			var wishlistBooks = GetWishlistBooks().ToList().Select(b => new BookListView(b));
+			var wishlistBooks = bookRetriever.GetWishlistBooks().ToList().Select(b => new BookListView(b));
 			
 			return new ViewBooksViewModel(models, genreRetriever.GetAllOrderedByName(), model.Genre, wishlistBooks);
 		}
+		
 
-		private IQueryable<Book> GetWishlistBooks()
-		{
-			return session.Query<Book>().Where(b => b.Status == BookStatus.Wishlist);
-		}
-
-		private IQueryable<Book> GetBooks(ViewBooksLinkModel model)
+		private IEnumerable<Book> GetBooks(ViewBooksLinkModel model)
 		{
 			var shouldDefaultToAllGenres = ShouldDefaultToAllGenres(model);
 
 			return shouldDefaultToAllGenres 
-			       	? session.Query<Book>().Where(b => b.Status == BookStatus.Reviewed)
-			       	: session.Query<Book>().Where(b => b.Status == BookStatus.Reviewed && b.Genre.Id == model.Genre);
+			       	? bookRetriever.GetReviewedBooksOrderedByRating()
+			       	: bookRetriever.GetReviewedBooksOrderedByRating(model.Genre);
 		}
 
 		private bool ShouldDefaultToAllGenres(ViewBooksLinkModel model)
 		{
 			return string.IsNullOrWhiteSpace(model.Genre)
 			       || !genreRetriever.CanFindGenreWith(model.Genre);
+		}
+	}
+
+	public class RavenDbBookRetriever : IBookRetriever
+	{
+		private readonly IDocumentSession session;
+
+		public RavenDbBookRetriever(IDocumentSession session)
+		{
+			this.session = session;
+		}
+
+		public IEnumerable<Book> GetReviewedBooksOrderedByRating(String genre = null)
+		{
+			IEnumerable<Book> books = session.Query<Book>()
+				.Where(b => b.Status == BookStatus.Reviewed)
+				.OrderByDescending(b => b.Rating);
+
+			if (genre != null) books = books.Where(b => b.Genre.Id == genre);
+
+
+			return books;
+		}
+
+		public IEnumerable<Book> GetWishlistBooks()
+		{
+			return session.Query<Book>().Where(b => b.Status == BookStatus.Wishlist);
 		}
 	}
 }

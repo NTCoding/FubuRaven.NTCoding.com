@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Model.Services;
 using Web.Endpoints.SiteManagement.Book.InputModels;
 
 namespace Web.Endpoints.SiteManagement.Book.ViewModels

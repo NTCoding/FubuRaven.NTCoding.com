@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using FubuMVC.Core.Continuations;
 using Model;
 using Model.Services;
@@ -41,6 +42,7 @@ namespace Web.Endpoints.SiteManagement.Book
 			          		Status      = model.BookStatus
 			          	};
 
+			// TODO - should only return the Id
 			var book = bookCreater.Create(dto);
 
 			var linkModel = new ViewBookLinkModel { Id = book.Id };

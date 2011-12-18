@@ -15,6 +15,7 @@ namespace Model.Services
 			_session = session;
 		}
 
+		// TODO - Should only return the Id
 		public Book Create(CreateBookDto createBookDto)
 		{
 			var genre = _session.Query<Genre>().Where(g => g.Id == createBookDto.Genre).Single();

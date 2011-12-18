@@ -14,12 +14,14 @@ namespace Model.Services
 			this.session = session;
 		}
 
-		public IDictionary<string, string> GetAllOrderedByName()
+		// TODO - Genre DTO
+		public IDictionary<String, String> GetAllOrderedByName()
 		{
-			return session
-				.Query<Model.Genre>()
+			return  session
+				.Query<Genre>()
 				.OrderBy(g => g.Name)
 				.ToDictionary(g => g.Id, g => g.Name);
+
 		}
 
 		public bool CanFindGenreWith(string id)

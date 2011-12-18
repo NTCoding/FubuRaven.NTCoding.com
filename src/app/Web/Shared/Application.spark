@@ -29,7 +29,9 @@
 				<use:view/>
 			</div>
 			<div id="minorContent">
-			<div>
+				<use content="minorContent" />
+			</div>
+				<div class="clear"></div>
 		</div>
 	</body>
 </html>

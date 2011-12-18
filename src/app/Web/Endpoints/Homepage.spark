@@ -14,3 +14,13 @@
 		<div>
 			${Model.HomepageContent}
 		</div>
+
+<content name="minorContent">
+	<div class="top"></div>
+	<div id="content">
+		
+	</div>
+	<div class="bottom">
+		<span></span>
+	</div>
+</content>

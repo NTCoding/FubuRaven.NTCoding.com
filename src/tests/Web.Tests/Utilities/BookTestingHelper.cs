@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Model;
 
 namespace Web.Tests.Utilities
@@ -14,6 +15,14 @@ namespace Web.Tests.Utilities
 			return new
 				Book("Super book", new[] {"Me", "You", "Him"}, description, genre, status ?? BookStatus.Reviewed, image) {Id = id ?? "dkdkj"};
 
+		}
+
+		public static IEnumerable<Book> GetSomeReviewedBooks(int amount = 10)
+		{
+			for (int i = 0; i < amount; i++)
+			{
+				yield return GetBook(status: BookStatus.Reviewed);
+			}
 		}
 	}
 }

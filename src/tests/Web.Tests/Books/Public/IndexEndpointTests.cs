@@ -34,22 +34,26 @@ namespace Web.Tests.Books.Public
 		[Test]
 		public void Get_ShouldTakeLinkModel()
 		{
-			bookRetriever.ReturnEmptyCollectionsSoDoesntBreakTest();
+			bookRetriever.ReturnEmptyCollectionsSoDoesntBreakTests();
 
 			endpoint.Get(new ViewBooksLinkModel());
 		}
-		
-		//[Test]
-		//public void Get_WhenGivenNoGenreToFilterBy_ShouldListView_ForAllReviewedBooks()
-		//{
-		//    var books = GetBooksWithMixedStatusRetrieverWillReturn().ToList();
 
-		//    var result = endpoint.Get(new ViewBooksLinkModel());
+		[Test]
+		public void Get_WhenGivenNoGenreToFilterBy_ShouldListView_ForAllReviewedBooks()
+		{
+			var books = BookTestingHelper.GetSomeReviewedBooks();
 
-		//    result.ShouldContainListViewFor(books.Where(b => b.Status == BookStatus.Reviewed));
-		//}
+			bookRetriever.ReturnReviewedBooksOrderedByRating(books);
 
-		// TODO - when given no genre to filter by, should call retriever passing no genre
+			bookRetriever.ReturnEmptyCollectionsSoDoesntBreakTests();
+
+			var viewModel = endpoint.Get(new ViewBooksLinkModel());
+
+			viewModel.ShouldContainListViewFor(books);
+		}
+
+		// TODO - need a test for the book retriever that only returns reviewed books
 
 		//[Test]
 		//public void Get_ShouldOrderBooksByRating()
@@ -90,7 +94,7 @@ namespace Web.Tests.Books.Public
 		[Test]
 		public void Get_ShouldHaveDefaultGenreMessage()
 		{
-			bookRetriever.ReturnEmptyCollectionsSoDoesntBreakTest();
+			bookRetriever.ReturnEmptyCollectionsSoDoesntBreakTests();
 
 			var model = endpoint.Get(new ViewBooksLinkModel());
 
@@ -197,11 +201,20 @@ namespace Web.Tests.Books.Public
 
 	public static class IBookRetrieverTestExtensions
 	{
-		public static void ReturnEmptyCollectionsSoDoesntBreakTest(this IBookRetriever retriever)
+		public static void ReturnEmptyCollectionsSoDoesntBreakTests(this IBookRetriever retriever)
 		{
-			retriever.Stub(b => b.GetReviewedBooksOrderedByRating()).Return(new List<Book>());
+			ReturnReviewedBooksOrderedByRating(retriever, new List<Book>());
+			ReturnEmptyWishlistBooksSoDoesntBreakTest(retriever);
+		}
+
+		public static void ReturnEmptyWishlistBooksSoDoesntBreakTest(IBookRetriever retriever)
+		{
 			retriever.Stub(b => b.GetWishlistBooks()).Return(new List<Book>());
 		}
 
+		public static void ReturnReviewedBooksOrderedByRating(this IBookRetriever retriever, IEnumerable<Book> reviewedBooks)
+		{
+			retriever.Stub(b => b.GetReviewedBooksOrderedByRating()).Return(reviewedBooks);
+		}
 	}
 }

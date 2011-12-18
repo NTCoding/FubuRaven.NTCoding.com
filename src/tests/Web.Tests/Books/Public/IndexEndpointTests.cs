@@ -34,6 +34,8 @@ namespace Web.Tests.Books.Public
 		[Test]
 		public void Get_ShouldTakeLinkModel()
 		{
+			bookRetriever.ReturnEmptyCollectionsSoDoesntBreakTest();
+
 			endpoint.Get(new ViewBooksLinkModel());
 		}
 		
@@ -88,6 +90,8 @@ namespace Web.Tests.Books.Public
 		[Test]
 		public void Get_ShouldHaveDefaultGenreMessage()
 		{
+			bookRetriever.ReturnEmptyCollectionsSoDoesntBreakTest();
+
 			var model = endpoint.Get(new ViewBooksLinkModel());
 
 			model.ShouldHaveDefaultGenreMessage("-- All --");
@@ -189,5 +193,15 @@ namespace Web.Tests.Books.Public
 		//    Session.Store(book1);
 		//    return book1;
 		//}
+	}
+
+	public static class IBookRetrieverTestExtensions
+	{
+		public static void ReturnEmptyCollectionsSoDoesntBreakTest(this IBookRetriever retriever)
+		{
+			retriever.Stub(b => b.GetReviewedBooksOrderedByRating()).Return(new List<Book>());
+			retriever.Stub(b => b.GetWishlistBooks()).Return(new List<Book>());
+		}
+
 	}
 }

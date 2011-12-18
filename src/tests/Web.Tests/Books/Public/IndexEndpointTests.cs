@@ -16,19 +16,21 @@ namespace Web.Tests.Books.Public
 	// TODO - move the raven tests base into a common testing project
 	//        and remove the dependency between testing projects
 	[TestFixture]
-	public class IndexEndpointTests : RavenTestsBase
+	public class IndexEndpointTests 
 	{
 		private IndexEndpoint endpoint;
 		private IBookRetriever bookRetriever;
+		private IGenreRetriever genreRetriever;
 
 		[SetUp]
 		public void CanCreate()
 		{
 			bookRetriever = MockRepository.GenerateMock<IBookRetriever>();
+			genreRetriever = MockRepository.GenerateMock<IGenreRetriever>();
 			// TODO - so this is an integration test - how are we defining when to verify calls and when to use components?
 			//        I think using a component and not mocking the interface still verifies the behaviour of this component
 			//        it tells us that this unit works correctly with an implementation of the interface that also works
-			endpoint = new IndexEndpoint(new RavenDbGenreRetriever(Session), bookRetriever);
+			endpoint = new IndexEndpoint(genreRetriever, bookRetriever);
 		}
 
 		[Test]
@@ -42,16 +44,31 @@ namespace Web.Tests.Books.Public
 		[Test]
 		public void Get_WhenGivenNoGenreToFilterBy_ShouldListView_ForAllReviewedBooks()
 		{
-			var books = BookTestingHelper.GetSomeReviewedBooks();
+			var reviewedBooks = BookTestingHelper.GetSomeReviewedBooks();
+			
+			bookRetriever.ReturnReviewedBooks(reviewedBooks);
+			
+			bookRetriever.ReturnEmptyCollectionsSoDoesntBreakTests();
 
-			bookRetriever.ReturnReviewedBooksOrderedByRating(books);
+			var viewModel = endpoint.Get(new ViewBooksLinkModel());
+
+			viewModel.ShouldContainListViewFor(reviewedBooks);
+		}
+
+		[Test]
+		public void Get_ShouldShowBooksOrderedByRating()
+		{
+			bookRetriever.ReturnReviewedBooks(BookTestingHelper.GetSomeReviewedBooks(50));
 
 			bookRetriever.ReturnEmptyCollectionsSoDoesntBreakTests();
 
 			var viewModel = endpoint.Get(new ViewBooksLinkModel());
 
-			viewModel.ShouldContainListViewFor(books);
+			viewModel.ShouldHaveReviewedBooks_OrderedByDescendingRating();
 		}
+
+		// TODO 
+
 
 		// TODO - need a test for the book retriever that only returns reviewed books
 
@@ -155,28 +172,6 @@ namespace Web.Tests.Books.Public
 		//    bookRetriever.Stub(r => r.)
 		//}
 
-		private string[] PutBooksInSessionWithDifferentGenresAndGetIdsForBooksWithGenre(string genre)
-		{
-			var genre1 = new Model.Genre(genre);
-			Session.Store(genre1);
-			
-			var book1 = BookTestingHelper.GetBook(genre: genre1, id: "Books/1");
-			Session.Store(book1);
-
-			var book2 = BookTestingHelper.GetBook(genre: genre1, id: "Books/2");
-			Session.Store(book2);
-
-			var genre2 = new Model.Genre("2");
-			Session.Store(genre2);
-
-			var book3 = BookTestingHelper.GetBook(genre: genre2);
-			Session.Store(book3);
-
-			Session.SaveChanges();
-
-			return new[] { book1.Id, book2.Id };
-		}
-
 		//private IEnumerable<Book> PopulateAndGetAllBooksExistingFromSession()
 		//{
 		//    yield return GetBookFromSessionWithId("Books/001", BookStatus.CurrentlyReading);
@@ -203,7 +198,7 @@ namespace Web.Tests.Books.Public
 	{
 		public static void ReturnEmptyCollectionsSoDoesntBreakTests(this IBookRetriever retriever)
 		{
-			ReturnReviewedBooksOrderedByRating(retriever, new List<Book>());
+			ReturnReviewedBooks(retriever, new List<Book>());
 			ReturnEmptyWishlistBooksSoDoesntBreakTest(retriever);
 		}
 
@@ -212,7 +207,7 @@ namespace Web.Tests.Books.Public
 			retriever.Stub(b => b.GetWishlistBooks()).Return(new List<Book>());
 		}
 
-		public static void ReturnReviewedBooksOrderedByRating(this IBookRetriever retriever, IEnumerable<Book> reviewedBooks)
+		public static void ReturnReviewedBooks(this IBookRetriever retriever, IEnumerable<Book> reviewedBooks)
 		{
 			retriever.Stub(b => b.GetReviewedBooksOrderedByRating()).Return(reviewedBooks);
 		}

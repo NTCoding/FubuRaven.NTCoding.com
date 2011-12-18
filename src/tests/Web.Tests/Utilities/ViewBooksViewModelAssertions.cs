@@ -9,6 +9,18 @@ namespace Web.Tests.Utilities
 {
 	public static class ViewBooksViewModelAssertions
 	{
+		// TODO - refactor into collection to compare
+		public static void ShouldHaveReviewedBooks_OrderedByDescendingRating(this ViewBooksViewModel model)
+		{
+			for (int i = 1; i < model.Books.Count(); i++)
+			{
+				var current = model.Books.ElementAt(i);
+				var last = model.Books.ElementAt(i - 1);
+
+				Assert.That(current.Rating, Is.LessThanOrEqualTo(last.Rating));
+			}
+		}
+
 		public static void ShouldContainListViewFor(this ViewBooksViewModel model, IEnumerable<Book> books)
 		{
 			Assert.AreEqual(books.Count(), model.Books.Count(), "Different number of books");
@@ -23,7 +35,8 @@ namespace Web.Tests.Utilities
 		{
 			return bookListView.Id == book.Id
 			       && bookListView.Image.Id == book.Id
-			       && bookListView.Title == book.Title;
+			       && bookListView.Title == book.Title
+			       && bookListView.Rating == book.Rating;
 		}
 
 		public static void ShouldOnlyHaveReviewedBooksWith(this ViewBooksViewModel model, IEnumerable<string> ids)

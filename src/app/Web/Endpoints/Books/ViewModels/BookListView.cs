@@ -11,6 +11,7 @@ namespace Web.Endpoints.Books.ViewModels
 			this.Id = book.Id;
 			this.Image = new ImageDisplayModel(book.Id) {Height = 100, Width = 100};
 			this.Title = book.Title;
+			this.Rating = book.Rating;
 		}
 
 		public String Id { get; set; }
@@ -18,5 +19,7 @@ namespace Web.Endpoints.Books.ViewModels
 		public ImageDisplayModel Image { get; set; }
 
 		public String Title { get; set; }
+
+		public int Rating { get; set; }
 	}
 }

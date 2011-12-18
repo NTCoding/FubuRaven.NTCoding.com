@@ -10,7 +10,7 @@ namespace Web.Endpoints.Books.ViewModels
 		public ViewBooksViewModel(IEnumerable<BookListView> books, 
 			IDictionary<string, string> genres, string selectedGenre, IEnumerable<BookListView> wishlistBooks)
 		{
-			Books = books;
+			Books = books.OrderByDescending(b => b.Rating);
 			Genres = genres;
 			WishlistBooks = wishlistBooks;
 

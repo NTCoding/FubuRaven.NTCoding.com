@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using AutoMapper;
+using Model;
 using Model.Services;
 using Model.Services.dtos;
 using Raven.Client;
@@ -12,13 +13,11 @@ namespace Web.Endpoints.SiteManagement.Book
 {
 	public class UpdateEndpoint
 	{
-		private readonly IDocumentSession session;
 		private readonly IBookUpdater updater;
 		private IGenreRetriever genreRetriever;
 
-		public UpdateEndpoint(IDocumentSession session, IBookUpdater updater, IGenreRetriever genreRetriever)
+		public UpdateEndpoint(IBookUpdater updater, IGenreRetriever genreRetriever)
 		{
-			this.session = session;
 			this.genreRetriever = genreRetriever;
 			this.updater = updater;
 		}
@@ -26,7 +25,7 @@ namespace Web.Endpoints.SiteManagement.Book
 		public UpdateBookViewModel Get(UpdateBookLinkModel model)
 		{
 			// TODO - should controllers even see the domain entities?
-			var book = session.Load<Model.Book>(model.Id);
+			var book = new Model.Book(null, null, null, null, BookStatus.Hidden, null);
 			var genres = genreRetriever.GetAll();
 
 			return new UpdateBookViewModel(book, genres);

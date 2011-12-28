@@ -9,9 +9,8 @@ namespace Web.Endpoints.SiteManagement.Book
 	{
 		private readonly IDocumentSession session;
 
-		public BookEndpoint(IDocumentSession session)
+		public BookEndpoint()
 		{
-			this.session = session;
 		}
 
 		public BookListModel Get(BooksLinkModel booksLinkModel)

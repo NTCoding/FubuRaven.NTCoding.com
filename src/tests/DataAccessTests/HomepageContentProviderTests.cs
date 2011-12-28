@@ -1,9 +1,10 @@
 ﻿using System;
+using DataAccessTests.Utilities;
+using Model;
 using Model.Services;
 using NUnit.Framework;
-using Web.Tests;
 
-namespace Model.Tests
+namespace DataAccessTests
 {
 	[TestFixture]
 	public class HomepageContentProviderTests : RavenTestsBase
@@ -20,8 +21,7 @@ namespace Model.Tests
 		[ExpectedException(typeof(ArgumentNullException))]
 		public void SessionCannotBeNull()
 		{
-			 new HomepageContentProvider(null);
-		}
+			 new HomepageContentProvider(null);}
 
 		[Test]
 		public void GetHomepageContent_ShouldReturnTheCurrentHomepageContent()
@@ -31,7 +31,7 @@ namespace Model.Tests
 			Session.Store(content);
 			Session.SaveChanges();
 
-			Assert.AreEqual(content.Content, _provider.GetHomepageContent());
+			Assert.AreEqual((object) content.Content, _provider.GetHomepageContent());
 		}
 
 		[Test]

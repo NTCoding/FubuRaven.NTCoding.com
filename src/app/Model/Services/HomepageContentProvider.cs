@@ -11,9 +11,6 @@ namespace Model.Services
 
 		public HomepageContentProvider(IDocumentSession session)
 		{
-			if (session == null) throw new ArgumentNullException("session");
-
-			_session = session;
 		}
 
 		public String GetHomepageContent()

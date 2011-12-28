@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
@@ -8,24 +9,25 @@ using Web.Endpoints.SiteManagement.Genre.CreateGenreModels;
 namespace Web.Tests.Genre
 {
 	[TestFixture]
-	public class CreateEndpointTests : RavenTestsBase
+	public class CreateEndpointTests 
 	{
 		private CreateEndpoint _endpoint;
+		private IGenreCreater creater;
 
 		[SetUp]
 		public void CanCreate()
 		{
-			_endpoint = new CreateEndpoint(Session);
+			_endpoint = new CreateEndpoint();
 		}
 
 		[Test]
-		public void Post_GivenGenreName_ShouldCreateGenre()
+		public void Post_GivenGenreName_ShouldAskCreater_ToCreateGenre()
 		{
 			string name = "Wickedd!!!";
+			
 			_endpoint.Post(new CreateGenreInputModel {Name = name});
-			Session.SaveChanges();
 
-			Assert.IsNotNull(Session.Query<Model.Genre>().Single(g => g.Name == name));
+			creater.ShouldHaveCreatedGenreWith(name);
 		}
 
 		[Test]
@@ -33,14 +35,24 @@ namespace Web.Tests.Genre
 		{
 			string name = "moomin";
 			var result =_endpoint.Post(new CreateGenreInputModel {Name = name});
-			
-			Session.SaveChanges();
 
-			var createdGenre = Session.Query<Model.Genre>().Single(g => g.Name == name);
+			var createdGenre = new object();
 
-			Assert.AreEqual(createdGenre.Id, result);
+			Assert.Fail();
 		}
 
 		// TODO - cannot create duplicate genres
+	}
+
+	public interface IGenreCreater
+	{
+	}
+
+	public static class IGenreCreaterTestExtensions
+	{
+		public static void ShouldHaveCreatedGenreWith(this IGenreCreater creater, string name)
+		{
+			Assert.Fail();
+		}
 	}
 }

@@ -1,9 +1,8 @@
-﻿using Model;
 using NUnit.Framework;
 using Raven.Client;
 using Raven.Client.Embedded;
 
-namespace Web.Tests
+namespace DataAccessTests.Utilities
 {
 	public abstract class RavenTestsBase
 	{

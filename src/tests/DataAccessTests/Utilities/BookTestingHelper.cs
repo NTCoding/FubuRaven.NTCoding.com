@@ -1,8 +1,9 @@
-using System.Linq;
+﻿using System.Linq;
+using Model;
 using Model.Services.dtos;
 using Raven.Client;
 
-namespace Model.Tests.Helpers
+namespace DataAccessTests.Utilities
 {
 	public class BookTestingHelper
 	{

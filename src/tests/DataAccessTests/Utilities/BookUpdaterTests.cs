@@ -1,11 +1,9 @@
-using System;
+﻿using Model;
 using Model.Services;
 using Model.Services.dtos;
-using Model.Tests.Helpers;
 using NUnit.Framework;
-using Web.Tests;
 
-namespace Model.Tests
+namespace DataAccessTests.Utilities
 {
 	[TestFixture]
 	public class BookUpdaterTests : RavenTestsBase

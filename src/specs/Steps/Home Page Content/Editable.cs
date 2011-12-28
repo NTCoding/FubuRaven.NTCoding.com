@@ -18,7 +18,7 @@ using Web.Tests;
 namespace Specs.Steps.Home_Page_Content
 {
 	[Binding]
-	public class Editable : RavenTestsBase
+	public class Editable 
 	{
 		private IHomepageContentProvider _contentProvider;
 		private HomepageContentEndpoint _endpoint;
@@ -26,13 +26,12 @@ namespace Specs.Steps.Home_Page_Content
 		[BeforeScenario()]
 		public void Setup()
 		{
-			base.SetUp();
 		}
 
 		[Given(@"I have navigated to the ""Edit Home Page"" page")]
 		public void GivenIHaveNavigatedToTheEditHomePagePage()
 		{
-			_contentProvider = new HomepageContentProvider(Session);
+			_contentProvider = new HomepageContentProvider(null);
 			_endpoint = new HomepageContentEndpoint(_contentProvider);
 		}
 

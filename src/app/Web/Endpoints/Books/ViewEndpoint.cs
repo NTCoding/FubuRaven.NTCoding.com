@@ -9,9 +9,8 @@ namespace Web.Endpoints.Books
 	{
 		private IDocumentSession session;
 
-		public ViewEndpoint(IDocumentSession session)
+		public ViewEndpoint()
 		{
-			this.session = session;
 		}
 
 		public ViewBookViewModel Get(ViewBookLinkModel linkModel)

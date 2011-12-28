@@ -9,9 +9,8 @@ namespace Web.Endpoints.SiteManagement.Genre
 	{
 		private readonly IDocumentSession _session;
 
-		public CreateEndpoint(IDocumentSession session)
+		public CreateEndpoint()
 		{
-			_session = session;
 		}
 
 		public String Post(CreateGenreInputModel model)

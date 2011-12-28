@@ -2,6 +2,7 @@
 using Model;
 using Model.Services;
 using NUnit.Framework;
+using Rhino.Mocks;
 using Web.Endpoints.SiteManagement.Book;
 using Web.Endpoints.SiteManagement.Book.InputModels;
 using Web.Endpoints.SiteManagement.Book.LinkModels;
@@ -12,7 +13,7 @@ using Web.Utilities;
 namespace Web.Tests.Books.SiteManagement
 {
 	[TestFixture]
-	public class CreateEndpointTests : RavenTestsBase
+	public class CreateEndpointTests 
 	{
 		private CreateBookInputModel GetTestCreateBookInputModel(Model.Genre genre)
 		{
@@ -27,11 +28,10 @@ namespace Web.Tests.Books.SiteManagement
 			};
 		}
 
-		private Model.Genre GetGenreFromSession()
+		private Model.Genre GetRandomGenre()
 		{
 			var genre = new Model.Genre("wooo") { Id = "1" };
-			Session.Store(genre);
-			Session.SaveChanges();
+			
 			return genre;
 		}
 
@@ -40,8 +40,8 @@ namespace Web.Tests.Books.SiteManagement
 		[SetUp]
 		public void SetUp()
 		{
-			base.SetUp();
-			_endpoint = new CreateEndpoint(new BookCreater(Session), new RavenDbGenreRetriever(Session));
+			var creater = MockRepository.GenerateMock<IBookCreater>();
+			_endpoint = new CreateEndpoint(creater, MockRepository.GenerateMock<IGenreRetriever>());
 		}
 
 		[Test]
@@ -53,7 +53,7 @@ namespace Web.Tests.Books.SiteManagement
 		[Test]
 		public void Get_ViewModelShouldContainAllGenres()
 		{
-			var genres = GenreTestingHelper.GetGenresFromSession(Session);
+			var genres = GenreTestingHelper.Get3RandomGenres();
 
 			var viewModel = _endpoint.Get(new CreateBookLinkModel());
 
@@ -71,9 +71,6 @@ namespace Web.Tests.Books.SiteManagement
 								new Model.Genre("fff") {Id = "4"},
 			             	};
 
-			genres.ToList().ForEach(Session.Store);
-			Session.SaveChanges();
-
 			var result = _endpoint.Get(new CreateBookLinkModel());
 
 			var orderedInputGenres = genres.OrderBy(g => g.Name);
@@ -90,38 +87,36 @@ namespace Web.Tests.Books.SiteManagement
 		[Test]
 		public void Post_GivenValidBookDetails_ShouldCreateBook()
 		{
-			var genre = GetGenreFromSession();
+			var genre = GetRandomGenre();
 
 			var model = GetTestCreateBookInputModel(genre);
 
 			_endpoint.Post(model);
-			Session.SaveChanges();
+			//Session.SaveChanges();
 
-			// TODO This is a query - it should live somewhere else
-			var book = Session.Query<Book>()
-				.Where(b => b.Title == model.Title)
-				.Where(b => b.Genre.Name == genre.Name)
-				.Where(b => b.Review == model.Description_BigText)
-				.Where(b => b.Status == model.BookStatus)
-				.ToList()
-				.Where(b => b.Authors.Any(a => a == model.Authors.ElementAt(0).Text))
-				.First();
+			
+			// TODO - this is the state of the object sent to the book creater
 
-			Assert.IsNotNull(book);
-			Assert.IsTrue(book.Authors.Any(a => a == model.Authors.ElementAt(1)));
+			//var book = Session.Query<Book>()
+			//    .Where(b => b.Title == model.Title)
+			//    .Where(b => b.Genre.Name == genre.Name)
+			//    .Where(b => b.Review == model.Description_BigText)
+			//    .Where(b => b.Status == model.BookStatus)
+			//    .ToList()
+			//    .Where(b => b.Authors.Any(a => a == model.Authors.ElementAt(0).Text))
+			//    .First();
+			
+			Assert.Fail();
 		}
 
 		// TODO - this overload just cannot be called. I am going to try and fix it
 		[Test][Ignore]
 		public void Post_ShouldRedirect_WithIDOfCreatedBook()
 		{
-			var genre = GetGenreFromSession();
+			var genre = GetRandomGenre();
 			var model = GetTestCreateBookInputModel(genre);
 
 			var result = _endpoint.Post(model);
-			Session.SaveChanges();
-
-			var book = Session.Query<Book>().Single();
 
 			Assert.Inconclusive();
 			//Func<ViewBookLinkModel, bool> predicate = x => true;

@@ -1,12 +1,11 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
+using DataAccessTests.Utilities;
+using Model;
 using Model.Services;
 using Model.Services.dtos;
-using Model.Tests.Helpers;
 using NUnit.Framework;
-using Web.Tests;
 
-namespace Model.Tests
+namespace DataAccessTests
 {
 	[TestFixture]
 	public class BookCreaterTests : RavenTestsBase
@@ -52,6 +51,7 @@ namespace Model.Tests
 
 			Assert.IsNotNull(book);
 		}
+
 
 		[Test]
 		public void Create_GivenValidDetails_ShouldCreateBook()

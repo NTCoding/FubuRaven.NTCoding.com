@@ -1,6 +1,7 @@
 ﻿using Model;
 using Model.Services;
 using NUnit.Framework;
+using Rhino.Mocks;
 using Web.Endpoints;
 using Web.Endpoints.HomepageModels;
 using Web.Endpoints.SiteManagement;
@@ -9,15 +10,15 @@ using Web.Endpoints.SiteManagement.HomepageContentModels;
 namespace Web.Tests.Homepage
 {
 	[TestFixture]
-	public class HomepageContentEndpointTests : RavenTestsBase
+	public class HomepageContentEndpointTests 
 	{
 		private HomepageContentEndpoint _endpoint;
-		private HomepageContentProvider _homepageContentProvider;
+		private IHomepageContentProvider _homepageContentProvider;
 
 		[SetUp]
 		public void SetUp()
 		{
-			_homepageContentProvider = new HomepageContentProvider(Session);
+			_homepageContentProvider = MockRepository.GenerateMock<IHomepageContentProvider>();
 			_endpoint = new HomepageContentEndpoint(_homepageContentProvider);
 		}
 

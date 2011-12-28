@@ -8,14 +8,14 @@ using Web.Tests.Utilities;
 namespace Web.Tests.Books.SiteManagement
 {
 	[TestFixture]
-	public class BookEndpointTests : RavenTestsBase
+	public class BookEndpointTests 
 	{
 		private BookEndpoint endpoint;
 
 		[SetUp]
 		public void CanCreate()
 		{
-			endpoint = new BookEndpoint(Session);
+			endpoint = new BookEndpoint();
 		}
 
 		[Test]
@@ -35,10 +35,6 @@ namespace Web.Tests.Books.SiteManagement
 
 				var book2 = BookTestingHelper.GetBook();
 				book2.Id = "999";
-
-				Session.Store(book1);
-				Session.Store(book2);
-				Session.SaveChanges();
 
 				return new List<Book> {book1, book2};
 			}

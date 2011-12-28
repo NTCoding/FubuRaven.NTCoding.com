@@ -11,7 +11,7 @@ using Web.Utilities;
 namespace Web.Tests.Utilities
 {
 	[TestFixture]
-	public class ImageEndpointTests : RavenTestsBase
+	public class ImageEndpointTests 
 	{
 		private ImageEndpoint endpoint;
 		private ImagePreparer preparer;
@@ -20,13 +20,13 @@ namespace Web.Tests.Utilities
 		public void SetUp()
 		{
 			preparer = MockRepository.GenerateMock<ImagePreparer>();
-			endpoint = new ImageEndpoint(Session, preparer);
+			endpoint = new ImageEndpoint(preparer);
 		}
 
 		[Test]
 		public void Get_GivenIdForBook_ShouldCallImagePreparerWithBooksDetails()
 		{
-			var book = GetBookWithImageFromSession();
+			var book = GetBookWithImage();
 
 			var linkModel = new ImageLinkModel {Id = book.Id};
 
@@ -38,7 +38,7 @@ namespace Web.Tests.Utilities
 		[Test]
 		public void Get_GivenIdForBook_ShouldCollborateWithImagePreparer_ToGetImage()
 		{
-			var book = GetBookWithImageFromSession();
+			var book = GetBookWithImage();
 			
 			var imageData = new byte[] {1, 2, 3, 4, 5, 6};
 			preparer.Stub(x => x.Prepare(1, 1, null, "")).Return(imageData).IgnoreArguments();
@@ -53,7 +53,7 @@ namespace Web.Tests.Utilities
 		[Test]
 		public void Get_ShouldAlwaysReturnPngs()
 		{
-			var book = GetBookWithImageFromSession();
+			var book = GetBookWithImage();
 
 			var outputModel = endpoint.Get(new ImageLinkModel {Id = book.Id});
 
@@ -61,12 +61,11 @@ namespace Web.Tests.Utilities
 		}
 		
 
-		private Book GetBookWithImageFromSession()
+		private Book GetBookWithImage()
 		{
 			var imageData = new byte[] {1, 2, 3, 5, 6, 8, 9};
 			var book = BookTestingHelper.GetBook(imageData: imageData);
-			Session.Store(book);
-			Session.SaveChanges();
+
 			return book;
 		}
 	}

@@ -11,7 +11,7 @@ using Web.Utilities;
 namespace Web.Tests.Books.Public
 {
 	[TestFixture]
-	public class ViewEndpointTests : RavenTestsBase
+	public class ViewEndpointTests 
 	{
 		private ViewBookViewModel model;
 		private Book book;
@@ -23,9 +23,8 @@ namespace Web.Tests.Books.Public
 		{
 			book = BookTestingHelper.GetBook();
 			book.Rating = 4;
-			Session.Store(book);
 
-			var endpoint = new ViewEndpoint(Session);
+			var endpoint = new ViewEndpoint();
 			model = endpoint.Get(new ViewBookLinkModel { Id = book.Id });
 		}
 

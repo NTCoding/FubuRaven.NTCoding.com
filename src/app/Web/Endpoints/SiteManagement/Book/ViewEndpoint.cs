@@ -10,9 +10,8 @@ namespace Web.Endpoints.SiteManagement.Book
 	{
 		private IDocumentSession _session;
 
-		public ViewEndpoint(IDocumentSession session)
+		public ViewEndpoint()
 		{
-			_session = session;
 		}
 
 		public ViewBookViewModel Get(ViewBookLinkModel model)

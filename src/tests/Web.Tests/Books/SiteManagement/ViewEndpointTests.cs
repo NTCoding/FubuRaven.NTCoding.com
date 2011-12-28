@@ -7,30 +7,29 @@ using Web.Tests.Utilities;
 
 namespace Web.Tests.Books.SiteManagement
 {
+	// TODO - Class would not exist using the endpoint testing pattern
 	[TestFixture]
-	public class ViewEndpointTests : RavenTestsBase
+	public class ViewEndpointTests 
 	{
 		private ViewEndpoint _endpoint;
 
-		private Book GetBookFromSession()
+		private Book GetRandomBook()
 		{
 			var book = BookTestingHelper.GetBook();
 
-			Session.Store(book);
-			Session.SaveChanges();
 			return book;
 		}
 
 		[SetUp]
 		public void CanCreate()
 		{
-			_endpoint = new ViewEndpoint(Session);
+			_endpoint = new ViewEndpoint();
 		}
 
 		[Test]
 		public void Get_GivenModelWithBooksID_ViewModelShouldContainBooksTitle()
 		{
-			var book = GetBookFromSession();
+			var book = GetRandomBook();
 
 			var model = _endpoint.Get(new ViewBookLinkModel { Id = book.Id });
 
@@ -40,7 +39,7 @@ namespace Web.Tests.Books.SiteManagement
 		[Test]
 		public void Get_GivenModelWithBooksID_ViewModelSholdContainBooksGenresName()
 		{
-			var book = GetBookFromSession();
+			var book = GetRandomBook();
 
 			var model = _endpoint.Get(new ViewBookLinkModel {Id = book.Id});
 
@@ -50,7 +49,7 @@ namespace Web.Tests.Books.SiteManagement
 		[Test]
 		public void Get_GivenModelWithBooksID_ViewModelShouldContainBooksDescription()
 		{
-			var book = GetBookFromSession();
+			var book = GetRandomBook();
 
 			var model = _endpoint.Get(new ViewBookLinkModel {Id = book.Id});
 
@@ -60,7 +59,7 @@ namespace Web.Tests.Books.SiteManagement
 		[Test]
 		public void Get_GivenModelWithBooksID_ViewModelShouldContainBooksStatus()
 		{
-			var book = GetBookFromSession();
+			var book = GetRandomBook();
 
 			var model = _endpoint.Get(new ViewBookLinkModel {Id = book.Id});
 
@@ -70,7 +69,7 @@ namespace Web.Tests.Books.SiteManagement
 		[Test]
 		public void Get_ViewModelShouldContainBooksId()
 		{
-			var book = GetBookFromSession();
+			var book = GetRandomBook();
 
 			var model = _endpoint.Get(new ViewBookLinkModel {Id = book.Id});
 
@@ -80,7 +79,7 @@ namespace Web.Tests.Books.SiteManagement
 		[Test]
 		public void Get_GivenModelWithBooksID_ViewModelShouldContainBooksAuthorsNames()
 		{
-			var book = GetBookFromSession();
+			var book = GetRandomBook();
 
 			var model = _endpoint.Get(new ViewBookLinkModel {Id = book.Id});
 

@@ -14,9 +14,8 @@ namespace Web.Endpoints
 		private readonly IDocumentSession session;
 		private readonly ImagePreparer preparer;
 
-		public ImageEndpoint(IDocumentSession session, ImagePreparer preparer)
+		public ImageEndpoint(ImagePreparer preparer)
 		{
-			this.session = session;
 			this.preparer = preparer;
 		}
 

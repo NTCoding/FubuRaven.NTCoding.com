@@ -5,8 +5,9 @@ using Web.Tests.Utilities;
 
 namespace Web.Tests.Books.SiteManagement
 {
+	// TODO - These test classes would not exist under the Endpoint Testing Pattern
 	[TestFixture]
-	public class ViewBookViewModelTests : RavenTestsBase
+	public class ViewBookViewModelTests 
 	{
 		[Test]
 		public void CanCreate()

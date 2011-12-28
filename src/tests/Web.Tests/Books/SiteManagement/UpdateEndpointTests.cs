@@ -16,7 +16,7 @@ using Web.Utilities;
 namespace Web.Tests.Books.SiteManagement
 {
 	[TestFixture]
-	public class UpdateEndpointTests : RavenTestsBase
+	public class UpdateEndpointTests 
 	{
 		private UpdateEndpoint endpoint;
 		private IBookUpdater updater;
@@ -27,13 +27,13 @@ namespace Web.Tests.Books.SiteManagement
 		{
 			updater   = MockRepository.GenerateMock<IBookUpdater>();
 			retriever = MockRepository.GenerateMock<IGenreRetriever>();
-			endpoint  = new UpdateEndpoint(Session, updater, retriever);
+			endpoint  = new UpdateEndpoint(updater, retriever);
 		}
 
 		[Test]
 		public void Get_GivenIdForBookThatLivesInSession_ShouldReturnViewModel_WithBooksDetails()
 		{
-			var book = GetBookThatExistsInSession();
+			var book = GetRandomBook();
 
 			var result = endpoint.Get(new UpdateBookLinkModel {Id = book.Id});
 
@@ -110,12 +110,10 @@ namespace Web.Tests.Books.SiteManagement
 			Assert.That(y.All(a => model.Authors.Any(x => a == x)), Is.True);
 		}
 
-		private Book GetBookThatExistsInSession()
+		private Book GetRandomBook()
 		{
 			var book = BookTestingHelper.GetBook();
 			book.Id = "69er";
-			Session.Store(book);
-			Session.SaveChanges();
 			return book;
 		}
 	}

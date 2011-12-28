@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Model;
+using Model.Services;
 using NUnit.Framework;
+using Rhino.Mocks;
 using Web.Endpoints.SiteManagement.Book;
 using Web.Endpoints.SiteManagement.Book.LinkModels;
 using Web.Tests.Utilities;
@@ -11,24 +14,29 @@ namespace Web.Tests.Books.SiteManagement
 	public class BookEndpointTests 
 	{
 		private BookEndpoint endpoint;
+		private IBookRetriever retriever;
+
+		// TODO - This is an example of where we want the book - but the image data is overhead we don't need
 
 		[SetUp]
 		public void CanCreate()
 		{
-			endpoint = new BookEndpoint();
+			retriever = MockRepository.GenerateMock<IBookRetriever>();
+			endpoint = new BookEndpoint(retriever);
 		}
 
 		[Test]
 		public void Get_ShouldReturnModelForEachBookInSystem()
 		{
-			var books = CreateTwoBooksAndAddThemToEmptySession();
+			var books = CreateTwoBooks();
+			retriever.Stub(r => r.GetAll()).Return(books);
 
 			var result = endpoint.Get(new BooksLinkModel());
 
 			books.ForEach(b => result.ShouldContainBookMOdelWithId(b.Id));
 		}
 
-			private List<Book> CreateTwoBooksAndAddThemToEmptySession()
+			private List<Book> CreateTwoBooks()
 			{
 				var book1 = BookTestingHelper.GetBook();
 				book1.Id = "abc";
@@ -42,6 +50,8 @@ namespace Web.Tests.Books.SiteManagement
 		[Test]
 		public void Get_ShouldTakeABooksLinkModel()
 		{
+			retriever.Stub(r => r.GetAll()).Return(Enumerable.Empty<Book>());
+
 			endpoint.Get(new BooksLinkModel());
 		}
 

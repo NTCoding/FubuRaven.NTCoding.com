@@ -34,5 +34,11 @@ namespace DataAccessTests
 		{
 			Assert.Fail();
 		}
+
+		[Test]
+		public void GetAll()
+		{
+			Assert.Fail();
+		}
 	}
 }

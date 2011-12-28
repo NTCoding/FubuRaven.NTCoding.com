@@ -35,5 +35,10 @@ namespace Model.Services
 		{
 			return session.Load<Book>(id);
 		}
+
+		public IEnumerable<Book> GetAll()
+		{
+			return session.Query<Book>();
+		}
 	}
 }

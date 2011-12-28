@@ -58,23 +58,21 @@ namespace DataAccessTests
 		{
 			var dto = GetCreateBookDto();
 
-			var book = _bookCreater.Create(dto);
+			var id = _bookCreater.Create(dto);
 
-			// TODO - this should test books in the session
-			Assert.Fail();
-			//Assert.AreEqual(dto.Title, book.Title);
-			//Assert.AreEqual(dto.Description, book.Review);
-			//Assert.AreEqual(dto.Genre, book.Genre.Id);
-			//Assert.AreEqual(dto.Image, book.Image);
-			//Assert.AreEqual(dto.Status, book.Status);
-			//Assert.AreEqual(dto.Authors.Count(), book.Authors.Count());
+			var book = Session.Load<Book>(id);
 
-			//foreach (var author in dto.Authors)
-			//{
-			//    Assert.IsTrue(book.Authors.Any(a => a == author));
-			//}
+			Assert.AreEqual(dto.Title, book.Title);
+			Assert.AreEqual(dto.Description, book.Review);
+			Assert.AreEqual(dto.Genre, book.Genre.Id);
+			Assert.AreEqual(dto.Image, book.Image);
+			Assert.AreEqual(dto.Status, book.Status);
+			Assert.AreEqual(dto.Authors.Count(), book.Authors.Count());
+
+			foreach (var author in dto.Authors)
+			{
+				Assert.IsTrue(book.Authors.Any(a => a == author));
+			}
 		}
-
-		// TODO - validate bad inputs
 	}
 }

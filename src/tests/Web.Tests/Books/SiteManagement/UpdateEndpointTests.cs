@@ -20,20 +20,22 @@ namespace Web.Tests.Books.SiteManagement
 	{
 		private UpdateEndpoint endpoint;
 		private IBookUpdater updater;
-		private IGenreRetriever retriever;
+		private IGenreRetriever genreRetriever;
+		private IBookRetriever bookRetriever;
 
 		[SetUp]
 		public void CanCreate()
 		{
 			updater   = MockRepository.GenerateMock<IBookUpdater>();
-			retriever = MockRepository.GenerateMock<IGenreRetriever>();
-			endpoint  = new UpdateEndpoint(updater, retriever);
+			genreRetriever = MockRepository.GenerateMock<IGenreRetriever>();
+			bookRetriever = MockRepository.GenerateMock<IBookRetriever>();
+			endpoint  = new UpdateEndpoint(updater, genreRetriever, bookRetriever);
 		}
 
 		[Test]
 		public void Get_GivenIdForBookThatLivesInSession_ShouldReturnViewModel_WithBooksDetails()
 		{
-			var book = GetRandomBook();
+			var book = GetRandomBookSimulatedToExist();
 
 			var result = endpoint.Get(new UpdateBookLinkModel {Id = book.Id});
 
@@ -48,7 +50,7 @@ namespace Web.Tests.Books.SiteManagement
 			testGenres.Add("genres/234", "aaa");
 			testGenres.Add("genres/345", "bbb");
 
-			retriever.Stub(r => r.GetAll()).Return(testGenres);
+			genreRetriever.Stub(r => r.GetAll()).Return(testGenres);
 
 			var result = endpoint.Get(new UpdateBookLinkModel() {Id = "Irrelevant"});
 
@@ -110,10 +112,12 @@ namespace Web.Tests.Books.SiteManagement
 			Assert.That(y.All(a => model.Authors.Any(x => a == x)), Is.True);
 		}
 
-		private Book GetRandomBook()
+		private Book GetRandomBookSimulatedToExist()
 		{
 			var book = BookTestingHelper.GetBook();
 			book.Id = "69er";
+			bookRetriever.Stub(r => r.GetById(book.Id)).Return(book);
+
 			return book;
 		}
 	}

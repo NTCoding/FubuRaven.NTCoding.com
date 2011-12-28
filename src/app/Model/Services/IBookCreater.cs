@@ -8,6 +8,6 @@ namespace Model.Services
 	public interface IBookCreater
 	{
 		// TODO - should only return the Id
-		Book Create(CreateBookDto createBookDto);
+		String Create(CreateBookDto createBookDto);
 	}
 }

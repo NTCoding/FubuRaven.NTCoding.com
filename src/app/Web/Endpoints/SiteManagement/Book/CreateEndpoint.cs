@@ -43,9 +43,9 @@ namespace Web.Endpoints.SiteManagement.Book
 			          	};
 
 			// TODO - should only return the Id
-			var book = bookCreater.Create(dto);
+			var id = bookCreater.Create(dto);
 
-			var linkModel = new ViewBookLinkModel { Id = book.Id };
+			var linkModel = new ViewBookLinkModel { Id = id };
 
 			return FubuContinuation.RedirectTo(linkModel);
 		}

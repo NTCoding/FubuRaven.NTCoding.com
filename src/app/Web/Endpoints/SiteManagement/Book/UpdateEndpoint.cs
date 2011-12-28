@@ -14,18 +14,20 @@ namespace Web.Endpoints.SiteManagement.Book
 	public class UpdateEndpoint
 	{
 		private readonly IBookUpdater updater;
-		private IGenreRetriever genreRetriever;
+		private readonly IGenreRetriever genreRetriever;
+		private readonly IBookRetriever bookRetriever;
 
-		public UpdateEndpoint(IBookUpdater updater, IGenreRetriever genreRetriever)
+		public UpdateEndpoint(IBookUpdater updater, IGenreRetriever genreRetriever, IBookRetriever bookRetriever)
 		{
 			this.genreRetriever = genreRetriever;
+			this.bookRetriever = bookRetriever;
 			this.updater = updater;
 		}
 
 		public UpdateBookViewModel Get(UpdateBookLinkModel model)
 		{
-			// TODO - should controllers even see the domain entities?
-			var book = new Model.Book(null, null, null, null, BookStatus.Hidden, null);
+			// TODO - should controllers even see the domain entities? NO
+			var book = bookRetriever.GetById(model.Id);
 			var genres = genreRetriever.GetAll();
 
 			return new UpdateBookViewModel(book, genres);

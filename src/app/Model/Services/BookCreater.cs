@@ -16,7 +16,7 @@ namespace Model.Services
 		}
 
 		// TODO - Should only return the Id
-		public Book Create(CreateBookDto createBookDto)
+		public String Create(CreateBookDto createBookDto)
 		{
 			var genre = _session.Query<Genre>().Where(g => g.Id == createBookDto.Genre).Single();
 
@@ -24,7 +24,7 @@ namespace Model.Services
 
 			_session.Store(book);
 
-			return book;
+			return book.Id;
 		}
 	}
 }

@@ -5,6 +5,6 @@ namespace Model.Services
 {
 	public interface IGenreCreater
 	{
-		String Create(CreateGenreDto name);
+		String Create(CreateGenreDto dto);
 	}
 }

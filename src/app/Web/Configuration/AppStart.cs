@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Web.Routing;
 using FubuMVC.Core;
-using Model;
 using Model.Services;
 using Raven.Client;
 using Raven.Client.Embedded;
@@ -41,6 +40,8 @@ namespace Web.Configuration
 				x.For<IBookUpdater>().Use<SimpleBookUpdater>();
 
 				x.For<IGenreRetriever>().Use<RavenDbGenreRetriever>();
+
+				x.For<IGenreCreater>().Use<RavenDbGenreCreater>();
 
 			});
 

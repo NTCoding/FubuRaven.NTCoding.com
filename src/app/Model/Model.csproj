@@ -106,6 +106,7 @@
     <Compile Include="Services\IBookRetriever.cs" />
     <Compile Include="Services\IGenreCreater.cs" />
     <Compile Include="Services\RavenDbBookRetriever.cs" />
+    <Compile Include="Services\RavenDbGenreCreater.cs" />
     <Compile Include="Services\RavenDbGenreRetriever.cs" />
     <Compile Include="Services\HomepageContentProvider.cs" />
     <Compile Include="Services\IBookCreater.cs" />

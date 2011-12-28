@@ -103,6 +103,7 @@
     <Compile Include="Services\dtos\CreateBookDto.cs" />
     <Compile Include="Services\dtos\UpdateBookDto.cs" />
     <Compile Include="Services\IBookRetriever.cs" />
+    <Compile Include="Services\RavenDbBookRetriever.cs" />
     <Compile Include="Services\RavenDbGenreRetriever.cs" />
     <Compile Include="Services\HomepageContentProvider.cs" />
     <Compile Include="Services\IBookCreater.cs" />

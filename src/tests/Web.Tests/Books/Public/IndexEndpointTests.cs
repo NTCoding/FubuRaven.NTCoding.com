@@ -14,8 +14,6 @@ using IndexEndpoint = Web.Endpoints.Books.IndexEndpoint;
 
 namespace Web.Tests.Books.Public
 {
-	// TODO - move the raven tests base into a common testing project
-	//        and remove the dependency between testing projects
 	[TestFixture]
 	public class IndexEndpointTests 
 	{

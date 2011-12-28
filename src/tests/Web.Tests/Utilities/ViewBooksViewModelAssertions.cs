@@ -71,6 +71,7 @@ namespace Web.Tests.Utilities
 		}
 	}
 
+	// TODO - Move to tests common
 	public static class CollectionHelper
 	{
 		public static void CompareOrderOfItems<T>(IEnumerable<T> collection, Action<T, T> compare)

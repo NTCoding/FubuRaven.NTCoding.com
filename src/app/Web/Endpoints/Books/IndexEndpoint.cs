@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Model;
 using Model.Services;
-using Raven.Client;
 using Web.Endpoints.Books.LinkModels;
 using Web.Endpoints.Books.ViewModels;
 
@@ -44,33 +42,6 @@ namespace Web.Endpoints.Books
 		{
 			return string.IsNullOrWhiteSpace(model.Genre)
 			       || !genreRetriever.CanFindGenreWith(model.Genre);
-		}
-	}
-
-	public class RavenDbBookRetriever : IBookRetriever
-	{
-		private readonly IDocumentSession session;
-
-		public RavenDbBookRetriever(IDocumentSession session)
-		{
-			this.session = session;
-		}
-
-		public IEnumerable<Book> GetReviewedBooks(String genre = null)
-		{
-			IEnumerable<Book> books = session.Query<Book>()
-				.Where(b => b.Status == BookStatus.Reviewed)
-				.OrderByDescending(b => b.Rating);
-
-			if (genre != null) books = books.Where(b => b.Genre.Id == genre);
-
-
-			return books;
-		}
-
-		public IEnumerable<Book> GetWishlistBooks()
-		{
-			return session.Query<Book>().Where(b => b.Status == BookStatus.Wishlist);
 		}
 	}
 }

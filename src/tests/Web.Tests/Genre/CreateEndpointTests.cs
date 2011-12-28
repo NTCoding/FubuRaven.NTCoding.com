@@ -2,7 +2,10 @@
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using Model.Services;
+using Model.Services.dtos;
 using NUnit.Framework;
+using Rhino.Mocks;
 using Web.Endpoints.SiteManagement.Genre;
 using Web.Endpoints.SiteManagement.Genre.CreateGenreModels;
 
@@ -17,7 +20,8 @@ namespace Web.Tests.Genre
 		[SetUp]
 		public void CanCreate()
 		{
-			_endpoint = new CreateEndpoint();
+			creater = MockRepository.GenerateMock<IGenreCreater>();
+			_endpoint = new CreateEndpoint(creater);
 		}
 
 		[Test]
@@ -34,25 +38,26 @@ namespace Web.Tests.Genre
 		public void Post_GivenGenreName_ShouldReturnCreatedGenresID()
 		{
 			string name = "moomin";
-			var result =_endpoint.Post(new CreateGenreInputModel {Name = name});
 
-			var createdGenre = new object();
+			var idOfNewGenre = "genres/123";
 
-			Assert.Fail();
+			creater.Stub(c => c.Create(Arg<CreateGenreDto>.Is.Anything)).Return(idOfNewGenre);
+
+			var id =_endpoint.Post(new CreateGenreInputModel {Name = name});
+
+			Assert.AreEqual(idOfNewGenre, id);
 		}
 
 		// TODO - cannot create duplicate genres
-	}
-
-	public interface IGenreCreater
-	{
 	}
 
 	public static class IGenreCreaterTestExtensions
 	{
 		public static void ShouldHaveCreatedGenreWith(this IGenreCreater creater, string name)
 		{
-			Assert.Fail();
+			var dto = (CreateGenreDto) creater.GetArgumentsForCallsMadeOn(c => c.Create(Arg<CreateGenreDto>.Is.Anything))[0][0];
+
+			Assert.AreEqual(name, dto.Name);
 		}
 	}
 }

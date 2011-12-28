@@ -101,8 +101,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BookCreater.cs" />
     <Compile Include="Services\dtos\CreateBookDto.cs" />
+    <Compile Include="Services\dtos\CreateGenreDto.cs" />
     <Compile Include="Services\dtos\UpdateBookDto.cs" />
     <Compile Include="Services\IBookRetriever.cs" />
+    <Compile Include="Services\IGenreCreater.cs" />
     <Compile Include="Services\RavenDbBookRetriever.cs" />
     <Compile Include="Services\RavenDbGenreRetriever.cs" />
     <Compile Include="Services\HomepageContentProvider.cs" />

@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using Model;
+using Model.Services;
 using NUnit.Framework;
+using Rhino.Mocks;
 using Web.Endpoints.SiteManagement.Book;
 using Web.Endpoints.SiteManagement.Book.LinkModels;
 using Web.Tests.Utilities;
@@ -12,10 +14,13 @@ namespace Web.Tests.Books.SiteManagement
 	public class ViewEndpointTests 
 	{
 		private ViewEndpoint _endpoint;
+		private IBookRetriever retriever;
 
-		private Book GetRandomBook()
+		private Book GetBookSimulatedToExist()
 		{
 			var book = BookTestingHelper.GetBook();
+			book.Id = "book/88";
+			retriever.Stub(r => r.GetById(book.Id)).Return(book);
 
 			return book;
 		}
@@ -23,43 +28,44 @@ namespace Web.Tests.Books.SiteManagement
 		[SetUp]
 		public void CanCreate()
 		{
-			_endpoint = new ViewEndpoint();
+			retriever = MockRepository.GenerateMock<IBookRetriever>();
+			_endpoint = new ViewEndpoint(retriever);
 		}
 
 		[Test]
 		public void Get_GivenModelWithBooksID_ViewModelShouldContainBooksTitle()
 		{
-			var book = GetRandomBook();
+			var book1 = GetBookSimulatedToExist();
 
-			var model = _endpoint.Get(new ViewBookLinkModel { Id = book.Id });
+			var model = _endpoint.Get(new ViewBookLinkModel { Id = book1.Id });
 
-			Assert.AreEqual(book.Title, model.Title);
+			Assert.AreEqual(book1.Title, model.Title);
 		}
 
 		[Test]
 		public void Get_GivenModelWithBooksID_ViewModelSholdContainBooksGenresName()
 		{
-			var book = GetRandomBook();
+			var book1 = GetBookSimulatedToExist();
 
-			var model = _endpoint.Get(new ViewBookLinkModel {Id = book.Id});
+			var model = _endpoint.Get(new ViewBookLinkModel {Id = book1.Id});
 
-			Assert.AreEqual(book.Genre.Name, model.GenreName);
+			Assert.AreEqual(book1.Genre.Name, model.GenreName);
 		}
 
 		[Test]
 		public void Get_GivenModelWithBooksID_ViewModelShouldContainBooksDescription()
 		{
-			var book = GetRandomBook();
+			var book1 = GetBookSimulatedToExist();
 
-			var model = _endpoint.Get(new ViewBookLinkModel {Id = book.Id});
+			var model = _endpoint.Get(new ViewBookLinkModel {Id = book1.Id});
 
-			Assert.AreEqual(book.Review, model.Description_Html);
+			Assert.AreEqual(book1.Review, model.Description_Html);
 		}
 
 		[Test]
 		public void Get_GivenModelWithBooksID_ViewModelShouldContainBooksStatus()
 		{
-			var book = GetRandomBook();
+			var book = GetBookSimulatedToExist();
 
 			var model = _endpoint.Get(new ViewBookLinkModel {Id = book.Id});
 
@@ -69,7 +75,7 @@ namespace Web.Tests.Books.SiteManagement
 		[Test]
 		public void Get_ViewModelShouldContainBooksId()
 		{
-			var book = GetRandomBook();
+			var book = GetBookSimulatedToExist();
 
 			var model = _endpoint.Get(new ViewBookLinkModel {Id = book.Id});
 
@@ -79,7 +85,7 @@ namespace Web.Tests.Books.SiteManagement
 		[Test]
 		public void Get_GivenModelWithBooksID_ViewModelShouldContainBooksAuthorsNames()
 		{
-			var book = GetRandomBook();
+			var book = GetBookSimulatedToExist();
 
 			var model = _endpoint.Get(new ViewBookLinkModel {Id = book.Id});
 

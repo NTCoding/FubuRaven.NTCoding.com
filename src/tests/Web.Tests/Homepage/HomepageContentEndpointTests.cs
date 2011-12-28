@@ -26,7 +26,7 @@ namespace Web.Tests.Homepage
 		public void Get_ModelShouldContainCurrentHomepageContent()
 		{
 			string content = "Homepageeeeeeeeeeeeeeee";
-			_homepageContentProvider.SetHomepageContent(content);
+			_homepageContentProvider.Stub(h => h.GetHomepageContent()).Return(content);
 
 			var result = _endpoint.Get(new HomepageContentLinkModel());
 
@@ -42,7 +42,7 @@ namespace Web.Tests.Homepage
 
 			_endpoint.Post(model);
 
-			Assert.AreEqual(newContent, _homepageContentProvider.GetHomepageContent());
+			_homepageContentProvider.ShouldHaveUpdatedContentTo(newContent);
 		}
 
 		[Test]
@@ -53,6 +53,14 @@ namespace Web.Tests.Homepage
 			var result = _endpoint.Post(model);
 
 			result.AssertWasRedirectedTo<Endpoints.IndexEndpoint>(c => c.Get(new HomepageLinkModel()));
+		}
+	}
+
+	public static class IHomepageContentProviderTestExtensions
+	{
+		public static void ShouldHaveUpdatedContentTo(this IHomepageContentProvider provider, string newContent)
+		{
+			provider.AssertWasCalled(p => p.SetHomepageContent(newContent));
 		}
 	}
 }

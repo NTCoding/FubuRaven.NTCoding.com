@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Linq;
 using Model;
+using Model.Services;
 using Raven.Client;
 using Web.Utilities;
 
@@ -11,17 +12,18 @@ namespace Web.Endpoints
 	// TODO - maybe cache images?
 	public class ImageEndpoint
 	{
-		private readonly IDocumentSession session;
 		private readonly ImagePreparer preparer;
+		private readonly IBookRetriever retriever;
 
-		public ImageEndpoint(ImagePreparer preparer)
+		public ImageEndpoint(ImagePreparer preparer, IBookRetriever retriever)
 		{
 			this.preparer = preparer;
+			this.retriever = retriever;
 		}
 
 		public ImageModel Get(ImageLinkModel model)
 		{
-			var book = session.Load<Book>(model.Id);
+			var book = retriever.GetById(model.Id);
 			var preparedImage = preparer.Prepare(model.Width, model.Height, book.Image, "png");
 
 			return new ImageModel(preparedImage, "image/png");

@@ -16,5 +16,17 @@ namespace DataAccessTests
 		{
 			Assert.Inconclusive();
 		}
+
+		[Test]
+		public void GivenGenreId_ShouldOnlyGetBooks_ForThatGenre()
+		{
+			Assert.Inconclusive();
+		}
+
+		[Test]
+		public void GetWishlistBooks_ShouldOnlyReturnBooks_OnTheWishlist()
+		{
+			Assert.Inconclusive();
+		}
 	}
 }

@@ -5,7 +5,7 @@ namespace Model.Services
 {
 	public interface IGenreRetriever
 	{
-		IDictionary<String, String> GetAllOrderedByName();
+		IDictionary<String, String> GetAll();
 		
 		bool CanFindGenreWith(string id);
 	}

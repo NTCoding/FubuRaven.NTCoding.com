@@ -48,7 +48,7 @@ namespace Web.Tests.Books.SiteManagement
 			testGenres.Add("genres/234", "aaa");
 			testGenres.Add("genres/345", "bbb");
 
-			retriever.Stub(r => r.GetAllOrderedByName()).Return(testGenres);
+			retriever.Stub(r => r.GetAll()).Return(testGenres);
 
 			var result = endpoint.Get(new UpdateBookLinkModel() {Id = "Irrelevant"});
 

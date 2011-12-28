@@ -20,11 +20,23 @@ namespace Web.Tests.Utilities
 
 		public static IEnumerable<Book> GetSomeReviewedBooks(int amount = 10)
 		{
+			return GetBooks(amount, BookStatus.Reviewed);
+		}
+
+		public static IEnumerable<Book> GetSomeWishlistBooks(int amount = 10)
+		{
+			return GetBooks(amount, BookStatus.Wishlist);
+		}
+
+		private static IEnumerable<Book> GetBooks(int amount, BookStatus status)
+		{
 			var rand = new Random();
 			for (int i = 0; i < amount; i++)
 			{
-				yield return GetBook(status: BookStatus.Reviewed, rating: rand.Next(1, 5));
+				yield return GetBook(status: status, rating: rand.Next(1, 5));
 			}
 		}
+
+		
 	}
 }

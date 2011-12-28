@@ -25,7 +25,7 @@ namespace Web.Endpoints.SiteManagement.Book
 
 		public CreateBookViewModel Get(CreateBookLinkModel model)
 		{
-			var genres = genreRetriever.GetAllOrderedByName();
+			var genres = genreRetriever.GetAll();
 
 			return new CreateBookViewModel(genres);
 		}

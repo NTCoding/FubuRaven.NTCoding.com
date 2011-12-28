@@ -8,6 +8,7 @@ using Rhino.Mocks;
 using Web.Endpoints;
 using Web.Endpoints.Books;
 using Web.Endpoints.Books.LinkModels;
+using Web.Endpoints.Books.ViewModels;
 using Web.Tests.Utilities;
 using IndexEndpoint = Web.Endpoints.Books.IndexEndpoint;
 
@@ -27,16 +28,13 @@ namespace Web.Tests.Books.Public
 		{
 			bookRetriever = MockRepository.GenerateMock<IBookRetriever>();
 			genreRetriever = MockRepository.GenerateMock<IGenreRetriever>();
-			// TODO - so this is an integration test - how are we defining when to verify calls and when to use components?
-			//        I think using a component and not mocking the interface still verifies the behaviour of this component
-			//        it tells us that this unit works correctly with an implementation of the interface that also works
 			endpoint = new IndexEndpoint(genreRetriever, bookRetriever);
 		}
 
 		[Test]
 		public void Get_ShouldTakeLinkModel()
 		{
-			bookRetriever.ReturnEmptyCollectionsSoDoesntBreakTests();
+			SetUpRetrieversToReturnIrrelevantValuesSoTestsDontBreak();
 
 			endpoint.Get(new ViewBooksLinkModel());
 		}
@@ -44,11 +42,12 @@ namespace Web.Tests.Books.Public
 		[Test]
 		public void Get_WhenGivenNoGenreToFilterBy_ShouldListView_ForAllReviewedBooks()
 		{
+			genreRetriever.ReturnEmptyCollectionSoDoesntBreakTest();
+			bookRetriever.ReturnEmptyWishlistBooksSoDoesntBreakTest();
+
 			var reviewedBooks = BookTestingHelper.GetSomeReviewedBooks();
 			
 			bookRetriever.ReturnReviewedBooks(reviewedBooks);
-			
-			bookRetriever.ReturnEmptyCollectionsSoDoesntBreakTests();
 
 			var viewModel = endpoint.Get(new ViewBooksLinkModel());
 
@@ -58,158 +57,187 @@ namespace Web.Tests.Books.Public
 		[Test]
 		public void Get_ShouldShowBooksOrderedByRating()
 		{
-			bookRetriever.ReturnReviewedBooks(BookTestingHelper.GetSomeReviewedBooks(50));
+			genreRetriever.ReturnEmptyCollectionSoDoesntBreakTest();
+			bookRetriever.ReturnEmptyWishlistBooksSoDoesntBreakTest();
 
-			bookRetriever.ReturnEmptyCollectionsSoDoesntBreakTests();
+			bookRetriever.ReturnReviewedBooks(BookTestingHelper.GetSomeReviewedBooks(50));
 
 			var viewModel = endpoint.Get(new ViewBooksLinkModel());
 
 			viewModel.ShouldHaveReviewedBooks_OrderedByDescendingRating();
 		}
 
-		// TODO 
+		[Test]
+		public void Get_VieModelShouldContainAllGenres_OrderedByName()
+		{
+			bookRetriever.ReturnEmptyCollectionsSoDoesntBreakTests();
 
+			var genres = GenreTestingHelper.GetGenresWithDifferentNames();
 
-		// TODO - need a test for the book retriever that only returns reviewed books
+			// TODO - extension method && Dictionary to DTOs
+			genreRetriever.Stub(g => g.GetAll()).Return(genres.ToDictionary(x => x.Id, x => x.Name));
 
-		//[Test]
-		//public void Get_ShouldOrderBooksByRating()
-		//{
-		//    GetBooksWithMixedStatusRetrieverWillReturn().ToList();
+			var viewModel = endpoint.Get(new ViewBooksLinkModel());
 
-		//    endpoint.Get(new ViewBooksLinkModel());
+			viewModel.ShouldHaveGenres_OrderedByName();
+		}
 
-		//    bookRetriever.AssertWasCalled(r => r.GetReviewedBooksOrderedByRating());
-		//}
+		[Test]
+		public void Get_ShouldSetSelectedGenre_WhenSpecifyingGenre_ThatExists()
+		{
+			bookRetriever.ReturnEmptyCollectionsSoDoesntBreakTests();
 
-		// TODO - should ask retriever to get books ordered by rating
+			var genre = GetGenreSimulatedToExist();
 
-		//[Test]
-		//public void Get_VieModelShouldContainAllGenresInSession_OrderedByName()
-		//{
-		//    var genres = GenreTestingHelper.GetGenresFromSession(Session);
+			var viewModel = endpoint.Get(new ViewBooksLinkModel {Genre = genre});
 
-		//    var viewModel = endpoint.Get(new ViewBooksLinkModel());
-
-		//    genres.OrderBy(g => g.Name).ShouldMatch(viewModel.Genres);
-		//}
-
-		// TODO - view model should have all the genres returned from genre retriever
-
-		//[Test]
-		//public void Get_ShouldSetSelectedGenre()
-		//{
-		//    var genres = GenreTestingHelper.GetGenresFromSession(Session);
-
-		//    var viewModel = endpoint.Get(new ViewBooksLinkModel {Genre = genres.First().Id});
-
-		//    viewModel.ShouldHaveSelectedGenre(genres.First().Name);
-		//}
-
-		// TODO - given genre that retriever will return
+		    viewModel.ShouldHaveSelectedGenre(genre);
+		}
 
 		[Test]
 		public void Get_ShouldHaveDefaultGenreMessage()
 		{
-			bookRetriever.ReturnEmptyCollectionsSoDoesntBreakTests();
+			SetUpRetrieversToReturnIrrelevantValuesSoTestsDontBreak();
 
 			var model = endpoint.Get(new ViewBooksLinkModel());
 
 			model.ShouldHaveDefaultGenreMessage("-- All --");
 		}
 
-		//[Test]
-		//public void Get_WhenGivenGenreId_ShouldReturnOnlyReviewedBooksWithThatGenre()
-		//{
-		//    var genreToFilter = "genres/1";
+		[Test]
+		public void Get_WhenGivenGenreId_ForGenreThatExists_ShouldReturnOnlyReviewedBooksWithThatGenre()
+		{
+			SetUpRetrieversToReturnIrrelevantValuesSoTestsDontBreak();
+
+			var genreToFilter = GetGenreSimulatedToExist();
+
+			endpoint.Get(new ViewBooksLinkModel { Genre = genreToFilter });
+
+			bookRetriever.ShouldHaveBeenAskedToGetBooksFor(genreToFilter);
+		}
+
+		private string GetGenreSimulatedToExist()
+		{
+			var genreToFilter = "genres/1";
+
+			genreRetriever.Stub(g => g.CanFindGenreWith(genreToFilter)).Return(true);
+
+			var genres = new Dictionary<string, string> {{genreToFilter, genreToFilter}};
 			
-		//    var idsForBookWithGenre1 = PutBooksInSessionWithDifferentGenresAndGetIdsForBooksWithGenre(genreToFilter);
+			genreRetriever.Stub(g => g.GetAll()).Return(genres);
 
-		//    var result = endpoint.Get(new ViewBooksLinkModel {Genre = genreToFilter});
-			
-		//    result.ShouldOnlyHaveReviewedBooksWith(idsForBookWithGenre1);
-		//}
+			return genreToFilter;
+		}
 
-		// TODO - should ask retriever to get by id, should show that genre on the view model
+		private void SetUpRetrieversToReturnIrrelevantValuesSoTestsDontBreak()
+		{
+			bookRetriever.ReturnEmptyCollectionsSoDoesntBreakTests();
+			genreRetriever.ReturnEmptyCollectionSoDoesntBreakTest();
+		}
 
-		//[Test]
-		//public void Get_WhenSpecifyingGenreThatDoesntExist_ShouldShowAllReviewedBooks()
-		//{
-		//    var books = GetBooksWithMixedStatusRetrieverWillReturn().ToList();
+		[Test]
+		public void Get_WhenGivenGenreId_ViewModelShouldHaveBooks_ReturnedFromBookRetrievers_ByGenreSearch()
+		{
+			genreRetriever.ReturnEmptyCollectionSoDoesntBreakTest();
+			bookRetriever.ReturnEmptyWishlistBooksSoDoesntBreakTest();
 
-		//    var model = endpoint.Get(new ViewBooksLinkModel {Genre = "Genres/DoesNotExist"});
+			var genre = GetGenreSimulatedToExist();
 
-		//    model.ShouldContainListViewFor(books.Where(b => b.Status == BookStatus.Reviewed));
-		//}
+			var books = BookTestingHelper.GetSomeReviewedBooks(20);
 
-		// TODO - when retriever says cannot find genre - should query to get all books
+			bookRetriever.ReturnReviewedBooksForGenre(genre, books);
 
-		//[Test]
-		//public void Get_ModelShouldViewOfAllWishlistBooks()
-		//{
-		//    var books = GetWishlistBooksRetrieverWillReturn();
+			var viewModel = endpoint.Get(new ViewBooksLinkModel {Genre = genre});
 
-		//    var model = endpoint.Get(new ViewBooksLinkModel());
+			viewModel.ShouldContainListViewFor(books);
+		}
 
-		//    model.ShouldHaveWishlistBooks(books.Where(b => b.Status == BookStatus.Wishlist));
-		//}
+		[Test]
+		public void Get_WhenSpecifyingGenreThatDoesntExist_ShouldShowAllReviewedBooks()
+		{
+			SetUpRetrieversToReturnIrrelevantValuesSoTestsDontBreak();
 
-		// TODO - should ask to get wishlist books and model should have them all
+			genreRetriever.Stub(g => g.CanFindGenreWith(Arg<string>.Is.Anything)).Return(false);
 
-		//private void GetBooksWithMixedStatusRetrieverWillReturn()
-		//{
-		//    var book1 = BookTestingHelper.GetBook(id: "Books/001", status: BookStatus.CurrentlyReading);
-		//    var book2 = BookTestingHelper.GetBook(id: "Books/002", status: BookStatus.CurrentlyReading);
-		//    var book3 = BookTestingHelper.GetBook(id: "Books/003", status: BookStatus.Reviewed);
-		//    var book4 = BookTestingHelper.GetBook(id: "Books/004", status: BookStatus.Reviewed);
-		//    var book5 = BookTestingHelper.GetBook(id: "Books/005", status: BookStatus.Wishlist);
-		//    var book6 = BookTestingHelper.GetBook(id: "Books/006", status: BookStatus.Wishlist);
-		//    var book7 = BookTestingHelper.GetBook(id: "Books/007", status: BookStatus.Hidden);
-		//    var book8 = BookTestingHelper.GetBook(id: "Books/008", status: BookStatus.Hidden);
+			endpoint.Get(new ViewBooksLinkModel {Genre = "blah"});
 
-		//    var books = new[] {book1, book2, book3, book4, book5, book6, book7, book8};
+			bookRetriever.ShouldHaveBeenAskedToGetAllReviewedBooks();
+		}
 
-		//    bookRetriever.Stub(r => r.)
-		//}
+		[Test]
+		public void Get_ModelShouldViewOfAllWishlistBooks()
+		{
+			bookRetriever.ReturnEmptyReviewedBooksSoDoesntBreakTest();
+			genreRetriever.ReturnEmptyCollectionSoDoesntBreakTest();
 
-		//private IEnumerable<Book> PopulateAndGetAllBooksExistingFromSession()
-		//{
-		//    yield return GetBookFromSessionWithId("Books/001", BookStatus.CurrentlyReading);
-		//    yield return GetBookFromSessionWithId("Books/002", BookStatus.CurrentlyReading);
-		//    yield return GetBookFromSessionWithId("Books/003", BookStatus.Reviewed);
-		//    yield return GetBookFromSessionWithId("Books/004", BookStatus.Reviewed);
-		//    yield return GetBookFromSessionWithId("Books/005", BookStatus.Wishlist);
-		//    yield return GetBookFromSessionWithId("Books/006", BookStatus.Wishlist);
-		//    yield return GetBookFromSessionWithId("Books/007", BookStatus.Hidden);
-		//    yield return GetBookFromSessionWithId("Books/008", BookStatus.Hidden);
-		//    Session.SaveChanges();
-		//}
+			var wishlistBooks = BookTestingHelper.GetSomeWishlistBooks();
 
-		//private Book GetBookFromSessionWithId(string id, BookStatus status)
-		//{
-		//    var book1 = BookTestingHelper.GetBook(status: status);
-		//    book1.Id = id;
-		//    Session.Store(book1);
-		//    return book1;
-		//}
+			bookRetriever.ReturnWishlistBooks(wishlistBooks);
+
+			var viewModel = endpoint.Get(new ViewBooksLinkModel());
+
+			viewModel.ShouldHaveWishlistBooks(wishlistBooks);
+		}
 	}
 
 	public static class IBookRetrieverTestExtensions
 	{
 		public static void ReturnEmptyCollectionsSoDoesntBreakTests(this IBookRetriever retriever)
 		{
-			ReturnReviewedBooks(retriever, new List<Book>());
+			ReturnEmptyReviewedBooksSoDoesntBreakTest(retriever);
+			ReturnReviewedBooksForAnyGenre(retriever, new List<Book>());
 			ReturnEmptyWishlistBooksSoDoesntBreakTest(retriever);
 		}
 
-		public static void ReturnEmptyWishlistBooksSoDoesntBreakTest(IBookRetriever retriever)
+		public static void ReturnEmptyReviewedBooksSoDoesntBreakTest(this IBookRetriever retriever)
 		{
-			retriever.Stub(b => b.GetWishlistBooks()).Return(new List<Book>());
+			ReturnReviewedBooks(retriever, new List<Book>());
+		}
+
+		private static void ReturnReviewedBooksForAnyGenre(IBookRetriever retriever, List<Book> books)
+		{
+			retriever.Stub(r => r.GetReviewedBooks(Arg<String>.Is.Anything)).Return(books);
+		}
+
+		public static void ReturnEmptyWishlistBooksSoDoesntBreakTest(this IBookRetriever retriever)
+		{
+			var books = new List<Book>();
+			ReturnWishlistBooks(retriever, books);
+		}
+
+		public static void ReturnWishlistBooks(this IBookRetriever retriever, IEnumerable<Book> books)
+		{
+			retriever.Stub(b => b.GetWishlistBooks()).Return(books);
 		}
 
 		public static void ReturnReviewedBooks(this IBookRetriever retriever, IEnumerable<Book> reviewedBooks)
 		{
-			retriever.Stub(b => b.GetReviewedBooksOrderedByRating()).Return(reviewedBooks);
+			retriever.Stub(b => b.GetReviewedBooks()).Return(reviewedBooks);
+		}
+
+		public static void ReturnReviewedBooksForGenre(this IBookRetriever retriever, string genre, IEnumerable<Book> books)
+		{
+			retriever.Stub(r => r.GetReviewedBooks(genre)).Return(books);
+		}
+
+		public static void ShouldHaveBeenAskedToGetBooksFor(this IBookRetriever retriever, string genre)
+		{
+			retriever.AssertWasCalled(b => b.GetReviewedBooks(genre));
+		}
+
+		public static void ShouldHaveBeenAskedToGetAllReviewedBooks(this IBookRetriever retriever)
+		{
+			retriever.AssertWasCalled(b => b.GetReviewedBooks());
+		}
+
+	}
+
+	public static class IGenreRetrieverTestExtensions
+	{
+		public static void ReturnEmptyCollectionSoDoesntBreakTest(this IGenreRetriever retriever)
+		{
+			retriever.Stub(g => g.GetAll()).Return(new Dictionary<string, string>());
 		}
 	}
+
 }

@@ -5,7 +5,7 @@ namespace Model.Services
 {
 	public interface IBookRetriever
 	{
-		IEnumerable<Book> GetReviewedBooksOrderedByRating(string genre = null);
+		IEnumerable<Book> GetReviewedBooks(string genre = null);
 		
 		IEnumerable<Book> GetWishlistBooks();
 	}

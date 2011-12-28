@@ -27,7 +27,7 @@ namespace Web.Endpoints.SiteManagement.Book
 		{
 			// TODO - should controllers even see the domain entities?
 			var book = session.Load<Model.Book>(model.Id);
-			var genres = genreRetriever.GetAllOrderedByName();
+			var genres = genreRetriever.GetAll();
 
 			return new UpdateBookViewModel(book, genres);
 		}

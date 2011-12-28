@@ -15,7 +15,7 @@ namespace Model.Services
 		}
 
 		// TODO - Genre DTO
-		public IDictionary<String, String> GetAllOrderedByName()
+		public IDictionary<String, String> GetAll()
 		{
 			return  session
 				.Query<Genre>()

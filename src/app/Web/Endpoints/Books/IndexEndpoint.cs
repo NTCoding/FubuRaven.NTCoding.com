@@ -11,9 +11,6 @@ namespace Web.Endpoints.Books
 {
 	public class IndexEndpoint
 	{
-		// TODO - Testing convention - controllers talk to services but not the document session
-		//                             tests verify the services were called
-		//                             the services get tested with the in memory database
 		private readonly IGenreRetriever genreRetriever;
 		private readonly IBookRetriever bookRetriever;
 
@@ -25,10 +22,11 @@ namespace Web.Endpoints.Books
 
 		public ViewBooksViewModel Get(ViewBooksLinkModel model)
 		{
-			var models = GetBooks(model).ToList().Select(b => new BookListView(b));
+			var books = GetBooks(model);
+			var models = books.ToList().Select(b => new BookListView(b));
 			var wishlistBooks = bookRetriever.GetWishlistBooks().ToList().Select(b => new BookListView(b));
 			
-			return new ViewBooksViewModel(models, genreRetriever.GetAllOrderedByName(), model.Genre, wishlistBooks);
+			return new ViewBooksViewModel(models, genreRetriever.GetAll(), model.Genre, wishlistBooks);
 		}
 		
 
@@ -37,10 +35,11 @@ namespace Web.Endpoints.Books
 			var shouldDefaultToAllGenres = ShouldDefaultToAllGenres(model);
 
 			return shouldDefaultToAllGenres 
-			       	? bookRetriever.GetReviewedBooksOrderedByRating()
-			       	: bookRetriever.GetReviewedBooksOrderedByRating(model.Genre);
+			       	? bookRetriever.GetReviewedBooks()
+			       	: bookRetriever.GetReviewedBooks(model.Genre);
 		}
 
+		// TODO - Should this logic live here? 100% yes - it is application behaviour specific to this view
 		private bool ShouldDefaultToAllGenres(ViewBooksLinkModel model)
 		{
 			return string.IsNullOrWhiteSpace(model.Genre)
@@ -57,7 +56,7 @@ namespace Web.Endpoints.Books
 			this.session = session;
 		}
 
-		public IEnumerable<Book> GetReviewedBooksOrderedByRating(String genre = null)
+		public IEnumerable<Book> GetReviewedBooks(String genre = null)
 		{
 			IEnumerable<Book> books = session.Query<Book>()
 				.Where(b => b.Status == BookStatus.Reviewed)

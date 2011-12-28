@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Model;
@@ -9,16 +10,16 @@ namespace Web.Tests.Utilities
 {
 	public static class ViewBooksViewModelAssertions
 	{
-		// TODO - refactor into collection to compare
+		public static void ShouldHaveGenres_OrderedByName(this ViewBooksViewModel model)
+		{
+			CollectionHelper.CompareOrderOfItems(model.Genres, 
+				(current, previous) => Assert.That(current.Value, Is.GreaterThan(previous.Value)));
+		}
+
 		public static void ShouldHaveReviewedBooks_OrderedByDescendingRating(this ViewBooksViewModel model)
 		{
-			for (int i = 1; i < model.Books.Count(); i++)
-			{
-				var current = model.Books.ElementAt(i);
-				var last = model.Books.ElementAt(i - 1);
-
-				Assert.That(current.Rating, Is.LessThanOrEqualTo(last.Rating));
-			}
+			CollectionHelper.CompareOrderOfItems(model.Books, 
+				(current, previous) => Assert.That(current.Rating, Is.LessThanOrEqualTo(previous.Rating)));
 		}
 
 		public static void ShouldContainListViewFor(this ViewBooksViewModel model, IEnumerable<Book> books)
@@ -66,6 +67,20 @@ namespace Web.Tests.Utilities
 			foreach (var wishlistBook in wishlistBooks)
 			{
 				Assert.That(model.WishlistBooks.Any(b => b.Id == wishlistBook.Id));
+			}
+		}
+	}
+
+	public static class CollectionHelper
+	{
+		public static void CompareOrderOfItems<T>(IEnumerable<T> collection, Action<T, T> compare)
+		{
+			for (int i = 1; i < collection.Count(); i++)
+			{
+				var current = collection.ElementAt(i);
+				var previous = collection.ElementAt(i - 1);
+
+				compare(current, previous);
 			}
 		}
 	}

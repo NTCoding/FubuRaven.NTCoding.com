@@ -11,7 +11,7 @@ namespace Web.Endpoints.Books.ViewModels
 			IDictionary<string, string> genres, string selectedGenre, IEnumerable<BookListView> wishlistBooks)
 		{
 			Books = books.OrderByDescending(b => b.Rating);
-			Genres = genres;
+			Genres = genres.OrderBy(g => g.Value).ToDictionary(x => x.Key, x => x.Value);
 			WishlistBooks = wishlistBooks;
 
 			if (!string.IsNullOrWhiteSpace(selectedGenre) && genres.Keys.Contains(selectedGenre))

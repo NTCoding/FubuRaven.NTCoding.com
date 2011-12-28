@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using AutoMapper;
 using Model;
+using Model.Services;
 using NUnit.Framework;
+using Rhino.Mocks;
 using Web.Endpoints.Books;
 using Web.Endpoints.Books.LinkModels;
 using Web.Endpoints.Books.ViewModels;
@@ -23,8 +25,11 @@ namespace Web.Tests.Books.Public
 		{
 			book = BookTestingHelper.GetBook();
 			book.Rating = 4;
-
-			var endpoint = new ViewEndpoint();
+			
+			var retriever = MockRepository.GenerateMock<IBookRetriever>();
+			retriever.Stub(r => r.GetById(book.Id)).Return(book);
+			
+			var endpoint = new ViewEndpoint(retriever);
 			model = endpoint.Get(new ViewBookLinkModel { Id = book.Id });
 		}
 

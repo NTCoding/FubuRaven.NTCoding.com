@@ -28,5 +28,11 @@ namespace DataAccessTests
 		{
 			Assert.Inconclusive();
 		}
+
+		[Test]
+		public void GetById()
+		{
+			Assert.Fail();
+		}
 	}
 }

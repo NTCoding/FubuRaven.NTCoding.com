@@ -34,19 +34,7 @@ namespace DataAccessTests
 			Assert.AreEqual(reviewedFromSession, reviewedFromRetriever);
 		}
 
-		private void PopulateSessionWithBooksOfDifferentStatus()
-		{
-			var currentlyReading = BookTestingHelper.CreateBooks(10, BookStatus.CurrentlyReading).ToList();
-			var reviewed = BookTestingHelper.CreateBooks(10, BookStatus.Reviewed).ToList();
-			var wishlist = BookTestingHelper.CreateBooks(10, BookStatus.Wishlist).ToList();
-			var hidden = BookTestingHelper.CreateBooks(10, BookStatus.Hidden).ToList();
-
-			currentlyReading.AddRange(reviewed);
-			currentlyReading.AddRange(wishlist);
-			currentlyReading.AddRange(hidden);
-
-			currentlyReading.ForEach(Session.Store);
-		}
+		
 
 		[Test]
 		public void GivenGenreId_ShouldOnlyGetBooks_ForThatGenre()
@@ -79,19 +67,45 @@ namespace DataAccessTests
 		[Test]
 		public void GetWishlistBooks_ShouldOnlyReturnBooks_OnTheWishlist()
 		{
-			Assert.Inconclusive();
+			PopulateSessionWithBooksOfDifferentStatus();
+			Session.SaveChanges();
+
+			var fromSession = Session.Query<Book>().Where(b => b.Status == BookStatus.Wishlist);
+			var fromRetriever = retriever.GetWishlistBooks();
+
+			Assert.AreEqual(fromSession, fromRetriever);
 		}
 
 		[Test]
 		public void GetById()
 		{
-			Assert.Fail();
+			var testBook = BookTestingHelper.CreateBooks(1, BookStatus.Hidden).Single();
+			Session.Store(testBook);
+			Session.SaveChanges();
+
+			var fromRetriever = retriever.GetById(testBook.Id);
+
+			Assert.AreEqual(testBook, fromRetriever);
 		}
 
 		[Test]
 		public void GetAll()
 		{
 			Assert.Fail();
+		}
+
+		private void PopulateSessionWithBooksOfDifferentStatus()
+		{
+			var currentlyReading = BookTestingHelper.CreateBooks(10, BookStatus.CurrentlyReading).ToList();
+			var reviewed = BookTestingHelper.CreateBooks(10, BookStatus.Reviewed).ToList();
+			var wishlist = BookTestingHelper.CreateBooks(10, BookStatus.Wishlist).ToList();
+			var hidden = BookTestingHelper.CreateBooks(10, BookStatus.Hidden).ToList();
+
+			currentlyReading.AddRange(reviewed);
+			currentlyReading.AddRange(wishlist);
+			currentlyReading.AddRange(hidden);
+
+			currentlyReading.ForEach(Session.Store);
 		}
 	}
 }

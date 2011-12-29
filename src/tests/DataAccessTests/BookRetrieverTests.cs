@@ -91,7 +91,13 @@ namespace DataAccessTests
 		[Test]
 		public void GetAll()
 		{
-			Assert.Fail();
+			PopulateSessionWithBooksOfDifferentStatus();
+			Session.SaveChanges();
+
+			var fromSession = Session.Query<Book>();
+			var fromRetriever = retriever.GetAll();
+
+			Assert.AreEqual(fromSession, fromRetriever);
 		}
 
 		private void PopulateSessionWithBooksOfDifferentStatus()

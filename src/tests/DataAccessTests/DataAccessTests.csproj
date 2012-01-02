@@ -91,7 +91,7 @@
   <ItemGroup>
     <Compile Include="BookCreaterTests.cs" />
     <Compile Include="BookRetrieverTests.cs" />
-    <Compile Include="GenreCreater.cs" />
+    <Compile Include="GenreCreaterTests.cs" />
     <Compile Include="GenreRetrieverTests.cs" />
     <Compile Include="HomepageContentProviderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -7,29 +7,28 @@ namespace DataAccessTests.Utilities
 	public abstract class RavenTestsBase
 	{
 		protected IDocumentSession Session;
-		private EmbeddableDocumentStore _store;
+		private EmbeddableDocumentStore store;
 
 		[SetUp]
 		public void SetUp()
 		{
-				_store = new EmbeddableDocumentStore
+				store = new EmbeddableDocumentStore
 				         	{
 				         		Configuration =
 				         			{
-				         				RunInUnreliableYetFastModeThatIsNotSuitableForProduction = true,
 										RunInMemory = true,
 				         			}
 				         	};
 
-				_store.Initialize();
+				store.Initialize();
 
-			Session = _store.OpenSession();
+			Session = store.OpenSession();
 		}
 
 		[TearDown]
 		public void TearDown()
 		{
-			_store.DocumentDatabase.TransactionalStorage.Dispose();
+			Session.Dispose();
 		}
 	}
 }

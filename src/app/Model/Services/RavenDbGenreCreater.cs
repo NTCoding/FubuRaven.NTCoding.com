@@ -1,4 +1,6 @@
-﻿using Model.Services.dtos;
+﻿using System;
+using System.Linq;
+using Model.Services.dtos;
 using Raven.Client;
 
 namespace Model.Services
@@ -14,11 +16,24 @@ namespace Model.Services
 
 		public string Create(CreateGenreDto dto)
 		{
+			//if (IsAlreadyGenreWith(dto.Name)) throw new AttemptedCreationOfDuplicateGenre();
+
 			var genre = new Genre(dto.Name);
 
 			session.Store(genre);
 
 			return genre.Id;
 		}
+
+		private bool IsAlreadyGenreWith(string name)
+		{
+			return session
+				.Query<Genre>()
+				.Any(g => g.Name == name);
+		}
+	}
+
+	public class AttemptedCreationOfDuplicateGenre : Exception
+	{
 	}
 }

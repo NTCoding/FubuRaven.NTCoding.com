@@ -91,12 +91,12 @@
   <ItemGroup>
     <Compile Include="BookCreaterTests.cs" />
     <Compile Include="BookRetrieverTests.cs" />
+    <Compile Include="BookUpdaterTests.cs" />
     <Compile Include="GenreCreaterTests.cs" />
     <Compile Include="GenreRetrieverTests.cs" />
     <Compile Include="HomepageContentProviderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\BookTestingHelper.cs" />
-    <Compile Include="Utilities\BookUpdaterTests.cs" />
     <Compile Include="Utilities\RavenTestsBase.cs" />
   </ItemGroup>
   <ItemGroup>

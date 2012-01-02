@@ -1,5 +1,7 @@
-﻿using Model;
+﻿using System.Collections.Generic;
+using Model;
 using Model.Services;
+using Model.Services.dtos;
 using NUnit.Framework;
 using Rhino.Mocks;
 using Web.Endpoints;

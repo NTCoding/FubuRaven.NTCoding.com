@@ -19,13 +19,15 @@ namespace Web.Tests.Homepage
 		private IndexEndpoint endpoint;
 		private IHomepageContentProvider provider;
 		private IBlogPostsRetriever blogRetriever;
+		private ITweetRetriever tweetRetriever;
 
 		[SetUp]
 		public void SetUp()
 		{
 			provider = MockRepository.GenerateStub<IHomepageContentProvider>();
 			blogRetriever = MockRepository.GenerateStub<IBlogPostsRetriever>();
-			endpoint = new IndexEndpoint(provider, blogRetriever);
+			tweetRetriever = MockRepository.GenerateStub<ITweetRetriever>();
+			endpoint = new IndexEndpoint(provider, blogRetriever, tweetRetriever);
 		}
 
 		[Test]
@@ -34,7 +36,7 @@ namespace Web.Tests.Homepage
 		{
 			blogRetriever.ReturnEmptyCollectionSoDoesntBreakTest();
 			
-			new IndexEndpoint(null, blogRetriever);
+			new IndexEndpoint(null, blogRetriever, tweetRetriever);
 		}
 
 		[Test]
@@ -83,8 +85,34 @@ namespace Web.Tests.Homepage
 				             	};
 			}
 		}
+
+		[Test]
+		public void Get_ShouldGrabRecentTweets_AndPutThemOnViewModel()
+		{
+			blogRetriever.ReturnEmptyCollectionSoDoesntBreakTest();
+
+			var tweets = CreateDummyTweetDTOs(3);
+			tweetRetriever.Stub(t => t.GetRecentTweets()).Return(tweets);
+
+			var viewModel = endpoint.Get(new HomepageLinkModel());
+
+			viewModel.ShouldContain(tweets);
+		}
+
+		private IEnumerable<TweetDTO> CreateDummyTweetDTOs(int amount)
+		{
+			for (int i = 0; i < amount; i++)
+			{
+				yield return new TweetDTO
+				             	{
+									Date = DateTime.Now.AddDays(-i).ToShortDateString(),
+									Text = "This is a twwwwweeet " + i
+				             	};
+			}
+		}
 	}
 
+	// TODO - move this?
 	public static class IBlogPostRetrieverTestExtensions
 	{
 		public static void ReturnEmptyCollectionSoDoesntBreakTest(this IBlogPostsRetriever retriever)

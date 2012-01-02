@@ -8,14 +8,17 @@ namespace Web.Endpoints.HomepageModels
 {
 	public class HomepageViewModel
 	{
-		public HomepageViewModel(string homepageContent, IEnumerable<BlogPostDTO> recentBlogEntries)
+		public HomepageViewModel(string homepageContent, IEnumerable<BlogPostDTO> recentBlogEntries, IEnumerable<TweetDTO> tweets)
 		{
 			HomepageContent = homepageContent;
 			BlogPosts = recentBlogEntries.Select(x => new BlogPostDisplayModel(x));
+			Tweets = tweets;
 		}
 
 		public String HomepageContent { get; set; }
 
 		public IEnumerable<BlogPostDisplayModel> BlogPosts { get; set; }
+
+		public IEnumerable<TweetDTO> Tweets { get; set; }
 	}
 }

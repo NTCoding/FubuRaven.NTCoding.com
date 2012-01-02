@@ -99,15 +99,16 @@
     <Compile Include="Genre.cs" />
     <Compile Include="HomepageContent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\BlogPostsesRetriever.cs" />
     <Compile Include="Services\BookCreater.cs" />
     <Compile Include="Services\dtos\BlogPost.cs" />
     <Compile Include="Services\dtos\CreateBookDto.cs" />
     <Compile Include="Services\dtos\CreateGenreDto.cs" />
+    <Compile Include="Services\dtos\TweetDTO.cs" />
     <Compile Include="Services\dtos\UpdateBookDto.cs" />
     <Compile Include="Services\IBlogPostsRetriever.cs" />
     <Compile Include="Services\IBookRetriever.cs" />
     <Compile Include="Services\IGenreCreater.cs" />
+    <Compile Include="Services\ITweetRetriever.cs" />
     <Compile Include="Services\RavenDbBookRetriever.cs" />
     <Compile Include="Services\RavenDbGenreCreater.cs" />
     <Compile Include="Services\RavenDbGenreRetriever.cs" />

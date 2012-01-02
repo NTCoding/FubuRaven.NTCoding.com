@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Model;
 using Model.Services;
 using Model.Services.dtos;
@@ -31,18 +32,24 @@ namespace Web.Tests.Homepage
 		[ExpectedException(typeof(ArgumentNullException))]
 		public void ShouldThrowExceptionIfNoHomepageContentProviderSupplied()
 		{
+			blogRetriever.ReturnEmptyCollectionSoDoesntBreakTest();
+			
 			new IndexEndpoint(null, blogRetriever);
 		}
 
 		[Test]
 		public void Get_ShouldBeLinkedToByHomepageLinkModel()
 		{
+			blogRetriever.ReturnEmptyCollectionSoDoesntBreakTest();
+
 			endpoint.Get(new HomepageLinkModel());
 		}
 
 		[Test]
 		public void Get_ShouldReturnViewModelWithHomepageContentOn()
 		{
+			blogRetriever.ReturnEmptyCollectionSoDoesntBreakTest();
+
 			string content = "blah";
 			
 			provider.Stub(x => x.GetHomepageContent()).Return(content);
@@ -75,6 +82,14 @@ namespace Web.Tests.Homepage
 				             		Text = "blah, mcblah, blah"
 				             	};
 			}
+		}
+	}
+
+	public static class IBlogPostRetrieverTestExtensions
+	{
+		public static void ReturnEmptyCollectionSoDoesntBreakTest(this IBlogPostsRetriever retriever)
+		{
+			retriever.Stub(r => r.GetRecentBlogEntries()).Return(Enumerable.Empty<BlogPostDTO>());
 		}
 	}
 }

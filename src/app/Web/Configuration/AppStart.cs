@@ -45,6 +45,8 @@ namespace Web.Configuration
 
 				x.For<IBookRetriever>().Use<RavenDbBookRetriever>();
 
+				x.For<IBlogPostsRetriever>().Use<BlogPostsesRetriever>();
+
 			});
 
         	BootstrappingExtensions.StructureMap(FubuApplication.For<NTCodingFubuRegistry>(), container)

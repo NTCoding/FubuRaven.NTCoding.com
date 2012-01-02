@@ -84,7 +84,6 @@
     <Compile Include="Homepage\HomepageContentViewModelTests.cs" />
     <Compile Include="Homepage\IndexEndpointTests.cs" />
     <Compile Include="Homepage\HomepageLinkModelTests.cs" />
-    <Compile Include="Homepage\HomepageViewModelTest.cs" />
     <Compile Include="Infrastructure\FileUploaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestDoubles\MockHttpPostedFileBase.cs" />

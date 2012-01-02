@@ -22,11 +22,10 @@ namespace Web.Endpoints
 
 		public HomepageViewModel Get(HomepageLinkModel homepageLinkModel)
 		{
-			return new HomepageViewModel
-			       	{
-			       		HomepageContent = homepageContentProvider.GetHomepageContent(),
-						BlogPosts = blogRetriever.GetRecentBlogEntries()
-			       	};
+			var homepageContent = homepageContentProvider.GetHomepageContent();
+			var recentBlogEntries = blogRetriever.GetRecentBlogEntries();
+			
+			return new HomepageViewModel(homepageContent, recentBlogEntries);
 		}
 	}
 }

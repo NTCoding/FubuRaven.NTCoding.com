@@ -1,5 +1,6 @@
 ﻿<use namespace="Web.Endpoints.SiteManagement" />
 <use namespace="Web.Endpoints.Books.LinkModels" />
+<use namespace="Web.Utilities" />
 <viewdata model="Web.Endpoints.HomepageModels.HomepageViewModel" />
 <nav>
 	<ul>
@@ -14,6 +15,19 @@
 		<div>
 			${Model.HomepageContent}
 		</div>
+
+<div id="recentBlogEntries">
+	<h2>Recent Blog Entries</h2>
+	<for each="var blog in Model.BlogPosts">
+		<div class="blogEntry">
+			<h3 class="blogTitle">${blog.Title}</h3>
+			<span class="blogDate">${blog.Date}</span>
+			<div class="blogText">
+				${this.DisplayFor<BlogPostDisplayModel>(blog, b => b.Text_Html)}
+			</div>
+		</div>
+	</for>
+</div>
 
 <content name="minorContent">
 	<div class="top"></div>

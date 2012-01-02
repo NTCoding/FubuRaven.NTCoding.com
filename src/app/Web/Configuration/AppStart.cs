@@ -43,6 +43,8 @@ namespace Web.Configuration
 
 				x.For<IGenreCreater>().Use<RavenDbGenreCreater>();
 
+				x.For<IBookRetriever>().Use<RavenDbBookRetriever>();
+
 			});
 
         	BootstrappingExtensions.StructureMap(FubuApplication.For<NTCodingFubuRegistry>(), container)

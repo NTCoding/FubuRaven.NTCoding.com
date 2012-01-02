@@ -58,7 +58,7 @@ namespace Specs.Steps.Home_Page_Content
 		[Then(@"I should see the following welcome content ""(.*)")]
 		public void ThenIShouldSeeTheFollowingWelcomeContentWelcomeToNTCoding_NowGettingJiggyWithFubuAndRaven(string content)
 		{
-			var endpoint = new Web.Endpoints.IndexEndpoint(_contentProvider);
+			var endpoint = new Web.Endpoints.IndexEndpoint(_contentProvider, TODO);
 			var result = endpoint.Get(new HomepageLinkModel());
 
 			Assert.AreEqual(content, result.HomepageContent);

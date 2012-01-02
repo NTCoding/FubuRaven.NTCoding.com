@@ -46,7 +46,7 @@ namespace DataAccessTests
 		
 
 		[Test]
-		public void FindById_ShouldReturnGenre_WithGivenId()
+		public void CanFindGenreWith_ShouldReturnTrue_GivenIdForGenreThatExists()
 		{
 			var genre = new Genre("Hulk Hogan");
 
@@ -55,6 +55,12 @@ namespace DataAccessTests
 			Session.SaveChanges();
 
 			Assert.IsTrue(retriever.CanFindGenreWith(genre.Id));
+		}
+
+		[Test]
+		public void CanFindGenreWith_ShouldReturnFals_GivenIdForGenreThatDoesntExist()
+		{
+			Assert.IsFalse(retriever.CanFindGenreWith("GreenSocksAreGroovy"));
 		}
 
 		private IEnumerable<Genre> CreateSomeGenres(int amount)

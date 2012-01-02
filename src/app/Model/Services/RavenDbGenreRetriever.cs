@@ -26,7 +26,12 @@ namespace Model.Services
 
 		public bool CanFindGenreWith(string id)
 		{
-			return session.Query<Genre>().Count(g => g.Id == id) > 0;
+			return GetGenre(id) != null;
+		}
+
+		private Genre GetGenre(string id)
+		{
+			return session.Load<Genre>(id);
 		}
 	}
 }

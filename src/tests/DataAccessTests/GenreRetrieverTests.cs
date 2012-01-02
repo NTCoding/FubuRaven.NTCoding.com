@@ -8,6 +8,7 @@ using NUnit.Framework;
 
 namespace DataAccessTests
 {
+	// TODO - testing retrievers could get boring if they are all the same? Generic implementation? Generic tests?
 	[TestFixture]
 	public class GenreRetrieverTests : RavenTestsBase
 	{
@@ -42,6 +43,20 @@ namespace DataAccessTests
 			}
 		}
 
+		
+
+		[Test]
+		public void FindById_ShouldReturnGenre_WithGivenId()
+		{
+			var genre = new Genre("Hulk Hogan");
+
+			Session.Store(genre);
+
+			Session.SaveChanges();
+
+			Assert.IsTrue(retriever.CanFindGenreWith(genre.Id));
+		}
+
 		private IEnumerable<Genre> CreateSomeGenres(int amount)
 		{
 			for (int i = 0; i < amount; i++)
@@ -49,12 +64,6 @@ namespace DataAccessTests
 				yield return new Genre("Genre " + i);
 			}
 
-		}
-
-		[Test]
-		public void FindById_ShouldReturnGenre_WithGivenId()
-		{
-			Assert.Inconclusive();
 		}
 	}
 }

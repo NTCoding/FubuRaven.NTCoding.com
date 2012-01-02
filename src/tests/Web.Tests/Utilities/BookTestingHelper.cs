@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Model;
+using Model.Services.dtos;
 
 namespace Web.Tests.Utilities
 {
@@ -28,6 +29,11 @@ namespace Web.Tests.Utilities
 			return GetBooks(amount, BookStatus.Wishlist);
 		}
 
+		public static IEnumerable<Book> GetSomeCurrentlyReadingBooks(int amount = 10)
+		{
+			return GetBooks(amount, BookStatus.CurrentlyReading);
+		}
+
 		private static IEnumerable<Book> GetBooks(int amount, BookStatus status)
 		{
 			var rand = new Random();
@@ -36,6 +42,7 @@ namespace Web.Tests.Utilities
 				yield return GetBook(status: status, rating: rand.Next(1, 5));
 			}
 		}
+
 
 		
 	}

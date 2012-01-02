@@ -9,6 +9,7 @@ using NUnit.Framework;
 using Rhino.Mocks;
 using Web.Endpoints;
 using Web.Endpoints.HomepageModels;
+using Web.Tests.Books.Public;
 using Web.Tests.Utilities;
 
 namespace Web.Tests.Homepage
@@ -20,6 +21,7 @@ namespace Web.Tests.Homepage
 		private IHomepageContentProvider provider;
 		private IBlogPostsRetriever blogRetriever;
 		private ITweetRetriever tweetRetriever;
+		private IBookRetriever bookRetriever;
 
 		[SetUp]
 		public void SetUp()
@@ -27,22 +29,15 @@ namespace Web.Tests.Homepage
 			provider = MockRepository.GenerateStub<IHomepageContentProvider>();
 			blogRetriever = MockRepository.GenerateStub<IBlogPostsRetriever>();
 			tweetRetriever = MockRepository.GenerateStub<ITweetRetriever>();
-			endpoint = new IndexEndpoint(provider, blogRetriever, tweetRetriever);
-		}
-
-		[Test]
-		[ExpectedException(typeof(ArgumentNullException))]
-		public void ShouldThrowExceptionIfNoHomepageContentProviderSupplied()
-		{
-			blogRetriever.ReturnEmptyCollectionSoDoesntBreakTest();
-			
-			new IndexEndpoint(null, blogRetriever, tweetRetriever);
+			bookRetriever = MockRepository.GenerateStub<IBookRetriever>();
+			endpoint = new IndexEndpoint(provider, blogRetriever, tweetRetriever, bookRetriever);
 		}
 
 		[Test]
 		public void Get_ShouldBeLinkedToByHomepageLinkModel()
 		{
 			blogRetriever.ReturnEmptyCollectionSoDoesntBreakTest();
+			bookRetriever.ReturnEmptyCurrentlyReadingSoDoesntBreakTest();
 
 			endpoint.Get(new HomepageLinkModel());
 		}
@@ -50,6 +45,7 @@ namespace Web.Tests.Homepage
 		[Test]
 		public void Get_ShouldReturnViewModelWithHomepageContentOn()
 		{
+			bookRetriever.ReturnEmptyCurrentlyReadingSoDoesntBreakTest();
 			blogRetriever.ReturnEmptyCollectionSoDoesntBreakTest();
 
 			string content = "blah";
@@ -64,6 +60,8 @@ namespace Web.Tests.Homepage
 		[Test]
 		public void Get_ShouldGrabRecentBlogEntries_AndShowThemOnViewModel()
 		{
+			bookRetriever.ReturnEmptyCurrentlyReadingSoDoesntBreakTest();
+
 			var blogPosts = CreateDummyBlogPostDTOs(5);
 			
 			blogRetriever.Stub(b => b.GetRecentBlogEntries()).Return(blogPosts);
@@ -90,6 +88,7 @@ namespace Web.Tests.Homepage
 		public void Get_ShouldGrabRecentTweets_AndPutThemOnViewModel()
 		{
 			blogRetriever.ReturnEmptyCollectionSoDoesntBreakTest();
+			bookRetriever.ReturnEmptyCurrentlyReadingSoDoesntBreakTest();
 
 			var tweets = CreateDummyTweetDTOs(3);
 			tweetRetriever.Stub(t => t.GetRecentTweets()).Return(tweets);
@@ -109,6 +108,20 @@ namespace Web.Tests.Homepage
 									Text = "This is a twwwwweeet " + i
 				             	};
 			}
+		}
+
+		[Test]
+		public void Get_ShouldGrabCurrentlyReadingBooks_AndPutThemOnViewModel()
+		{
+			blogRetriever.ReturnEmptyCollectionSoDoesntBreakTest();
+
+			var books = BookTestingHelper.GetSomeCurrentlyReadingBooks(3);
+
+			bookRetriever.Stub(r => r.GetCurrentlyReading()).Return(books);
+
+			var viewModel = endpoint.Get(new HomepageLinkModel());
+
+			viewModel.ShouldContain(books);
 		}
 	}
 

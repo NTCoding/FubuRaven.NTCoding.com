@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Model;
@@ -28,18 +27,9 @@ namespace Web.Tests.Utilities
 
 			foreach (var book in books)
 			{
-				Assert.That(model.Books.Any(v => HasMatchingValues(v, book)), Is.True, "No match for book: " + book.Id);
+				Assert.That(model.Books.Any(v => BookComparer.HasMatchingValues(v, book)), Is.True, "No match for book: " + book.Id);
 			}
 		}
-
-		private static bool HasMatchingValues(BookListView bookListView, Book book)
-		{
-			return bookListView.Id == book.Id
-			       && bookListView.Image.Id == book.Id
-			       && bookListView.Title == book.Title
-			       && bookListView.Rating == book.Rating;
-		}
-
 		public static void ShouldOnlyHaveReviewedBooksWith(this ViewBooksViewModel model, IEnumerable<string> ids)
 		{
 			Assert.AreEqual(ids.Count(), model.Books.Count());
@@ -67,21 +57,6 @@ namespace Web.Tests.Utilities
 			foreach (var wishlistBook in wishlistBooks)
 			{
 				Assert.That(model.WishlistBooks.Any(b => b.Id == wishlistBook.Id));
-			}
-		}
-	}
-
-	// TODO - Move to tests common
-	public static class CollectionHelper
-	{
-		public static void CompareOrderOfItems<T>(IEnumerable<T> collection, Action<T, T> compare)
-		{
-			for (int i = 1; i < collection.Count(); i++)
-			{
-				var current = collection.ElementAt(i);
-				var previous = collection.ElementAt(i - 1);
-
-				compare(current, previous);
 			}
 		}
 	}

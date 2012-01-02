@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Model;
 using Model.Services.dtos;
 using NUnit.Framework;
 using Web.Endpoints.HomepageModels;
@@ -39,6 +40,14 @@ namespace Web.Tests.Utilities
 		{
 			return first.Date == second.Date
 			       && first.Text == second.Text;
+		}
+
+		public static void ShouldContain(this HomepageViewModel model, IEnumerable<Book> books)
+		{
+			foreach (var book in books)
+			{
+				Assert.That(model.Books.Any(b => BookComparer.HasMatchingValues(b, book)));
+			}
 		}
 	}
 }

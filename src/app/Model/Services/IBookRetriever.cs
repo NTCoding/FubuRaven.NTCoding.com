@@ -10,8 +10,10 @@ namespace Model.Services
 		
 		IEnumerable<Book> GetWishlistBooks();
 		
-		Book GetById(string id);
-		
 		IEnumerable<Book> GetAll();
+
+		IEnumerable<Book> GetCurrentlyReading();
+
+		Book GetById(string id);
 	}
 }

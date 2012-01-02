@@ -87,7 +87,9 @@
     <Compile Include="Infrastructure\FileUploaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestDoubles\MockHttpPostedFileBase.cs" />
+    <Compile Include="Utilities\BookComparer.cs" />
     <Compile Include="Utilities\BookTestingHelper.cs" />
+    <Compile Include="Utilities\CollectionHelper.cs" />
     <Compile Include="Utilities\GenreAssertions.cs" />
     <Compile Include="Utilities\GenreTestingHelper.cs" />
     <Compile Include="Utilities\HomepageViewModelAssertions.cs" />

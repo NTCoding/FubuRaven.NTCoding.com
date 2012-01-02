@@ -218,6 +218,12 @@ namespace Web.Tests.Books.Public
 			retriever.Stub(r => r.GetReviewedBooks(genre)).Return(books);
 		}
 
+		public static void ReturnEmptyCurrentlyReadingSoDoesntBreakTest(this IBookRetriever bookRetriever)
+		{
+			bookRetriever.Stub(r => r.GetCurrentlyReading()).Return(Enumerable.Empty<Book>());
+		}
+
+		// TODO - Are we going to put these in an Assertion extensions class instead?
 		public static void ShouldHaveBeenAskedToGetBooksFor(this IBookRetriever retriever, string genre)
 		{
 			retriever.AssertWasCalled(b => b.GetReviewedBooks(genre));

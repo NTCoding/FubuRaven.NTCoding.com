@@ -12,14 +12,17 @@ namespace Web.Endpoints
 		private readonly IHomepageContentProvider homepageContentProvider;
 		private readonly IBlogPostsRetriever blogRetriever;
 		private readonly ITweetRetriever tweetRetriever;
+		private readonly IBookRetriever bookRetriever;
 
-		public IndexEndpoint(IHomepageContentProvider homepageContentProvider, IBlogPostsRetriever blogRetriever, ITweetRetriever tweetRetriever)
+		public IndexEndpoint(IHomepageContentProvider homepageContentProvider, IBlogPostsRetriever blogRetriever, 
+			ITweetRetriever tweetRetriever, IBookRetriever bookRetriever)
 		{
 			if (homepageContentProvider == null) throw new ArgumentNullException("homepageContentProvider");
 
 			this.homepageContentProvider = homepageContentProvider;
 			this.blogRetriever = blogRetriever;
 			this.tweetRetriever = tweetRetriever;
+			this.bookRetriever = bookRetriever;
 		}
 
 		public HomepageViewModel Get(HomepageLinkModel homepageLinkModel)
@@ -27,8 +30,9 @@ namespace Web.Endpoints
 			var homepageContent = homepageContentProvider.GetHomepageContent();
 			var recentBlogEntries = blogRetriever.GetRecentBlogEntries();
 			var tweets = tweetRetriever.GetRecentTweets();
+			var books = bookRetriever.GetCurrentlyReading();
 			
-			return new HomepageViewModel(homepageContent, recentBlogEntries, tweets);
+			return new HomepageViewModel(homepageContent, recentBlogEntries, tweets, books);
 		}
 	}
 }

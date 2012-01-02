@@ -31,6 +31,11 @@ namespace Model.Services
 			return session.Query<Book>().Where(b => b.Status == BookStatus.Wishlist);
 		}
 
+		public IEnumerable<Book> GetCurrentlyReading()
+		{
+			throw new NotImplementedException();
+		}
+
 		public Book GetById(string id)
 		{
 			return session.Load<Book>(id);

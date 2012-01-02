@@ -216,8 +216,9 @@
     <Compile Include="Infrastructure\Services\FileUploader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\AsyncHelper.cs" />
+    <Compile Include="Utilities\AsyncTimeoutTweetRetriever.cs" />
     <Compile Include="Utilities\BlogPostDisplayModel.cs" />
-    <Compile Include="Utilities\BlogPostsesRetriever.cs" />
+    <Compile Include="Utilities\BlogPostsRetriever.cs" />
     <Compile Include="Utilities\ImageDisplayModel.cs" />
     <Compile Include="Utilities\ImagePreparer.cs" />
     <Compile Include="Utilities\StringWrapper.cs" />

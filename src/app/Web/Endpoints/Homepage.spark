@@ -32,6 +32,16 @@
 <content name="minorContent">
 	<div class="top"></div>
 	<div id="content">
+		<div id="tweets">
+			<h3>Recent Tweets</h3>
+		</div>
+
+		<for each="var tweet in Model.Tweets">
+			<div class="content">
+				<p class="tweetDate">${tweet.Date}</p>
+				<p class="tweetText">${tweet.Text}</p>
+			</div>
+		</for>
 		
 	</div>
 	<div class="bottom">

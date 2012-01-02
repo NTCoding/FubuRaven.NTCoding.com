@@ -7,7 +7,7 @@ using Model.Services.dtos;
 
 namespace Web.Utilities
 {
-	public class BlogPostsesRetriever : IBlogPostsRetriever
+	public class BlogPostsRetriever : IBlogPostsRetriever
 	{
 		private readonly string NTCodingBlogFeedAddress = "http://www.ntcoding.blogspot.com/feeds/posts/default?alt=rss";
 

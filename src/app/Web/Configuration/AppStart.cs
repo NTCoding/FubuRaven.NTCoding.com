@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Web.Routing;
 using FubuMVC.Core;
 using Model.Services;
@@ -45,7 +43,9 @@ namespace Web.Configuration
 
 				x.For<IBookRetriever>().Use<RavenDbBookRetriever>();
 
-				x.For<IBlogPostsRetriever>().Use<BlogPostsesRetriever>();
+				x.For<IBlogPostsRetriever>().Use<BlogPostsRetriever>();
+
+				x.For<ITweetRetriever>().Use<AsyncTimeoutTweetRetriever>();
 
 			});
 

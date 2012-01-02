@@ -33,7 +33,7 @@ namespace Model.Services
 
 		public IEnumerable<Book> GetCurrentlyReading()
 		{
-			throw new NotImplementedException();
+			return session.Query<Book>().Where(b => b.Status == BookStatus.CurrentlyReading);
 		}
 
 		public Book GetById(string id)

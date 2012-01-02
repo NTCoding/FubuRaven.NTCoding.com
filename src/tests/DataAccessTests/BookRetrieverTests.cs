@@ -100,6 +100,18 @@ namespace DataAccessTests
 			Assert.AreEqual(fromSession, fromRetriever);
 		}
 
+		[Test]
+		public void GetCurrentlyReading()
+		{
+			PopulateSessionWithBooksOfDifferentStatus();
+			Session.SaveChanges();
+
+			var fromSession = Session.Query<Book>().Where(b => b.Status == BookStatus.CurrentlyReading);
+			var fromRetriever = retriever.GetCurrentlyReading();
+
+			Assert.AreEqual(fromSession, fromRetriever);
+		}
+
 		private void PopulateSessionWithBooksOfDifferentStatus()
 		{
 			var currentlyReading = BookTestingHelper.CreateBooks(10, BookStatus.CurrentlyReading).ToList();

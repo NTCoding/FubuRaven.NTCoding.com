@@ -42,6 +42,12 @@
 				<p class="tweetText">${tweet.Text}</p>
 			</div>
 		</for>
+
+		<div id="followMe">
+			<a class="twitterLink" href="http://www.twitter.com/ntcoding">
+				<img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow NTCoding on Twitter"></img>
+			</a>
+		</div>
 		
 	</div>
 	<div class="bottom">

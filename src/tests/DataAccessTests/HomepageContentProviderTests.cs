@@ -9,19 +9,20 @@ namespace DataAccessTests
 	[TestFixture]
 	public class HomepageContentProviderTests : RavenTestsBase
 	{
-		private HomepageContentProvider _provider;
+		private HomepageContentProvider provider;
 
 		[SetUp]
 		public void SetUp()
 		{
-			_provider = new HomepageContentProvider(Session);
+			provider = new HomepageContentProvider(Session);
 		}
 
 		[Test]
 		[ExpectedException(typeof(ArgumentNullException))]
 		public void SessionCannotBeNull()
 		{
-			 new HomepageContentProvider(null);}
+			 new HomepageContentProvider(null);
+		}
 
 		[Test]
 		public void GetHomepageContent_ShouldReturnTheCurrentHomepageContent()
@@ -31,13 +32,13 @@ namespace DataAccessTests
 			Session.Store(content);
 			Session.SaveChanges();
 
-			Assert.AreEqual((object) content.Content, _provider.GetHomepageContent());
+			Assert.AreEqual((object) content.Content, provider.GetHomepageContent());
 		}
 
 		[Test]
 		public void GetHomepageContent_IfNoHomepageContent_ShouldDefaultToWelcomeMessage()
 		{
-			Assert.AreEqual("Welcome to NTCoding", _provider.GetHomepageContent());
+			Assert.AreEqual("Welcome to NTCoding", provider.GetHomepageContent());
 		}
 
 		[Test]
@@ -45,9 +46,9 @@ namespace DataAccessTests
 		{
 			var content = "this is the new content";
 
-			_provider.SetHomepageContent(content);
+			provider.SetHomepageContent(content);
 
-			Assert.AreEqual(content, _provider.GetHomepageContent());
+			Assert.AreEqual(content, provider.GetHomepageContent());
 		}
 	}
 }

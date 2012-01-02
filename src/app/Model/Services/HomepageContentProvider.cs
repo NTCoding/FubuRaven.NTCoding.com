@@ -6,11 +6,14 @@ namespace Model.Services
 {
 	public class HomepageContentProvider : IHomepageContentProvider
 	{
-		private readonly IDocumentSession _session;
+		private readonly IDocumentSession session;
 		protected HomepageContentProvider Provider;
 
 		public HomepageContentProvider(IDocumentSession session)
 		{
+			if (session == null) throw new ArgumentNullException("session");
+
+			this.session = session;
 		}
 
 		public String GetHomepageContent()
@@ -28,15 +31,15 @@ namespace Model.Services
 
 		private HomepageContent GetOrCreateHomepageContentEntity()
 		{
-			return _session.Query<HomepageContent>().SingleOrDefault() ?? CreateHomepageContent();
+			return session.Query<HomepageContent>().SingleOrDefault() ?? CreateHomepageContent();
 		}
 
 		private HomepageContent CreateHomepageContent()
 		{
 			var homepageContent = new HomepageContent("Welcome to NTCoding");
-			_session.Store(homepageContent);
-			_session.SaveChanges();
-			homepageContent = _session.Query<HomepageContent>().Where(x => x.ID == homepageContent.ID).Single();
+			session.Store(homepageContent);
+			session.SaveChanges();
+			homepageContent = session.Query<HomepageContent>().Where(x => x.ID == homepageContent.ID).Single();
 			
 			return homepageContent;
 		}

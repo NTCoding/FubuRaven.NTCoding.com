@@ -91,6 +91,7 @@
     <Compile Include="Utilities\BookTestingHelper.cs" />
     <Compile Include="Utilities\GenreAssertions.cs" />
     <Compile Include="Utilities\GenreTestingHelper.cs" />
+    <Compile Include="Utilities\HomepageViewModelAssertions.cs" />
     <Compile Include="Utilities\ImageEndpointTests.cs" />
     <Compile Include="Utilities\ViewBooksViewModelAssertions.cs" />
   </ItemGroup>

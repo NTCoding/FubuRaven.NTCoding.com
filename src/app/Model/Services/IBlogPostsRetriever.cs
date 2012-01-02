@@ -3,7 +3,7 @@ using Model.Services.dtos;
 
 namespace Model.Services
 {
-	public interface IBlogPostRetriever
+	public interface IBlogPostsRetriever
 	{
 		IEnumerable<BlogPostDTO> GetRecentBlogEntries();
 	}

@@ -10,9 +10,9 @@ namespace Web.Endpoints
 	public class IndexEndpoint
 	{
 		private readonly IHomepageContentProvider homepageContentProvider;
-		private readonly IBlogPostRetriever blogRetriever;
+		private readonly IBlogPostsRetriever blogRetriever;
 
-		public IndexEndpoint(IHomepageContentProvider homepageContentProvider, IBlogPostRetriever blogRetriever)
+		public IndexEndpoint(IHomepageContentProvider homepageContentProvider, IBlogPostsRetriever blogRetriever)
 		{
 			if (homepageContentProvider == null) throw new ArgumentNullException("homepageContentProvider");
 

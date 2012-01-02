@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using Model;
 using Model.Services;
 using Model.Services.dtos;
@@ -9,6 +8,7 @@ using NUnit.Framework;
 using Rhino.Mocks;
 using Web.Endpoints;
 using Web.Endpoints.HomepageModels;
+using Web.Tests.Utilities;
 
 namespace Web.Tests.Homepage
 {
@@ -17,13 +17,13 @@ namespace Web.Tests.Homepage
 	{
 		private IndexEndpoint endpoint;
 		private IHomepageContentProvider provider;
-		private IBlogPostRetriever blogRetriever;
+		private IBlogPostsRetriever blogRetriever;
 
 		[SetUp]
 		public void SetUp()
 		{
 			provider = MockRepository.GenerateStub<IHomepageContentProvider>();
-			blogRetriever = MockRepository.GenerateStub<IBlogPostRetriever>();
+			blogRetriever = MockRepository.GenerateStub<IBlogPostsRetriever>();
 			endpoint = new IndexEndpoint(provider, blogRetriever);
 		}
 
@@ -75,24 +75,6 @@ namespace Web.Tests.Homepage
 				             		Text = "blah, mcblah, blah"
 				             	};
 			}
-		}
-	}
-
-	public static class HomepageViewModelAssertions
-	{
-		public static void ShouldContain(this HomepageViewModel model, IEnumerable<BlogPostDTO> posts)
-		{
-			foreach (var blogPostDto in posts)
-			{
-				Assert.That(model.BlogPosts.Any(p =>  IsMatch(p, blogPostDto)));
-			}
-		}
-
-		private static bool IsMatch(BlogPostDTO first, BlogPostDTO second)
-		{
-			return first.Date == second.Date
-			       && first.Text == second.Text
-			       && first.Title == second.Title;
 		}
 	}
 }

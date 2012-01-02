@@ -190,6 +190,10 @@ body
      
  }
  
+ .gitLink img {
+margin-bottom: -11px;
+}
+ 
  #majorContent ul
  {
      list-style-type:circle;

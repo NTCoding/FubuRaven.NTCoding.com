@@ -22,6 +22,10 @@
 				<nav>
 					<a href="/">Home</a>
 					${this.LinkTo(new Web.Endpoints.Books.LinkModels.ViewBooksLinkModel()).Text("Books")}
+					<a href="http://www.ntcoding.blogspot.com">Blog</a>
+					<a class="gitLink" href="https://github.com/NTCoding">
+						<img height="26" width="55" alt="NTCoding on GitHub" title="NTCoding on GitHub" src="/Public/images/GitHub.png"/>
+					</a>
 				</nav>
 				<div id="menuRight"></div>
 			</div>

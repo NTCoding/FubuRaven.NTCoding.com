@@ -1,5 +1,6 @@
 ﻿<use namespace="Web.Endpoints.SiteManagement" />
 <use namespace="Web.Endpoints.Books.LinkModels" />
+<use namespace="Web.Endpoints.Books.ViewModels" />
 <use namespace="Web.Utilities" />
 <viewdata model="Web.Endpoints.HomepageModels.HomepageViewModel" />
 <nav>
@@ -34,19 +35,30 @@
 	<div id="content">
 		<div id="tweets">
 			<h3>Recent Tweets</h3>
-		</div>
 
-		<for each="var tweet in Model.Tweets">
-			<div class="content">
-				<p class="tweetDate">${tweet.Date}</p>
-				<p class="tweetText">${tweet.Text}</p>
+			<for each="var tweet in Model.Tweets">
+				<div class="content">
+					<p class="tweetDate">${tweet.Date}</p>
+					<p class="tweetText">${tweet.Text}</p>
+				</div>
+			</for>
+
+			<div id="followMe">
+				<a class="twitterLink" href="http://www.twitter.com/ntcoding">
+					<img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow NTCoding on Twitter"></img>
+				</a>
 			</div>
-		</for>
-
-		<div id="followMe">
-			<a class="twitterLink" href="http://www.twitter.com/ntcoding">
-				<img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow NTCoding on Twitter"></img>
-			</a>
+		</div>
+		
+		<div id="currentlyReading">
+			<h3>Currently Reading</h3>
+			<for each="var book in Model.Books">
+				<div class="content">
+					${this.DisplayFor<BookListView>(book, b => b.Image).AddClass("bookImage")}
+					<h4 class="bookTitle">${book.Title}</h4>
+						<div class="clear"></div>
+			    </div>
+			</for>
 		</div>
 		
 	</div>

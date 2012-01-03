@@ -15,3 +15,23 @@ ${this.DisplayFor(m => m.Image)}
 <div>
 	${Model.Review}
 </div>
+
+<content name="minorContent">
+		<div class="top"></div>
+		<div id="content">
+			<h3>Similar Books</h3>
+			<for each="var book in Model.RelatedBooks">
+				<div class="content">
+					<a href="${this.Urls.UrlFor(new Web.Endpoints.Books.LinkModels.ViewBookLinkModel { Id = book.Id })}">
+						<p>
+							${this.DisplayFor<BookListView>(book, b => b.Image).AddClass("bookImage")}
+						</p>
+					</a>
+					<h4 class="bookTitle">
+						${book.Title}
+					</h4>
+				</div>
+			</for>
+		</div>
+		<div class="bottom"></div>
+</content>

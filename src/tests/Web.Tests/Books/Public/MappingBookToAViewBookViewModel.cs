@@ -71,7 +71,7 @@ namespace Web.Tests.Books.Public
 		[Test]
 		public void ViewModelShouldHaveBooksReview()
 		{
-			Assert.AreEqual(book.Review, viewModel.Review);
+			Assert.AreEqual(book.Review, viewModel.Review_Html);
 		}
 
 		[Test]

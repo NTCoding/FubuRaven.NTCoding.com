@@ -13,7 +13,7 @@
 </p>
 ${this.DisplayFor(m => m.Image)}
 <div>
-	${Model.Review}
+	${this.DisplayFor(m => m.Review_Html)}
 </div>
 
 <content name="minorContent">

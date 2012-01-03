@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Model;
 using Model.Services.dtos;
 
@@ -21,17 +22,17 @@ namespace Web.Tests.Utilities
 
 		public static IEnumerable<Book> GetSomeReviewedBooks(int amount = 10)
 		{
-			return GetBooks(amount, BookStatus.Reviewed);
+			return GetBooks(amount, BookStatus.Reviewed).ToList();
 		}
 
 		public static IEnumerable<Book> GetSomeWishlistBooks(int amount = 10)
 		{
-			return GetBooks(amount, BookStatus.Wishlist);
+			return GetBooks(amount, BookStatus.Wishlist).ToList();
 		}
 
 		public static IEnumerable<Book> GetSomeCurrentlyReadingBooks(int amount = 10)
 		{
-			return GetBooks(amount, BookStatus.CurrentlyReading);
+			return GetBooks(amount, BookStatus.CurrentlyReading).ToList();
 		}
 
 		private static IEnumerable<Book> GetBooks(int amount, BookStatus status)
@@ -39,7 +40,7 @@ namespace Web.Tests.Utilities
 			var rand = new Random();
 			for (int i = 0; i < amount; i++)
 			{
-				yield return GetBook(status: status, rating: rand.Next(1, 5));
+				yield return GetBook(status: status, rating: rand.Next(1, 5), id: "book" + i);
 			}
 		}
 

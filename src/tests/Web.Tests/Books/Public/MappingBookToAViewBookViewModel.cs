@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
 using Model;
 using Model.Services;
@@ -15,59 +16,87 @@ namespace Web.Tests.Books.Public
 	[TestFixture]
 	public class ViewEndpointTests 
 	{
-		private ViewBookViewModel model;
+		private ViewBookViewModel viewModel;
 		private Book book;
-		
+		private IList<Book> allBooksForSameGenre;
+
 		// TODO - perfect example for context specification - exception not the rule
 		// TODO - confirms convention for testing endpoints - all the models are just nested classes that don't need to be tested
 		[SetUp]
-		public void WhenRequestingABookReview()
+		public void WhenRequestingABookReview_AndTheSystemContainsBooks_WithDifferentGenres()
 		{
-			book = BookTestingHelper.GetBook();
-			book.Rating = 4;
-			
 			var retriever = MockRepository.GenerateMock<IBookRetriever>();
+			var endpoint = new ViewEndpoint(retriever);
+
+			book = BookTestingHelper.GetBook(rating: 4);
+			
 			retriever.Stub(r => r.GetById(book.Id)).Return(book);
 			
-			var endpoint = new ViewEndpoint(retriever);
-			model = endpoint.Get(new ViewBookLinkModel { Id = book.Id });
+			SetupBookForSameGenreIncludingReviewBook();
+			retriever.Stub(r => r.GetReviewedBooks(book.Genre.Id)).Return(allBooksForSameGenre);
+			
+			viewModel = endpoint.Get(new ViewBookLinkModel { Id = book.Id });
+		}
+
+		private void SetupBookForSameGenreIncludingReviewBook()
+		{
+			allBooksForSameGenre = BookTestingHelper.GetSomeReviewedBooks(5).ToList();
+			allBooksForSameGenre.Add(book);
 		}
 
 		[Test]
 		public void ViewModelShouldHaveBooksTitle()
 		{
-			Assert.AreEqual(book.Title, model.Title);
+			Assert.AreEqual(book.Title, viewModel.Title);
 		}
 
 		[Test]
 		public void ViewModelShouldHaveBooksGenreName()
 		{
-			Assert.AreEqual(book.Genre.Name, model.GenreName);
+			Assert.AreEqual(book.Genre.Name, viewModel.GenreName);
 		}
 
-		// TODO - need to be able to edit rating on site management page
 		[Test]
 		public void ViewModelShouldHaveBooksRating()
 		{
-			Assert.AreEqual(book.Rating, model.Rating);
+			Assert.AreEqual(book.Rating, viewModel.Rating);
 		}
 
 		[Test]
 		public void ViewModelShouldHaveBooksAuthors()
 		{
-			Assert.AreEqual(book.Authors, model.Authors);
+			Assert.AreEqual(book.Authors, viewModel.Authors);
 		}
 
 		[Test]
 		public void ViewModelShouldHaveBooksReview()
 		{
-			Assert.AreEqual(book.Review, model.Review);
+			Assert.AreEqual(book.Review, viewModel.Review);
 		}
 
 		[Test]
 		public void ViewModelShouldHaveDisplayModelForBooksImage()
 		{
-			Assert.AreEqual(book.Id, model.Image.Id);
+			Assert.AreEqual(book.Id, viewModel.Image.Id);
+		}
+
+		[Test]
+		public void ViewModelShouldContainRelatedBooks()
+		{
+			var relatedBooks = allBooksForSameGenre.Where(b => b.Id != book.Id);
+
+			foreach (var book in relatedBooks)
+			{
+				var viewModelHasDisplayForBook = viewModel.RelatedBooks.Any(b => BookComparer.HasMatchingValues(b, book));
+
+				Assert.That(viewModelHasDisplayForBook, "No book for " + book.Id);
+			}
+		}
+
+		[Test]
+		public void RelatedBooksShouldNotContainReviewedBook()
+		{
+			Assert.That(viewModel.RelatedBooks.Any(b => b.Id == book.Id), Is.False);
 		}
 	}
 }

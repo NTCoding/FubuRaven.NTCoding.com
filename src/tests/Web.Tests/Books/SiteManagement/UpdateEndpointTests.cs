@@ -64,10 +64,11 @@ namespace Web.Tests.Books.SiteManagement
 			            	{
 			            		Authors     = new List<string> {"Jimmy", "Johnny", "Murray Walker"}.ToStringWrappers().ToList<StringWrapper>(),
 			            		Genre       = "genres/9",
-			            		Description_BigText = "Updated description",
-			            		BookStatus      = BookStatus.Reviewed,
+			            		BookStatus  = BookStatus.Reviewed,
 			            		Title       = "Updated title",
-								Id          = "books/444"
+								Id          = "books/444",
+								Rating      =  3,
+			            		Description_BigText = "Updated description",
 							};
 
 			endpoint.Post(model);
@@ -90,8 +91,6 @@ namespace Web.Tests.Books.SiteManagement
 			result.AssertWasRedirectedTo(destination);
 		}
 
-		// TODO - should pass an image to the udpater if supplied
-
 		private void UpdaterShouldHaveBeenCalledWithDtoMatching(UpdateBookInputModel model)
 		{
 			updater.AssertWasCalled(x => x.Update(Arg<UpdateBookDto>.Is.Anything));
@@ -104,6 +103,7 @@ namespace Web.Tests.Books.SiteManagement
 			Assert.AreEqual(dto.Id, model.Id);
 			Assert.AreEqual(dto.Status, model.BookStatus);
 			Assert.AreEqual(dto.Title, model.Title);
+			Assert.AreEqual(dto.Rating, model.Rating);
 		}
 
 		private static void HasMatchingAuthors(UpdateBookInputModel model, UpdateBookDto dto)

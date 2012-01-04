@@ -45,7 +45,8 @@ namespace Web.Endpoints.SiteManagement.Book
 							Genre   = model.Genre,
 							Id      = model.Id,
 							Title   = model.Title,
-			          		Description = model.Description_BigText
+							Rating  = model.Rating,
+			          		Description = model.Description_BigText,
 			          	};
 			
 			updater.Update(dto);

@@ -17,6 +17,10 @@
 		${this.InputFor(m => m.Description_BigText).Attr("rows", "5")}
 	</p>
 	<p>
+		${this.LabelFor(m => m.Rating)}
+		${this.InputFor(m => m.Rating)}
+	</p>
+	<p>
 		${this.LabelFor(m => m.BookStatus)}
 		${this.InputFor(m => m.BookStatus)}
 	</p>

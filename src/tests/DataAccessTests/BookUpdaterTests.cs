@@ -29,7 +29,8 @@ namespace DataAccessTests
 			          		Authors     = new[] {"hey", "hooo", "haaaa"},
 			          		Description = "Update description - dfkjldkj fldjflkd ",
 			          		Status      = (BookStatus) ((int) book.Status) + 1,
-			          		Title       = "Update title"
+			          		Title       = "Update title",
+							Rating      = 3
 			          	};
 
 			updater.Update(dto);

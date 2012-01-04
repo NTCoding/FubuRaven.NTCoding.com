@@ -4,29 +4,33 @@
 <h1> View bewwwwwwk </h1>
 
 <p>
-	${this.LabelFor(m => m.Title)}
+	${this.LabelFor(m => m.Title)}:
 	${this.DisplayFor(m => m.Title)}
 </p>
 <p>
-	${this.LabelFor(m => m.GenreName)}
+	${this.LabelFor(m => m.GenreName)}:
 	${this.DisplayFor(m => m.GenreName)}
 </p>
 <p>
-	${this.LabelFor(m => m.Status)}
+	${this.LabelFor(m => m.Status)}:
 	${this.DisplayFor(m => m.Status)}
 </p>
 <p>
-	${this.LabelFor(m => m.Description_Html)}
-	${this.DisplayFor(m => m.Description_Html)}
+	${this.LabelFor(m => m.Rating)}
+	${this.DisplayFor(m => m.Rating)}
 </p>
 <p>
-	${this.LabelFor(m => m.Authors)}
+	${this.LabelFor(m => m.Authors)}:
 	${this.DisplayFor(m => m.Authors)}
 </p>
 <p>
 	${this.LabelFor(m => m.Image)}
 	<br />
 	${this.DisplayFor(m => m.Image)}
+</p>
+<p>
+	${this.LabelFor(m => m.Description_Html)}:
+	${this.DisplayFor(m => m.Description_Html)}
 </p>
 
 ${this.LinkTo(new UpdateBookLinkModel { Id = Model.Id }).Text("Edit")}

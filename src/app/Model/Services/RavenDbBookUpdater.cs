@@ -5,11 +5,11 @@ using Raven.Client;
 
 namespace Model.Services
 {
-	public class SimpleBookUpdater : IBookUpdater
+	public class RavenDbBookUpdater : IBookUpdater
 	{
 		private readonly IDocumentSession session;
 
-		public SimpleBookUpdater(IDocumentSession session)
+		public RavenDbBookUpdater(IDocumentSession session)
 		{
 			this.session = session;
 		}

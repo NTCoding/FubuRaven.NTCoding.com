@@ -117,7 +117,7 @@
     <Compile Include="Services\IBookUpdater.cs" />
     <Compile Include="Services\IGenreRetriever.cs" />
     <Compile Include="Services\IHomepageContentProvider.cs" />
-    <Compile Include="Services\SimpleBookUpdater.cs" />
+    <Compile Include="Services\RavenDbBookUpdater.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -9,12 +9,12 @@ namespace DataAccessTests
 	[TestFixture]
 	public class BookUpdaterTests : RavenTestsBase
 	{
-		private SimpleBookUpdater updater;
+		private RavenDbBookUpdater updater;
 
 		[SetUp]
 		public void SetUp()
 		{
-			updater = new SimpleBookUpdater(Session);
+			updater = new RavenDbBookUpdater(Session);
 		}
 
 		[Test]
@@ -50,7 +50,7 @@ namespace DataAccessTests
 
 			Session.SaveChanges();
 
-			SessionShouldBookWithImage(book.Id, book.Image);
+			SessionShouldHaveBookWithImage(book.Id, book.Image);
 		}
 
 		[Test]
@@ -66,7 +66,7 @@ namespace DataAccessTests
 
 			Session.SaveChanges();
 
-			SessionShouldBookWithImage(book.Id, newImage);
+			SessionShouldHaveBookWithImage(book.Id, newImage);
 		}
 
 		private Book GetBookThatExistsInSession(byte[] image = null)
@@ -103,11 +103,12 @@ namespace DataAccessTests
 			Assert.AreEqual(dto.Genre, updatedBook.Genre.Id);
 			Assert.AreEqual(dto.Status, updatedBook.Status);
 			Assert.AreEqual(dto.Title, updatedBook.Title);
+			Assert.AreEqual(dto.Rating, updatedBook.Rating);
 
 			Assert.IsNotNull(updatedBook);
 		}
 
-		private void SessionShouldBookWithImage(string id, byte[] image)
+		private void SessionShouldHaveBookWithImage(string id, byte[] image)
 		{
 			var book = Session.Load<Book>(id);
 

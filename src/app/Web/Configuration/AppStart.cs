@@ -35,7 +35,7 @@ namespace Web.Configuration
 
 				x.For<ImagePreparer>().Use<SimpleImagePreparer>();
 
-				x.For<IBookUpdater>().Use<SimpleBookUpdater>();
+				x.For<IBookUpdater>().Use<RavenDbBookUpdater>();
 
 				x.For<IGenreRetriever>().Use<RavenDbGenreRetriever>();
 

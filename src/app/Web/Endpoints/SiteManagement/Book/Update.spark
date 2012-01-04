@@ -25,11 +25,13 @@
 		${this.LabelFor(m => m.Authors)}
 		${this.InputFor(m => m.Authors)}
 	</p>
-	<!--<p>
+	<p>
 		${this.LabelFor(m => m.Image)}
 		${this.InputFor(m => m.Image)}
-	</p>-->
-	
+	</p>
+	<p>
+		Leave image empty to keep the current one
+	</p>
 	<input type="submit" value="Update Book" />
 </form>
 

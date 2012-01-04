@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using AutoMapper;
+using FubuMVC.Core.Continuations;
 using Model;
 using Model.Services;
 using Model.Services.dtos;
@@ -34,7 +35,7 @@ namespace Web.Endpoints.SiteManagement.Book
 			return new UpdateBookViewModel(book, genres);
 		}
 
-		public ViewBookLinkModel Post(UpdateBookInputModel model)
+		public FubuContinuation Post(UpdateBookInputModel model)
 		{
 			var dto = new UpdateBookDto
 			          	{
@@ -49,7 +50,7 @@ namespace Web.Endpoints.SiteManagement.Book
 			
 			updater.Update(dto);
 
-			return new ViewBookLinkModel {Id = model.Id};
+			return FubuContinuation.RedirectTo(new ViewBookLinkModel {Id = model.Id});
 		}
 	}
 }

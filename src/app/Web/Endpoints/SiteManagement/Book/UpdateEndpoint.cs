@@ -7,6 +7,7 @@ using Raven.Client;
 using Web.Endpoints.SiteManagement.Book.InputModels;
 using Web.Endpoints.SiteManagement.Book.LinkModels;
 using Web.Endpoints.SiteManagement.Book.ViewModels;
+using Web.Infrastructure.Services;
 using Web.Utilities;
 
 namespace Web.Endpoints.SiteManagement.Book
@@ -35,13 +36,16 @@ namespace Web.Endpoints.SiteManagement.Book
 
 		public ViewBookLinkModel Post(UpdateBookInputModel model)
 		{
-			var dto = new UpdateBookDto();
-			
-			// TODO - encapsulate wrapper in an interface - pass mapping off to that?
-			Mapper.DynamicMap(model, dto);
-			dto.Authors     = model.Authors.ToStrings();
-			dto.Description = model.Description_BigText;
-			dto.Status      = model.BookStatus;
+			var dto = new UpdateBookDto
+			          	{
+			          		Authors = model.Authors.ToStrings(),
+			          		Status  = model.BookStatus,
+			          		Image   = model.Image == null || model.Image.ContentLength == 0 ? null : FileUploader.GetBytes(model.Image),
+							Genre   = model.Genre,
+							Id      = model.Id,
+							Title   = model.Title,
+			          		Description = model.Description_BigText
+			          	};
 			
 			updater.Update(dto);
 

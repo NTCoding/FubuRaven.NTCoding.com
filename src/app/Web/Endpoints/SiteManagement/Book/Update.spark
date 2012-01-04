@@ -5,6 +5,9 @@
 <h1>Update book</h1>
 <ValidationErrors />
 <form action="${this.Urls.UrlFor(new UpdateBookInputModel())}" method="post" enctype="multipart/form-data">
+	<div>
+		${this.InputFor(m => m.Id)}
+	</div>
 	<p>
 		${this.LabelFor(m => m.Title)} 
 		${this.InputFor(m => m.Title)}

@@ -195,6 +195,12 @@ namespace Web.Configuration
 						.BuildBy(er => new HtmlTag("input").Attr("type", "file"))
 				);
 
+			HtmlConvention(x =>
+					x.Editors
+					.If(e => e.Accessor.Name.Equals("Id"))
+					.BuildBy(er => new HtmlTag("input").Attr("type", "hidden").Attr("value", er.Value<String>()))
+				);
+
 			this.UseSpark();
         }
 

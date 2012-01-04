@@ -6,7 +6,16 @@
 		<link rel="stylesheet" type="text/css" href="/Public/css/main.css" media="screen" />
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 		<script type="text/javascript" src="/Public/js/site.js"></script>
-		
+		<script language="javascript" type="text/javascript" src="/Public/js/tiny_mce/tiny_mce.js"></script>
+		<script language="javascript" type="text/javascript">
+			tinyMCE.init({
+			theme : "advanced",
+			mode : "textareas",
+			theme_advanced_resizing : true,
+			theme_advanced_statusbar_location : "bottom"
+			});
+		</script>
+
 		<script type="text/javascript">
 			<use content="pageScript" />
 		</script>

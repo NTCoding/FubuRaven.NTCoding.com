@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutInfoRetrieverTests.cs" />
+    <Compile Include="AboutInfoUpdaterTests.cs" />
     <Compile Include="BookCreaterTests.cs" />
     <Compile Include="BookRetrieverTests.cs" />
     <Compile Include="BookUpdaterTests.cs" />

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using DataAccessTests.Utilities;
 using Model.About;
@@ -11,7 +12,7 @@ namespace DataAccessTests
 	public class AboutInfoRetrieverTests : RavenTestsBase
 	{
 		[Test]
-		public void Retriever_about_text()
+		public void Retrieves_about_text()
 		{
 			var aboutText = "Hello sir. How are you?";
 
@@ -35,7 +36,33 @@ namespace DataAccessTests
 			Assert.That(returnedInfo.AboutText, Is.EqualTo(string.Empty));
 		}
 
-		// retriever image url
+		[Test]
+		public void Retrieves_things_i_like_image_urls()
+		{
+			var thingsILikeUrls = new List<string>
+			{
+				"http://www.bbc.co.uk",
+				"http://www.planetf1.com"
+			};
+
+			var info = new AboutInfo("", thingsILikeUrls);
+
+			Session.Store(info);
+			Session.SaveChanges();
+
+			var returnedInfo = new RavenAboutInfoRetriever(Session).GetAboutInfo();
+
+			Assert.That(returnedInfo.ThingsILikeUrls, Is.EqualTo(thingsILikeUrls));
+		}
+
+		[Test]
+		public void Defaulats_things_i_like_urls_to_emtpy_collection()
+		{
+			var retriever = new RavenAboutInfoRetriever(Session);
+			var returnedInfo = retriever.GetAboutInfo();
+
+			Assert.That(returnedInfo.ThingsILikeUrls.Count(), Is.EqualTo(0));
+		}
 	}
 
 	public class RavenAboutInfoRetriever : IAboutInfoRetriever
@@ -50,7 +77,7 @@ namespace DataAccessTests
 		public AboutInfo GetAboutInfo()
 		{
 			return session.Query<AboutInfo>()
-			       	.SingleOrDefault() ?? new AboutInfo(string.Empty, null);
+			       	.SingleOrDefault() ?? new AboutInfo(string.Empty, Enumerable.Empty<string>());
 
 		}
 	}

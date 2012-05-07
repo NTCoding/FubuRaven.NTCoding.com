@@ -89,6 +89,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutInfoRetrieverTests.cs" />
     <Compile Include="BookCreaterTests.cs" />
     <Compile Include="BookRetrieverTests.cs" />
     <Compile Include="BookUpdaterTests.cs" />

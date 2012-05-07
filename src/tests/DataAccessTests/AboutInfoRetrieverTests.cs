@@ -4,7 +4,6 @@ using System.Linq;
 using DataAccessTests.Utilities;
 using Model.About;
 using NUnit.Framework;
-using Raven.Client;
 
 namespace DataAccessTests
 {
@@ -62,23 +61,6 @@ namespace DataAccessTests
 			var returnedInfo = retriever.GetAboutInfo();
 
 			Assert.That(returnedInfo.ThingsILikeUrls.Count(), Is.EqualTo(0));
-		}
-	}
-
-	public class RavenAboutInfoRetriever : IAboutInfoRetriever
-	{
-		private readonly IDocumentSession session;
-
-		public RavenAboutInfoRetriever(IDocumentSession session)
-		{
-			this.session = session;
-		}
-
-		public AboutInfo GetAboutInfo()
-		{
-			return session.Query<AboutInfo>()
-			       	.SingleOrDefault() ?? new AboutInfo(string.Empty, Enumerable.Empty<string>());
-
 		}
 	}
 }

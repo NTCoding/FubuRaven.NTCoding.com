@@ -1,4 +1,5 @@
 ﻿using Model.About;
+using Web.Endpoints.About.LinkModels;
 
 namespace Web.Endpoints.About
 {

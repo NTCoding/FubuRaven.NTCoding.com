@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Web.Routing;
 using FubuMVC.Core;
+using Model.About;
 using Model.Services;
 using Raven.Client;
 using Raven.Client.Embedded;
@@ -46,6 +47,8 @@ namespace Web.Configuration
 				x.For<IBlogPostsRetriever>().Use<BlogPostsRetriever>();
 
 				x.For<ITweetRetriever>().Use<AsyncTimeoutTweetRetriever>();
+
+				x.For<IAboutInfoRetriever>().Use<RavenAboutInfoRetriever>();
 
 			});
 

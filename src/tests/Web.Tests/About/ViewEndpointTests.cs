@@ -4,6 +4,7 @@ using Model.About;
 using NUnit.Framework;
 using Rhino.Mocks;
 using Web.Endpoints.About;
+using Web.Endpoints.About.LinkModels;
 
 namespace Web.Tests.About
 {

@@ -235,6 +235,7 @@
     <Folder Include="%40App_Data\Raven\Indexes\" />
     <Folder Include="%40App_Data\Raven\temp\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Endpoints\SiteManagement\About\" />
     <Folder Include="Infrastructure\Binding\ValueConverters\" />
   </ItemGroup>
   <ItemGroup>

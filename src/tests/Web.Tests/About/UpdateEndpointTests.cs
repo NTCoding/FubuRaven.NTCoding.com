@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using FubuMVC.Core.Continuations;
 using Model.About;
 using NUnit.Framework;
 using Rhino.Mocks;
+using Web.Endpoints.About;
+using Web.Endpoints.About.LinkModels;
 
 namespace Web.Tests.About
 {
@@ -39,7 +42,13 @@ namespace Web.Tests.About
 			updater.AssertWasCalled(u => u.Update(info));
 		}
 
-		// should link back to about page
+		[Test]
+		public void Redirects_to_public_facing_about_page()
+		{
+			var result = new UpdateEndpoint(updater).Update(new AboutUpdateModel());
+
+			result.AssertWasRedirectedTo<ViewEndpoint>(x => x.Get(new AboutLinkModel()));
+		}
 	}
 
 	public interface IAboutInfoUpdater
@@ -70,12 +79,12 @@ namespace Web.Tests.About
 			this.updater = updater;
 		}
 
-		public object Update(AboutUpdateModel model)
+		public FubuContinuation Update(AboutUpdateModel model)
 		{
 			var dto = new AboutInfoDto {AboutText = model.AboutText, ThingsILikeUrls = model.ThingsILikeUrls};
 			updater.Update(dto);
 
-			return null;
+			return FubuContinuation.RedirectTo<ViewEndpoint>(x => x.Get(new AboutLinkModel()));
 		}
 	}
 }

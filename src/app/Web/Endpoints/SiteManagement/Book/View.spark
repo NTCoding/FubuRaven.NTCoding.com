@@ -1,12 +1,8 @@
 ﻿<use namespace="Web.Endpoints.SiteManagement.Book.LinkModels" />
 <viewdata model="Web.Endpoints.SiteManagement.Book.ViewModels.ViewBookViewModel" />
 
-<h1> View bewwwwwwk </h1>
+<h1> ${this.DisplayFor(m => m.Title)} </h1>
 
-<p>
-	${this.LabelFor(m => m.Title)}:
-	${this.DisplayFor(m => m.Title)}
-</p>
 <p>
 	${this.LabelFor(m => m.GenreName)}:
 	${this.DisplayFor(m => m.GenreName)}

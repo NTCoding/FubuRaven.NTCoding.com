@@ -24,8 +24,8 @@ namespace DataImporter
 		{
 			var genreDtos = sqlImporter.ImportGenres();
 
-			PersistGenres(genreDtos);
-
+			//PersistGenres(genreDtos);
+			
 			session.SaveChanges();
 
 			// Have to do this in 2 steps - raven no likey - comment out books, import genres, then vice versa

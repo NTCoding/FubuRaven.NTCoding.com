@@ -16,7 +16,7 @@ namespace DataImporter
 
 		public SqlImporter()
 		{
-			connectionString = "Data Source=VISTA-ULTIMATE;Initial Catalog=NTCoding;Trusted_Connection=True;";
+			connectionString = @"Data Source=VISTA-ULTIMATE\ADVANCEDR2;Initial Catalog=NTCoding;Trusted_Connection=True;";
 		}
 
 		public IEnumerable<GenreDto> ImportGenres()

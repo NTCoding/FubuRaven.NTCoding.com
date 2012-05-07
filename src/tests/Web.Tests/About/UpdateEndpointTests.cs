@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using FubuMVC.Core.Continuations;
 using Model.About;
 using NUnit.Framework;
 using Rhino.Mocks;
 using Web.Endpoints.About;
 using Web.Endpoints.About.LinkModels;
+using Web.Endpoints.SiteManagement.About;
 
 namespace Web.Tests.About
 {
@@ -48,43 +48,6 @@ namespace Web.Tests.About
 			var result = new UpdateEndpoint(updater).Update(new AboutUpdateModel());
 
 			result.AssertWasRedirectedTo<ViewEndpoint>(x => x.Get(new AboutLinkModel()));
-		}
-	}
-
-	public interface IAboutInfoUpdater
-	{
-		void Update(AboutInfoDto info);
-	}
-
-	public struct AboutInfoDto
-	{
-		public string AboutText { get; set; }
-
-		public IEnumerable<string> ThingsILikeUrls { get; set; }
-	}
-
-	public class AboutUpdateModel
-	{
-		public string AboutText { get; set; }
-
-		public List<string> ThingsILikeUrls { get; set; }
-	}
-
-	public class UpdateEndpoint
-	{
-		private readonly IAboutInfoUpdater updater;
-
-		public UpdateEndpoint(IAboutInfoUpdater updater)
-		{
-			this.updater = updater;
-		}
-
-		public FubuContinuation Update(AboutUpdateModel model)
-		{
-			var dto = new AboutInfoDto {AboutText = model.AboutText, ThingsILikeUrls = model.ThingsILikeUrls};
-			updater.Update(dto);
-
-			return FubuContinuation.RedirectTo<ViewEndpoint>(x => x.Get(new AboutLinkModel()));
 		}
 	}
 }

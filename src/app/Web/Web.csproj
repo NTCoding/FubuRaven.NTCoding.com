@@ -192,6 +192,8 @@
     <Compile Include="Endpoints\HomepageModels\HomepageViewModel.cs" />
     <Compile Include="Endpoints\ImageEndpoint.cs" />
     <Compile Include="Endpoints\Books\LinkModels\ViewBooksLinkModel.cs" />
+    <Compile Include="Endpoints\SiteManagement\About\AboutUpdateModel.cs" />
+    <Compile Include="Endpoints\SiteManagement\About\UpdateEndpoint.cs" />
     <Compile Include="Endpoints\SiteManagement\Book\BookEndpoint.cs" />
     <Compile Include="Endpoints\SiteManagement\Book\CreateEndpoint.cs" />
     <Compile Include="Endpoints\SiteManagement\Book\InputModels\CreateBookInputModel.cs" />
@@ -235,7 +237,6 @@
     <Folder Include="%40App_Data\Raven\Indexes\" />
     <Folder Include="%40App_Data\Raven\temp\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Endpoints\SiteManagement\About\" />
     <Folder Include="Infrastructure\Binding\ValueConverters\" />
   </ItemGroup>
   <ItemGroup>

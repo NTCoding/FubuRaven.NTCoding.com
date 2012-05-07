@@ -95,7 +95,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About\AboutInfo.cs" />
+    <Compile Include="About\AboutInfoDto.cs" />
     <Compile Include="About\IAboutInfoRetriever.cs" />
+    <Compile Include="About\IAboutInfoUpdater.cs" />
     <Compile Include="About\RavenAboutInfoRetriever.cs" />
     <Compile Include="Book.cs" />
     <Compile Include="BookStatus.cs" />

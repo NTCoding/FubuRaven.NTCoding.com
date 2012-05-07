@@ -10,7 +10,6 @@ namespace DataAccessTests
 	[TestFixture]
 	public class AboutInfoRetrieverTests : RavenTestsBase
 	{
-		// retrieves about text
 		[Test]
 		public void Retriever_about_text()
 		{
@@ -25,6 +24,15 @@ namespace DataAccessTests
 			var returnedInfo = retriever.GetAboutInfo();
 
 			Assert.That(returnedInfo.AboutText, Is.EqualTo(aboutText));
+		}
+
+		[Test]
+		public void Returns_empty_string_when_no_about_text_exists()
+		{
+			var retriever = new RavenAboutInfoRetriever(Session);
+			var returnedInfo = retriever.GetAboutInfo();
+
+			Assert.That(returnedInfo.AboutText, Is.EqualTo(string.Empty));
 		}
 
 		// retriever image url
@@ -42,7 +50,7 @@ namespace DataAccessTests
 		public AboutInfo GetAboutInfo()
 		{
 			return session.Query<AboutInfo>()
-						   .SingleOrDefault();
+			       	.SingleOrDefault() ?? new AboutInfo(string.Empty, null);
 
 		}
 	}

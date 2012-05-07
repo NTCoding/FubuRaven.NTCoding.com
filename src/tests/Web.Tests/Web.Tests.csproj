@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About\GetEndpointTests.cs" />
     <Compile Include="Books\Public\IndexEndpointTests.cs" />
     <Compile Include="Books\Public\MappingBookToAViewBookViewModel.cs" />
     <Compile Include="Books\SiteManagement\BookDisplayModelTests.cs" />

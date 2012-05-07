@@ -179,6 +179,9 @@
     <Compile Include="Configuration\Behaviours\Output\RenderImageNode.cs" />
     <Compile Include="Configuration\HandlerModelDescriptor.cs" />
     <Compile Include="Configuration\NTCodingFubuRegistry.cs" />
+    <Compile Include="Endpoints\About\AboutLinkModel.cs" />
+    <Compile Include="Endpoints\About\AboutViewModel.cs" />
+    <Compile Include="Endpoints\About\ViewEndpoint.cs" />
     <Compile Include="Endpoints\Books\IndexEndpoint.cs" />
     <Compile Include="Endpoints\Books\LinkModels\ViewBookLinkModel.cs" />
     <Compile Include="Endpoints\Books\ViewEndpoint.cs" />

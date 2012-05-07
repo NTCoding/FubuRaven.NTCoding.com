@@ -94,6 +94,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About\AboutInfo.cs" />
+    <Compile Include="About\IAboutInfoRetriever.cs" />
     <Compile Include="Book.cs" />
     <Compile Include="BookStatus.cs" />
     <Compile Include="Genre.cs" />

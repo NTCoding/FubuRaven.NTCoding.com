@@ -1,0 +1,18 @@
+﻿<use namespace="Web.Endpoints.About.ViewModels" />
+<viewdata model="Web.Endpoints.About.ViewModels.AboutViewModel" />
+
+	<h1>About</h1>
+
+${this.DisplayFor(m => m.AboutText)}
+		
+<content name="minorContent">
+	<div class="top"></div>
+	<div id="content">
+		<h3>Things I Like</h3>
+		<ul>
+			<for each="var url in Model.ThingsILikeUrls">
+				<a href="$url" />
+			</for>
+		</ul>
+	</div>
+</content>

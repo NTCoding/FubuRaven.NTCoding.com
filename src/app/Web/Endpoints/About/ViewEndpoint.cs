@@ -1,5 +1,6 @@
 ﻿using Model.About;
 using Web.Endpoints.About.LinkModels;
+using Web.Endpoints.About.ViewModels;
 
 namespace Web.Endpoints.About
 {

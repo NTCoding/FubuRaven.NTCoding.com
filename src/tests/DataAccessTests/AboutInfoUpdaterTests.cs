@@ -23,7 +23,10 @@ namespace DataAccessTests
 
 			Session.SaveChanges();
 
-			var fromSession = Session.Query<AboutInfo>().Single();
+			var fromSession = Session
+				.Advanced.LuceneQuery<AboutInfo>()
+				.WaitForNonStaleResults()
+				.Single();
 
 			Assert.That(fromSession.AboutText, Is.EqualTo(info.AboutText));
 
@@ -44,11 +47,14 @@ namespace DataAccessTests
 			u.Update(new AboutInfoDto{AboutText = lastUpdate});
 			Session.SaveChanges();
 
-			var fromSession = Session.Query<AboutInfo>().First();
+			var fromSession = Session
+				.Advanced.LuceneQuery<AboutInfo>()
+				.WaitForNonStaleResults()
+				.First();
 			
 			Assert.That(fromSession.AboutText, Is.EqualTo(lastUpdate));
 
-			Assert.That(Session.Query<AboutInfo>(), Is.EqualTo(1));
+			Assert.That(Session.Query<AboutInfo>().Count(), Is.EqualTo(1));
 		}
 
 		// can update the things I like urls
@@ -65,11 +71,16 @@ namespace DataAccessTests
 
 		public void Update(AboutInfoDto info)
 		{
-			session.Store(new AboutInfo(info.AboutText, null));
-			
-			//var currentData = session.Query<AboutInfo>().FirstOrDefault();
-			
-			//if (currentData != null) session.Delete(currentData);
+			var currentData = session
+				.Advanced
+				.LuceneQuery<AboutInfo>()
+				.WaitForNonStaleResults()
+				.FirstOrDefault();
+ 
+			if (currentData == null) 
+				session.Store(new AboutInfo(info.AboutText, Enumerable.Empty<string>()));
+			else
+				currentData.AboutText = info.AboutText;
 		}
 	}
 }

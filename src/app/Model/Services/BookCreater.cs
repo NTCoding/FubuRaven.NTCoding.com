@@ -2,7 +2,6 @@
 using System.Linq;
 using Model.Services.dtos;
 using Raven.Client;
-using Raven.Client.Linq;
 
 namespace Model.Services
 {

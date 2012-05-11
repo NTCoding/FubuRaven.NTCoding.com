@@ -4,7 +4,6 @@ using Model;
 using Model.Services;
 using Model.Services.dtos;
 using Raven.Client;
-using Raven.Client.Linq;
 using System.Linq;
 
 namespace DataImporter

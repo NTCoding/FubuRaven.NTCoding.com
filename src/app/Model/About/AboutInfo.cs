@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Model.About
 {
@@ -10,8 +11,10 @@ namespace Model.About
 			ThingsILikeUrls = thingsILikeUrls;
 		}
 
-		public string AboutText { get; private set; }
+		public string AboutText { get; set; }
 		
 		public IEnumerable<string> ThingsILikeUrls { get; private set; }
+
+		public string Id { get; set; }
 	}
 }

@@ -105,6 +105,7 @@
     <Compile Include="About\IAboutInfoRetriever.cs" />
     <Compile Include="About\IAboutInfoUpdater.cs" />
     <Compile Include="About\RavenAboutInfoRetriever.cs" />
+    <Compile Include="About\RavenAboutInfoUpdater.cs" />
     <Compile Include="Book.cs" />
     <Compile Include="BookStatus.cs" />
     <Compile Include="Genre.cs" />

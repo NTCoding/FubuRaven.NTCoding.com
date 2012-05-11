@@ -4,7 +4,6 @@ using System.Linq;
 using DataAccessTests.Utilities;
 using Model.About;
 using NUnit.Framework;
-using Raven.Client;
 
 namespace DataAccessTests
 {
@@ -71,38 +70,12 @@ namespace DataAccessTests
 			Assert.That(Session.Query<AboutInfo>().Count(), Is.EqualTo(1));
 		}
 
-		
-
 		private AboutInfo GetAboutInfoFromSession()
 		{
 			return Session
 				.Advanced.LuceneQuery<AboutInfo>()
 				.WaitForNonStaleResults()
 				.First();
-		}
-	}
-
-	public class RavenAboutInfoUpdater : IAboutInfoUpdater
-	{
-		private readonly IDocumentSession session;
-
-		public RavenAboutInfoUpdater(IDocumentSession session)
-		{
-			this.session = session;
-		}
-
-		public void Update(AboutInfoDto info)
-		{
-			var currentData = session
-				.Advanced
-				.LuceneQuery<AboutInfo>()
-				.WaitForNonStaleResults()
-				.FirstOrDefault();
- 
-			if (currentData == null) 
-				session.Store(new AboutInfo(info.AboutText, info.ThingsILikeUrls));
-			else
-				currentData.AboutText = info.AboutText;
 		}
 	}
 }

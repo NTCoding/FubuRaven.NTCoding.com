@@ -29,8 +29,7 @@ namespace Web.Configuration
 					.HttpContextScoped()
 					.Use(c => DocumentStoreHolder.DocumentStore.OpenSession());
 
-				x.For<IHomepageContentProvider>()
-					.Use<HomepageContentProvider>();
+				x.For<IHomepageContentProvider>().Use<HomepageContentProvider>();
 
 				x.For<IBookCreater>().Use<BookCreater>();
 
@@ -50,6 +49,7 @@ namespace Web.Configuration
 
 				x.For<IAboutInfoRetriever>().Use<RavenAboutInfoRetriever>();
 
+				x.For<IAboutInfoUpdater>().Use<RavenAboutInfoUpdater>();
 			});
 
         	BootstrappingExtensions.StructureMap(FubuApplication.For<NTCodingFubuRegistry>(), container)

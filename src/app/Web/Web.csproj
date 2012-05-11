@@ -198,7 +198,6 @@
     <Compile Include="Endpoints\HomepageModels\HomepageViewModel.cs" />
     <Compile Include="Endpoints\ImageEndpoint.cs" />
     <Compile Include="Endpoints\Books\LinkModels\ViewBooksLinkModel.cs" />
-    <Compile Include="Endpoints\SiteManagement\About\AboutUpdateModel.cs" />
     <Compile Include="Endpoints\SiteManagement\About\UpdateEndpoint.cs" />
     <Compile Include="Endpoints\SiteManagement\Book\BookEndpoint.cs" />
     <Compile Include="Endpoints\SiteManagement\Book\CreateEndpoint.cs" />

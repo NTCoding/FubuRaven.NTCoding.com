@@ -14,11 +14,31 @@ namespace Web.Tests.About
 	public class UpdateEndpointTests
 	{
 		private IAboutInfoUpdater updater;
+		private IAboutInfoRetriever retriever;
 
 		[SetUp]
 		public void SetUp()
 		{
-			updater = MockRepository.GenerateStub<IAboutInfoUpdater>();
+			updater   = MockRepository.GenerateStub<IAboutInfoUpdater>();
+			retriever = MockRepository.GenerateStub<IAboutInfoRetriever>();
+		}
+
+		[Test]
+		public void Shows_current_about_text_and_things_i_like_urls_when_viewing()
+		{
+			var aboutText = "Hello. I am your friend.";
+			var thingsILikeUrls = new List<string>
+			{
+				"http://www.blah.com",
+				"http://www.planetf1.com"
+			};
+
+			retriever.Stub(r => r.GetAboutInfo()).Return(new AboutInfo(aboutText, thingsILikeUrls));
+
+			var result = new UpdateEndpoint(updater, retriever).Get(new AboutRequestModel());
+
+			Assert.That(result.AboutText, Is.EqualTo(aboutText));
+			Assert.That(result.ThingsILikeUrls, Is.EqualTo(thingsILikeUrls));
 		}
 
 		[Test]
@@ -31,7 +51,7 @@ namespace Web.Tests.About
 				"http://www.planetf1.com"
 			};
 
-			new UpdateEndpoint(updater).Update(new AboutUpdateModel {AboutText = at, ThingsILikeUrls = thingsILikeUrls});
+			new UpdateEndpoint(updater, retriever).Post(new AboutUpdateModel {AboutText = at, ThingsILikeUrls = thingsILikeUrls});
 
 			var info = new AboutInfoDto
 			{
@@ -45,7 +65,7 @@ namespace Web.Tests.About
 		[Test]
 		public void Redirects_to_public_facing_about_page()
 		{
-			var result = new UpdateEndpoint(updater).Update(new AboutUpdateModel());
+			var result = new UpdateEndpoint(updater, retriever).Post(new AboutUpdateModel());
 
 			result.AssertWasRedirectedTo<ViewEndpoint>(x => x.Get(new AboutLinkModel()));
 		}

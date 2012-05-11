@@ -12,7 +12,6 @@
 </nav>
 		<h1>Welcome to NTCoding</h1>
 <br />
-
 		<div>
 			${Model.HomepageContent}
 		</div>

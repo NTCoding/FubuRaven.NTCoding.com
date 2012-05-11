@@ -4,7 +4,7 @@
 
 <viewdata model="Web.Endpoints.SiteManagement.SiteManagementIndexViewModel" />
 
-<h1>Manage yo' shit!!</h1>
+<h1>Manage things</h1>
 
 <p>
 	S'up dude? What you wanna do?
@@ -17,6 +17,7 @@
 	<li>
 		${this.LinkTo(new BooksLinkModel()).Text("Books")}
 	</li>
+	
 </ul>
 
 

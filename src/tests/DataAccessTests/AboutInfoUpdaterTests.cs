@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using DataAccessTests.Utilities;
 using Model.About;
@@ -10,7 +11,6 @@ namespace DataAccessTests
 	[TestFixture]
 	public class AboutInfoUpdaterTests : RavenTestsBase
 	{
-		// can update the about text
 		[Test]
 		public void Updates_about_text()
 		{
@@ -29,10 +29,27 @@ namespace DataAccessTests
 				.Single();
 
 			Assert.That(fromSession.AboutText, Is.EqualTo(info.AboutText));
-
 		}
 
-		[Test][Ignore]
+		[Test]
+		public void Updates_things_I_like_urls()
+		{
+			var thingsILikeUrls = new List<string>
+			{
+				"http://www.7digital.com",
+				"http://www.autosport.com",
+				"http://www.cleancoders.com"
+			};
+
+			new RavenAboutInfoUpdater(Session).Update(new AboutInfoDto { ThingsILikeUrls = thingsILikeUrls });
+			Session.SaveChanges();
+
+			var fromSession = GetAboutInfoFromSession();
+
+			Assert.That(fromSession.ThingsILikeUrls, Is.EqualTo(thingsILikeUrls));
+		}
+
+		[Test]
 		public void Keeps_only_one_instance_of_about_info_with_latest_about_text()
 		{
 			var u = new RavenAboutInfoUpdater(Session);
@@ -47,17 +64,22 @@ namespace DataAccessTests
 			u.Update(new AboutInfoDto{AboutText = lastUpdate});
 			Session.SaveChanges();
 
-			var fromSession = Session
-				.Advanced.LuceneQuery<AboutInfo>()
-				.WaitForNonStaleResults()
-				.First();
+			var fromSession = GetAboutInfoFromSession();
 			
 			Assert.That(fromSession.AboutText, Is.EqualTo(lastUpdate));
 
 			Assert.That(Session.Query<AboutInfo>().Count(), Is.EqualTo(1));
 		}
 
-		// can update the things I like urls
+		
+
+		private AboutInfo GetAboutInfoFromSession()
+		{
+			return Session
+				.Advanced.LuceneQuery<AboutInfo>()
+				.WaitForNonStaleResults()
+				.First();
+		}
 	}
 
 	public class RavenAboutInfoUpdater : IAboutInfoUpdater
@@ -78,7 +100,7 @@ namespace DataAccessTests
 				.FirstOrDefault();
  
 			if (currentData == null) 
-				session.Store(new AboutInfo(info.AboutText, Enumerable.Empty<string>()));
+				session.Store(new AboutInfo(info.AboutText, info.ThingsILikeUrls));
 			else
 				currentData.AboutText = info.AboutText;
 		}

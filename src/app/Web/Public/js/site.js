@@ -13,11 +13,16 @@ $(function () {
 		var input = $(this).siblings('input');
 		var text = input.val();
 
-		$(this).siblings('ul').append('<li>' + text + '</li>');
+		$(this).siblings('ul').append('<li>' + text + ' <a href="#" class="listDelete">Delete</a>' + '</li>');
 
 		var name = input.attr('name');
 		$(this).parent().append('<input type="hidden" name="' + name + '" value="' + text + '" />');
 	});
+
+	$(document).delegate('form li a.listDelete', "click", (function () {
+		$(this).parent().remove();
+	}));
+
 });
 
 function hookUpAutoSubmits() {

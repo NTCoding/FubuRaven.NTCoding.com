@@ -5,6 +5,7 @@ using FubuMVC.Core.Continuations;
 using Model.About;
 using Web.Endpoints.About;
 using Web.Endpoints.About.LinkModels;
+using Web.Utilities;
 
 namespace Web.Endpoints.SiteManagement.About
 {
@@ -25,14 +26,14 @@ namespace Web.Endpoints.SiteManagement.About
 
 			return new AboutViewModel
 			       	{
-			       		AboutText = af.AboutText,
-						ThingsILikeUrls = af.ThingsILikeUrls.ToList()
+			       		AboutText_BigText = af.AboutText,
+						ThingsILikeUrls = af.ThingsILikeUrls.ToStringWrappers().ToList()
 			       	};
 		}
 
 		public FubuContinuation Post(AboutUpdateModel model)
 		{
-			var dto = new AboutInfoDto {AboutText = model.AboutText, ThingsILikeUrls = model.ThingsILikeUrls};
+			var dto = new AboutInfoDto {AboutText = model.AboutText_BigText, ThingsILikeUrls = model.ThingsILikeUrls.ToStrings()};
 			updater.Update(dto);
 
 			return FubuContinuation.RedirectTo<ViewEndpoint>(x => x.Get(new AboutLinkModel()));
@@ -50,8 +51,8 @@ namespace Web.Endpoints.SiteManagement.About
 
 	public class AboutUpdateModel
 	{
-		public string AboutText { get; set; }
+		public string AboutText_BigText { get; set; }
 
-		public List<string> ThingsILikeUrls { get; set; }
+		public IList<StringWrapper> ThingsILikeUrls { get; set; }
 	}
 }

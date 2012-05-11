@@ -1,6 +1,7 @@
 <use namespace="Web.Endpoints.SiteManagement.Book.LinkModels" />
 <use namespace="Web.Endpoints.SiteManagement" />
 <use namespace="Web.Endpoints.SiteManagement.HomepageContentModels" />
+<use namespace="Web.Endpoints.SiteManagement.About" />
 
 <viewdata model="Web.Endpoints.SiteManagement.SiteManagementIndexViewModel" />
 
@@ -16,6 +17,9 @@
 	</li>
 	<li>
 		${this.LinkTo(new BooksLinkModel()).Text("Books")}
+	</li>
+	<li>
+		${this.LinkTo(new AboutRequestModel()).Text("About")}
 	</li>
 	
 </ul>

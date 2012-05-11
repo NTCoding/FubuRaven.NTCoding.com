@@ -7,6 +7,7 @@ using Rhino.Mocks;
 using Web.Endpoints.About;
 using Web.Endpoints.About.LinkModels;
 using Web.Endpoints.SiteManagement.About;
+using Web.Utilities;
 
 namespace Web.Tests.About
 {
@@ -37,8 +38,8 @@ namespace Web.Tests.About
 
 			var result = new UpdateEndpoint(updater, retriever).Get(new AboutRequestModel());
 
-			Assert.That(result.AboutText, Is.EqualTo(aboutText));
-			Assert.That(result.ThingsILikeUrls, Is.EqualTo(thingsILikeUrls));
+			Assert.That(result.AboutText_BigText, Is.EqualTo(aboutText));
+			Assert.That(result.ThingsILikeUrls.ToStrings(), Is.EqualTo(thingsILikeUrls));
 		}
 
 		[Test]
@@ -51,15 +52,12 @@ namespace Web.Tests.About
 				"http://www.planetf1.com"
 			};
 
-			new UpdateEndpoint(updater, retriever).Post(new AboutUpdateModel {AboutText = at, ThingsILikeUrls = thingsILikeUrls});
+			new UpdateEndpoint(updater, retriever).Post(new AboutUpdateModel {AboutText_BigText = at, ThingsILikeUrls = thingsILikeUrls.ToStringWrappers().ToList()});
 
-			var info = new AboutInfoDto
-			{
-				AboutText       = at,
-				ThingsILikeUrls = thingsILikeUrls
-			};
+			var info = (AboutInfoDto)updater.GetArgumentsForCallsMadeOn(u => u.Update(new AboutInfoDto()))[0][0];
 
-			updater.AssertWasCalled(u => u.Update(info));
+			Assert.That(at, Is.EqualTo(info.AboutText));
+			Assert.That(thingsILikeUrls, Is.EqualTo(info.ThingsILikeUrls));
 		}
 
 		[Test]

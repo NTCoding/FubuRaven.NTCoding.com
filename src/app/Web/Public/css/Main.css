@@ -595,5 +595,10 @@ div#thingsToInvestigate input, div#developerRecommendations input
     width: 45%;
 }
 
+div#thingsILikeUrls li, div#thingsILikeUrls input
+{
+	width: 450px;
+}
+
 
 

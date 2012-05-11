@@ -1,0 +1,19 @@
+<use namespace="Web.Endpoints.SiteManagement.About" />
+<viewdata model = "Web.Endpoints.SiteManagement.About.AboutViewModel" />
+
+<h1>About Info</h1>
+
+<form action="${this.Urls.UrlFor(new AboutUpdateModel())}" method="post">
+	<p>
+		${this.LabelFor(m => m.AboutText_BigText)}
+		${this.InputFor(m => m.AboutText_BigText).Attr("rows", 10)}
+	</p>
+	<br />
+	<div id="thingsILikeUrls">
+		${this.LabelFor(m => m.ThingsILikeUrls)}
+		${this.InputFor(m => m.ThingsILikeUrls)}
+	</div>
+	<br />
+	
+	<input type="submit">Update</input>
+</form>

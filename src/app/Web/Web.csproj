@@ -269,6 +269,7 @@
     <None Include="Endpoints\Homepage.spark">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Endpoints\SiteManagement\About\Update.spark" />
     <None Include="Endpoints\SiteManagement\Book\Book.spark">
       <SubType>Designer</SubType>
     </None>

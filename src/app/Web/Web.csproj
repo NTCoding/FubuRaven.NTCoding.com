@@ -227,6 +227,8 @@
     <Compile Include="Endpoints\Books\ViewModels\BookListView.cs" />
     <Compile Include="Endpoints\Books\ViewModels\ViewBooksViewModel.cs" />
     <Compile Include="Infrastructure\Authxx\AuthenticationConvention.cs" />
+    <Compile Include="Infrastructure\Authxx\HardBastardsDoorStaff.cs" />
+    <Compile Include="Infrastructure\Authxx\IDoorStaff.cs" />
     <Compile Include="Infrastructure\Authxx\NTCodingAuthorizationFailureHandler.cs" />
     <Compile Include="Infrastructure\Authxx\NTCodingAuthenticationBehaviour.cs" />
     <Compile Include="Infrastructure\Behaviours\RavenSessionBehaviour.cs" />

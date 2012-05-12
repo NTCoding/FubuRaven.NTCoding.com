@@ -1,8 +1,8 @@
 ﻿using System.Net;
 using FubuMVC.Core.Continuations;
 using FubuMVC.Core.Security;
-using Model.Auth;
 using Web.Endpoints.SiteManagement;
+using Web.Infrastructure.Authxx;
 
 namespace Web.Endpoints.Authentication
 {

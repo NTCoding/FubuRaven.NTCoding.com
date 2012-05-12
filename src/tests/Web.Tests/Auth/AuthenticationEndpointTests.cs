@@ -2,11 +2,11 @@ using System;
 using System.Net;
 using FubuMVC.Core.Continuations;
 using FubuMVC.Core.Security;
-using Model.Auth;
 using NUnit.Framework;
 using Rhino.Mocks;
 using Web.Endpoints.Authentication;
 using Web.Endpoints.SiteManagement;
+using Web.Infrastructure.Authxx;
 
 namespace Web.Tests.Auth
 {

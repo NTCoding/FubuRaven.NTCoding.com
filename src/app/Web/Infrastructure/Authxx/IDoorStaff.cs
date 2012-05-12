@@ -1,4 +1,4 @@
-﻿namespace Model.Auth
+﻿namespace Web.Infrastructure.Authxx
 {
 	public interface IDoorStaff
 	{

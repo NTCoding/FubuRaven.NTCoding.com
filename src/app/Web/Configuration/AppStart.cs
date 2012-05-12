@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Web.Routing;
 using FubuMVC.Core;
 using Model.About;
@@ -7,6 +8,7 @@ using Raven.Client;
 using Raven.Client.Embedded;
 using StructureMap;
 using Web.Configuration;
+using Web.Infrastructure.Authxx;
 using Web.Infrastructure.Raven;
 using Web.Utilities;
 using BootstrappingExtensions = FubuMVC.StructureMap.BootstrappingExtensions;
@@ -50,13 +52,12 @@ namespace Web.Configuration
 				x.For<IAboutInfoRetriever>().Use<RavenAboutInfoRetriever>();
 
 				x.For<IAboutInfoUpdater>().Use<RavenAboutInfoUpdater>();
+
+				x.For<IDoorStaff>().Use<HardBastardsDoorStaff>();
 			});
 
         	BootstrappingExtensions.StructureMap(FubuApplication.For<NTCodingFubuRegistry>(), container)
                 .Bootstrap();
         }
-
-
-    	
     }
 }

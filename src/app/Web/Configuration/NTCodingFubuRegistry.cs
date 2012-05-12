@@ -184,7 +184,34 @@ namespace Web.Configuration
 												.AddClass("addItem")
 												);
 
-        	               	         		tag.Children.Add(new HtmlTag("ul"));
+        	               	         		var list = new HtmlTag("ul");
+        	               	         		tag.Children.Add(list);
+
+        	               	         		var values = er.Value<IEnumerable<StringWrapper>>();
+        	               	         		foreach (var s in values)
+        	               	         		{
+
+												// add a list item showing the value and a delete link
+												var li = new HtmlTag("li");
+        	               	         			li.Text(s.Text + "  ");
+
+        	               	         			var deleteLInk = new HtmlTag("a")
+        	               	         				.AddClass("listDelete")
+        	               	         				.Text("delete")
+        	               	         				.Attr("href", "#");
+
+        	               	         			li.Children.Add(deleteLInk);
+
+        	               	         			list.Children.Add(li);
+
+												// add a hidden element so magic javascript can delete and manage indices
+        	               	         			var hidden = new HtmlTag("input")
+        	               	         				.Attr("type", "hidden")
+        	               	         				.Attr("name", er.Accessor.PropertyNames[0])
+        	               	         				.Attr("value", s.Text);
+
+												tag.Children.Add(hidden);
+        	               	         		}
 
         	               	         		return tag;
         	               	         	}));

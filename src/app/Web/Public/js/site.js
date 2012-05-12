@@ -20,7 +20,9 @@ $(function () {
 	});
 
 	$(document).delegate('form li a.listDelete', "click", (function () {
+		var value = $(this).parent().text().split(' ')[0];
 		$(this).parent().remove();
+		$('input[value="' + value + '"]').remove();
 	}));
 
 });

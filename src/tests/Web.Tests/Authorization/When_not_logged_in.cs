@@ -8,7 +8,7 @@ namespace Web.Tests.Authorization
 	public class When_not_logged_in
 	{
 		[Test]
-		public void When_attempting_to_access_site_management_404s()
+		public void Access_to_site_management_404s()
 		{
 			var req = WebRequest.Create("http://localhost:8308/sitemanagement");
 

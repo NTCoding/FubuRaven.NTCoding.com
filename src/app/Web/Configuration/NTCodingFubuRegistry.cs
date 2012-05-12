@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Reflection;
 using System.Web;
 using FubuMVC.Core;
-using FubuMVC.Core.Http;
-using FubuMVC.Core.Registration;
-using FubuMVC.Core.Runtime;
 using FubuMVC.Core.Security;
 using FubuMVC.Core.UI.Configuration;
 using FubuMVC.Spark;
@@ -17,6 +12,7 @@ using HtmlTags;
 using Web.Configuration.Behaviours.Output;
 using Web.Endpoints;
 using Web.Endpoints.HomepageModels;
+using Web.Infrastructure.Authxx;
 using Web.Infrastructure.Behaviours;
 using Web.Utilities;
 
@@ -262,38 +258,4 @@ namespace Web.Configuration
 			return er.Model.GetType().GetProperty(name);
 		}
     }
-
-	public class NTCodingAuthorizationFailureHandler : IAuthorizationFailureHandler
-	{
-		private readonly IHttpWriter _writer;
-
-		public NTCodingAuthorizationFailureHandler(IHttpWriter writer)
-		{
-			_writer = writer;
-		}
-
-		public void Handle()
-		{
-			_writer.WriteResponseCode(HttpStatusCode.NotFound);
-		}
-	}
-
-	public class AuthorizationConvention : IConfigurationAction
-	{
-		public void Configure(BehaviorGraph graph)
-		{
-			graph
-				.Behaviors
-				.Where(b => b.InputType() != null && b.InputType().Namespace.ToLower().Contains("sitemanagement"))
-				.Each(chain => chain.Authorization.AddPolicy(typeof (NTCodingAuthorizationPolicy)));
-		}
-	}
-
-	public class NTCodingAuthorizationPolicy : IAuthorizationPolicy
-	{
-		public AuthorizationRight RightsFor(IFubuRequest request)
-		{
-			return AuthorizationRight.Deny;
-		}
-	}
 }

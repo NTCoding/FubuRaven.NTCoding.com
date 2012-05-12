@@ -13,7 +13,7 @@ namespace Model.About
 
 		public string AboutText { get; set; }
 		
-		public IEnumerable<string> ThingsILikeUrls { get; private set; }
+		public IEnumerable<string> ThingsILikeUrls { get; set; }
 
 		public string Id { get; set; }
 	}

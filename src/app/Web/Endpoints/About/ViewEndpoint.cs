@@ -19,7 +19,7 @@ namespace Web.Endpoints.About
 
 			return new AboutViewModel
 			       	{
-			       		AboutText       = info.AboutText,
+			       		AboutText_Html  = info.AboutText,
 			       		ThingsILikeUrls = info.ThingsILikeUrls
 			       	};
 		}

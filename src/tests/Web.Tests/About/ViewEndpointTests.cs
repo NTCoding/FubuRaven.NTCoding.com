@@ -40,7 +40,7 @@ namespace Web.Tests.About
 		[Test]
 		public void Fetches_about_text_and_puts_on_viewmodel()
 		{
-			Assert.That(viewModel.AboutText, Is.EqualTo(aboutText));
+			Assert.That(viewModel.AboutText_Html, Is.EqualTo(aboutText));
 		}
 
 		[Test]

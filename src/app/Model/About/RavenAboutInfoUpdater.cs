@@ -19,11 +19,14 @@ namespace Model.About
 				.LuceneQuery<AboutInfo>()
 				.WaitForNonStaleResults()
 				.FirstOrDefault();
- 
-			if (currentData == null) 
+
+			if (currentData == null)
 				session.Store(new AboutInfo(info.AboutText, info.ThingsILikeUrls));
 			else
-				currentData.AboutText = info.AboutText;
+			{
+				currentData.AboutText       = info.AboutText;
+				currentData.ThingsILikeUrls = info.ThingsILikeUrls;
+			}
 		}
 	}
 }

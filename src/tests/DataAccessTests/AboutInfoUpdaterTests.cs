@@ -7,6 +7,7 @@ using NUnit.Framework;
 
 namespace DataAccessTests
 {
+
 	[TestFixture]
 	public class AboutInfoUpdaterTests : RavenTestsBase
 	{
@@ -22,10 +23,7 @@ namespace DataAccessTests
 
 			Session.SaveChanges();
 
-			var fromSession = Session
-				.Advanced.LuceneQuery<AboutInfo>()
-				.WaitForNonStaleResults()
-				.Single();
+			var fromSession = GetAboutInfoFromSession();
 
 			Assert.That(fromSession.AboutText, Is.EqualTo(info.AboutText));
 		}
@@ -48,26 +46,62 @@ namespace DataAccessTests
 			Assert.That(fromSession.ThingsILikeUrls, Is.EqualTo(thingsILikeUrls));
 		}
 
-		[Test]
-		public void Keeps_only_one_instance_of_about_info_with_latest_about_text()
+		private AboutInfo GetAboutInfoFromSession()
+		{
+			return Session
+				.Advanced.LuceneQuery<AboutInfo>()
+				.WaitForNonStaleResults()
+				.First();
+		}
+	}
+
+	[TestFixture]
+	public class When_updating_multiple_times : RavenTestsBase
+	{
+		private AboutInfo fromSession;
+		private AboutInfoDto lastUpdate;
+
+		[SetUp]
+		public void SetUp()
 		{
 			var u = new RavenAboutInfoUpdater(Session);
 
-			u.Update(new AboutInfoDto{AboutText = "Blah blah blah"});
+			UpdateAndSave(u, "Blah blah blah", new List<string>());
+			UpdateAndSave(u, "gooblah, gooblah, gooblah", new List<string> { "http://www.bbc.co.uk" });
+
+			lastUpdate = new AboutInfoDto
+							{
+								AboutText = "Jimmy, Jimmy, Jimmy",
+								ThingsILikeUrls = new List<string> {"http://www.planetf1.com" },
+							};
+
+			UpdateAndSave(u, lastUpdate.AboutText, lastUpdate.ThingsILikeUrls);
+
+			fromSession = GetAboutInfoFromSession();
+		}
+
+		private void UpdateAndSave(RavenAboutInfoUpdater u, string aboutText, IEnumerable<string> thingsILikeUrls)
+		{
+			u.Update(new AboutInfoDto { AboutText = aboutText, ThingsILikeUrls = thingsILikeUrls});
 			Session.SaveChanges();
+		}
 
-			u.Update(new AboutInfoDto{AboutText = "gooblah, gooblah, gooblah"});
-			Session.SaveChanges();
-
-			var lastUpdate = "Jimmy, Jimmy, Jimmy";
-			u.Update(new AboutInfoDto{AboutText = lastUpdate});
-			Session.SaveChanges();
-
-			var fromSession = GetAboutInfoFromSession();
-			
-			Assert.That(fromSession.AboutText, Is.EqualTo(lastUpdate));
-
+		[Test]
+		public void Keeps_only_one_instance_of_about_info_with_latest_about_text()
+		{
 			Assert.That(Session.Query<AboutInfo>().Count(), Is.EqualTo(1));
+		}
+
+		[Test]
+		public void Latest_update_to_about_text_is_kep()
+		{
+			Assert.That(fromSession.AboutText, Is.EqualTo(lastUpdate.AboutText));
+		}
+
+		[Test]
+		public void Latest_update_to_thingsIlikeUrls_is_kept()
+		{
+			Assert.That(fromSession.ThingsILikeUrls, Is.EqualTo(lastUpdate.ThingsILikeUrls));
 		}
 
 		private AboutInfo GetAboutInfoFromSession()

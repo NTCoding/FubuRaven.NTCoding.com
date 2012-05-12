@@ -3,7 +3,7 @@
 
 	<h1>About</h1>
 
-${this.DisplayFor(m => m.AboutText)}
+${this.DisplayFor(m => m.AboutText_Html)}
 		
 <content name="minorContent">
 	<div class="top"></div>
@@ -11,7 +11,9 @@ ${this.DisplayFor(m => m.AboutText)}
 		<h3>Things I Like</h3>
 		<ul>
 			<for each="var url in Model.ThingsILikeUrls">
-				<a href="$url" />
+				<li>
+					<a href="http://${url}">${url}</a>
+				</li>
 			</for>
 		</ul>
 	</div>

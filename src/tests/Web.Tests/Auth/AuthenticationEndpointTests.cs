@@ -2,8 +2,10 @@ using System;
 using System.Net;
 using FubuMVC.Core.Continuations;
 using FubuMVC.Core.Security;
+using Model.Auth;
 using NUnit.Framework;
 using Rhino.Mocks;
+using Web.Endpoints.Authentication;
 using Web.Endpoints.SiteManagement;
 
 namespace Web.Tests.Auth
@@ -69,44 +71,5 @@ namespace Web.Tests.Auth
 
 			Assert.That(result._statusCode, Is.EqualTo(HttpStatusCode.NotFound));
 		}
-
-	}
-
-	public class AuthenticationEndpoint
-	{
-		private readonly IDoorStaff doorStaff;
-		private readonly IAuthenticationContext authContext;
-
-		public AuthenticationEndpoint(IDoorStaff doorStaff, IAuthenticationContext authContext)
-		{
-			this.doorStaff = doorStaff;
-			this.authContext = authContext;
-		}
-
-		public FubuContinuation Post(LoginModel loginModel)
-		{
-			if (doorStaff.HaveAllowedIn(loginModel.User, loginModel.Password) & loginModel.MagicWord == "redsquare")
-			{
-				authContext.ThisUserHasBeenAuthenticated(loginModel.User, true);
-
-				return FubuContinuation.RedirectTo<IndexEndpoint>(x => x.Get(new SiteManagementLinkModel()));
-			}
-
-			return FubuContinuation.EndWithStatusCode(HttpStatusCode.NotFound);
-		}
-	}
-
-	public class LoginModel
-	{
-		public string Password { get; set; }
-
-		public string User { get; set; }
-
-		public string MagicWord { get; set; }
-	}
-
-	public interface IDoorStaff
-	{
-		bool HaveAllowedIn(string userName, string password);
 	}
 }

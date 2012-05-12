@@ -16,6 +16,16 @@ namespace Web.Tests.Authentication
 			Assert.That(res.StatusCode, Is.EqualTo(HttpStatusCode.NotFound));
 		}
 
+		[Test]
+		public void Access_to_raven_studio_404s()
+		{
+			var req = WebRequest.Create("http://localhost:8080");
+
+			var res = GetResponse(req);
+
+			Assert.That(res.StatusCode, Is.EqualTo(HttpStatusCode.NotFound));
+		}
+
 		private HttpWebResponse GetResponse(WebRequest req)
 		{
 			try

@@ -1,4 +1,3 @@
-using System;
 using System.Net;
 using FubuMVC.Core.Continuations;
 using FubuMVC.Core.Http;
@@ -9,7 +8,7 @@ using Web.Endpoints.Authentication;
 using Web.Endpoints.SiteManagement;
 using Web.Infrastructure.Authxx;
 
-namespace Web.Tests.Auth
+namespace Web.Tests.Authentication
 {
 	[TestFixture]
 	public class AuthenticationEndpointTests

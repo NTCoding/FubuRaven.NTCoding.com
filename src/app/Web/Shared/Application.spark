@@ -33,6 +33,7 @@
 					${this.LinkTo(new Web.Endpoints.Books.LinkModels.ViewBooksLinkModel()).Text("Books")}
 					<a href="http://www.ntcoding.blogspot.com">Blog</a>
 					${this.LinkTo(new Web.Endpoints.About.LinkModels.AboutLinkModel()).Text("About")}
+					<a href="mailto:ntcoding@live.co.uk">Contact</a>
 					<a class="gitLink" href="https://github.com/NTCoding">
 						<img height="26" width="55" alt="NTCoding on GitHub" title="NTCoding on GitHub" src="/Public/images/GitHub.png"/>
 					</a>

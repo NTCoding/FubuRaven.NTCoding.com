@@ -12,55 +12,83 @@ namespace Web.Tests.Auth
 	public class AuthenticationEndpointTests
 	{
 		private IDoorStaff doorStaff;
-		
+		private IAuthenticationContext authContext;
+		private string userName;
+		private AuthenticationEndpoint endpoint;
+
 		[SetUp]
 		public void SetUp()
 		{
-			doorStaff = MockRepository.GenerateStub<IDoorStaff>();
+			doorStaff   = MockRepository.GenerateStub<IDoorStaff>();
+			authContext = MockRepository.GenerateStub<IAuthenticationContext>();
+			endpoint    = new AuthenticationEndpoint(doorStaff, authContext);
+			userName    = "harryBrown";
 		}
 
 		[Test]
-		public void Redirects_to_site_management_homepage_with_valid_credentials()
+		public void Redirects_to_site_management_homepage_with_valid_credentials_and_magic_word()
 		{
-			var user = "harryBrown";
-			var password = "gotAShooter";
-
-			doorStaff.Stub(s => s.WillGrantAccessTo(user, password)).Return(true);
-
-			var result = new AuthenticationEndpoint(doorStaff).Post(new LoginModel {User = user, Password = password});
+			var result = PostValidCredentials();
 
 			result.AssertWasRedirectedTo<IndexEndpoint>(x => x.Get(new SiteManagementLinkModel()));
 		}
 
 		[Test]
+		public void Tells_fubu_user_has_logged_in()
+		{
+			PostValidCredentials();
+
+			authContext.AssertWasCalled(a => a.ThisUserHasBeenAuthenticated(userName, true));
+		}
+
+		private FubuContinuation PostValidCredentials()
+		{
+			var password = "gotAShooter";
+
+			doorStaff.Stub(s => s.HaveAllowedIn(userName, password)).Return(true);
+
+			return endpoint.Post(new LoginModel {User = userName, Password = password, MagicWord = "redsquare"});
+		}
+
+		[Test]
 		public void Invalid_credentials_cause_404()
 		{
-			doorStaff.Stub(s => s.WillGrantAccessTo("", "")).IgnoreArguments().Return(false);
+			doorStaff.Stub(s => s.HaveAllowedIn("", "")).IgnoreArguments().Return(false);
 
-			var result = new AuthenticationEndpoint(doorStaff).Post(new LoginModel());
+			var result = endpoint.Post(new LoginModel());
 
 			Assert.That(result._statusCode, Is.EqualTo(HttpStatusCode.NotFound));
 		}
 
-		// tells fubu user has logged in
+		[Test]
+		public void Requires_magic_word()
+		{
+			doorStaff.Stub(s => s.HaveAllowedIn("", "")).IgnoreArguments().Return(true);
 
-		// 404s is magic word is not part of querystring
+			var result = endpoint.Post(new LoginModel());
+
+			Assert.That(result._statusCode, Is.EqualTo(HttpStatusCode.NotFound));
+		}
 
 	}
 
 	public class AuthenticationEndpoint
 	{
 		private readonly IDoorStaff doorStaff;
+		private readonly IAuthenticationContext authContext;
 
-		public AuthenticationEndpoint(IDoorStaff doorStaff)
+		public AuthenticationEndpoint(IDoorStaff doorStaff, IAuthenticationContext authContext)
 		{
 			this.doorStaff = doorStaff;
+			this.authContext = authContext;
 		}
 
 		public FubuContinuation Post(LoginModel loginModel)
 		{
-			if (doorStaff.WillGrantAccessTo(loginModel.User, loginModel.Password))
+			if (doorStaff.HaveAllowedIn(loginModel.User, loginModel.Password) & loginModel.MagicWord == "redsquare")
 			{
+				authContext.ThisUserHasBeenAuthenticated(loginModel.User, true);
+
 				return FubuContinuation.RedirectTo<IndexEndpoint>(x => x.Get(new SiteManagementLinkModel()));
 			}
 
@@ -73,10 +101,12 @@ namespace Web.Tests.Auth
 		public string Password { get; set; }
 
 		public string User { get; set; }
+
+		public string MagicWord { get; set; }
 	}
 
 	public interface IDoorStaff
 	{
-		bool WillGrantAccessTo(string userName, string password);
+		bool HaveAllowedIn(string userName, string password);
 	}
 }

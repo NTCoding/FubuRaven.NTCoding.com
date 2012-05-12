@@ -1,6 +1,7 @@
 using System;
 using System.Net;
 using FubuMVC.Core.Continuations;
+using FubuMVC.Core.Http;
 using FubuMVC.Core.Security;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -16,14 +17,16 @@ namespace Web.Tests.Auth
 		private IDoorStaff doorStaff;
 		private IAuthenticationContext authContext;
 		private string userName;
-		private AuthenticationEndpoint endpoint;
+		private LoginEndpoint endpoint;
+		private IHttpWriter writer;
 
 		[SetUp]
 		public void SetUp()
 		{
 			doorStaff   = MockRepository.GenerateStub<IDoorStaff>();
 			authContext = MockRepository.GenerateStub<IAuthenticationContext>();
-			endpoint    = new AuthenticationEndpoint(doorStaff, authContext);
+			writer      = MockRepository.GenerateStub<IHttpWriter>();
+			endpoint    = new LoginEndpoint(doorStaff, authContext, writer);
 			userName    = "harryBrown";
 		}
 
@@ -32,7 +35,7 @@ namespace Web.Tests.Auth
 		{
 			var result = PostValidCredentials();
 
-			result.AssertWasRedirectedTo<IndexEndpoint>(x => x.Get(new SiteManagementLinkModel()));
+			result.AssertWasRedirectedTo<Endpoints.SiteManagement.IndexEndpoint>(x => x.Get(new SiteManagementLinkModel()));
 		}
 
 		[Test]
@@ -49,7 +52,7 @@ namespace Web.Tests.Auth
 
 			doorStaff.Stub(s => s.HaveAllowedIn(userName, password)).Return(true);
 
-			return endpoint.Post(new LoginModel {User = userName, Password = password, MagicWord = "redsquare"});
+			return endpoint.Post(new LoginModel {User = userName, Password = password});
 		}
 
 		[Test]
@@ -63,13 +66,19 @@ namespace Web.Tests.Auth
 		}
 
 		[Test]
-		public void Requires_magic_word()
+		public void Allows_login_attempt_with_magic_word()
 		{
-			doorStaff.Stub(s => s.HaveAllowedIn("", "")).IgnoreArguments().Return(true);
+			endpoint.Get(new AuthRequestModel {MagicWord = "redsquare"});
 
-			var result = endpoint.Post(new LoginModel());
+			writer.AssertWasNotCalled(r => r.WriteResponseCode(HttpStatusCode.NotFound));
+		}
 
-			Assert.That(result._statusCode, Is.EqualTo(HttpStatusCode.NotFound));
+		[Test]
+		public void Will_not_allow_login_attempt_without_magic_word()
+		{
+			endpoint.Get(new AuthRequestModel { MagicWord = "humbagumbo" });
+
+			writer.AssertWasCalled(r => r.WriteResponseCode(HttpStatusCode.NotFound));
 		}
 	}
 }

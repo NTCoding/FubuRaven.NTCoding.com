@@ -1,0 +1,17 @@
+<use namespace="Web.Endpoints.Authentication" />
+<viewdata model="Web.Endpoints.Authentication.LoginViewModel" />
+
+<h1>Login Fatboy!</h1>
+
+<form action="${this.Urls.UrlFor(new LoginModel())}" method="post">
+	<p>
+		${this.LabelFor(m => m.User)}
+		${this.InputFor(m => m.User)}
+	</p>
+	<p>
+		${this.LabelFor(m => m.Password)}
+		${this.InputFor(m => m.Password)}
+	</p>
+
+	<input type="submit" value="Login Fatboy!"/>
+</form>

@@ -3,14 +3,8 @@
 <use namespace="Web.Endpoints.Books.ViewModels" />
 <use namespace="Web.Utilities" />
 <viewdata model="Web.Endpoints.HomepageModels.HomepageViewModel" />
-<nav>
-	<ul>
-		<li>
-			${this.LinkTo(new SiteManagementLinkModel()).Text("Site management")}
-		</li>
-	</ul>
-</nav>
-		<h1>Welcome to NTCoding</h1>
+
+<h1>Welcome to NTCoding</h1>
 <br />
 		<div>
 			${Model.HomepageContent}

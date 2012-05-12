@@ -188,7 +188,7 @@
     <Compile Include="Endpoints\About\LinkModels\AboutLinkModel.cs" />
     <Compile Include="Endpoints\About\ViewModels\AboutViewModel.cs" />
     <Compile Include="Endpoints\About\ViewEndpoint.cs" />
-    <Compile Include="Endpoints\Authentication\AuthenticationEndpoint.cs" />
+    <Compile Include="Endpoints\Authentication\LoginEndpoint.cs" />
     <Compile Include="Endpoints\Authentication\LoginModel.cs" />
     <Compile Include="Endpoints\Books\IndexEndpoint.cs" />
     <Compile Include="Endpoints\Books\LinkModels\ViewBookLinkModel.cs" />
@@ -270,6 +270,7 @@
     <None Include="Endpoints\About\About.spark">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Endpoints\Authentication\Index.spark" />
     <None Include="Endpoints\Books\Index.spark">
       <SubType>Designer</SubType>
     </None>

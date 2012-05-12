@@ -1,4 +1,5 @@
 using System;
+using System.Net;
 using FubuMVC.Core.Continuations;
 using FubuMVC.Core.Security;
 using NUnit.Framework;
@@ -31,11 +32,20 @@ namespace Web.Tests.Auth
 			result.AssertWasRedirectedTo<IndexEndpoint>(x => x.Get(new SiteManagementLinkModel()));
 		}
 
+		[Test]
+		public void Invalid_credentials_cause_404()
+		{
+			doorStaff.Stub(s => s.WillGrantAccessTo("", "")).IgnoreArguments().Return(false);
+
+			var result = new AuthenticationEndpoint(doorStaff).Post(new LoginModel());
+
+			Assert.That(result._statusCode, Is.EqualTo(HttpStatusCode.NotFound));
+		}
+
 		// tells fubu user has logged in
 
 		// 404s is magic word is not part of querystring
 
-		// 404s if credentials are invalid
 	}
 
 	public class AuthenticationEndpoint
@@ -54,7 +64,7 @@ namespace Web.Tests.Auth
 				return FubuContinuation.RedirectTo<IndexEndpoint>(x => x.Get(new SiteManagementLinkModel()));
 			}
 
-			return null;
+			return FubuContinuation.EndWithStatusCode(HttpStatusCode.NotFound);
 		}
 	}
 

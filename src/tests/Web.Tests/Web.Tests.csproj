@@ -62,7 +62,7 @@
   <ItemGroup>
     <Compile Include="About\UpdateEndpointTests.cs" />
     <Compile Include="About\ViewEndpointTests.cs" />
-    <Compile Include="Authorization\When_not_logged_in.cs" />
+    <Compile Include="Authentication\When_not_logged_in.cs" />
     <Compile Include="Books\Public\IndexEndpointTests.cs" />
     <Compile Include="Books\Public\MappingBookToAViewBookViewModel.cs" />
     <Compile Include="Books\SiteManagement\BookDisplayModelTests.cs" />

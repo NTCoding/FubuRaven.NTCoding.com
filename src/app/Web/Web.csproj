@@ -224,9 +224,9 @@
     <Compile Include="Endpoints\SiteManagement\IndexEndpoint.cs" />
     <Compile Include="Endpoints\Books\ViewModels\BookListView.cs" />
     <Compile Include="Endpoints\Books\ViewModels\ViewBooksViewModel.cs" />
-    <Compile Include="Infrastructure\Authxx\AuthorizationConvention.cs" />
+    <Compile Include="Infrastructure\Authxx\AuthenticationConvention.cs" />
     <Compile Include="Infrastructure\Authxx\NTCodingAuthorizationFailureHandler.cs" />
-    <Compile Include="Infrastructure\Authxx\NTCodingAuthorizationPolicy.cs" />
+    <Compile Include="Infrastructure\Authxx\NTCodingAuthenticationBehaviour.cs" />
     <Compile Include="Infrastructure\Behaviours\RavenSessionBehaviour.cs" />
     <Compile Include="Infrastructure\Raven\DocumentStoreHolder.cs" />
     <Compile Include="Infrastructure\Services\FileUploader.cs" />

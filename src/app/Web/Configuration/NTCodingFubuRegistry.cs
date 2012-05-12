@@ -50,7 +50,7 @@ namespace Web.Configuration
 
         	Policies
         		.WrapBehaviorChainsWith<RavenSessionBehaviour>()
-        		.Add<AuthorizationConvention>();
+        		.Add<AuthenticationConvention>();
 
 
 			// TODO - move into conventions / policies? Put Html building logic into helpers

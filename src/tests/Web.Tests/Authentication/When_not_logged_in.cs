@@ -1,8 +1,7 @@
-using System;
 using System.Net;
 using NUnit.Framework;
 
-namespace Web.Tests.Authorization
+namespace Web.Tests.Authentication
 {
 	[TestFixture]
 	public class When_not_logged_in

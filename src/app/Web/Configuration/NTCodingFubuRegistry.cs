@@ -1,8 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Web;
 using FubuMVC.Core;
+using FubuMVC.Core.Http;
+using FubuMVC.Core.Registration;
+using FubuMVC.Core.Runtime;
+using FubuMVC.Core.Security;
 using FubuMVC.Core.UI.Configuration;
 using FubuMVC.Spark;
 using FubuMVC.Validation;
@@ -41,24 +47,15 @@ namespace Web.Configuration
         		.TryToAttach(x => x.by_ViewModel())
         		.RegisterActionLessViews(t => t.ViewModelType == typeof (Notification));
 
-			// TODO - nice little blog post
         	Output.To<RenderImageNode>().WhenTheOutputModelIs<ImageModel>();
 
+			Services(x => x.ReplaceService<IAuthorizationFailureHandler, NTCodingAuthorizationFailureHandler>());
 
-			//this.Validation(validation =>
-			//                    {
-			//                        validation
-			//                            .Actions
-			//                            .Include(call => call.HasInput && call.InputType().Name.Contains("Input"));
-
-			//                        validation
-			//                            .Failures
-			//                            .If(f => f.InputType() != null && f.InputType().Name.Contains("Input"))
-			//                            .TransferBy<HandlerModelDescriptor>();
-			//                    });
 
         	Policies
-        		.WrapBehaviorChainsWith<RavenSessionBehaviour>();
+        		.WrapBehaviorChainsWith<RavenSessionBehaviour>()
+        		.Add<AuthorizationConvention>();
+
 
 			// TODO - move into conventions / policies? Put Html building logic into helpers
         	HtmlConvention(x =>
@@ -265,4 +262,38 @@ namespace Web.Configuration
 			return er.Model.GetType().GetProperty(name);
 		}
     }
+
+	public class NTCodingAuthorizationFailureHandler : IAuthorizationFailureHandler
+	{
+		private readonly IHttpWriter _writer;
+
+		public NTCodingAuthorizationFailureHandler(IHttpWriter writer)
+		{
+			_writer = writer;
+		}
+
+		public void Handle()
+		{
+			_writer.WriteResponseCode(HttpStatusCode.NotFound);
+		}
+	}
+
+	public class AuthorizationConvention : IConfigurationAction
+	{
+		public void Configure(BehaviorGraph graph)
+		{
+			graph
+				.Behaviors
+				.Where(b => b.InputType() != null && b.InputType().Namespace.ToLower().Contains("sitemanagement"))
+				.Each(chain => chain.Authorization.AddPolicy(typeof (NTCodingAuthorizationPolicy)));
+		}
+	}
+
+	public class NTCodingAuthorizationPolicy : IAuthorizationPolicy
+	{
+		public AuthorizationRight RightsFor(IFubuRequest request)
+		{
+			return AuthorizationRight.Deny;
+		}
+	}
 }

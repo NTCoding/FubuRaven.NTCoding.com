@@ -35,6 +35,9 @@
       <HintPath>..\..\..\packages\AutoMapper.2.0.0\lib\net40-client\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="FubuMVC.Core, Version=0.9.1.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FubuValidation, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FubuValidation.0.4.0.124\lib\FubuValidation.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="nunit.framework">
       <HintPath>..\..\..\packages\NUnit.2.5.10.11092\lib\nunit.framework.dll</HintPath>
@@ -61,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About\UpdateEndpointTests.cs" />
+    <Compile Include="About\ValidationTests.cs" />
     <Compile Include="About\ViewEndpointTests.cs" />
     <Compile Include="Authentication\When_not_logged_in.cs" />
     <Compile Include="Authentication\AuthenticationEndpointTests.cs" />

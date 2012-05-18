@@ -236,6 +236,8 @@
     <Compile Include="Infrastructure\Behaviours\RavenSessionBehaviour.cs" />
     <Compile Include="Infrastructure\Raven\DocumentStoreHolder.cs" />
     <Compile Include="Infrastructure\Services\FileUploader.cs" />
+    <Compile Include="Infrastructure\Validation\DenyPrefixAttribute.cs" />
+    <Compile Include="Infrastructure\Validation\DenyPrefixRule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\AsyncHelper.cs" />
     <Compile Include="Utilities\AsyncTimeoutTweetRetriever.cs" />

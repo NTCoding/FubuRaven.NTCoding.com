@@ -6,7 +6,12 @@ namespace Web.Infrastructure
 {
 	public class BehaviourGraphActionFinder : IActionFinder
 	{
-		private BehaviorGraph graph;
+		private readonly BehaviorGraph graph;
+
+		public BehaviourGraphActionFinder(BehaviorGraph graph)
+		{
+			this.graph = graph;
+		}
 
 		public Type GetRequestModelTypeFor<T>(T inputModel)
 		{

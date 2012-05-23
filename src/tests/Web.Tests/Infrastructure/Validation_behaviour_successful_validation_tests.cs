@@ -124,7 +124,7 @@ namespace Web.Tests.Infrastructure
 		[Test]
 		public void Redirects_to_get_action_using_partial()
 		{
-			partial.AssertWasCalled(p => p.Invoke());
+			partial.AssertWasCalled(p => p.InvokePartial());
 		}
 
 		[Test]

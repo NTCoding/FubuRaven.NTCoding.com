@@ -45,7 +45,7 @@ namespace Web.Infrastructure.Validation
 			request.Set(notification);
 			request.Set(new ValidatedInputModel<T>(inputModel) { FailedValidation = true });
 
-			factory.BuildPartial(actionFinder.GetRequestModelTypeFor(inputModel)).Invoke();
+			factory.BuildPartial(actionFinder.GetRequestModelTypeFor(inputModel)).InvokePartial();
 		}
 		
 		public void InvokePartial()

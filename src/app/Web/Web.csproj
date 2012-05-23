@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -156,7 +157,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="%40App_Data\Raven\raven-data.ico" />
     <Content Include="Public\css\Main.css" />
     <Content Include="Public\images\BannerLeft.png" />
     <Content Include="Public\images\BannerRight.png" />
@@ -234,6 +234,7 @@
     <Compile Include="Infrastructure\Authxx\NTCodingAuthorizationFailureHandler.cs" />
     <Compile Include="Infrastructure\Authxx\NTCodingAuthenticationBehaviour.cs" />
     <Compile Include="Infrastructure\Behaviours\RavenSessionBehaviour.cs" />
+    <Compile Include="Infrastructure\IActionFinder.cs" />
     <Compile Include="Infrastructure\Raven\DocumentStoreHolder.cs" />
     <Compile Include="Infrastructure\Services\FileUploader.cs" />
     <Compile Include="Infrastructure\Validation\DenyPrefixAttribute.cs" />
@@ -249,9 +250,6 @@
     <Compile Include="Utilities\StringWrapperExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="%40App_Data\Raven\IndexDefinitions\TemporaryIndexDefinitionsAsSource\" />
-    <Folder Include="%40App_Data\Raven\Indexes\" />
-    <Folder Include="%40App_Data\Raven\temp\" />
     <Folder Include="App_Data\" />
     <Folder Include="Infrastructure\Binding\ValueConverters\" />
   </ItemGroup>
@@ -266,11 +264,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="%40App_Data\Raven\IndexDefinitions\Temp%252fGenres.index" />
-    <None Include="%40App_Data\Raven\logs\RVN.log" />
-    <None Include="%40App_Data\Raven\logs\RVNres00001.jrs" />
-    <None Include="%40App_Data\Raven\logs\RVNres00002.jrs" />
-    <None Include="%40App_Data\Raven\system\RVN.chk" />
     <None Include="Endpoints\About\About.spark">
       <SubType>Designer</SubType>
     </None>

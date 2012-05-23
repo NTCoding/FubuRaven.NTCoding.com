@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using FubuMVC.Core.Continuations;
+using FubuMVC.Core.Runtime;
+using FubuValidation;
 using Model.About;
 using Web.Endpoints.About;
 using Web.Endpoints.About.LinkModels;
@@ -13,15 +15,19 @@ namespace Web.Endpoints.SiteManagement.About
 	{
 		private readonly IAboutInfoUpdater updater;
 		private readonly IAboutInfoRetriever retriever;
+		private IFubuRequest request;
 
-		public UpdateEndpoint(IAboutInfoUpdater updater, IAboutInfoRetriever retriever)
+		public UpdateEndpoint(IAboutInfoUpdater updater, IAboutInfoRetriever retriever, IFubuRequest request = null)
 		{
 			this.updater = updater;
+			this.request = request;
 			this.retriever = retriever;
 		}
 
 		public AboutViewModel Get(AboutRequestModel aboutRequestModel)
 		{
+			var n = request.Get<Notification>();
+
 			var af = retriever.GetAboutInfo();
 
 			return new AboutViewModel

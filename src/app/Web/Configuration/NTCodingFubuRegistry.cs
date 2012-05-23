@@ -1,8 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Web;
 using FubuMVC.Core;
+using FubuMVC.Core.Behaviors;
+using FubuMVC.Core.Continuations;
+using FubuMVC.Core.Http;
+using FubuMVC.Core.Registration;
+using FubuMVC.Core.Registration.Nodes;
+using FubuMVC.Core.Runtime;
 using FubuMVC.Core.Security;
 using FubuMVC.Core.UI.Configuration;
 using FubuMVC.Spark;
@@ -12,6 +19,7 @@ using HtmlTags;
 using Web.Configuration.Behaviours.Output;
 using Web.Endpoints;
 using Web.Endpoints.HomepageModels;
+using Web.Infrastructure;
 using Web.Infrastructure.Authxx;
 using Web.Infrastructure.Behaviours;
 using Web.Utilities;
@@ -49,6 +57,8 @@ namespace Web.Configuration
 
 
         	Policies
+				.Add<NTCodingValidationConvention>()
+				//.Add<RemapFormValuesOnValidationFailurePolicy>()
         		.WrapBehaviorChainsWith<RavenSessionBehaviour>()
         		.Add<AuthenticationConvention>();
 
@@ -258,4 +268,177 @@ namespace Web.Configuration
 			return er.Model.GetType().GetProperty(name);
 		}
     }
+
+	//public class RemapFormValuesOnValidationFailurePolicy : IConfigurationAction
+	//{
+	//    public void Configure(BehaviorGraph graph)
+	//    {
+	//        graph
+	//            .Actions()
+	//            .Where(b => b.InputType() != null)
+	//            .Each(chain => chain.AddAfter(new Wrapper(typeof(RemapFailedValidationFormValuesBehaviour<>).MakeGenericType(chain.OutputType().BaseType))));
+	//    }
+	//}
+
+	//public class RemapFailedValidationFormValuesBehaviour<TInputModel> : BasicBehavior where  TInputModel : class
+	//{
+	//    private readonly IFubuRequest request;
+
+	//    public RemapFailedValidationFormValuesBehaviour(IFubuRequest request) : base(PartialBehavior.Executes)
+	//    {
+	//        this.request = request;
+	//    }
+
+	//    protected override DoNext performInvoke()
+	//    {
+	//        FailedValidationInputModel<TInputModel> failedValidationContext = null;
+	//        try
+	//        {
+	//            failedValidationContext = request.Get<FailedValidationInputModel<TInputModel>>();
+	//        }
+	//        catch (FubuException)
+	//        {
+	//            return DoNext.Continue;
+	//        }
+
+	//        if (failedValidationContext.IsForFailedValidation)
+	//        {
+	//            var viewModel = request.Get(GetViewModelType());
+
+	//            MapProperties(failedValidationContext.InputModel, viewModel);
+
+	//            request.Set(viewModel);
+	//        }
+
+	//        return DoNext.Continue;
+	//    }
+
+	//    protected override void afterInsideBehavior()
+	//    {
+			
+	//    }
+
+	//    private Type GetViewModelType()
+	//    {
+	//        return
+	//            Assembly
+	//                .GetAssembly(typeof (TInputModel))
+	//                .GetTypes()
+	//                .Where(t => t.IsSubclassOf(typeof (TInputModel)))
+	//                .First();
+	//    }
+
+	//    private void MapProperties(object from, object to)
+	//    {
+	//        foreach (var pi in from.GetType().GetProperties())
+	//        {
+	//            var prop = to.GetType().GetProperties().SingleOrDefault(ti => ti.Name == pi.Name);
+	//            if (prop != null)
+	//            {
+	//                prop.SetValue(to, pi.GetValue(from, new object[] { }), new object[] { });
+	//            }
+	//        }
+	//    }
+	//}
+
+	public class NTCodingValidationConvention : IConfigurationAction
+	{
+		public void Configure(BehaviorGraph graph)
+		{
+			graph
+				.Actions()
+				.Where(b => b.InputType() != null)
+				.Each(chain => chain.WrapWith(typeof (NTCodingValidationBehaviour<>).MakeGenericType(chain.InputType())));
+
+		}
+	}
+
+	public class NTCodingValidationBehaviour<T> : IActionBehavior where T : class
+	{
+		private readonly IFubuRequest request;
+		private readonly IValidator validator;
+		private readonly IActionFinder actionFinder;
+		private readonly IPartialFactory factory;
+
+		public NTCodingValidationBehaviour(IFubuRequest request, IValidator validator, IActionFinder actionFinder, IPartialFactory factory)
+		{
+			this.request      = request;
+			this.factory      = factory;
+			this.validator    = validator;
+			this.actionFinder = actionFinder;
+		}
+
+		public IActionBehavior InnerBehavior { get; set; }
+
+		public void Invoke()
+		{
+			var inputModel = request.Get<T>();
+
+			var notification = validator.Validate(inputModel);
+
+			if (notification.IsValid())
+				SetContextAndContinueChain(inputModel);
+			else
+				SetContextAndRedirectToGet(inputModel, notification);
+		}
+
+		private void SetContextAndContinueChain(T inputModel)
+		{
+			request.Set(new ValidatedInputModel<T>(inputModel) { FailedValidation = false });
+
+			InnerBehavior.Invoke();
+		}
+
+		private void SetContextAndRedirectToGet(T inputModel, Notification notification)
+		{
+			request.Set(notification);
+			request.Set(new ValidatedInputModel<T>(inputModel) { FailedValidation = true });
+
+			factory.BuildPartial(actionFinder.GetRequestModelTypeFor(inputModel)).Invoke();
+		}
+
+		
+
+		private void RedirectToGetWithErrors(T inputModel, Notification notification)
+		{
+
+			// TODO - still need to map the properties onto the request model from the input
+			//        model in cases where request model has properties else get will fail
+			//        This will also be conventional for special cases??
+
+
+			//factory.BuildPartial(ac.InputType()).InvokePartial();
+		}
+
+		//private ActionCall GetActionCallForGetRequest(T inputModel)
+		//{
+		//    var targetNamespace = inputModel.GetType().Namespace;
+
+		//    var getCall = graph
+		//        .Behaviors
+		//        .Where(chain => chain.FirstCall() != null && chain.FirstCall().HandlerType.Namespace == targetNamespace
+		//                        && chain.Route.AllowedHttpMethods.Contains("GET"))
+		//        .Select(chain => chain.FirstCall())
+		//        .FirstOrDefault();
+
+		//    return getCall;
+		//}
+		
+		public void InvokePartial()
+		{
+			Invoke();
+		}
+	}
+
+	public class ValidatedInputModel<T> where T : class 
+	{
+		public ValidatedInputModel(T inputModel)
+		{
+			InputModel = inputModel;
+		}
+
+		public T InputModel { get; private set; }
+
+		public bool FailedValidation { get; set; }
+	}
 }

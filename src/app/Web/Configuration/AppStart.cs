@@ -2,6 +2,9 @@
 using System.ComponentModel;
 using System.Web.Routing;
 using FubuMVC.Core;
+using FubuMVC.Core.Continuations;
+using FubuMVC.Validation;
+using FubuValidation;
 using Model.About;
 using Model.Services;
 using Raven.Client;
@@ -54,6 +57,12 @@ namespace Web.Configuration
 				x.For<IAboutInfoUpdater>().Use<RavenAboutInfoUpdater>();
 
 				x.For<IDoorStaff>().Use<HardBastardsDoorStaff>();
+
+				x.For<IValidator>().Use(Validator.BasicValidator);
+
+				x.For<IValidationContinuationHandler>().Use<ValidationContinuationHandler>();
+
+				x.For<IContinuationDirector>().Use<ContinuationHandler>();
 			});
 
         	BootstrappingExtensions.StructureMap(FubuApplication.For<NTCodingFubuRegistry>(), container)

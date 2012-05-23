@@ -16,5 +16,8 @@ ${this.DisplayFor(m => m.AboutText_Html)}
 				</li>
 			</for>
 		</ul>
+		<for each="var error in this.Get<Notification>().MessagesFor<AboutUpdateModel>(m => m.ThingsILikeUrls)">
+			<h2>Error</h2>			
+		</for>
 	</div>
 </content>

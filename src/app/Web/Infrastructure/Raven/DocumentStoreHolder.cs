@@ -19,10 +19,10 @@ namespace Web.Infrastructure.Raven
 
 		private static IDocumentStore CreateDocumentStore()
 		{
-			var store = new EmbeddableDocumentStore
+			var store = new DocumentStore
 			            	{
-								DataDirectory = "@App_Data\\Raven",
-								UseEmbeddedHttpServer = true,
+								Url = @"https://1.ravenhq.com/databases/NTCoding-FubuRavenNTCoding",
+								ApiKey = @"9cac5fef-26bc-452b-8ce1-5264eab65336",
 							}.Initialize();
 
 			store.Conventions.MaxNumberOfRequestsPerSession = 500;

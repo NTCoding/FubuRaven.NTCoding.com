@@ -7,7 +7,7 @@ namespace DataImporter
 	[TestFixture]
 	public class TestConsole
 	{
-		[Test]
+		[Test][Ignore("Not actual tests")]
 		public void ShouldImportGenres()
 		{
 			var importer = new SqlImporter();
@@ -19,7 +19,7 @@ namespace DataImporter
 			}
 		}
 
-		[Test]
+		[Test][Ignore("Not actual tests")]
 		public void ShouldImportBooks()
 		{
 			var importer = new SqlImporter();

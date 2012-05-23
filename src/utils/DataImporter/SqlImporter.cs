@@ -59,7 +59,7 @@ namespace DataImporter
 			var dataImporterRoot = srcFolder.GetDirectories("utils").Single().GetDirectories("DataImporter").Single();
 			var imageDir = new DirectoryInfo(Path.Combine(dataImporterRoot.FullName, "Images"));
 
-			return File.ReadAllBytes(Path.Combine(imageDir.FullName, bookDto.ImageName));
+			return File.ReadAllBytes(Path.Combine(imageDir.FullName, bookDto.ImageName).Replace(@"Growing Object-Oriented Software, Guided by Tests7b57d8a8-c82e-4cc7-b38c-9f31f47a1f32.jpg", "GOOS.jpg"));
 
 		}
 

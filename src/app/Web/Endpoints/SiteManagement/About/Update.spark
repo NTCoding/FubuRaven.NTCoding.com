@@ -14,6 +14,6 @@
 		${this.InputFor(m => m.ThingsILikeUrls)}
 	</div>
 	<br />
-	
-	<input type="submit">Update</input>
+
+	<input type="submit" value="Update" />
 </form>

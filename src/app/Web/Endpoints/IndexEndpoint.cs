@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using DataImporter;
 using Model;
 using Model.Services;
 using Model.Services.dtos;
+using Raven.Client;
 using Web.Endpoints.HomepageModels;
 
 namespace Web.Endpoints
@@ -13,6 +15,7 @@ namespace Web.Endpoints
 		private readonly IBlogPostsRetriever blogRetriever;
 		private readonly ITweetRetriever tweetRetriever;
 		private readonly IBookRetriever bookRetriever;
+		private readonly IDocumentSession session;
 
 		public IndexEndpoint(IHomepageContentProvider homepageContentProvider, IBlogPostsRetriever blogRetriever, 
 			ITweetRetriever tweetRetriever, IBookRetriever bookRetriever)
@@ -23,6 +26,7 @@ namespace Web.Endpoints
 			this.blogRetriever = blogRetriever;
 			this.tweetRetriever = tweetRetriever;
 			this.bookRetriever = bookRetriever;
+			this.session = session;
 		}
 
 		public HomepageViewModel Get(HomepageLinkModel homepageLinkModel)

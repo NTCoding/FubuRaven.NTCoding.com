@@ -34,6 +34,7 @@
     <Reference Include="AutoMapper">
       <HintPath>..\..\..\packages\AutoMapper.2.0.0\lib\net40-client\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="FubuLocalization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="FubuMVC.Core, Version=0.9.1.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="FubuValidation, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\FubuValidation.0.4.0.124\lib\FubuValidation.dll</HintPath>
@@ -48,6 +49,7 @@
     <Reference Include="pnunit.framework">
       <HintPath>..\..\..\packages\NUnit.2.5.10.11092\lib\pnunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Raven.Client.Lightweight, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL" />
     <Reference Include="Rhino.Mocks">
       <HintPath>..\..\..\packages\RhinoMocks.3.6\lib\Rhino.Mocks.dll</HintPath>
     </Reference>
@@ -93,6 +95,7 @@
     <Compile Include="Homepage\IndexEndpointTests.cs" />
     <Compile Include="Homepage\HomepageLinkModelTests.cs" />
     <Compile Include="Infrastructure\FileUploaderTests.cs" />
+    <Compile Include="Infrastructure\Validation_behaviour_successful_validation_tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestDoubles\MockHttpPostedFileBase.cs" />
     <Compile Include="Utilities\BookComparer.cs" />

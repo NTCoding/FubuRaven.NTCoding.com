@@ -8,6 +8,7 @@ using NUnit.Framework;
 using Rhino.Mocks;
 using Web.Configuration;
 using Web.Infrastructure;
+using Web.Infrastructure.Validation;
 
 namespace Web.Tests.Infrastructure
 {

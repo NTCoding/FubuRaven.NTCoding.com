@@ -11,6 +11,7 @@ using Raven.Client;
 using Raven.Client.Embedded;
 using StructureMap;
 using Web.Configuration;
+using Web.Infrastructure;
 using Web.Infrastructure.Authxx;
 using Web.Infrastructure.Raven;
 using Web.Utilities;
@@ -63,6 +64,8 @@ namespace Web.Configuration
 				x.For<IValidationContinuationHandler>().Use<ValidationContinuationHandler>();
 
 				x.For<IContinuationDirector>().Use<ContinuationHandler>();
+
+				x.For<IActionFinder>().Use<BehaviourGraphActionFinder>();
 			});
 
         	BootstrappingExtensions.StructureMap(FubuApplication.For<NTCodingFubuRegistry>(), container)

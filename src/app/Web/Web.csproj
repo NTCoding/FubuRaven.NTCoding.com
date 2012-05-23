@@ -233,12 +233,16 @@
     <Compile Include="Infrastructure\Authxx\IDoorStaff.cs" />
     <Compile Include="Infrastructure\Authxx\NTCodingAuthorizationFailureHandler.cs" />
     <Compile Include="Infrastructure\Authxx\NTCodingAuthenticationBehaviour.cs" />
+    <Compile Include="Infrastructure\BehaviourGraphActionFinder.cs" />
     <Compile Include="Infrastructure\Behaviours\RavenSessionBehaviour.cs" />
     <Compile Include="Infrastructure\IActionFinder.cs" />
     <Compile Include="Infrastructure\Raven\DocumentStoreHolder.cs" />
     <Compile Include="Infrastructure\Services\FileUploader.cs" />
     <Compile Include="Infrastructure\Validation\DenyPrefixAttribute.cs" />
     <Compile Include="Infrastructure\Validation\DenyPrefixRule.cs" />
+    <Compile Include="Infrastructure\Validation\NTCodingValidationBehaviour.cs" />
+    <Compile Include="Infrastructure\Validation\NTCodingValidationConvention.cs" />
+    <Compile Include="Infrastructure\Validation\ValidatedInputModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\AsyncHelper.cs" />
     <Compile Include="Utilities\AsyncTimeoutTweetRetriever.cs" />

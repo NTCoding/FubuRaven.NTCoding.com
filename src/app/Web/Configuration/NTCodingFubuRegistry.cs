@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Web;
 using FubuMVC.Core;
-using FubuMVC.Core.Behaviors;
 using FubuMVC.Core.Continuations;
 using FubuMVC.Core.Http;
-using FubuMVC.Core.Registration;
 using FubuMVC.Core.Registration.Nodes;
-using FubuMVC.Core.Runtime;
 using FubuMVC.Core.Security;
 using FubuMVC.Core.UI.Configuration;
 using FubuMVC.Spark;
@@ -19,9 +15,9 @@ using HtmlTags;
 using Web.Configuration.Behaviours.Output;
 using Web.Endpoints;
 using Web.Endpoints.HomepageModels;
-using Web.Infrastructure;
 using Web.Infrastructure.Authxx;
 using Web.Infrastructure.Behaviours;
+using Web.Infrastructure.Validation;
 using Web.Utilities;
 
 namespace Web.Configuration
@@ -340,105 +336,4 @@ namespace Web.Configuration
 	//        }
 	//    }
 	//}
-
-	public class NTCodingValidationConvention : IConfigurationAction
-	{
-		public void Configure(BehaviorGraph graph)
-		{
-			graph
-				.Actions()
-				.Where(b => b.InputType() != null)
-				.Each(chain => chain.WrapWith(typeof (NTCodingValidationBehaviour<>).MakeGenericType(chain.InputType())));
-
-		}
-	}
-
-	public class NTCodingValidationBehaviour<T> : IActionBehavior where T : class
-	{
-		private readonly IFubuRequest request;
-		private readonly IValidator validator;
-		private readonly IActionFinder actionFinder;
-		private readonly IPartialFactory factory;
-
-		public NTCodingValidationBehaviour(IFubuRequest request, IValidator validator, IActionFinder actionFinder, IPartialFactory factory)
-		{
-			this.request      = request;
-			this.factory      = factory;
-			this.validator    = validator;
-			this.actionFinder = actionFinder;
-		}
-
-		public IActionBehavior InnerBehavior { get; set; }
-
-		public void Invoke()
-		{
-			var inputModel = request.Get<T>();
-
-			var notification = validator.Validate(inputModel);
-
-			if (notification.IsValid())
-				SetContextAndContinueChain(inputModel);
-			else
-				SetContextAndRedirectToGet(inputModel, notification);
-		}
-
-		private void SetContextAndContinueChain(T inputModel)
-		{
-			request.Set(new ValidatedInputModel<T>(inputModel) { FailedValidation = false });
-
-			InnerBehavior.Invoke();
-		}
-
-		private void SetContextAndRedirectToGet(T inputModel, Notification notification)
-		{
-			request.Set(notification);
-			request.Set(new ValidatedInputModel<T>(inputModel) { FailedValidation = true });
-
-			factory.BuildPartial(actionFinder.GetRequestModelTypeFor(inputModel)).Invoke();
-		}
-
-		
-
-		private void RedirectToGetWithErrors(T inputModel, Notification notification)
-		{
-
-			// TODO - still need to map the properties onto the request model from the input
-			//        model in cases where request model has properties else get will fail
-			//        This will also be conventional for special cases??
-
-
-			//factory.BuildPartial(ac.InputType()).InvokePartial();
-		}
-
-		//private ActionCall GetActionCallForGetRequest(T inputModel)
-		//{
-		//    var targetNamespace = inputModel.GetType().Namespace;
-
-		//    var getCall = graph
-		//        .Behaviors
-		//        .Where(chain => chain.FirstCall() != null && chain.FirstCall().HandlerType.Namespace == targetNamespace
-		//                        && chain.Route.AllowedHttpMethods.Contains("GET"))
-		//        .Select(chain => chain.FirstCall())
-		//        .FirstOrDefault();
-
-		//    return getCall;
-		//}
-		
-		public void InvokePartial()
-		{
-			Invoke();
-		}
-	}
-
-	public class ValidatedInputModel<T> where T : class 
-	{
-		public ValidatedInputModel(T inputModel)
-		{
-			InputModel = inputModel;
-		}
-
-		public T InputModel { get; private set; }
-
-		public bool FailedValidation { get; set; }
-	}
 }

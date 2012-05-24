@@ -5,7 +5,6 @@ using System.Web;
 using FubuMVC.Core;
 using FubuMVC.Core.Continuations;
 using FubuMVC.Core.Http;
-using FubuMVC.Core.Registration.Nodes;
 using FubuMVC.Core.Security;
 using FubuMVC.Core.UI.Configuration;
 using FubuMVC.Spark;
@@ -54,7 +53,7 @@ namespace Web.Configuration
 
         	Policies
 				.Add<NTCodingValidationConvention>()
-				//.Add<RemapFormValuesOnValidationFailurePolicy>()
+				.Add<RemapFormValuesOnValidationFailurePolicy>()
         		.WrapBehaviorChainsWith<RavenSessionBehaviour>()
         		.Add<AuthenticationConvention>();
 
@@ -264,76 +263,4 @@ namespace Web.Configuration
 			return er.Model.GetType().GetProperty(name);
 		}
     }
-
-	//public class RemapFormValuesOnValidationFailurePolicy : IConfigurationAction
-	//{
-	//    public void Configure(BehaviorGraph graph)
-	//    {
-	//        graph
-	//            .Actions()
-	//            .Where(b => b.InputType() != null)
-	//            .Each(chain => chain.AddAfter(new Wrapper(typeof(RemapFailedValidationFormValuesBehaviour<>).MakeGenericType(chain.OutputType().BaseType))));
-	//    }
-	//}
-
-	//public class RemapFailedValidationFormValuesBehaviour<TInputModel> : BasicBehavior where  TInputModel : class
-	//{
-	//    private readonly IFubuRequest request;
-
-	//    public RemapFailedValidationFormValuesBehaviour(IFubuRequest request) : base(PartialBehavior.Executes)
-	//    {
-	//        this.request = request;
-	//    }
-
-	//    protected override DoNext performInvoke()
-	//    {
-	//        FailedValidationInputModel<TInputModel> failedValidationContext = null;
-	//        try
-	//        {
-	//            failedValidationContext = request.Get<FailedValidationInputModel<TInputModel>>();
-	//        }
-	//        catch (FubuException)
-	//        {
-	//            return DoNext.Continue;
-	//        }
-
-	//        if (failedValidationContext.IsForFailedValidation)
-	//        {
-	//            var viewModel = request.Get(GetViewModelType());
-
-	//            MapProperties(failedValidationContext.InputModel, viewModel);
-
-	//            request.Set(viewModel);
-	//        }
-
-	//        return DoNext.Continue;
-	//    }
-
-	//    protected override void afterInsideBehavior()
-	//    {
-			
-	//    }
-
-	//    private Type GetViewModelType()
-	//    {
-	//        return
-	//            Assembly
-	//                .GetAssembly(typeof (TInputModel))
-	//                .GetTypes()
-	//                .Where(t => t.IsSubclassOf(typeof (TInputModel)))
-	//                .First();
-	//    }
-
-	//    private void MapProperties(object from, object to)
-	//    {
-	//        foreach (var pi in from.GetType().GetProperties())
-	//        {
-	//            var prop = to.GetType().GetProperties().SingleOrDefault(ti => ti.Name == pi.Name);
-	//            if (prop != null)
-	//            {
-	//                prop.SetValue(to, pi.GetValue(from, new object[] { }), new object[] { });
-	//            }
-	//        }
-	//    }
-	//}
 }

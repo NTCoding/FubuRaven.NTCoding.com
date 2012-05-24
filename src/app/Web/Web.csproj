@@ -242,6 +242,8 @@
     <Compile Include="Infrastructure\Validation\DenyPrefixRule.cs" />
     <Compile Include="Infrastructure\Validation\NTCodingValidationBehaviour.cs" />
     <Compile Include="Infrastructure\Validation\NTCodingValidationConvention.cs" />
+    <Compile Include="Infrastructure\Validation\RemapFailedValidationFormValuesBehaviour.cs" />
+    <Compile Include="Infrastructure\Validation\RemapFormValuesOnValidationFailurePolicy.cs" />
     <Compile Include="Infrastructure\Validation\ValidatedInputModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\AsyncHelper.cs" />

@@ -21,7 +21,9 @@
 </div>
 
 <content name="minorContent">
-	<div class="top"></div>
+	<div class="top">
+		<span></span>
+	</div>
 	<div id="content">
 		<div id="bookWishlist">
 			<h3>Wishlist</h3>

@@ -24,7 +24,9 @@
 </div>
 
 <content name="minorContent">
-	<div class="top"></div>
+	<div class="top">
+		<span></span>
+	</div>
 	<div id="content">
 		<div id="tweets">
 			<h3>Recent Tweets</h3>

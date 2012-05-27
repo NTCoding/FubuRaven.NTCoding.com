@@ -600,10 +600,18 @@ div#thingsToInvestigate input, div#developerRecommendations input
     width: 45%;
 }
 
-div#thingsILikeUrls li, div#thingsILikeUrls input
+div#thingsILike ul
 {
-	width: 450px;
+	padding-left: 0px;
 }
+
+div#thingsILike li, div#thingsILikeUrls input
+{
+	list-style-type: none;
+	padding-top: 20px;
+}
+
+
 
 
 

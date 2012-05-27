@@ -6,15 +6,21 @@
 ${this.DisplayFor(m => m.AboutText_Html)}
 		
 <content name="minorContent">
-	<div class="top"></div>
+	<div class="top">
+		<span></span>
+	</div>
 	<div id="content">
 		<h3>Things I Like</h3>
-		<ul>
-			<for each="var url in Model.ThingsILikeUrls">
-				<li>
-					<a href="http://${url}">${url}</a>
-				</li>
-			</for>
-		</ul>
+		<div id="thingsILike">
+			
+			<ul>
+				<for each="var url in Model.ThingsILikeUrls">
+					<li>
+						<img width="165" src="http://${url}"/>
+					</li>
+				</for>
+			</ul>
+		</div>
+		
 	</div>
 </content>

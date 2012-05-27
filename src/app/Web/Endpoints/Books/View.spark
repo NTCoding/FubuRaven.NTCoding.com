@@ -16,7 +16,7 @@
 		<b>Genre: </b> ${Model.GenreName}
 	</p>
 	<p>
-		<b>Rating: </b> ${Model.Rating}
+		<b>Rating: </b> ${Web.Utilities.ViewHelper.GetRatingStars(Model.Rating)}
 	</p>
 </div>
 

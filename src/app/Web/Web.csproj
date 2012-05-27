@@ -254,6 +254,7 @@
     <Compile Include="Utilities\ImagePreparer.cs" />
     <Compile Include="Utilities\StringWrapper.cs" />
     <Compile Include="Utilities\StringWrapperExtensions.cs" />
+    <Compile Include="Utilities\ViewHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

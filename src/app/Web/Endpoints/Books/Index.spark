@@ -12,8 +12,10 @@
 	</p>
 	<for each="var book in Model.Books">
 		<div class="bookMini">
-			${this.DisplayFor<BookListView>(book, b => b.Image)}
-			${this.LinkTo(new Web.Endpoints.Books.LinkModels.ViewBookLinkModel { Id = book.Id}).Text(book.Title)}
+			<a href="${this.Urls.UrlFor(new Web.Endpoints.Books.LinkModels.ViewBookLinkModel { Id = book.Id})}">
+				${this.DisplayFor<BookListView>(book, b => b.Image)}
+				<h4>${book.Title}</h4>
+			</a>
 		</div>
 	</for>
 </div>
@@ -21,13 +23,17 @@
 <content name="minorContent">
 	<div class="top"></div>
 	<div id="content">
-		<h2>Wishlist</h2>
-		<for each="var book in Model.WishlistBooks">
-			<div class="content">
-				${this.DisplayFor<BookListView>(book, b => b.Image).AddClass("bookImage")}
-			    ${book.Title}
-			</div>
-		</for>
+		<div id="bookWishlist">
+			<h3>Wishlist</h3>
+			<for each="var book in Model.WishlistBooks">
+				<div class="content">
+					<p>
+						${this.DisplayFor<BookListView>(book, b => b.Image).AddClass("bookImage")}
+						${book.Title}		
+					</p>
+				</div>
+			</for>
+		</div>
 	</div>
 	<div class="bottom">
 		<span></span>

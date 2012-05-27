@@ -271,6 +271,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Web.live.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.live.Debug.config">
+      <DependentUpon>Web.live.config</DependentUpon>
+    </Content>
+    <Content Include="Web.live.Release.config">
+      <DependentUpon>Web.live.config</DependentUpon>
+    </Content>
     <None Include="Endpoints\About\About.spark">
       <SubType>Designer</SubType>
     </None>

@@ -20,15 +20,32 @@ namespace Web.Infrastructure.Raven
 
 		private static IDocumentStore CreateDocumentStore()
 		{
-			var store = new DocumentStore
-			            	{
-								ConnectionStringName = "RavenDB",
-								ApiKey = WebConfigurationManager.AppSettings["RavenApiKey"],
-							}.Initialize();
+			var store = GetStore();
+
+			store.Initialize();
 
 			store.Conventions.MaxNumberOfRequestsPerSession = 500;
 
 			return store;
+		}
+
+		private static DocumentStore GetStore()
+		{
+			
+			if (bool.Parse(WebConfigurationManager.AppSettings["IsLocal"]))
+			{
+				return new EmbeddableDocumentStore
+				        	{
+								DataDirectory = "@App_Data\\Raven",
+								UseEmbeddedHttpServer = true,
+				        	};
+			}
+
+			return new DocumentStore
+			       	{
+			       		ConnectionStringName = "RavenDB",
+			       		ApiKey = WebConfigurationManager.AppSettings["RavenApiKey"],
+			       	};
 		}
 	}
 }

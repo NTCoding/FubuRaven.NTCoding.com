@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using Raven.Client;
 using Raven.Client.Document;
 using Raven.Client.Embedded;
@@ -21,8 +22,8 @@ namespace Web.Infrastructure.Raven
 		{
 			var store = new DocumentStore
 			            	{
-								Url = @"https://1.ravenhq.com/databases/NTCoding-FubuRavenNTCoding",
-								ApiKey = @"9cac5fef-26bc-452b-8ce1-5264eab65336",
+								ConnectionStringName = "RavenDB",
+								ApiKey = WebConfigurationManager.AppSettings["RavenApiKey"],
 							}.Initialize();
 
 			store.Conventions.MaxNumberOfRequestsPerSession = 500;

@@ -2,16 +2,25 @@
 <viewdata model="Web.Endpoints.Books.ViewModels.ViewBookViewModel" />
 
 <h1>${Model.Title}</h1>
-<p>
-	<b>Author(s): </b> ${this.DisplayFor(m => m.Authors)}
-</p>
-<p>
-	<b>Genre: </b> ${Model.GenreName}
-</p>
-<p>
-	<b>Rating: </b> ${Model.Rating}
-</p>
-${this.DisplayFor(m => m.Image)}
+
+<div id="bookReviewImage">
+	${this.DisplayFor(m => m.Image)}
+</div>
+
+<div id="bookInfo">
+	<div>
+		<b>Author(s): </b>
+		${this.DisplayFor(m => m.Authors)}
+	</div>
+	<p>
+		<b>Genre: </b> ${Model.GenreName}
+	</p>
+	<p>
+		<b>Rating: </b> ${Model.Rating}
+	</p>
+</div>
+
+
 <div>
 	${this.DisplayFor(m => m.Review_Html)}
 </div>
@@ -30,6 +39,7 @@ ${this.DisplayFor(m => m.Image)}
 					<h4 class="bookTitle">
 						${book.Title}
 					</h4>
+					<div class="clear"></div>
 				</div>
 			</for>
 		</div>

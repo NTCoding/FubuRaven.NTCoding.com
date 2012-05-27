@@ -588,6 +588,11 @@ div#bookForm ul#addAuthorContainer
     list-style: none;
 }
 
+div#bookInfo ul
+{
+	list-style-type: none;
+}
+
 /***** Profile page *****/
 
 div#thingsToInvestigate input, div#developerRecommendations input

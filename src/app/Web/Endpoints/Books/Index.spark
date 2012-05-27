@@ -29,8 +29,10 @@
 				<div class="content">
 					<p>
 						${this.DisplayFor<BookListView>(book, b => b.Image).AddClass("bookImage")}
-						${book.Title}		
+						
 					</p>
+					<h4 class="bookTitle">${book.Title}</h4>
+					<div class="clear"></div>
 				</div>
 			</for>
 		</div>

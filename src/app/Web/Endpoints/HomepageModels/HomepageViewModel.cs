@@ -12,13 +12,13 @@ namespace Web.Endpoints.HomepageModels
 	{
 		public HomepageViewModel(string homepageContent, IEnumerable<BlogPostDTO> recentBlogEntries, IEnumerable<TweetDTO> tweets, IEnumerable<Book> books)
 		{
-			HomepageContent = homepageContent;
-			BlogPosts = recentBlogEntries.Select(x => new BlogPostDisplayModel(x));
-			Tweets = tweets;
-			Books = books.Select(b => new BookListView(b));
+			HomepageContent_Html = homepageContent;
+			BlogPosts  = recentBlogEntries.Select(x => new BlogPostDisplayModel(x));
+			Tweets     = tweets;
+			Books      = books.Select(b => new BookListView(b));
 		}
 
-		public String HomepageContent { get; set; }
+		public String HomepageContent_Html { get; set; }
 
 		public IEnumerable<BlogPostDisplayModel> BlogPosts { get; set; }
 

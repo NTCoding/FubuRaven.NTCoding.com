@@ -54,7 +54,7 @@ namespace Web.Tests.Homepage
 
 			var result = endpoint.Get(new HomepageLinkModel());
 
-			Assert.AreEqual(content, result.HomepageContent);
+			Assert.AreEqual(content, result.HomepageContent_Html);
 		}
 
 		[Test]

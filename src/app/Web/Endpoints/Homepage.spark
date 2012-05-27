@@ -7,7 +7,7 @@
 <h1>Welcome to NTCoding</h1>
 <br />
 		<div>
-			${Model.HomepageContent}
+			${this.DisplayFor(m => m.HomepageContent_Html)}
 		</div>
 
 <div id="recentBlogEntries">

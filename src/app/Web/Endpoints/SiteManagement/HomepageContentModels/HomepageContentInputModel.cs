@@ -6,6 +6,6 @@ namespace Web.Endpoints.SiteManagement.HomepageContentModels
 	public class HomepageContentInputModel
 	{
 		[Required]
-		public String HomepageContent { get; set; }
+		public String HomepageContent_BigText { get; set; }
 	}
 }

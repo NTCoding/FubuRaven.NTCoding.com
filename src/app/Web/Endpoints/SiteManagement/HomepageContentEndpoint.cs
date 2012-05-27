@@ -19,14 +19,14 @@ namespace Web.Endpoints.SiteManagement
 
 		public FubuContinuation Post(HomepageContentInputModel model)
 		{
-			_homepageContentProvider.SetHomepageContent(model.HomepageContent);
+			_homepageContentProvider.SetHomepageContent(model.HomepageContent_BigText);
 
 			return FubuContinuation.RedirectTo<Endpoints.IndexEndpoint>(e => e.Get(new HomepageLinkModel()));
 		}
 
 		public HomepageContentViewModel Get(HomepageContentLinkModel model)
 		{
-			return new HomepageContentViewModel {HomepageContent = _homepageContentProvider.GetHomepageContent()};
+			return new HomepageContentViewModel {HomepageContent_BigText = _homepageContentProvider.GetHomepageContent()};
 		}
 	}
 }

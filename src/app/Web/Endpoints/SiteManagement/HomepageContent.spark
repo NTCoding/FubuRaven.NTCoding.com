@@ -5,8 +5,8 @@
 		<div>
 			<ValidationErrors />
 			<form  method="post" action="${this.Urls.UrlFor(new HomepageContentInputModel())}">
-				${this.LabelFor(m => m.HomepageContent)}
-				${this.InputFor(m => m.HomepageContent)}
+				${this.LabelFor(m => m.HomepageContent_BigText)}
+				${this.InputFor(m => m.HomepageContent_BigText)}
 				<input type="submit" value="Update" />
 			</form>
 		</div>

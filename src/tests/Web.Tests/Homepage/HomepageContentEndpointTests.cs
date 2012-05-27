@@ -32,7 +32,7 @@ namespace Web.Tests.Homepage
 
 			var result = _endpoint.Get(new HomepageContentLinkModel());
 
-			Assert.AreEqual(content, result.HomepageContent);
+			Assert.AreEqual(content, result.HomepageContent_BigText);
 		}
 
 		[Test]
@@ -40,7 +40,7 @@ namespace Web.Tests.Homepage
 		{
 			var newContent = "Welcome - Show some love for Fubu and Ravennnnnnn";
 
-			var model = new HomepageContentInputModel {HomepageContent = newContent};
+			var model = new HomepageContentInputModel {HomepageContent_BigText = newContent};
 
 			_endpoint.Post(model);
 
@@ -50,7 +50,7 @@ namespace Web.Tests.Homepage
 		[Test]
 		public void Post_ShouldRedirectToHomepage()
 		{
-			var model = new HomepageContentInputModel {HomepageContent = "Doesn't matter about me"};
+			var model = new HomepageContentInputModel {HomepageContent_BigText = "Doesn't matter about me"};
 			
 			var result = _endpoint.Post(model);
 

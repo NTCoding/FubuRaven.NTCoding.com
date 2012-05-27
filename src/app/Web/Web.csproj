@@ -196,7 +196,6 @@
     <Compile Include="Endpoints\Books\LinkModels\ViewBookLinkModel.cs" />
     <Compile Include="Endpoints\Books\ViewEndpoint.cs" />
     <Compile Include="Endpoints\Books\ViewModels\ViewBookViewModel.cs" />
-    <Compile Include="Endpoints\ImportEndpoint.cs" />
     <Compile Include="Endpoints\IndexEndpoint.cs" />
     <Compile Include="Endpoints\HomepageModels\HomepageLinkModel.cs" />
     <Compile Include="Endpoints\HomepageModels\HomepageViewModel.cs" />
@@ -261,10 +260,6 @@
     <Folder Include="Infrastructure\Binding\ValueConverters\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\utils\DataImporter\DataImporter.csproj">
-      <Project>{FAF581D8-AA82-40FB-B955-31F4FB15ED32}</Project>
-      <Name>DataImporter</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{BFE347A9-971C-4C8D-A82D-7093D75BDDEA}</Project>
       <Name>Model</Name>

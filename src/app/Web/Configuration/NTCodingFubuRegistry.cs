@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Web;
 using FubuMVC.Core;
@@ -185,31 +186,31 @@ namespace Web.Configuration
         	               	         		var list = new HtmlTag("ul");
         	               	         		tag.Children.Add(list);
 
-        	               	         		var values = er.Value<IEnumerable<StringWrapper>>();
-        	               	         		foreach (var s in values)
-        	               	         		{
+											var values = er.Value<IEnumerable<StringWrapper>>() ?? Enumerable.Empty<StringWrapper>();
+											foreach (var s in values)
+											{
 
 												// add a list item showing the value and a delete link
 												var li = new HtmlTag("li");
-        	               	         			li.Text(s.Text + "  ");
+												li.Text(s.Text + "  ");
 
-        	               	         			var deleteLInk = new HtmlTag("a")
-        	               	         				.AddClass("listDelete")
-        	               	         				.Text("delete")
-        	               	         				.Attr("href", "#");
+												var deleteLInk = new HtmlTag("a")
+													.AddClass("listDelete")
+													.Text("delete")
+													.Attr("href", "#");
 
-        	               	         			li.Children.Add(deleteLInk);
+												li.Children.Add(deleteLInk);
 
-        	               	         			list.Children.Add(li);
+												list.Children.Add(li);
 
 												// add a hidden element so magic javascript can delete and manage indices
-        	               	         			var hidden = new HtmlTag("input")
-        	               	         				.Attr("type", "hidden")
-        	               	         				.Attr("name", er.Accessor.PropertyNames[0])
-        	               	         				.Attr("value", s.Text);
+												var hidden = new HtmlTag("input")
+													.Attr("type", "hidden")
+													.Attr("name", er.Accessor.PropertyNames[0])
+													.Attr("value", s.Text);
 
 												tag.Children.Add(hidden);
-        	               	         		}
+											}
 
         	               	         		return tag;
         	               	         	}));

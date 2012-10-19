@@ -16,7 +16,7 @@ namespace Web.Utilities
 
 		private IEnumerable<TweetDTO> GetRecentNTCodingTweets()
 		{
-			var tweetFeed = XDocument.Load("http://twitter.com/statuses/user_timeline/131558161.rss");
+			var tweetFeed = XDocument.Load("http://api.twitter.com/1/statuses/user_timeline/131558161.rss");
 			var tweets = tweetFeed.Descendants("item");
 			var mostRecentTweets = tweets.Take(3);
 

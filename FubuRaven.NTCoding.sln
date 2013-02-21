@@ -1,6 +1,10 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D4E4107D-52CC-4751-A976-71AC66ADB5B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccessTests", "DataAccessTests", "{7FC0429B-387E-4365-AB0A-13B61B3497A4}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "src\app\Web\Web.csproj", "{7ECE5E5C-0867-44EF-8711-C67E1FD3FA1E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Tests", "src\tests\Web.Tests\Web.Tests.csproj", "{AA11FA81-4BED-4923-820A-C9A6ADB9837C}"
@@ -9,11 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "src\app\Model\Mode
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model.Tests", "src\tests\Model.Tests\Model.Tests.csproj", "{B13231D7-F25A-45C0-A314-C176FC7059E0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D4E4107D-52CC-4751-A976-71AC66ADB5B1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataImporter", "src\utils\DataImporter\DataImporter.csproj", "{FAF581D8-AA82-40FB-B955-31F4FB15ED32}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccessTests", "DataAccessTests", "{7FC0429B-387E-4365-AB0A-13B61B3497A4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessTests", "src\tests\DataAccessTests\DataAccessTests.csproj", "{CFEC4970-E370-4DBE-A424-610175847457}"
 EndProject
@@ -52,8 +52,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{B13231D7-F25A-45C0-A314-C176FC7059E0} = {D4E4107D-52CC-4751-A976-71AC66ADB5B1}
 		{AA11FA81-4BED-4923-820A-C9A6ADB9837C} = {D4E4107D-52CC-4751-A976-71AC66ADB5B1}
+		{B13231D7-F25A-45C0-A314-C176FC7059E0} = {D4E4107D-52CC-4751-A976-71AC66ADB5B1}
 		{CFEC4970-E370-4DBE-A424-610175847457} = {7FC0429B-387E-4365-AB0A-13B61B3497A4}
 	EndGlobalSection
 EndGlobal

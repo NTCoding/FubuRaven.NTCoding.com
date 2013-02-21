@@ -32,7 +32,8 @@
 			<h3>Recent Tweets</h3>
 
 			<a class="twitter-timeline" href="https://twitter.com/ntcoding" data-widget-id="304491290521899008">Tweets by @ntcoding</a>
-			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
 			
 			<!--<for each="var tweet in Model.Tweets">
 				<div class="content">
